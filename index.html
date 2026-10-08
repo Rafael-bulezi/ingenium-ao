@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#132238" />
+    <meta name="description" content="Metodista Prep — uma rota de estudo focada para o exame de acesso à Engenharia." />
+    <title>Metodista Prep · Matemática + Física</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="Metodista Prep, início">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span><strong>METODISTA</strong><small>PREP</small></span>
+        </a>
+        <div class="topbar-actions">
+          <button class="icon-button" id="reset-progress" title="Recomeçar progresso" aria-label="Recomeçar progresso">↺</button>
+          <div class="avatar" aria-label="Perfil">RB</div>
+        </div>
+      </header>
+
+      <main id="app" tabindex="-1">
+        <section class="view" data-view="home"></section>
+        <section class="view hidden" data-view="path"></section>
+        <section class="view hidden" data-view="lesson"></section>
+        <section class="view hidden" data-view="test"></section>
+        <section class="view hidden" data-view="profile"></section>
+      </main>
+
+      <nav class="bottom-nav" aria-label="Navegação principal">
+        <a href="#home" data-nav="home"><span class="nav-icon">⌂</span><span>Início</span></a>
+        <a href="#path" data-nav="path"><span class="nav-icon">✦</span><span>Rota</span></a>
+        <a href="#test" data-nav="test"><span class="nav-icon">▣</span><span>Mini-teste</span></a>
+        <a href="#profile" data-nav="profile"><span class="nav-icon">○</span><span>Perfil</span></a>
+      </nav>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="/app.js"></script>
+  </body>
+</html>
