@@ -1,19 +1,19 @@
 # Ingenium — Master Sheet
 
 Single source of truth for links, IDs, commands, and what went wrong. App = pt-AO study SPA
-for the Metodista engineering access exam. Repo dir: `metodista-engineering-prep/`.
+for independent Engineering entrance-exam preparation in Angola. Brand owner: Rafael Bulezi. Repo dir: `/tmp/ingenium-ao/`.
 
 ## 1. Links & entry points
 
 | What | Where | Status |
 | --- | --- | --- |
 | **Live app (canonical)** | https://ingenium-ao.vercel.app | ✅ verified 2026-10-09 (200, title shows "Ingenium") |
-| Triangles page | https://ingenium-ao.vercel.app/#/triangles | ✅ verified live — 10 cards, 10 drag grips |
+| Triangles page | https://ingenium-ao.vercel.app/#/triangles | ✅ 10 cards; phone QA at 390/360px passes tab, formula tap, expand, and lesson link |
 | Shortcuts page | https://ingenium-ao.vercel.app/#/atalhos | ✅ verified live — 40 cards, filters, PT + EN |
 | Prep mode switch | app → Perfil → "Modo preparação" | ✅ persists in `state.prep`; path shows "prep · tudo aberto" |
 | Old URL (same project, kept working) | https://rota-engenharia.vercel.app | ✅ 200 — still attached; safe to remove later if never shared |
-| GitHub repo | https://github.com/Rafael-bulezi/ingenium-ao | ✅ pushed `main` @ `89a2846` (prep mode + #/triangles + app-style home) |
-| Local dev | `cd metodista-engineering-prep && node server.js` | runs on `PORT=3311` (used for all QA) |
+| GitHub repo | https://github.com/Rafael-bulezi/ingenium-ao | ✅ connected `main`; brand: Ingenium by Rafael Bulezi |
+| Local dev | `cd /tmp/ingenium-ao && node server.js` | runs on `PORT=3311` (used for QA) |
 | QA temp harnesses | `__harness.html` / `__probe.html` served from the app | ❌ never commit — delete before `git add` |
 
 ## 2. Confirmed IDs / facts
@@ -24,8 +24,8 @@ for the Metodista engineering access exam. Repo dir: `metodista-engineering-prep
 | Vercel team / org | `team_Gffx3LNgFKAN0M0sO4Z0f0zW` (Rafael-bulezi) |
 | Deploy mode | Git-connected: **push to `main` → production auto-deploy** (~15 s + build) |
 | Vercel CLI auth file (this machine) | `%APPDATA%\com.vercel.cli\Data\auth.json` |
-| localStorage key | `metodista-prep-v1` — **never rename** (users' progress lives here) |
-| Content | 26 lessons (13 math + 13 physics), **130 ladder questions (5/lesson)**, 13 walkthroughs (math), 10 formulaTri (2 math + 8 physics) + `content/triangles.json` (base + 2 deep levels each) + `content/atalhos.json` (40 one-line formulas/tricks), 81 audio MP3s per language (162 total, ~51 of them `*-tri-*`) |
+| localStorage key | `ingenium-prep-v1`; legacy `metodista-prep-v1` is copied forward on first load to preserve progress |
+| Content | 26 lessons (13 math + 13 physics), **130 ladder questions (5/lesson)**, 13 walkthroughs (math), 10 formulaTri (2 math + 8 physics) + `content/triangles.json` (base + 2 deep levels each) + `content/atalhos.json` (40 one-line formulas/tricks), 81 audio MP3s per language (162 total, ~51 of them `*-tri-*`), 11-question mini-test |
 | Routes | `#/` home · `#/path/:subject` · `#/lesson/:id` · `#/triangles` · `#/atalhos` · `#/test` · `#/profile` |
 | Atalhos page | `content/atalhos.json` + `content/en/atalhos.json`: 40 one-line entries (21 math / 19 physics) of three kinds — `mnemónica` 9, `truque` 15, `fórmula` 16. Filter chips read the kinds from the data, so a new kind needs no code change |
 | State keys | `completed[]`, `practice{}`, `test`, `voiceOff`, **`prep`** (modo preparação: abre todas as lições), **`triDeep{lessonId:0-2}`** (nível expandido de cada triângulo), **`lang`** (`pt`/`en`), **`time{lessonId:seconds}`** (cronómetro por lição) |
@@ -45,7 +45,7 @@ curl -s -o /dev/null -w "%{http_code} %{content_type}\n" https://ingenium-ao.ver
 
 **Check deploy status** — `node vercel-deps.mjs` (session dir; lists state/sha/url via API).
 
-**Rename GitHub repo** — `gh repo rename ingenium-ao --yes` then `git remote set-url origin ...` then push.
+**GitHub repo name** — already `ingenium-ao`; brand is Ingenium by Rafael Bulezi.
 
 **Rename/move a Vercel *.vercel.app domain** — renaming the project does NOT move the domain; attach it:
 
@@ -61,8 +61,8 @@ for full-page views use a tall iframe (`h=4200`) + `screenshot({fullPage:true})`
 ```bash
 cd "C:/Users/rafae/Documents/Qoder/2026-10-09/3a69f352"
 node build-audio-manifest.mjs                     # rebuilds audio-manifest-pt.json + -en.json from content
-PYTHONIOENCODING=utf-8 python audio-batch2.py audio-manifest-pt.json pt-PT-DuarteNeural metodista-engineering-prep/audio
-PYTHONIOENCODING=utf-8 python audio-batch2.py audio-manifest-en.json en-US-AvaMultilingualNeural metodista-engineering-prep/audio
+PYTHONIOENCODING=utf-8 python audio-batch2.py audio-manifest-pt.json pt-PT-DuarteNeural /tmp/ingenium-ao/audio
+PYTHONIOENCODING=utf-8 python audio-batch2.py audio-manifest-en.json en-US-AvaMultilingualNeural /tmp/ingenium-ao/audio
 node patch-en-canvas-lines.mjs                    # after touching EN walkthrough lines/refs (asserts REFS OK)
 node check-i18n-coverage.mjs                      # every t() literal has an English entry
 ```

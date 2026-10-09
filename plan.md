@@ -1,7 +1,7 @@
 # Ingenium — Plan
 
 ## Product direction
-A mobile-first study companion for Metodista engineering entrance-exam preparation, centered on Mathematics and Physics. The experience turns a long syllabus into a calm, game-like learning path: each topic becomes a compact lesson with a concept card, worked example, guided practice, and completion state.
+A mobile-first, independent study app by Rafael Bulezi for Mathematics and Physics entrance-exam preparation in Angola. The experience turns a long syllabus into a calm, game-like learning path: each topic becomes a compact lesson with a concept card, worked example, guided practice, and completion state.
 
 ## Design system
 - **Design movement:** Friendly educational game UI / soft neo-brutalism, inspired by language-learning apps but tuned for serious exam preparation.
@@ -32,7 +32,7 @@ A mobile-first study companion for Metodista engineering entrance-exam preparati
 - Two subject tracks: Matemática and Física.
 - Each track contains concise topic lessons. Priority topics are marked for Engenharia Industrial e Sistemas Eléctricos.
 - Each lesson stores: concept summary, worked-example prompt, ordered solution steps, one practice question, hint, answer, explanation, and estimated minutes.
-- Mini-test draws a fixed 10-question set across both subjects for deterministic review and a predictable 20-minute session.
+- Mini-test draws a fixed 11-question set across both subjects for deterministic review and a predictable 20-minute session.
 
 ## Project structure
 ```

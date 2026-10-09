@@ -1,4 +1,5 @@
-const STORAGE_KEY = "metodista-prep-v1";
+const STORAGE_KEY = "ingenium-prep-v1";
+const LEGACY_STORAGE_KEY = "metodista-prep-v1"; // One-time migration for existing learners.
 
 let mathLessons = [];
 let physicsLessons = [];
@@ -19,7 +20,7 @@ const subjects = {
    PT strings are the source of truth, so a missing key degrades to Portuguese instead of breaking. */
 const EN = {
   "Início":"Home","Rota":"Path","Triângulos":"Triangles","Mini-teste":"Quiz","Perfil":"Profile",
-  "Engenharia · Metodista":"Engineering · Metodista","Começa aqui.":"Start here.","Bom ritmo.":"Good pace.","Rota completa.":"Path complete.",
+  "Por Rafael Bulezi":"By Rafael Bulezi","Começa aqui.":"Start here.","Bom ritmo.":"Good pace.","Rota completa.":"Path complete.",
   "lições feitas":"lessons done","Continuar":"Continue","Rever":"Review","10 fórmulas":"10 formulas","20 min":"20 min","Toda a rota":"Full path",
   "lições":"lessons","Matemática":"Mathematics","Física":"Physics","concluídas":"completed",
   "A tua rota":"Your path","Constrói a base.":"Build the base.","feitas":"done","por fazer":"to do","prep · tudo aberto":"prep · all open",
@@ -141,7 +142,16 @@ async function ensureDataForView() {
 }
 
 function defaultState() { return { completed: [], practice: {}, test: null, voiceOff: false, prep: false, triDeep: {}, time: {}, lang: "pt" }; }
-function loadState() { try { return { ...defaultState(), ...JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")} } catch { return defaultState(); } }
+function loadState() {
+  try {
+    let raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) {
+      raw = localStorage.getItem(LEGACY_STORAGE_KEY);
+      if (raw) { try { localStorage.setItem(STORAGE_KEY, raw); } catch {} }
+    }
+    return { ...defaultState(), ...JSON.parse(raw || "{}") };
+  } catch { return defaultState(); }
+}
 function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
 function allLessons() { return [...mathLessons, ...physicsLessons]; }
 function completedCount() { return state.completed.length; }
@@ -174,7 +184,7 @@ function renderHome() {
   const math = subjectProgress("math"); const physics = subjectProgress("physics");
   const nextKey = next.id.startsWith("p-") ? "physics" : "math";
   return `<div class="home-top">
-    <div class="home-hello"><p class="eyebrow">${t("Engenharia · Metodista")}</p><h1>${t(completedCount() === 0 ? "Começa aqui." : completedCount() === totalCount() ? "Rota completa." : "Bom ritmo.")}</h1><p class="home-count"><strong>${completedCount()}/${totalCount()}</strong> ${t("lições feitas")}</p></div>
+    <div class="home-hello"><p class="eyebrow">${t("Por Rafael Bulezi")}</p><h1>${t(completedCount() === 0 ? "Começa aqui." : completedCount() === totalCount() ? "Rota completa." : "Bom ritmo.")}</h1><p class="home-count"><strong>${completedCount()}/${totalCount()}</strong> ${t("lições feitas")}</p></div>
     <div class="home-ring" style="--score:${pct()}%" role="img" aria-label="${pct()}% ${t("da rota")}"><strong>${pct()}%</strong></div>
   </div>
   <a class="continue-card" href="#lesson/${next.id}"><p class="eyebrow">${t(isDone(next.id) ? "Rever" : "Continuar")} · ${t(subjects[nextKey].label)}</p><h2>${escapeHtml(next.title)}</h2><div class="continue-foot"><span class="tag">${next.minutes} ${t("min")}</span>${progressDots(subjects[nextKey].lessons)}<span class="node-cta">→</span></div></a>
@@ -357,7 +367,7 @@ function triPageCard(lesson) {
   const deep = Array.isArray(info.deep) ? info.deep : [];
   const level = Math.min(Math.max((state.triDeep && state.triDeep[lesson.id]) || 0, 0), deep.length);
   const key = lesson.id.startsWith("p-") ? "physics" : "math";
-  return `<article class="card tri-card tri-page-card" data-lesson="${lesson.id}" data-level="${level}"><div class="tri-page-head"><div><p class="eyebrow" style="color:var(--${key === "physics" ? "coral" : "blue"})">${t(subjects[key].label)}</p><h2>${escapeHtml(lesson.title)}</h2></div><a class="text-link" href="#lesson/${lesson.id}">${t("Lição completa →")}</a></div><div class="tri-formula">${inlineWrite(`${formulaTri.top[0]} = ${formulaTri.left[0]} × ${formulaTri.right[0]}`)}</div><p class="tri-hint">${t("Tapa a grandeza que queres descobrir — como se tapasses com o dedo.")}</p><div class="tri-wrap"><svg class="tri-ink" aria-hidden="true"></svg>${triCell("top", formulaTri.top)}${triCell("left", formulaTri.left)}${triCell("right", formulaTri.right)}</div><div class="tri-result" aria-live="polite"></div><p class="tri-base">${escapeHtml(info.base || "")}</p><div class="tri-deep-extra">${deep.map(d => `<div class="tri-deep-block"><strong>${escapeHtml(d.t)}</strong><p>${escapeHtml(d.p)}</p></div>`).join("")}</div><button type="button" class="tri-drag" data-tri-drag aria-expanded="${level > 0}"><span class="tri-drag-grip" aria-hidden="true"></span><span class="tri-drag-label"></span></button></article>`;
+  return `<article class="card tri-card tri-page-card" data-lesson="${lesson.id}" data-tri-level="${level}"><div class="tri-page-head"><div><p class="eyebrow" style="color:var(--${key === "physics" ? "coral" : "blue"})">${t(subjects[key].label)}</p><h2>${escapeHtml(lesson.title)}</h2></div><a class="text-link" href="#lesson/${lesson.id}">${t("Lição completa →")}</a></div><div class="tri-formula">${inlineWrite(`${formulaTri.top[0]} = ${formulaTri.left[0]} × ${formulaTri.right[0]}`)}</div><p class="tri-hint">${t("Tapa a grandeza que queres descobrir — como se tapasses com o dedo.")}</p><div class="tri-wrap"><svg class="tri-ink" aria-hidden="true"></svg>${triCell("top", formulaTri.top)}${triCell("left", formulaTri.left)}${triCell("right", formulaTri.right)}</div><div class="tri-result" aria-live="polite"></div><p class="tri-base">${escapeHtml(info.base || "")}</p><div class="tri-deep-extra">${deep.map(d => `<div class="tri-deep-block"><strong>${escapeHtml(d.t)}</strong><p>${escapeHtml(d.p)}</p></div>`).join("")}</div><button type="button" class="tri-drag" data-tri-drag aria-expanded="${level > 0}"><span class="tri-drag-grip" aria-hidden="true"></span><span class="tri-drag-label"></span></button></article>`;
 }
 
 function renderTriangles() {
@@ -395,8 +405,8 @@ function syncTriDeep(animate = false) {
     if (!extra) return;
     const dets = triDets(card);
     const max = dets.length - 1;
-    const level = Math.min(Math.max(Number(card.dataset.level) || 0, 0), max);
-    card._dets = dets; card.dataset.level = level;
+    const level = Math.min(Math.max(Number(card.dataset.triLevel) || 0, 0), max);
+    card._dets = dets; card.dataset.triLevel = level;
     extra.classList.remove("dragging");
     if (!animate) { extra.classList.add("no-anim"); extra.style.height = `${dets[level]}px`; void extra.offsetHeight; extra.classList.remove("no-anim"); }
     else extra.style.height = `${dets[level]}px`;
@@ -410,7 +420,7 @@ function syncTriDeep(animate = false) {
 function setTriLevel(card, level) {
   const max = ((card._dets && card._dets.length) || 1) - 1;
   const next = Math.min(Math.max(level, 0), max);
-  card.dataset.level = next;
+  card.dataset.triLevel = next;
   state.triDeep = state.triDeep || {};
   if (next) state.triDeep[card.dataset.lesson] = next; else delete state.triDeep[card.dataset.lesson];
   saveState();
@@ -440,7 +450,7 @@ function endTriDrag() {
   const { card, extra, moved } = triDrag;
   triDrag = null;
   extra.classList.remove("dragging");
-  const level = Number(card.dataset.level) || 0;
+  const level = Number(card.dataset.triLevel) || 0;
   if (!moved) { setTriLevel(card, level >= card._dets.length - 1 ? 0 : level + 1); return; }
   const h = extra.offsetHeight;
   let best = 0, bestD = Infinity;
@@ -985,7 +995,7 @@ document.addEventListener("click", event => {
   const filtro = event.target.closest("[data-atalho]"); if (filtro) { atalhoFiltro = filtro.dataset.atalho; render(); return; }
   const triGrip = event.target.closest("[data-tri-drag]"); if (triGrip && event.detail === 0) {
     const card = triGrip.closest(".tri-page-card");
-    if (card) { const level = Number(card.dataset.level) || 0; setTriLevel(card, level >= card._dets.length - 1 ? 0 : level + 1); }
+    if (card) { const level = Number(card.dataset.triLevel) || 0; setTriLevel(card, level >= card._dets.length - 1 ? 0 : level + 1); }
     return;
   }
   const tri = event.target.closest("[data-tri]"); if (tri) {
