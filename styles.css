@@ -73,7 +73,8 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
 .continue-foot .mini-progress i { width: 18px; height: 5px; border-radius: 5px; background: #344156; }
 .continue-foot .mini-progress i.done { background: var(--lime); }
 .continue-foot .node-cta { margin-left: auto; background: var(--lime); color: var(--ink); }
-.quick-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.quick-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+@media (min-width: 700px) { .quick-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .quick-tile { display: flex; flex-direction: column; justify-content: space-between; min-height: 128px; padding: 15px 14px; border-radius: var(--radius-md); background: var(--white); border: 1px solid var(--line); transition: transform .18s ease, box-shadow .18s ease; }
 .quick-tile:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 .quick-icon { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; background: var(--paper); color: var(--lime-dark); font-size: 17px; }
@@ -88,6 +89,26 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
 .subject-row-copy { flex: 1; min-width: 0; }
 .subject-row-copy strong { display: block; font-size: 15px; letter-spacing: -.02em; }
 .subject-row-copy small { display: block; margin-top: 2px; color: var(--ink-soft); font-size: 11.5px; }
+.sig { display: flex; flex-direction: column; align-items: center; gap: 1px; margin: 44px 0 6px; }
+.sig span { font-size: 9.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .2em; color: #9aa6b6; }
+.sig strong { font-family: "Caveat", "Plus Jakarta Sans", cursive; font-weight: 600; font-size: 31px; line-height: 1.15; color: var(--ink); transform: rotate(-2.2deg); }
+
+/* ===== Página de atalhos ===== */
+.filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 20px; }
+.filter-chip { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--white); color: var(--ink-soft); font-size: 12px; font-weight: 800; letter-spacing: -.01em; transition: background .16s ease, color .16s ease, border-color .16s ease; }
+.filter-chip:hover { border-color: var(--ink-soft); color: var(--ink); }
+.filter-chip.active { background: var(--ink); border-color: var(--ink); color: var(--lime); }
+.atalho-grid { display: grid; gap: 12px; }
+@media (min-width: 700px) { .atalho-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1080px) { .atalho-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.atalho-card { padding: 16px 18px 15px; border-radius: var(--radius-md); background: var(--white); border: 1px solid var(--line); border-left: 3px solid #cfd4c6; }
+.atalho-card.math { border-left-color: var(--blue); }
+.atalho-card.physics { border-left-color: var(--coral); }
+.atalho-kind { display: inline-block; margin-bottom: 7px; font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: #93a0b5; }
+.atalho-card h2 { font-size: 16px; margin-bottom: 8px; letter-spacing: -.028em; }
+.atalho-formula { margin: 0 0 9px; font-family: "Kalam", "Plus Jakarta Sans", cursive; font-size: 17px; line-height: 1.5; color: #2e7c43; overflow-wrap: anywhere; }
+.atalho-note { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--ink-soft); }
+.atalho-foot { margin: 28px 0 0; text-align: center; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
 .button { min-height: 48px; border: 0; border-radius: 14px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 800; font-size: 13px; transition: transform .16s ease, box-shadow .16s ease, background .16s ease; }
 .button:hover { transform: translateY(-2px); }

@@ -5,7 +5,9 @@ let physicsLessons = [];
 let testQuestions = [];
 const lessonDetails = {};
 let triExplain = {};
-const loadedChunks = { catalog:false, math:false, physics:false, test:false, triangles:false };
+let atalhosData = { items: [] };
+let atalhoFiltro = "all";
+const loadedChunks = { catalog:false, math:false, physics:false, test:false, triangles:false, atalhos:false };
 const loadingChunks = {};
 
 const subjects = {
@@ -68,7 +70,11 @@ const EN = {
   "Progresso da matéria":"Subject progress","Progresso do teste":"Quiz progress","Terminar teste":"Finish quiz","Próxima":"Next",
   "Base forte. Agora transforma acerto em consistência.":"Strong base. Now turn accuracy into consistency.",
   "Bom começo. Revê os erros e repete as lições marcadas.":"Good start. Review the mistakes and repeat the marked lessons.",
-  "Sem drama: os erros mostram exactamente onde estudar a seguir.":"No drama: the mistakes show you exactly what to study next."
+  "Sem drama: os erros mostram exactamente onde estudar a seguir.":"No drama: the mistakes show you exactly what to study next.",
+  "Atalhos":"Shortcuts","Atalhos.":"Shortcuts.","40 truques":"40 tricks","construído por":"built by",
+  "Referência rápida":"Quick reference","atalhos":"shortcuts","Filtrar atalhos":"Filter shortcuts","Tudo":"All",
+  "Atalhos e truques →":"Shortcuts & tricks →","Triângulos de fórmulas →":"Formula triangles →",
+  "A preparar os atalhos…":"Loading the shortcuts…"
 };
 function lang() { return state.lang === "en" ? "en" : "pt"; }
 function t(str) { return lang() === "en" ? (EN[str] || str) : str; }
@@ -88,6 +94,7 @@ function loadChunk(name, url) {
       if (name === "math" || name === "physics") data.forEach(lesson => { lessonDetails[lesson.id] = lesson; });
       if (name === "test") testQuestions = data;
       if (name === "triangles") triExplain = data;
+      if (name === "atalhos") atalhosData = data;
       loadedChunks[name] = true;
     })
     .catch(error => { delete loadingChunks[name]; throw error; });
@@ -97,6 +104,7 @@ function ensureCatalog() { return loadChunk("catalog", contentUrl("catalog")); }
 function ensureLessonDetails(key) { return ensureCatalog().then(() => loadChunk(key, contentUrl(key))); }
 function ensureTestData() { return loadChunk("test", contentUrl("test")); }
 function ensureTriData() { return ensureCatalog().then(() => Promise.all([ensureLessonDetails("math"), ensureLessonDetails("physics"), loadChunk("triangles", contentUrl("triangles"))])); }
+function ensureAtalhosData() { return loadChunk("atalhos", contentUrl("atalhos")); }
 function applyStaticLang() {
   document.documentElement.lang = lang();
   document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
@@ -110,7 +118,7 @@ function reloadLang() {
   Object.keys(loadingChunks).forEach(k => delete loadingChunks[k]);
   mathLessons = []; physicsLessons = [];
   subjects.math.lessons = mathLessons; subjects.physics.lessons = physicsLessons;
-  testQuestions = []; triExplain = {};
+  testQuestions = []; triExplain = {}; atalhosData = { items: [] };
   document.documentElement.lang = lang();
   applyStaticLang();
   render();
@@ -125,10 +133,11 @@ function loadingMarkup(label=t("A preparar a próxima etapa…")) {
   return `<div class="loading-state"><span class="loading-mark"></span><p>${label}</p><span class="loading-line"></span><span class="loading-line short"></span></div>`;
 }
 async function ensureDataForView() {
-  if (route.view === "home" || route.view === "path" || route.view === "profile" || route.view === "lesson" || route.view === "triangles") await ensureCatalog();
+  if (route.view === "home" || route.view === "path" || route.view === "profile" || route.view === "lesson" || route.view === "triangles" || route.view === "atalhos") await ensureCatalog();
   if (route.view === "lesson") await ensureLessonDetails(route.lessonId.startsWith("p-") ? "physics" : "math");
   if (route.view === "test") await ensureTestData();
   if (route.view === "triangles") await ensureTriData();
+  if (route.view === "atalhos") await ensureAtalhosData();
 }
 
 function defaultState() { return { completed: [], practice: {}, test: null, voiceOff: false, prep: false, triDeep: {}, time: {}, lang: "pt" }; }
@@ -171,13 +180,15 @@ function renderHome() {
   <a class="continue-card" href="#lesson/${next.id}"><p class="eyebrow">${t(isDone(next.id) ? "Rever" : "Continuar")} · ${t(subjects[nextKey].label)}</p><h2>${escapeHtml(next.title)}</h2><div class="continue-foot"><span class="tag">${next.minutes} ${t("min")}</span>${progressDots(subjects[nextKey].lessons)}<span class="node-cta">→</span></div></a>
   <div class="quick-grid">
     <a class="quick-tile" href="#triangles"><span class="quick-icon" aria-hidden="true">△</span><strong>${t("Triângulos")}</strong><small>${t("10 fórmulas")}</small></a>
+    <a class="quick-tile" href="#atalhos"><span class="quick-icon" aria-hidden="true">✧</span><strong>${t("Atalhos")}</strong><small>${t("40 truques")}</small></a>
     <a class="quick-tile" href="#test"><span class="quick-icon" aria-hidden="true">▣</span><strong>${t("Mini-teste")}</strong><small>${t("20 min")}</small></a>
     <a class="quick-tile" href="#path"><span class="quick-icon" aria-hidden="true">✦</span><strong>${t("Toda a rota")}</strong><small>${totalCount()} ${t("lições")}</small></a>
   </div>
   <div class="subject-rows">
     <a href="#path/math" class="subject-row"><span class="subject-symbol math">x²</span><span class="subject-row-copy"><strong>${t("Matemática")}</strong><small>${math.done}/${math.total} ${t("concluídas")}</small></span><span class="node-cta">→</span></a>
     <a href="#path/physics" class="subject-row"><span class="subject-symbol physics">F</span><span class="subject-row-copy"><strong>${t("Física")}</strong><small>${physics.done}/${physics.total} ${t("concluídas")}</small></span><span class="node-cta">→</span></a>
-  </div>`;
+  </div>
+  <footer class="sig"><span>${t("construído por")}</span><strong>Rafael Bulezi</strong></footer>`;
 }
 
 function renderPath() {
@@ -354,7 +365,19 @@ function renderTriangles() {
   const math = tris.filter(l => !l.id.startsWith("p-"));
   const physics = tris.filter(l => l.id.startsWith("p-"));
   const section = (title, list) => list.length ? `<div class="section-head"><h2>${t(title)}</h2><span class="muted tri-count">${list.length} ${t("triângulos")}</span></div><div class="tri-grid">${list.map(triPageCard).join("")}</div>` : "";
-  return `<div class="path-head"><div><p class="eyebrow">${t("Formulário visual")}</p><h1>${t("Triângulos.")}</h1><p class="lead">${t("Tapa a grandeza que queres descobrir. Arrasta o puxador para a explicação crescer.")}</p></div><div class="path-stats"><span class="stat-pill"><strong>${tris.length}</strong> ${t("fórmulas")}</span></div></div>${section("Matemática", math)}${section("Física", physics)}`;
+  return `<div class="path-head"><div><p class="eyebrow">${t("Formulário visual")}</p><h1>${t("Triângulos.")}</h1><p class="lead">${t("Tapa a grandeza que queres descobrir. Arrasta o puxador para a explicação crescer.")}</p></div><div class="path-stats"><span class="stat-pill"><strong>${tris.length}</strong> ${t("fórmulas")}</span><a class="text-link" href="#atalhos">${t("Atalhos e truques →")}</a></div></div>${section("Matemática", math)}${section("Física", physics)}`;
+}
+
+function renderAtalhos() {
+  const items = Array.isArray(atalhosData.items) ? atalhosData.items : [];
+  const kinds = [...new Set(items.map(i => i.k))];
+  const shown = atalhoFiltro === "all" ? items : atalhoFiltro === "math" ? items.filter(i => i.s === "math") : atalhoFiltro === "physics" ? items.filter(i => i.s === "physics") : items.filter(i => i.k === atalhoFiltro);
+  const chip = (val, label) => `<button type="button" class="filter-chip${atalhoFiltro === val ? " active" : ""}" data-atalho="${escapeHtml(val)}" aria-pressed="${atalhoFiltro === val}">${escapeHtml(label)}</button>`;
+  const card = i => `<article class="atalho-card ${i.s}"><span class="atalho-kind">${escapeHtml(i.k)}</span><h2>${escapeHtml(i.t)}</h2><p class="atalho-formula">${escapeHtml(i.f)}</p><p class="atalho-note">${escapeHtml(i.n)}</p></article>`;
+  return `<div class="path-head"><div><p class="eyebrow">${t("Referência rápida")}</p><h1>${t("Atalhos.")}</h1><p class="lead">${escapeHtml(atalhosData.intro || "")}</p></div><div class="path-stats"><span class="stat-pill"><strong>${items.length}</strong> ${t("atalhos")}</span></div></div>
+  <div class="filter-row" role="group" aria-label="${t("Filtrar atalhos")}">${chip("all", t("Tudo"))}${chip("math", t("Matemática"))}${chip("physics", t("Física"))}${kinds.map(k => chip(k, k)).join("")}</div>
+  <div class="atalho-grid">${shown.map(card).join("")}</div>
+  <p class="atalho-foot"><a class="text-link" href="#triangles">${t("Triângulos de fórmulas →")}</a></p>`;
 }
 
 function triDets(card) {
@@ -869,15 +892,16 @@ async function render() {
   syncHash();
   const target = document.querySelector(`[data-view="${route.view}"]`); if (!target) return;
   const viewAtStart = route.view;
-  const needsCatalog = ["home", "path", "profile", "lesson", "triangles"].includes(route.view) && !loadedChunks.catalog;
+  const needsCatalog = ["home", "path", "profile", "lesson", "triangles", "atalhos"].includes(route.view) && !loadedChunks.catalog;
   const lessonKey = route.lessonId?.startsWith("p-") ? "physics" : "math";
   const needsLesson = route.view === "lesson" && !loadedChunks[lessonKey];
   const needsTest = route.view === "test" && !loadedChunks.test;
   const needsTri = route.view === "triangles" && !loadedChunks.triangles;
-  if (needsCatalog || needsLesson || needsTest || needsTri) target.innerHTML = loadingMarkup(t(route.view === "test" ? "A carregar o mini-teste…" : route.view === "triangles" ? "A preparar os triângulos…" : "A preparar a tua rota…"));
+  const needsAtalhos = route.view === "atalhos" && !loadedChunks.atalhos;
+  if (needsCatalog || needsLesson || needsTest || needsTri || needsAtalhos) target.innerHTML = loadingMarkup(t(route.view === "test" ? "A carregar o mini-teste…" : route.view === "triangles" ? "A preparar os triângulos…" : route.view === "atalhos" ? "A preparar os atalhos…" : "A preparar a tua rota…"));
   try { await ensureDataForView(); } catch (error) { target.innerHTML = `<div class="card load-error"><h2>${t("Não foi possível carregar esta parte.")}</h2><p class="muted">${t("Verifica a ligação e tenta novamente.")}</p><button class="button button-primary" data-retry>${t("Recarregar")}</button></div>`; return; }
   if (route.view !== viewAtStart) return;
-  target.innerHTML = route.view === "home" ? renderHome() : route.view === "path" ? renderPath() : route.view === "lesson" ? renderLesson() : route.view === "test" ? renderTest() : route.view === "triangles" ? renderTriangles() : renderProfile();
+  target.innerHTML = route.view === "home" ? renderHome() : route.view === "path" ? renderPath() : route.view === "lesson" ? renderLesson() : route.view === "test" ? renderTest() : route.view === "triangles" ? renderTriangles() : route.view === "atalhos" ? renderAtalhos() : renderProfile();
   if (route.view === "lesson") {
     afterLessonRender();
     drawTriFrame();
@@ -958,6 +982,7 @@ document.addEventListener("click", event => {
   const qf = event.target.closest("[data-quadro='full']"); if (qf) { setQuadroFull(!quadroFull); return; }
   const prep = event.target.closest("[data-prep]"); if (prep) { state.prep = !state.prep; saveState(); showToast(state.prep ? t("Modo preparação ligado. Todas as lições estão abertas.") : t("Modo preparação desligado. A rota volta ao normal.")); render(); return; }
   const langBtn = event.target.closest("[data-lang]"); if (langBtn) { if (state.lang !== langBtn.dataset.lang) { state.lang = langBtn.dataset.lang; saveState(); reloadLang(); } return; }
+  const filtro = event.target.closest("[data-atalho]"); if (filtro) { atalhoFiltro = filtro.dataset.atalho; render(); return; }
   const triGrip = event.target.closest("[data-tri-drag]"); if (triGrip && event.detail === 0) {
     const card = triGrip.closest(".tri-page-card");
     if (card) { const level = Number(card.dataset.level) || 0; setTriLevel(card, level >= card._dets.length - 1 ? 0 : level + 1); }

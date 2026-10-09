@@ -9,6 +9,7 @@ for the Metodista engineering access exam. Repo dir: `metodista-engineering-prep
 | --- | --- | --- |
 | **Live app (canonical)** | https://ingenium-ao.vercel.app | ✅ verified 2026-10-09 (200, title shows "Ingenium") |
 | Triangles page | https://ingenium-ao.vercel.app/#/triangles | ✅ verified live — 10 cards, 10 drag grips |
+| Shortcuts page | https://ingenium-ao.vercel.app/#/atalhos | ✅ verified live — 40 cards, filters, PT + EN |
 | Prep mode switch | app → Perfil → "Modo preparação" | ✅ persists in `state.prep`; path shows "prep · tudo aberto" |
 | Old URL (same project, kept working) | https://rota-engenharia.vercel.app | ✅ 200 — still attached; safe to remove later if never shared |
 | GitHub repo | https://github.com/Rafael-bulezi/ingenium-ao | ✅ pushed `main` @ `89a2846` (prep mode + #/triangles + app-style home) |
@@ -25,7 +26,8 @@ for the Metodista engineering access exam. Repo dir: `metodista-engineering-prep
 | Vercel CLI auth file (this machine) | `%APPDATA%\com.vercel.cli\Data\auth.json` |
 | localStorage key | `metodista-prep-v1` — **never rename** (users' progress lives here) |
 | Content | 25 lessons (12 math + 13 physics), **125 ladder questions (5/lesson)**, 12 walkthroughs (math), 10 formulaTri (2 math + 8 physics) + `content/triangles.json` (base + 2 deep levels each), 77 audio MP3s (30 of them `*-tri-*`) |
-| Routes | `#/` home · `#/path/:subject` · `#/lesson/:id` · `#/triangles` · `#/test` · `#/profile` |
+| Routes | `#/` home · `#/path/:subject` · `#/lesson/:id` · `#/triangles` · `#/atalhos` · `#/test` · `#/profile` |
+| Atalhos page | `content/atalhos.json` + `content/en/atalhos.json`: 40 one-line entries (21 math / 19 physics) of three kinds — `mnemónica` 9, `truque` 15, `fórmula` 16. Filter chips read the kinds from the data, so a new kind needs no code change |
 | State keys | `completed[]`, `practice{}`, `test`, `voiceOff`, **`prep`** (modo preparação: abre todas as lições), **`triDeep{lessonId:0-2}`** (nível expandido de cada triângulo), **`lang`** (`pt`/`en`), **`time{lessonId:seconds}`** (cronómetro por lição) |
 | Languages | PT = `content/*.json` + `audio/*.mp3`; EN = `content/en/*.json` + `audio/en/*.mp3`. UI chrome lives in the `EN` map in `app.js` (PT literal → English); `check-i18n-coverage.mjs` proves no `t()` literal is missing an entry |
 | Logo | `favicon.svg` + the same geometry inline in `index.html` `.brand-mark`: cover-triangle (outline + divider bar + filled bottom-left cell). One idea, monochrome-safe, legible at 16px |

@@ -1,0 +1,285 @@
+{
+  "intro": "Fórmulas, mnemónicas e truques de uma linha. O que abre a cabeça antes de abrir o caderno.",
+  "items": [
+    {
+      "s": "math",
+      "k": "mnemónica",
+      "t": "SOH CAH TOA",
+      "f": "sen = O/H · cos = A/H · tg = O/A",
+      "n": "Seno: Oposto a Hipotenusa. Cosseno: Adjacente a Hipotenusa. Tangente: Oposto a Adjacente."
+    },
+    {
+      "s": "math",
+      "k": "truque",
+      "t": "Tangente por dentro",
+      "f": "tg θ = sen θ / cos θ",
+      "n": "Se tens sen e cos, nunca precisas de mais nada."
+    },
+    {
+      "s": "math",
+      "k": "fórmula",
+      "t": "Identidade pitagórica",
+      "f": "sen²θ + cos²θ = 1",
+      "n": "Serve para passar de uma razão para a outra. Raiz e um menos."
+    },
+    {
+      "s": "math",
+      "k": "mnemónica",
+      "t": "Sinais por quadrante",
+      "f": "1.º T · 2.º S · 3.º T · 4.º C",
+      "n": "Todos, Senos, Tangentes, Cossenos — só o que nomeia é positivo."
+    },
+    {
+      "s": "math",
+      "k": "fórmula",
+      "t": "Fórmula resolvente",
+      "f": "x = (−b ± √Δ) / 2a,  Δ = b² − 4ac",
+      "n": "Delta primeiro, depois a resolvente. Nunca ao contrário."
+    },
+    {
+      "s": "math",
+      "k": "truque",
+      "t": "Ler o delta",
+      "f": "Δ > 0 · Δ = 0 · Δ < 0",
+      "n": "Duas raízes, uma raiz, nenhuma nos reais. Decide antes de calcular."
+    },
+    {
+      "s": "math",
+      "k": "truque",
+      "t": "Soma e produto",
+      "f": "x₁ + x₂ = −b/a · x₁ · x₂ = c/a",
+      "n": "De cabeça: duas raízes que somam e multiplicam certo. Funciona com números pequenos."
+    },
+    {
+      "s": "math",
+      "k": "truque",
+      "t": "Vértice da parábola",
+      "f": "x_v = −b / 2a",
+      "n": "O meio das duas raízes. Dá o máximo ou o mínimo sem derivar."
+    },
+    {
+      "s": "math",
+      "k": "fórmula",
+      "t": "Recta e declive",
+      "f": "m = (y₂ − y₁) / (x₂ − x₁) · y = mx + b",
+      "n": "b é onde corta o eixo vertical. Perpendiculares: m₁ · m₂ = −1."
+    },
+    {
+      "s": "math",
+      "k": "mnemónica",
+      "t": "E multiplica, OU soma",
+      "f": "P(A e B) = P(A)·P(B) · P(A ou B) = P(A)+P(B)",
+      "n": "A palavra no enunciado diz a operação. Tira o «e» e o «ou» do texto."
+    },
+    {
+      "s": "math",
+      "k": "truque",
+      "t": "Probabilidade pelo contrário",
+      "f": "P = 1 − P(não acontece)",
+      "n": "Quando o enunciado diz «pelo menos um», conta o nenhum e tira a 1."
+    },
+    {
+      "s": "math",
+      "k": "mnemónica",
+      "t": "Moda, mediana, média",
+      "f": "Mo = mais repetida · Me = do meio · μ = soma/n",
+      "n": "RAE ao contrário: Repetida, Ao meio, Em média. Ordena sempre antes de tirar a mediana."
+    },
+    {
+      "s": "math",
+      "k": "truque",
+      "t": "Regra de três em cruz",
+      "f": "a/b = c/x → x = b·c / a",
+      "n": "Multiplica em cruz, divide pelo de cima do lado que falta."
+    },
+    {
+      "s": "math",
+      "k": "fórmula",
+      "t": "Potências",
+      "f": "a^m · a^n = a^(m+n)   (a^m)^n = a^(mn)   a^m / a^n = a^(m-n)",
+      "n": "Mesma base: multiplicar soma, potência de potência multiplica, dividir subtrai."
+    },
+    {
+      "s": "math",
+      "k": "truque",
+      "t": "Simplificar raízes",
+      "f": "√72 = √(36·2) = 6√2",
+      "n": "Procura o maior quadrado perfeito escondido dentro do número."
+    },
+    {
+      "s": "math",
+      "k": "fórmula",
+      "t": "Logaritmos",
+      "f": "log_a b = x ⇔ aˣ = b",
+      "n": "O log é só o expoente que procuras. log(ab) = log a + log b."
+    },
+    {
+      "s": "math",
+      "k": "mnemónica",
+      "t": "Soma de uma P.A.",
+      "f": "S = (a₁ + aₙ) · n / 2",
+      "n": "Gauss: junta o primeiro ao último, multiplica por metade dos termos."
+    },
+    {
+      "s": "math",
+      "k": "fórmula",
+      "t": "Termo geral",
+      "f": "P.A.: aₙ = a₁ + (n−1)r · P.G.: aₙ = a₁·qⁿ⁻¹",
+      "n": "Na P.A. somas passos, na P.G. multiplicas passos. Um a menos que n."
+    },
+    {
+      "s": "math",
+      "k": "fórmula",
+      "t": "Pitágoras e ternos",
+      "f": "a² = b² + c²",
+      "n": "Só em triângulo rectângulo. Decora 3-4-5 e 5-12-13: aparecem quase sempre."
+    },
+    {
+      "s": "math",
+      "k": "truque",
+      "t": "Áreas por comparação",
+      "f": "triângulo = b·h/2 · paralelogramo = b·h",
+      "n": "Todo o triângulo é metade do rectângulo à volta. Memória só para um."
+    },
+    {
+      "s": "math",
+      "k": "fórmula",
+      "t": "Círculo",
+      "f": "A = πr² · perímetro = 2πr",
+      "n": "Área com quadrado, comprimento sem quadrado. O π só multiplica."
+    },
+    {
+      "s": "physics",
+      "k": "truque",
+      "t": "m/s para km/h",
+      "f": "× 3,6 (e ÷ 3,6 para voltar)",
+      "n": "3,6 vem de 3600 s / 1000 m. Decora o número, não a origem."
+    },
+    {
+      "s": "physics",
+      "k": "fórmula",
+      "t": "Cinemática",
+      "f": "v = Δs/Δt · v = v₀ + a·t · Δs = v₀t + a·t²/2",
+      "n": "Três equações, cinco grandezas: falta sempre uma, é essa que procuras."
+    },
+    {
+      "s": "physics",
+      "k": "mnemónica",
+      "t": "Equação de Torricelli",
+      "f": "v² = v₀² + 2a·Δs",
+      "n": "Sem tempo no enunciado? Vai directo a esta. «v ao quadrado menos v zero ao quadrado»."
+    },
+    {
+      "s": "physics",
+      "k": "truque",
+      "t": "Travagem é aceleração negativa",
+      "f": "v = 0 no fim",
+      "n": "Parar significa v final zero. O sinal de a faz-se sozinho se escolheres o sentido."
+    },
+    {
+      "s": "physics",
+      "k": "fórmula",
+      "t": "Leis de Newton",
+      "f": "F = m·a · P = m·g · Fₐ = μ·N",
+      "n": "Força resultante, não força aplicada. Desenha sempre o diagrama primeiro."
+    },
+    {
+      "s": "physics",
+      "k": "truque",
+      "t": "Plano inclinado",
+      "f": "Pₓ = P·sen θ · P_y = P·cos θ",
+      "n": "O componente que desce é o do seno. Inclinação maior, seno maior, desliza mais."
+    },
+    {
+      "s": "physics",
+      "k": "fórmula",
+      "t": "Trabalho e energia",
+      "f": "W = F·d·cos θ · Ec = m·v²/2 · Ep = m·g·h",
+      "n": "Trabalho precisa de deslocamento. Segurar uma mala não é trabalho."
+    },
+    {
+      "s": "physics",
+      "k": "mnemónica",
+      "t": "Conservação de energia",
+      "f": "Ec + Ep = constante",
+      "n": "O que perdes em altura ganhas em velocidade. Sem atrito, a soma não muda."
+    },
+    {
+      "s": "physics",
+      "k": "fórmula",
+      "t": "Potência",
+      "f": "P = W/t = F·v",
+      "n": "Potência é trabalho com pressa. Mesma força, mais velocidade, mais potência."
+    },
+    {
+      "s": "physics",
+      "k": "truque",
+      "t": "Quantidade de movimento",
+      "f": "p = m·v · antes = depois",
+      "n": "Em colisões e explosões, soma os p antes e iguala aos p depois. O mais pesado ganha."
+    },
+    {
+      "s": "physics",
+      "k": "fórmula",
+      "t": "Pressão",
+      "f": "p = F/A · p = ρ·g·h",
+      "n": "Força mal distribuída faz muita pressão. Nos fluidos só interessa a profundidade."
+    },
+    {
+      "s": "physics",
+      "k": "mnemónica",
+      "t": "Empuxo de Arquimedes",
+      "f": "E = ρ_liquido · V_imerso · g",
+      "n": "Empurra para cima o peso do líquido que deslocas. Flutua quem desloca mais."
+    },
+    {
+      "s": "physics",
+      "k": "fórmula",
+      "t": "Lei de Ohm e potência",
+      "f": "V = I·R · P = V·I",
+      "n": "Triângulo V-I-R tapa o que falta. Potência é sempre o produto dos outros dois."
+    },
+    {
+      "s": "physics",
+      "k": "truque",
+      "t": "Série e paralelo",
+      "f": "série: R = R₁+R₂ · paralelo: 1/R = 1/R₁+1/R₂",
+      "n": "Série soma e aumenta. Paralelo reparte e diminui — o total é sempre menor que o menor."
+    },
+    {
+      "s": "physics",
+      "k": "mnemónica",
+      "t": "Série ou paralelo?",
+      "f": "série: mesma corrente · paralelo: mesma tensão",
+      "n": "Corrente não se divide em série; tensão não se divide em paralelo."
+    },
+    {
+      "s": "physics",
+      "k": "fórmula",
+      "t": "Ondas",
+      "f": "v = λ·f · T = 1/f",
+      "n": "Período e frequência são invertidos um do outro. Sempre."
+    },
+    {
+      "s": "physics",
+      "k": "fórmula",
+      "t": "Calor sensível",
+      "f": "Q = m·c·ΔT",
+      "n": "ΔT é variação, não temperatura. Água exige muito c, metal exige pouco."
+    },
+    {
+      "s": "physics",
+      "k": "truque",
+      "t": "Mão direita",
+      "f": "polegar = corrente · dedos = campo",
+      "n": "Para força magnética e solenóides. Decide o sentido sem decorar regras de sinal."
+    },
+    {
+      "s": "physics",
+      "k": "truque",
+      "t": "Unidades primeiro",
+      "f": "kg, m, s, A, K",
+      "n": "Converte tudo para SI antes de calcular. A unidade do resultado diz se está certo."
+    }
+  ]
+}
