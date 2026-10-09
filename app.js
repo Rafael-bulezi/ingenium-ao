@@ -991,15 +991,15 @@ document.addEventListener("click", event => {
   const tri = event.target.closest("[data-tri]"); if (tri) {
     const card = tri.closest(".tri-card");
     const lesson = lessonById(card?.dataset.lesson || route.lessonId);
-    const t = lesson?.formulaTri;
-    if (!t || !card) return;
+    const formulaTri = lesson?.formulaTri;
+    if (!formulaTri || !card) return;
     const result = card.querySelector(".tri-result");
     const was = tri.classList.contains("covered");
     card.querySelectorAll(".tri-cell").forEach(c => { c.classList.remove("covered"); c.setAttribute("aria-pressed", "false"); });
     if (was) { result.innerHTML = ""; stopSpeaking(); return; }
     tri.classList.add("covered");
     tri.setAttribute("aria-pressed", "true");
-    const { line, say } = triExchange(t, tri.dataset.tri);
+    const { line, say } = triExchange(formulaTri, tri.dataset.tri);
     result.innerHTML = `<span class="tri-eq">${inlineWrite(line)}</span>`;
     playStepAudio(audioUrl(lesson.id, "tri", tri.dataset.tri), say);
     return;
