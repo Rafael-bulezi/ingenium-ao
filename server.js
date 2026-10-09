@@ -22,4 +22,4 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { "Content-Type": types[path.extname(file)] || "application/octet-stream", "Cache-Control":"no-cache" }); res.end(data);
   });
 });
-server.listen(port, "0.0.0.0", () => console.log(`Metodista Prep listening on ${port}`));
+server.listen(port, "0.0.0.0", () => console.log(`Rota Engenharia listening on ${port}`));

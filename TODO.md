@@ -1,4 +1,4 @@
-# Metodista Engineering Entrance Prep — Outcomes
+# Rota Engenharia — Outcomes
 
 - **Duolingo-style study dashboard and lesson path** — The app is mobile-friendly, removes unnecessary introductory information, presents Mathematics and Physics in a clear sequence, shows path progress, completed lessons, remaining topics, and quick actions to continue studying or start the mini-test.
 - **Complete Mathematics and Physics topic coverage** — Mathematics includes algebra; equations and inequalities; functions and graphs; systems of equations; powers, roots, and logarithms; trigonometry; geometry; vectors; sequences; basic limits and derivatives; probability and statistics; and word problems. Physics includes units and measurement; vectors; motion; Newton's laws; forces and friction; work, energy, and power; momentum and collisions; circular motion; pressure and fluids; heat and temperature; electricity and circuits; magnetism; and basic waves and optics.
