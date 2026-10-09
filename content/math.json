@@ -16,7 +16,27 @@
     "practice": "Qual é o valor de x em 4x − 7 = 21?",
     "answer": "7",
     "hint": "Primeiro soma 7 aos dois lados; depois divide por 4.",
-    "explanation": "4x − 7 = 21 → 4x = 28 → x = 7."
+    "explanation": "4x − 7 = 21 → 4x = 28 → x = 7.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "7",
+      "9",
+      "6",
+      "14"
+    ],
+    "medium": {
+      "practice": "Resolve: 3x + 9 = 30.",
+      "answer": "7",
+      "hint": "Subtrai 9 dos dois lados e divide por 3.",
+      "explanation": "3x + 9 = 30 → 3x = 21 → x = 7.",
+      "formatHint": "Escreve apenas o número.",
+      "options": [
+        "7",
+        "9",
+        "6",
+        "14"
+      ]
+    }
   },
   {
     "id": "m-equations",
@@ -34,7 +54,27 @@
     "practice": "Resolve: 5x − 10 > 0.",
     "answer": "> 2",
     "hint": "Soma 10 e divide por 5.",
-    "explanation": "5x > 10 → x > 2. Como dividimos por número positivo, o sinal mantém-se."
+    "explanation": "5x > 10 → x > 2. Como dividimos por número positivo, o sinal mantém-se.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "> 2",
+      "< 2",
+      "= 2",
+      "> 4"
+    ],
+    "medium": {
+      "practice": "Resolve: 4x + 3 ≤ 19.",
+      "answer": "≤ 4",
+      "hint": "Subtrai 3 e divide por 4.",
+      "explanation": "4x ≤ 16 → x ≤ 4.",
+      "formatHint": "Usa o sinal ≤ na resposta.",
+      "options": [
+        "≤ 4",
+        "≥ 4",
+        "< 4",
+        "= 4"
+      ]
+    }
   },
   {
     "id": "m-functions",
@@ -52,7 +92,27 @@
     "practice": "Se g(x) = 3x − 2, qual é g(4)?",
     "answer": "10",
     "hint": "Troca x por 4 e segue a ordem das operações.",
-    "explanation": "g(4) = 3(4) − 2 = 12 − 2 = 10."
+    "explanation": "g(4) = 3(4) − 2 = 12 − 2 = 10.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "10",
+      "12",
+      "9",
+      "20"
+    ],
+    "medium": {
+      "practice": "Se f(x) = 4x − 3, qual é f(5)?",
+      "answer": "17",
+      "hint": "Substitui x por 5 e calcula.",
+      "explanation": "f(5) = 4(5) − 3 = 17.",
+      "formatHint": "Escreve apenas o número.",
+      "options": [
+        "17",
+        "19",
+        "16",
+        "34"
+      ]
+    }
   },
   {
     "id": "m-systems",
@@ -70,7 +130,27 @@
     "practice": "Se x + y = 9 e x − y = 1, qual é x?",
     "answer": "5",
     "hint": "Soma as duas equações para eliminar y.",
-    "explanation": "2x = 10 → x = 5. Depois y = 4."
+    "explanation": "2x = 10 → x = 5. Depois y = 4.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "5",
+      "7",
+      "4",
+      "10"
+    ],
+    "medium": {
+      "practice": "Resolve: x + y = 14 e x − y = 4. Qual é x?",
+      "answer": "9",
+      "hint": "Soma as equações para eliminar y.",
+      "explanation": "2x = 18 → x = 9.",
+      "formatHint": "Escreve apenas x.",
+      "options": [
+        "9",
+        "11",
+        "8",
+        "18"
+      ]
+    }
   },
   {
     "id": "m-powers",
@@ -88,7 +168,27 @@
     "practice": "Quanto vale log₁₀(1000)?",
     "answer": "3",
     "hint": "Pergunta: 10 elevado a quanto dá 1000?",
-    "explanation": "10³ = 1000, portanto log₁₀(1000) = 3."
+    "explanation": "10³ = 1000, portanto log₁₀(1000) = 3.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "3",
+      "5",
+      "2",
+      "6"
+    ],
+    "medium": {
+      "practice": "Simplifica: 2⁴ × 2³.",
+      "answer": "128",
+      "hint": "Soma os expoentes e calcula 2⁷.",
+      "explanation": "2⁴ × 2³ = 2⁷ = 128.",
+      "formatHint": "Escreve apenas o número.",
+      "options": [
+        "128",
+        "130",
+        "127",
+        "256"
+      ]
+    }
   },
   {
     "id": "m-trig",
@@ -107,7 +207,27 @@
     "practice": "Se sen θ = 0,6 e a hipotenusa é 10, qual é o lado oposto?",
     "answer": "6",
     "hint": "Usa sen θ = oposto / hipotenusa.",
-    "explanation": "0,6 = oposto/10 → oposto = 0,6 × 10 = 6."
+    "explanation": "0,6 = oposto/10 → oposto = 0,6 × 10 = 6.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "6",
+      "8",
+      "5",
+      "12"
+    ],
+    "medium": {
+      "practice": "Num triângulo, cos θ = 0,8 e a hipotenusa é 10. Lado adjacente?",
+      "answer": "8",
+      "hint": "Usa cos θ = adjacente/hipotenusa.",
+      "explanation": "0,8 = adjacente/10 → adjacente = 8.",
+      "formatHint": "Escreve o valor sem unidade.",
+      "options": [
+        "8",
+        "10",
+        "7",
+        "16"
+      ]
+    }
   },
   {
     "id": "m-geometry",
@@ -125,7 +245,27 @@
     "practice": "Qual é o perímetro de um quadrado com lado 6 cm?",
     "answer": "24",
     "hint": "Um quadrado tem quatro lados iguais.",
-    "explanation": "P = 4 × lado = 4 × 6 = 24 cm."
+    "explanation": "P = 4 × lado = 4 × 6 = 24 cm.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "24",
+      "26",
+      "23",
+      "48"
+    ],
+    "medium": {
+      "practice": "Qual é a área de um triângulo com base 12 cm e altura 5 cm?",
+      "answer": "30",
+      "hint": "Usa A = base × altura ÷ 2.",
+      "explanation": "A = 12 × 5 ÷ 2 = 30 cm².",
+      "formatHint": "Escreve apenas o valor numérico.",
+      "options": [
+        "30",
+        "32",
+        "29",
+        "60"
+      ]
+    }
   },
   {
     "id": "m-vectors",
@@ -144,7 +284,27 @@
     "practice": "Qual é o módulo do vector (3, 4)?",
     "answer": "5",
     "hint": "Usa Pitágoras: √(3² + 4²).",
-    "explanation": "|v| = √(9 + 16) = √25 = 5."
+    "explanation": "|v| = √(9 + 16) = √25 = 5.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "5",
+      "7",
+      "4",
+      "10"
+    ],
+    "medium": {
+      "practice": "Qual é o módulo do vector (5, 12)?",
+      "answer": "13",
+      "hint": "Aplica Pitágoras às componentes.",
+      "explanation": "|v| = √(5² + 12²) = √169 = 13.",
+      "formatHint": "Escreve apenas o número.",
+      "options": [
+        "13",
+        "15",
+        "12",
+        "26"
+      ]
+    }
   },
   {
     "id": "m-sequences",
@@ -162,7 +322,27 @@
     "practice": "Qual é o 5.º termo de 2, 5, 8, …?",
     "answer": "14",
     "hint": "A diferença é 3; avança quatro vezes a partir do primeiro termo.",
-    "explanation": "a₅ = 2 + (5 − 1)×3 = 2 + 12 = 14."
+    "explanation": "a₅ = 2 + (5 − 1)×3 = 2 + 12 = 14.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "14",
+      "16",
+      "13",
+      "28"
+    ],
+    "medium": {
+      "practice": "Na sequência 5, 9, 13, … qual é o 5.º termo?",
+      "answer": "21",
+      "hint": "A diferença é 4; aplica a fórmula da progressão.",
+      "explanation": "a₅ = 5 + (5 − 1)×4 = 21.",
+      "formatHint": "Escreve apenas o número.",
+      "options": [
+        "21",
+        "23",
+        "20",
+        "42"
+      ]
+    }
   },
   {
     "id": "m-calculus",
@@ -180,7 +360,27 @@
     "practice": "Qual é a derivada de f(x) = 5x?",
     "answer": "5",
     "hint": "A derivada de ax é a constante a.",
-    "explanation": "d/dx(5x) = 5."
+    "explanation": "d/dx(5x) = 5.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "5",
+      "7",
+      "4",
+      "10"
+    ],
+    "medium": {
+      "practice": "Deriva f(x) = 3x² + 2x.",
+      "answer": "6x + 2",
+      "hint": "Deriva cada termo e junta os resultados.",
+      "explanation": "f'(x) = 6x + 2.",
+      "formatHint": "Escreve a expressão usando x.",
+      "options": [
+        "6x + 2",
+        "2x + 2",
+        "6x − 2",
+        "x + 2"
+      ]
+    }
   },
   {
     "id": "m-probability",
@@ -198,7 +398,27 @@
     "practice": "Qual é a média de 4, 6 e 8?",
     "answer": "6",
     "hint": "Soma os três valores e divide por 3.",
-    "explanation": "Média = (4 + 6 + 8)/3 = 18/3 = 6."
+    "explanation": "Média = (4 + 6 + 8)/3 = 18/3 = 6.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "6",
+      "8",
+      "5",
+      "12"
+    ],
+    "medium": {
+      "practice": "Num saco há 4 bolas vermelhas e 6 azuis. P(vermelha)?",
+      "answer": "0,4",
+      "hint": "Divide casos favoráveis pelo total.",
+      "explanation": "P = 4/(4+6) = 0,4 = 40%.",
+      "formatHint": "Aceita 0,4 ou 40%.",
+      "options": [
+        "0,4",
+        "2.4",
+        "-0.6",
+        "0.8"
+      ]
+    }
   },
   {
     "id": "m-word",
@@ -216,6 +436,26 @@
     "practice": "Um número aumentado de 7 dá 19. Qual é o número?",
     "answer": "12",
     "hint": "Chama x ao número e escreve x + 7 = 19.",
-    "explanation": "x + 7 = 19 → x = 19 − 7 = 12."
+    "explanation": "x + 7 = 19 → x = 19 − 7 = 12.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "12",
+      "14",
+      "11",
+      "24"
+    ],
+    "medium": {
+      "practice": "Um produto custa 3 000 Kz depois de um desconto de 25%. Preço original?",
+      "answer": "4000",
+      "hint": "Os 3 000 Kz são 75% do preço original.",
+      "explanation": "0,75P = 3 000 → P = 4 000 Kz.",
+      "formatHint": "Escreve apenas o valor, sem Kz.",
+      "options": [
+        "4000",
+        "4002",
+        "3999",
+        "8000"
+      ]
+    }
   }
 ]

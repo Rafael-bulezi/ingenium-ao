@@ -52,3 +52,5 @@ metodista/
 - No decorative stock imagery: this is a focused study tool, so visual personality comes from the trail, color, and motion system.
 - No account or cloud sync in this version; browser persistence is transparent and immediate.
 - Loading skeletons appear only while a content chunk is in flight. Once a view is loaded, normal answer selection, navigation, and progress updates render in memory without replacing the active controls; this avoids interaction races on fast taps.
+- Lesson practice has two levels (Fácil and Médio) and two response formats (Escrever and Escolha múltipla). Typed prompts expose a tooltip/placeholder explaining the expected answer format.
+- Worked examples use restrained arrow connectors between revealed steps to make the movement from one equation transformation to the next explicit without overwhelming the visual system.

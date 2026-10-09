@@ -16,7 +16,27 @@
     "practice": "Converte 2,5 km para metros.",
     "answer": "2500",
     "hint": "Multiplica quilómetros por 1000.",
-    "explanation": "2,5 × 1000 = 2500 m."
+    "explanation": "2,5 × 1000 = 2500 m.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "2500",
+      "2502",
+      "2499",
+      "5000"
+    ],
+    "medium": {
+      "practice": "Converte 90 km/h para m/s.",
+      "answer": "25",
+      "hint": "Divide por 3,6.",
+      "explanation": "90 ÷ 3,6 = 25 m/s.",
+      "formatHint": "Escreve apenas o número.",
+      "options": [
+        "25",
+        "27",
+        "24",
+        "50"
+      ]
+    }
   },
   {
     "id": "p-vectors",
@@ -35,7 +55,27 @@
     "practice": "Duas forças de 7 N e 3 N apontam na mesma direcção. Resultante?",
     "answer": "10",
     "hint": "Forças com a mesma direcção e sentido somam-se.",
-    "explanation": "R = 7 + 3 = 10 N."
+    "explanation": "R = 7 + 3 = 10 N.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "10",
+      "12",
+      "9",
+      "20"
+    ],
+    "medium": {
+      "practice": "Forças de 12 N para leste e 5 N para oeste. Resultante?",
+      "answer": "7",
+      "hint": "Escolhe leste como positivo e subtrai.",
+      "explanation": "R = 12 − 5 = 7 N para leste.",
+      "formatHint": "Escreve 7 ou 7 N.",
+      "options": [
+        "7",
+        "9",
+        "6",
+        "14"
+      ]
+    }
   },
   {
     "id": "p-motion",
@@ -54,7 +94,27 @@
     "practice": "Um móvel muda de 5 m/s para 17 m/s em 4 s. Qual a aceleração?",
     "answer": "3",
     "hint": "Divide a variação de velocidade pelo tempo.",
-    "explanation": "a = (17 − 5)/4 = 12/4 = 3 m/s²."
+    "explanation": "a = (17 − 5)/4 = 12/4 = 3 m/s².",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "3",
+      "5",
+      "2",
+      "6"
+    ],
+    "medium": {
+      "practice": "Um móvel passa de 4 m/s para 16 m/s em 3 s. Aceleração?",
+      "answer": "4",
+      "hint": "Divide a variação de velocidade pelo tempo.",
+      "explanation": "a = (16 − 4)/3 = 4 m/s².",
+      "formatHint": "Escreve apenas o valor.",
+      "options": [
+        "4",
+        "6",
+        "3",
+        "8"
+      ]
+    }
   },
   {
     "id": "p-newton",
@@ -73,7 +133,27 @@
     "practice": "Qual força acelera 3 kg a 2 m/s²?",
     "answer": "6",
     "hint": "F = m × a.",
-    "explanation": "F = 3 × 2 = 6 N."
+    "explanation": "F = 3 × 2 = 6 N.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "6",
+      "8",
+      "5",
+      "12"
+    ],
+    "medium": {
+      "practice": "Que força acelera 8 kg a 3 m/s²?",
+      "answer": "24",
+      "hint": "Usa F = m×a.",
+      "explanation": "F = 8 × 3 = 24 N.",
+      "formatHint": "Escreve apenas o valor.",
+      "options": [
+        "24",
+        "26",
+        "23",
+        "48"
+      ]
+    }
   },
   {
     "id": "p-forces",
@@ -92,7 +172,27 @@
     "practice": "Se μ = 0,2 e N = 50 N, qual é o atrito?",
     "answer": "10",
     "hint": "f = μN.",
-    "explanation": "f = 0,2 × 50 = 10 N."
+    "explanation": "f = 0,2 × 50 = 10 N.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "10",
+      "12",
+      "9",
+      "20"
+    ],
+    "medium": {
+      "practice": "Com μ = 0,3 e N = 40 N, qual é o atrito?",
+      "answer": "12",
+      "hint": "Aplica f = μN.",
+      "explanation": "f = 0,3 × 40 = 12 N.",
+      "formatHint": "Escreve apenas o valor.",
+      "options": [
+        "12",
+        "14",
+        "11",
+        "24"
+      ]
+    }
   },
   {
     "id": "p-energy",
@@ -111,7 +211,27 @@
     "practice": "Um motor realiza 600 J em 20 s. Qual a potência?",
     "answer": "30",
     "hint": "P = trabalho dividido pelo tempo.",
-    "explanation": "P = 600/20 = 30 W."
+    "explanation": "P = 600/20 = 30 W.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "30",
+      "32",
+      "29",
+      "60"
+    ],
+    "medium": {
+      "practice": "Uma força de 50 N move uma caixa 6 m. Trabalho?",
+      "answer": "300",
+      "hint": "Força e deslocamento estão alinhados.",
+      "explanation": "W = Fd = 50 × 6 = 300 J.",
+      "formatHint": "Escreve apenas o valor.",
+      "options": [
+        "300",
+        "302",
+        "299",
+        "600"
+      ]
+    }
   },
   {
     "id": "p-momentum",
@@ -129,7 +249,27 @@
     "practice": "Uma massa de 4 kg tem momento 20 kg·m/s. Velocidade?",
     "answer": "5",
     "hint": "Isola v em p = mv.",
-    "explanation": "v = p/m = 20/4 = 5 m/s."
+    "explanation": "v = p/m = 20/4 = 5 m/s.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "5",
+      "7",
+      "4",
+      "10"
+    ],
+    "medium": {
+      "practice": "Uma massa de 5 kg tem momento 35 kg·m/s. Velocidade?",
+      "answer": "7",
+      "hint": "Isola v em p = mv.",
+      "explanation": "v = 35/5 = 7 m/s.",
+      "formatHint": "Escreve apenas o valor.",
+      "options": [
+        "7",
+        "9",
+        "6",
+        "14"
+      ]
+    }
   },
   {
     "id": "p-circular",
@@ -148,7 +288,27 @@
     "practice": "Se v = 6 m/s e r = 3 m, qual é a_c?",
     "answer": "12",
     "hint": "Calcula 6² e divide por 3.",
-    "explanation": "a_c = 36/3 = 12 m/s²."
+    "explanation": "a_c = 36/3 = 12 m/s².",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "12",
+      "14",
+      "11",
+      "24"
+    ],
+    "medium": {
+      "practice": "Se v = 8 m/s e r = 4 m, qual é a aceleração centrípeta?",
+      "answer": "16",
+      "hint": "Eleva v ao quadrado e divide por r.",
+      "explanation": "a_c = 8²/4 = 16 m/s².",
+      "formatHint": "Escreve apenas o valor.",
+      "options": [
+        "16",
+        "18",
+        "15",
+        "32"
+      ]
+    }
   },
   {
     "id": "p-fluids",
@@ -166,7 +326,27 @@
     "practice": "100 N actuam em 5 m². Pressão?",
     "answer": "20",
     "hint": "Divide força por área.",
-    "explanation": "p = 100/5 = 20 Pa."
+    "explanation": "p = 100/5 = 20 Pa.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "20",
+      "22",
+      "19",
+      "40"
+    ],
+    "medium": {
+      "practice": "Uma força de 180 N atua em 6 m². Pressão?",
+      "answer": "30",
+      "hint": "Usa p = F/A.",
+      "explanation": "p = 180/6 = 30 Pa.",
+      "formatHint": "Escreve apenas o valor.",
+      "options": [
+        "30",
+        "32",
+        "29",
+        "60"
+      ]
+    }
   },
   {
     "id": "p-heat",
@@ -184,7 +364,27 @@
     "practice": "Se m = 1 kg, c = 4000 e ΔT = 2°C, Q?",
     "answer": "8000",
     "hint": "Multiplica os três factores.",
-    "explanation": "Q = 1 × 4000 × 2 = 8000 J."
+    "explanation": "Q = 1 × 4000 × 2 = 8000 J.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "8000",
+      "8002",
+      "7999",
+      "16000"
+    ],
+    "medium": {
+      "practice": "m = 2 kg, c = 500 J/kg°C e ΔT = 4°C. Calor?",
+      "answer": "4000",
+      "hint": "Multiplica massa, calor específico e variação.",
+      "explanation": "Q = 2 × 500 × 4 = 4 000 J.",
+      "formatHint": "Escreve apenas o valor.",
+      "options": [
+        "4000",
+        "4002",
+        "3999",
+        "8000"
+      ]
+    }
   },
   {
     "id": "p-electricity",
@@ -203,7 +403,27 @@
     "practice": "Um aparelho usa 3 A a 10 V. Qual a potência?",
     "answer": "30",
     "hint": "P = V × I.",
-    "explanation": "P = 10 × 3 = 30 W."
+    "explanation": "P = 10 × 3 = 30 W.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "30",
+      "32",
+      "29",
+      "60"
+    ],
+    "medium": {
+      "practice": "Um resistor de 5 Ω ligado a 20 V. Corrente?",
+      "answer": "4",
+      "hint": "Aplica I = V/R.",
+      "explanation": "I = 20/5 = 4 A.",
+      "formatHint": "Escreve apenas o valor.",
+      "options": [
+        "4",
+        "6",
+        "3",
+        "8"
+      ]
+    }
   },
   {
     "id": "p-magnetism",
@@ -221,7 +441,27 @@
     "practice": "Se B = 1 T, I = 4 A e L = 2 m, força perpendicular?",
     "answer": "8",
     "hint": "Multiplica B, I e L.",
-    "explanation": "F = 1 × 4 × 2 = 8 N."
+    "explanation": "F = 1 × 4 × 2 = 8 N.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "8",
+      "10",
+      "7",
+      "16"
+    ],
+    "medium": {
+      "practice": "B = 2 T, I = 2 A e L = 3 m, fio perpendicular. Força?",
+      "answer": "12",
+      "hint": "Como é perpendicular, sen 90° = 1.",
+      "explanation": "F = BIL = 2 × 2 × 3 = 12 N.",
+      "formatHint": "Escreve apenas o valor.",
+      "options": [
+        "12",
+        "14",
+        "11",
+        "24"
+      ]
+    }
   },
   {
     "id": "p-waves",
@@ -239,6 +479,26 @@
     "practice": "Se v = 12 m/s e f = 4 Hz, qual é λ?",
     "answer": "3",
     "hint": "Isola λ: λ = v/f.",
-    "explanation": "λ = 12/4 = 3 m."
+    "explanation": "λ = 12/4 = 3 m.",
+    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "options": [
+      "3",
+      "5",
+      "2",
+      "6"
+    ],
+    "medium": {
+      "practice": "Uma onda tem v = 18 m/s e f = 6 Hz. Comprimento de onda?",
+      "answer": "3",
+      "hint": "Isola λ em v = fλ.",
+      "explanation": "λ = 18/6 = 3 m.",
+      "formatHint": "Escreve apenas o valor.",
+      "options": [
+        "3",
+        "5",
+        "2",
+        "6"
+      ]
+    }
   }
 ]
