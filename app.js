@@ -341,12 +341,12 @@ function drawTriFrame() {
 /* ===== Página dos triângulos: todos os triângulos + explicação que cresce ===== */
 
 function triPageCard(lesson) {
-  const t = lesson.formulaTri;
+  const formulaTri = lesson.formulaTri;
   const info = triExplain[lesson.id] || {};
   const deep = Array.isArray(info.deep) ? info.deep : [];
   const level = Math.min(Math.max((state.triDeep && state.triDeep[lesson.id]) || 0, 0), deep.length);
   const key = lesson.id.startsWith("p-") ? "physics" : "math";
-  return `<article class="card tri-card tri-page-card" data-lesson="${lesson.id}" data-level="${level}"><div class="tri-page-head"><div><p class="eyebrow" style="color:var(--${key === "physics" ? "coral" : "blue"})">${t(subjects[key].label)}</p><h2>${escapeHtml(lesson.title)}</h2></div><a class="text-link" href="#lesson/${lesson.id}">${t("Lição completa →")}</a></div><div class="tri-formula">${inlineWrite(`${t.top[0]} = ${t.left[0]} × ${t.right[0]}`)}</div><p class="tri-hint">${t("Tapa a grandeza que queres descobrir — como se tapasses com o dedo.")}</p><div class="tri-wrap"><svg class="tri-ink" aria-hidden="true"></svg>${triCell("top", t.top)}${triCell("left", t.left)}${triCell("right", t.right)}</div><div class="tri-result" aria-live="polite"></div><p class="tri-base">${escapeHtml(info.base || "")}</p><div class="tri-deep-extra">${deep.map(d => `<div class="tri-deep-block"><strong>${escapeHtml(d.t)}</strong><p>${escapeHtml(d.p)}</p></div>`).join("")}</div><button type="button" class="tri-drag" data-tri-drag aria-expanded="${level > 0}"><span class="tri-drag-grip" aria-hidden="true"></span><span class="tri-drag-label"></span></button></article>`;
+  return `<article class="card tri-card tri-page-card" data-lesson="${lesson.id}" data-level="${level}"><div class="tri-page-head"><div><p class="eyebrow" style="color:var(--${key === "physics" ? "coral" : "blue"})">${t(subjects[key].label)}</p><h2>${escapeHtml(lesson.title)}</h2></div><a class="text-link" href="#lesson/${lesson.id}">${t("Lição completa →")}</a></div><div class="tri-formula">${inlineWrite(`${formulaTri.top[0]} = ${formulaTri.left[0]} × ${formulaTri.right[0]}`)}</div><p class="tri-hint">${t("Tapa a grandeza que queres descobrir — como se tapasses com o dedo.")}</p><div class="tri-wrap"><svg class="tri-ink" aria-hidden="true"></svg>${triCell("top", formulaTri.top)}${triCell("left", formulaTri.left)}${triCell("right", formulaTri.right)}</div><div class="tri-result" aria-live="polite"></div><p class="tri-base">${escapeHtml(info.base || "")}</p><div class="tri-deep-extra">${deep.map(d => `<div class="tri-deep-block"><strong>${escapeHtml(d.t)}</strong><p>${escapeHtml(d.p)}</p></div>`).join("")}</div><button type="button" class="tri-drag" data-tri-drag aria-expanded="${level > 0}"><span class="tri-drag-grip" aria-hidden="true"></span><span class="tri-drag-label"></span></button></article>`;
 }
 
 function renderTriangles() {
