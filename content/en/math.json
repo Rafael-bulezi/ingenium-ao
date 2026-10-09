@@ -1,0 +1,1721 @@
+[
+  {
+    "id": "m-algebra",
+    "title": "Essential algebra",
+    "short": "Simplify, organize, and find the unknown value.",
+    "priority": true,
+    "minutes": 18,
+    "concept": "Algebra is the language of relationships. Before you calculate, spot the like terms and keep both sides of the equation balanced.",
+    "formula": "ax + b = c  →  x = (c − b) / a",
+    "example": "Solve: 3x + 5 = 20",
+    "steps": [
+      "Subtract 5 from both sides: 3x = 20 − 5 = 15.",
+      "Divide both sides by 3: x = 15 ÷ 3.",
+      "Result: x = 5. Check it: 3(5) + 5 = 20."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "3x + 5 = 20",
+          "say": "A first-degree equation: the trick is always the same — letter on one side, number on the other. Look here: three x plus five equals twenty.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "3x",
+              "color": "blue"
+            },
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "+ 5",
+              "color": "coral",
+              "note": "the number switches sides"
+            }
+          ]
+        },
+        {
+          "line": "3x = 20 - 5",
+          "say": "The plus five moves to the other side and flips its sign: it was plus five, now it's minus five. The letter stays alone on one side, the number on the other.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "+ 5"
+              },
+              "to": {
+                "l": 1,
+                "q": "- 5"
+              },
+              "bow": "up",
+              "note": "it flips the sign"
+            }
+          ]
+        },
+        {
+          "line": "3x = 15",
+          "say": "Twenty minus five gives fifteen. Everything stays simple: letter on one side, number on the other.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 2,
+              "q": "15",
+              "color": "lime"
+            }
+          ]
+        },
+        {
+          "line": "{3x/3} = {15/3}",
+          "say": "The three is multiplying the x, so you divide both sides by three. See how it comes down to the denominator on each side? The scale stays balanced.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 2,
+                "q": "3x"
+              },
+              "to": {
+                "l": 3,
+                "q": "3",
+                "o": 1
+              },
+              "bow": "up",
+              "note": "divide both sides by 3"
+            },
+            {
+              "k": "strike",
+              "l": 3,
+              "q": "3",
+              "o": 1,
+              "color": "coral"
+            },
+            {
+              "k": "strike",
+              "l": 3,
+              "q": "3",
+              "o": 2,
+              "color": "coral",
+              "note": "cross out both 3s"
+            }
+          ]
+        },
+        {
+          "line": "x = 5",
+          "say": "Fifteen divided by three gives five. Five is the root of the equation. Check: three times five, fifteen; plus five, twenty. It works.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 4,
+              "q": "5",
+              "color": "lime",
+              "note": "result"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "What is the value of x in 4x − 7 = 21?",
+    "answer": "7",
+    "hint": "First add 7 to both sides; then divide by 4.",
+    "explanation": "4x − 7 = 21 → 4x = 28 → x = 7.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "7",
+      "9",
+      "6",
+      "14"
+    ],
+    "medium": {
+      "practice": "Solve: 3x + 9 = 30.",
+      "answer": "7",
+      "hint": "Subtract 9 from both sides and divide by 3.",
+      "explanation": "3x + 9 = 30 → 3x = 21 → x = 7.",
+      "formatHint": "Write just the number.",
+      "options": [
+        "7",
+        "9",
+        "6",
+        "14"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "We start light: x + 5 = 20. What is the value of x?",
+        "answer": "15",
+        "hint": "The 5 moves to the other side and changes sign.",
+        "explanation": "20 − 5 = 15, so x = 15. Keep this 15 — you'll need it in a moment.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Now with multiplication: 3x = 15. What is x?",
+        "answer": "5",
+        "hint": "The 3 is multiplying, so it moves to the other side dividing.",
+        "explanation": "15 ÷ 3 = 5. That's the same 15 from question 1 — in the next one we join the two ideas.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Combine the two tricks: 3x + 5 = 20. What is x?",
+        "answer": "5",
+        "hint": "First take away the 5, then divide by 3.",
+        "explanation": "The 5 becomes a minus: 3x = 15 (the number from question 1) and x = 5. This is the teacher's example, built piece by piece.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Now solve one on your own: 2x + 7 = 19.",
+        "answer": "6",
+        "hint": "Subtract 7 from both sides and then divide by 2.",
+        "explanation": "2x = 12, so x = 6. Same method, new numbers. Check: 2(6) + 7 = 19.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Three times a number, plus 4, gives 25. What is the number?",
+        "answer": "7",
+        "hint": "Call the number x and set up the equation 3x + 4 = 25.",
+        "explanation": "3x = 21, so x = 7. Notice: you used the same two tricks as at the start — take away the 4 and divide by 3. This is exam style.",
+        "formatHint": "Write only the number."
+      }
+    ]
+  },
+  {
+    "id": "m-equations",
+    "title": "Equations and inequalities",
+    "short": "Solve equalities and compare intervals with confidence.",
+    "minutes": 16,
+    "concept": "An inequality follows the same rules as an equation, but when you multiply or divide by a negative number the sign changes direction.",
+    "formula": "−2x > 8  →  x < −4",
+    "example": "Solve: 2x + 3 ≤ 11",
+    "steps": [
+      "Subtract 3: 2x ≤ 8.",
+      "Divide by 2 (positive): x ≤ 4.",
+      "On the real number line, mark 4 with a closed circle and shade to the left."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "2x + 3 ≤ 11",
+          "say": "You solve an inequality like an equation: the trick is the same. There's only one detail. If you multiply or divide by a negative number, the sign flips. Keep an eye on it.",
+          "marks": [
+            {
+              "k": "underline",
+              "l": 0,
+              "q": "≤",
+              "color": "coral",
+              "note": "watch the sign"
+            }
+          ]
+        },
+        {
+          "line": "2x ≤ 11 - 3",
+          "say": "The plus three moves to the other side and changes sign.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "+ 3"
+              },
+              "to": {
+                "l": 1,
+                "q": "- 3"
+              },
+              "bow": "up",
+              "note": "it flips the sign"
+            }
+          ]
+        },
+        {
+          "line": "2x ≤ 8",
+          "say": "Eleven minus three gives eight.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 2,
+              "q": "8",
+              "color": "lime"
+            }
+          ]
+        },
+        {
+          "line": "x ≤ 4",
+          "say": "The two moves to the other side dividing. Two is positive, so the sign doesn't flip. Answer: x is less than or equal to four.",
+          "marks": [
+            {
+              "k": "underline",
+              "l": 3,
+              "q": "≤",
+              "color": "blue",
+              "note": "didn't flip"
+            },
+            {
+              "k": "circle",
+              "l": 3,
+              "q": "4",
+              "color": "lime",
+              "note": "answer"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "Solve: 5x − 10 > 0.",
+    "answer": "> 2",
+    "hint": "Add 10 and divide by 5.",
+    "explanation": "5x > 10 → x > 2. We divided by a positive number, so the sign stays.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "> 2",
+      "< 2",
+      "= 2",
+      "> 4"
+    ],
+    "medium": {
+      "practice": "Solve: 4x + 3 ≤ 19.",
+      "answer": "≤ 4",
+      "hint": "Subtract 3 and divide by 4.",
+      "explanation": "4x ≤ 16 → x ≤ 4.",
+      "formatHint": "Use the ≤ sign in your answer.",
+      "options": [
+        "≤ 4",
+        "≥ 4",
+        "< 4",
+        "= 4"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Solve: x + 3 ≤ 7. What is x?",
+        "answer": "x ≤ 4",
+        "hint": "Take the 3 off both sides, just like a normal equation.",
+        "explanation": "7 − 3 = 4 and the ≤ stays put, because we didn't touch any negative number. Keep this 4.",
+        "formatHint": "Write it as x ≤ 4."
+      },
+      {
+        "q": "And now: 2x ≤ 8. What is x?",
+        "answer": "x ≤ 4",
+        "hint": "The 2 moves over as a division; it's positive, so the sign doesn't flip.",
+        "explanation": "8 ÷ 2 = 4, again x ≤ 4. Keep the 8 — the next question joins the two.",
+        "formatHint": "Write it as x ≤ 4."
+      },
+      {
+        "q": "Put it all together: 2x + 3 ≤ 11. What is x?",
+        "answer": "x ≤ 4",
+        "hint": "Subtract 3 first, divide by 2 after.",
+        "explanation": "2x ≤ 8 (the number from question 2) and x ≤ 4. This is the teacher's example, with the sign staying put.",
+        "formatHint": "Write it as x ≤ 4."
+      },
+      {
+        "q": "Solve: 3x + 4 < 19. What is x?",
+        "answer": "x < 5",
+        "hint": "Subtract 4 and divide by 3 — everything is positive.",
+        "explanation": "3x < 15, so x < 5. Same method. The last one has a trap.",
+        "formatHint": "Write it as x < 5."
+      },
+      {
+        "q": "Last one, with the tricky detail: −2x > 8. What is x?",
+        "answer": "x < −4",
+        "hint": "You're about to divide by a negative number: remember the teacher's warning about the sign.",
+        "explanation": "8 ÷ (−2) = −4 and the > turns into <: x < −4. This is exactly the detail that costs marks on the exam.",
+        "formatHint": "Write it as x < −4."
+      }
+    ]
+  },
+  {
+    "id": "m-functions",
+    "title": "Functions and graphs",
+    "short": "Read inputs, outputs, and the slope of a line.",
+    "minutes": 17,
+    "concept": "In a function, every input x has an output f(x). In a linear function, the coefficient of x gives the slope and the constant term shows where the line crosses the y-axis.",
+    "formula": "f(x) = mx + b",
+    "example": "For f(x) = 2x + 1, calculate f(3)",
+    "steps": [
+      "Substitute x by 3: f(3) = 2(3) + 1.",
+      "Multiply: 2 × 3 = 6.",
+      "Add: f(3) = 6 + 1 = 7."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "f(x) = 2x + 1",
+          "say": "A function is a machine: a value goes in, a result comes out. Look at the machine: f of x equals two x plus one.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "x",
+              "o": 1,
+              "color": "blue",
+              "note": "the variable"
+            }
+          ]
+        },
+        {
+          "line": "f(3) = 2 × (3) + 1",
+          "say": "Now the three goes in: where the x was, I write three, with parentheses to be safe.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "2x"
+              },
+              "to": {
+                "l": 1,
+                "q": "2×(3)"
+              },
+              "bow": "up",
+              "note": "x becomes 3"
+            }
+          ]
+        },
+        {
+          "line": "f(3) = 6 + 1",
+          "say": "Two times three gives six.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 2,
+              "q": "6",
+              "color": "blue"
+            }
+          ]
+        },
+        {
+          "line": "f(3) = 7",
+          "say": "Six plus one gives seven. Answer: f of three is seven. Check it.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 3,
+              "q": "7",
+              "color": "lime",
+              "note": "result"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "If g(x) = 3x − 2, what is g(4)?",
+    "answer": "10",
+    "hint": "Swap x for 4 and follow the order of operations.",
+    "explanation": "g(4) = 3(4) − 2 = 12 − 2 = 10.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "10",
+      "12",
+      "9",
+      "20"
+    ],
+    "medium": {
+      "practice": "If f(x) = 4x − 3, what is f(5)?",
+      "answer": "17",
+      "hint": "Substitute x by 5 and calculate.",
+      "explanation": "f(5) = 4(5) − 3 = 17.",
+      "formatHint": "Write just the number.",
+      "options": [
+        "17",
+        "19",
+        "16",
+        "34"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Simple machine: f(x) = 2x. What is f(3)?",
+        "answer": "6",
+        "hint": "Where the x is, write 3 and multiply.",
+        "explanation": "2 × 3 = 6: 3 goes in, 6 comes out. Keep this 6 — the machine is about to grow.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "The machine gained a +1: f(x) = 2x + 1. What is f(3)?",
+        "answer": "7",
+        "hint": "It's the same 2 × 3 from question 1, with 1 more at the end.",
+        "explanation": "6 + 1 = 7 — that's the f(3) from the teacher's example. Now the same input goes through another machine.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "New machine: h(x) = 4x + 2. What is h(3)?",
+        "answer": "14",
+        "hint": "Substitute x by 3 and follow the order: multiply before you add.",
+        "explanation": "4 × 3 = 12, plus 2 gives 14. Same process, bigger numbers. Next one is exam style.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "If f(x) = 3x + 4, what is f(5)?",
+        "answer": "19",
+        "hint": "Do 3 × 5 and add 4 at the end.",
+        "explanation": "15 + 4 = 19. Keep this 19 — the last question is the same calculation backwards.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "In the function f(x) = 3x + 4, which x gives f(x) = 19?",
+        "answer": "x = 5",
+        "hint": "Set them equal: 3x + 4 = 19 and solve it like an equation.",
+        "explanation": "3x = 15, x = 5 — the same 19 from question 4, with the machine running backwards. Now that's exam style.",
+        "formatHint": "Write it as x = ..."
+      }
+    ]
+  },
+  {
+    "id": "m-systems",
+    "title": "Systems of equations",
+    "short": "Combine two clues to find two values.",
+    "minutes": 19,
+    "concept": "In a system, look for the pair (x, y) that satisfies both equations. Substitution and elimination are the fastest routes.",
+    "formula": "x + y = 10  e  x − y = 2",
+    "example": "Solve the system: x + y = 10; x − y = 2",
+    "steps": [
+      "Add the equations to eliminate y: 2x = 12.",
+      "Divide by 2: x = 6.",
+      "Substitute in the first one: 6 + y = 10, so y = 4."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "x + y = 10",
+          "say": "A system: two clues to find two values. First clue: x plus y equals ten.",
+          "marks": []
+        },
+        {
+          "line": "x - y = 2",
+          "say": "Second clue: x minus y equals two. Notice one thing: one has plus y, the other has minus y. Opposite signs.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "+ y",
+              "color": "coral"
+            },
+            {
+              "k": "circle",
+              "l": 1,
+              "q": "- y",
+              "color": "coral",
+              "note": "opposite signs"
+            }
+          ]
+        },
+        {
+          "line": "2x = 12",
+          "say": "Adding the two lines: x with x gives two x. Plus y with minus y — gone, gone — the y disappears. Ten plus two gives twelve.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "x"
+              },
+              "to": {
+                "l": 2,
+                "q": "2x"
+              },
+              "bow": "up",
+              "note": "add the two clues"
+            },
+            {
+              "k": "arrow",
+              "from": {
+                "l": 1,
+                "q": "2"
+              },
+              "to": {
+                "l": 2,
+                "q": "12"
+              },
+              "bow": "down",
+              "color": "blue"
+            }
+          ]
+        },
+        {
+          "line": "x = 6",
+          "say": "Twelve divided by two gives six. Half the road is done.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 3,
+              "q": "6",
+              "color": "lime"
+            }
+          ]
+        },
+        {
+          "line": "6 + y = 10",
+          "say": "Now I put the six into the first clue: six plus y equals ten.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "x"
+              },
+              "to": {
+                "l": 4,
+                "q": "6"
+              },
+              "bow": "up",
+              "note": "substitute"
+            }
+          ]
+        },
+        {
+          "line": "y = 4",
+          "say": "The y is four. Check: six plus four, ten; six minus four, two. Pair found: six and four.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 5,
+              "q": "4",
+              "color": "lime",
+              "note": "result"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "If x + y = 9 and x − y = 1, what is x?",
+    "answer": "5",
+    "hint": "Add the two equations to eliminate y.",
+    "explanation": "2x = 10 → x = 5. Then y = 4.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "5",
+      "7",
+      "4",
+      "10"
+    ],
+    "medium": {
+      "practice": "Solve: x + y = 14 and x − y = 4. What is x?",
+      "answer": "9",
+      "hint": "Add the equations to eliminate y.",
+      "explanation": "2x = 18 → x = 9.",
+      "formatHint": "Write only x.",
+      "options": [
+        "9",
+        "11",
+        "8",
+        "18"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "In the system x + y = 10 and x − y = 2, start by adding: what is 10 + 2?",
+        "answer": "12",
+        "hint": "Just add the numbers on the right.",
+        "explanation": "12. It looks easy — and it is: this is the first step of the teacher's system. Keep this 12.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Now divide that 12 by 2: what do you get?",
+        "answer": "6",
+        "hint": "It's half of 12.",
+        "explanation": "6. That's why in x + y = 10 and x − y = 2 the x is 6: you add the clues and divide by 2. Keep the 6.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "The full system: x + y = 10 and x − y = 2. What is x?",
+        "answer": "x = 6",
+        "hint": "Add the two clues: x with x gives 2x, and 10 + 2.",
+        "explanation": "2x = 12, so x = 6 — the numbers from questions 1 and 2 working together. Remember: 6 + y = 10.",
+        "formatHint": "Write it as x = ..."
+      },
+      {
+        "q": "New system: x + y = 14 and x − y = 4. What is x?",
+        "answer": "x = 9",
+        "hint": "Add the clues: 2x = 14 + 4.",
+        "explanation": "2x = 18, x = 9. Same trick of adding so that the y disappears. The other half of the pair is still missing.",
+        "formatHint": "Write it as x = ..."
+      },
+      {
+        "q": "In the same system, with x = 9: what is y? (x + y = 14)",
+        "answer": "y = 5",
+        "hint": "Put the 9 into the first clue: 9 + y = 14.",
+        "explanation": "y = 5. Check: 9 + 5 = 14 and 9 − 5 = 4. Pair found, just like the 6 and 4 in the teacher's example.",
+        "formatHint": "Write it as y = ..."
+      }
+    ]
+  },
+  {
+    "id": "m-powers",
+    "title": "Powers, roots and logarithms",
+    "short": "Spot exponent patterns and inverse operations.",
+    "minutes": 18,
+    "concept": "A power repeats a multiplication; a root undoes a power; a logarithm asks which exponent produces a number.",
+    "formula": "aᵐ · aⁿ = aᵐ⁺ⁿ  ·  √a² = a",
+    "example": "Simplify: 2³ × 2²",
+    "steps": [
+      "The bases are the same, so add the exponents: 2³⁺².",
+      "That gives 2⁵.",
+      "Calculate: 2⁵ = 32."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "2³ × 2²",
+          "say": "Powers with the same base: the trick is to add the exponents — no hesitation.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "³",
+              "color": "coral",
+              "note": "they add"
+            },
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "²",
+              "color": "coral"
+            }
+          ]
+        },
+        {
+          "line": "3 + 2 = 5",
+          "say": "Three plus two gives five. That's the new exponent.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "³"
+              },
+              "to": {
+                "l": 1,
+                "q": "3"
+              },
+              "bow": "up"
+            },
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "²"
+              },
+              "to": {
+                "l": 1,
+                "q": "2"
+              },
+              "bow": "down",
+              "color": "blue"
+            }
+          ]
+        },
+        {
+          "line": "2⁵ = 32",
+          "say": "That leaves two to the power of five. Two, four, eight, sixteen, thirty-two.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 2,
+              "q": "32",
+              "color": "lime",
+              "note": "result"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "What is the value of log₁₀(1000)?",
+    "answer": "3",
+    "hint": "Ask yourself: 10 to what power gives 1000?",
+    "explanation": "10³ = 1000, so log₁₀(1000) = 3.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "3",
+      "5",
+      "2",
+      "6"
+    ],
+    "medium": {
+      "practice": "Simplify: 2⁴ × 2³.",
+      "answer": "128",
+      "hint": "Add the exponents and calculate 2⁷.",
+      "explanation": "2⁴ × 2³ = 2⁷ = 128.",
+      "formatHint": "Write just the number.",
+      "options": [
+        "128",
+        "130",
+        "127",
+        "256"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: what is 2³?",
+        "answer": "8",
+        "hint": "2 × 2 × 2.",
+        "explanation": "8. Keep this 8 — you'll see it again at the end of the ladder.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Same base: 2³ × 2² becomes 2 to what power?",
+        "answer": "5",
+        "hint": "Add the exponents, don't hesitate.",
+        "explanation": "3 + 2 = 5, that's the new exponent. Now just work out the value.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "And exactly what is the value of 2³ × 2²?",
+        "answer": "32",
+        "hint": "It's 2⁵: count 2, 4, 8, 16, 32.",
+        "explanation": "32 — the same as 8 (question 1) times 4. Now on your own, with another power.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Simplify and calculate: 2⁴ × 2².",
+        "answer": "64",
+        "hint": "Add the exponents: 2⁴⁺² = 2⁶.",
+        "explanation": "2⁶ = 64. Multiplication mastered — the last question is the same idea backwards.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Question the other way round: 2 to what power gives 8? You write it as log₂(8).",
+        "answer": "3",
+        "hint": "Look for the 8 from question 1 and see which exponent was sitting on it.",
+        "explanation": "3, because 2³ = 8, so log₂(8) = 3. A logarithm is nothing more than this: asking what the exponent was.",
+        "formatHint": "Write only the number."
+      }
+    ]
+  },
+  {
+    "id": "m-trig",
+    "title": "Trigonometry",
+    "short": "Connect angles and sides in a right triangle.",
+    "priority": true,
+    "minutes": 20,
+    "concept": "Sine, cosine, and tangent compare the sides of a right triangle. Pick the ratio that contains the sides you know and the side you're looking for.",
+    "formula": "sin θ = opposite/hypotenuse · cos θ = adjacent/hypotenuse",
+    "example": "In a triangle, the hypotenuse = 10 and θ = 30°. Find the opposite side.",
+    "steps": [
+      "Opposite and hypotenuse call for sine: sin 30° = opposite/10.",
+      "Since sin 30° = 0.5, this becomes 0.5 = opposite/10.",
+      "Multiply by 10: opposite = 5."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "sin 30° = {opposite/10}",
+          "say": "Opposite and hypotenuse call for sine. The sine of thirty degrees equals the opposite side divided by the hypotenuse, ten.",
+          "marks": [
+            {
+              "k": "underline",
+              "l": 0,
+              "q": "opposite",
+              "color": "blue"
+            },
+            {
+              "k": "underline",
+              "l": 0,
+              "q": "10",
+              "color": "coral",
+              "note": "stacked fraction"
+            }
+          ]
+        },
+        {
+          "line": "0.5 = {opposite/10}",
+          "say": "The sine of thirty degrees is zero point five, a value worth knowing by heart.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "sin 30°"
+              },
+              "to": {
+                "l": 1,
+                "q": "0.5"
+              },
+              "bow": "up",
+              "note": "sin 30° = 0.5"
+            }
+          ]
+        },
+        {
+          "line": "opposite = 0.5 × 10",
+          "say": "The ten is dividing, so it moves to the other side multiplying. Cross-multiply, don't hesitate.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 1,
+                "q": "10"
+              },
+              "to": {
+                "l": 2,
+                "q": "× 10"
+              },
+              "bow": "down",
+              "note": "it becomes a multiplication"
+            }
+          ]
+        },
+        {
+          "line": "opposite = 5",
+          "say": "Zero point five times ten gives five. The opposite side measures five.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 3,
+              "q": "5",
+              "color": "lime",
+              "note": "result"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "If sin θ = 0.6 and the hypotenuse is 10, what is the opposite side?",
+    "answer": "6",
+    "hint": "Use sin θ = opposite / hypotenuse.",
+    "explanation": "0.6 = opposite/10 → opposite = 0.6 × 10 = 6.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "6",
+      "8",
+      "5",
+      "12"
+    ],
+    "medium": {
+      "practice": "In a triangle, cos θ = 0.8 and the hypotenuse is 10. What is the adjacent side?",
+      "answer": "8",
+      "hint": "Use cos θ = adjacent/hypotenuse.",
+      "explanation": "0.8 = adjacent/10 → adjacent = 8.",
+      "formatHint": "Write the value without the unit.",
+      "options": [
+        "8",
+        "10",
+        "7",
+        "16"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: what is 0.5 × 10?",
+        "answer": "5",
+        "hint": "It's half of 10.",
+        "explanation": "5. It looks like a joke, but this calculation is the last step of every sine question. Keep it.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Now the other way round: what is 5 ÷ 10?",
+        "answer": "0,5",
+        "hint": "The decimal point moves one place to the left.",
+        "explanation": "0.5. This division is exactly what sine does: the opposite divided by the hypotenuse. Keep the 0.5.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "In a triangle, sin θ = 0.5 and the hypotenuse measures 10. How long is the opposite side?",
+        "answer": "5",
+        "hint": "Sine = opposite ÷ hypotenuse; move the 10 over as a multiplication.",
+        "explanation": "opposite = 0.5 × 10 = 5 — the calculations from questions 1 and 2 at the same time. Now with a different sine.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "If sin θ = 0.4 and the hypotenuse is 10, what is the opposite side?",
+        "answer": "4",
+        "hint": "Same setup: opposite = sin θ × hypotenuse.",
+        "explanation": "0.4 × 10 = 4. Same trick, new number — it's the teacher's question with other values.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "In another triangle, cos θ = 0.8 and the hypotenuse measures 10 cm. How long is the adjacent side?",
+        "answer": "8 cm",
+        "hint": "Cosine links the adjacent side and the hypotenuse: adjacent = cos θ × hypotenuse.",
+        "explanation": "0.8 × 10 = 8, so 8 cm. Same machine as the sine, only the side changes — exam style.",
+        "formatHint": "Include the unit: write it as 8 cm."
+      }
+    ]
+  },
+  {
+    "id": "m-geometry",
+    "title": "Geometry",
+    "short": "Calculate areas, perimeters, and relationships between shapes.",
+    "minutes": 17,
+    "concept": "Draw the figure, identify the measurement you're asked for, and choose the formula before you put any numbers in.",
+    "formula": "A_rectangle = base × height",
+    "formulaTri": {
+      "top": [
+        "A",
+        "area",
+        "the area"
+      ],
+      "left": [
+        "b",
+        "base",
+        "the base"
+      ],
+      "right": [
+        "h",
+        "height",
+        "the height"
+      ]
+    },
+    "example": "What is the area of a rectangle 8 cm by 3 cm?",
+    "steps": [
+      "Choose the formula: A = b × h.",
+      "Substitute: A = 8 × 3.",
+      "Result: A = 24 cm²."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "A = base × height",
+          "say": "Before any counting, the formula: the area of a rectangle is the base times the height. And always draw the figure — it keeps you from swapping the values.",
+          "marks": [
+            {
+              "k": "sketch",
+              "shape": "rect",
+              "l": 0,
+              "color": "blue",
+              "note": "8 × 3"
+            }
+          ]
+        },
+        {
+          "line": "A = 8 × 3",
+          "say": "I substitute: eight times three.",
+          "marks": []
+        },
+        {
+          "line": "A = 24 cm²",
+          "say": "Twenty-four. And don't forget the unit: square centimeters.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 2,
+              "q": "24",
+              "color": "lime",
+              "note": "result"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "What is the perimeter of a square with side 6 cm?",
+    "answer": "24",
+    "hint": "A square has four equal sides.",
+    "explanation": "P = 4 × side = 4 × 6 = 24 cm.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "24",
+      "26",
+      "23",
+      "48"
+    ],
+    "medium": {
+      "practice": "What is the area of a triangle with base 12 cm and height 5 cm?",
+      "answer": "30",
+      "hint": "Use A = base × height ÷ 2.",
+      "explanation": "A = 12 × 5 ÷ 2 = 30 cm².",
+      "formatHint": "Write only the numerical value.",
+      "options": [
+        "30",
+        "32",
+        "29",
+        "60"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: what is the area of a rectangle 6 cm by 4 cm?",
+        "answer": "24",
+        "hint": "A = base × height: multiply 6 by 4.",
+        "explanation": "A = 6 × 4 = 24 cm². Keep this 6 — it comes right back in the next question.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Now the perimeter of a square with 6 cm sides?",
+        "answer": "24",
+        "hint": "A square has four equal sides: add all four.",
+        "explanation": "P = 4 × 6 = 24 cm. Same 24 as question 1, but now it's a perimeter: cm, not cm².",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Put the pieces together: a triangle with base 6 cm and height 4 cm. What is the area?",
+        "answer": "12",
+        "hint": "It's the rectangle's calculation, but divide by 2.",
+        "explanation": "A = 6 × 4 ÷ 2 = 12 cm². You used your 6 and 4 again: the triangle is half of the rectangle.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "New triangle, less round numbers: base 10 cm and height 7 cm. Area?",
+        "answer": "35",
+        "hint": "Multiply base by height and then divide by 2.",
+        "explanation": "10 × 7 = 70 and 70 ÷ 2 = 35 cm². Same trick. Next we go back to the rectangle, inside a problem.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Mini problem: a rectangular garden plot measures 7 m by 4 m. What is its area?",
+        "answer": "28 m²",
+        "hint": "It's the formula from question 1: base × height.",
+        "explanation": "A = 7 × 4 = 28 m². That's question 1 as a word problem — notice the unit: m², not m.",
+        "formatHint": "Include the unit: write it as 28 m²."
+      }
+    ]
+  },
+  {
+    "id": "m-vectors",
+    "title": "Vectors",
+    "short": "Work with direction, orientation, and components.",
+    "priority": true,
+    "minutes": 19,
+    "concept": "A vector has magnitude and direction. With components, add x with x and y with y; never mix different components.",
+    "formula": "R⃗ = (Rx, Ry)  ·  |R| = √(Rx² + Ry²)",
+    "example": "Add A = (3, 4) and B = (1, −2)",
+    "steps": [
+      "Add the x components: Rx = 3 + 1 = 4.",
+      "Add the y components: Ry = 4 − 2 = 2.",
+      "Result: R = (4, 2)."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "Rx = 3 + 1",
+          "say": "Vectors: each component with its matching one, x with x. The x component: three plus one.",
+          "marks": []
+        },
+        {
+          "line": "Ry = 4 + (-2)",
+          "say": "The y component: four plus minus two. Never mix x with y.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 1,
+              "q": "4",
+              "color": "blue"
+            },
+            {
+              "k": "circle",
+              "l": 1,
+              "q": "-2",
+              "color": "coral",
+              "note": "the sign joins the calculation"
+            }
+          ]
+        },
+        {
+          "line": "R = (4, 2)",
+          "say": "Three plus one gives four; four plus minus two gives two. Result: four, two.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 2,
+              "q": "(4, 2)",
+              "color": "lime",
+              "note": "answer"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "What is the magnitude of the vector (3, 4)?",
+    "answer": "5",
+    "hint": "Use Pythagoras: √(3² + 4²).",
+    "explanation": "|v| = √(9 + 16) = √25 = 5.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "5",
+      "7",
+      "4",
+      "10"
+    ],
+    "medium": {
+      "practice": "What is the magnitude of the vector (5, 12)?",
+      "answer": "13",
+      "hint": "Apply Pythagoras to the components.",
+      "explanation": "|v| = √(5² + 12²) = √169 = 13.",
+      "formatHint": "Write just the number.",
+      "options": [
+        "13",
+        "15",
+        "12",
+        "26"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: add A = (1, 2) and B = (2, 2). What is the sum vector?",
+        "answer": "(3, 4)",
+        "hint": "X with x, y with y: add matching components.",
+        "explanation": "1 + 2 = 3 and 2 + 2 = 4, so R = (3, 4). Keep this (3, 4) — we use it right after.",
+        "formatHint": "Write it in the form (x, y)."
+      },
+      {
+        "q": "Now the magnitude of the vector (3, 4). What is it?",
+        "answer": "5",
+        "hint": "Pythagoras: √(x² + y²).",
+        "explanation": "|R| = √(9 + 16) = √25 = 5. It's the same (3, 4) you just added, now with its magnitude.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Combine the tricks: add A = (3, 4) and B = (3, 4). What is the magnitude of the sum?",
+        "answer": "10",
+        "hint": "Add the components first, then apply Pythagoras.",
+        "explanation": "The sum gives (6, 8) and √(36 + 64) = √100 = 10. It's the 3-4-5 from question 2, now doubled.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Magnitude again, bigger numbers: vector (9, 12). What is it?",
+        "answer": "15",
+        "hint": "Same 3-4-5 family, but here it's √(9² + 12²).",
+        "explanation": "√(81 + 144) = √225 = 15. Same method, just with numbers three times bigger.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Mini problem: a drone flies 12 m east and 5 m north. What is the straight-line distance?",
+        "answer": "13 m",
+        "hint": "It's a magnitude: √(12² + 5²).",
+        "explanation": "√(144 + 25) = √169 = 13 m — the pair 5-12 gives 13, just as 3-4 gives 5. Exam style.",
+        "formatHint": "Include the unit: write it as 13 m."
+      }
+    ]
+  },
+  {
+    "id": "m-sequences",
+    "title": "Sequences",
+    "short": "Find the pattern and predict the next term.",
+    "minutes": 15,
+    "concept": "In an arithmetic progression, the difference is constant. In a geometric one, the ratio between terms is constant.",
+    "formula": "aₙ = a₁ + (n − 1)r",
+    "example": "In the sequence 4, 7, 10, … find the 6th term.",
+    "steps": [
+      "Identify the difference: r = 7 − 4 = 3.",
+      "Use a₆ = 4 + (6 − 1)×3.",
+      "Calculate: a₆ = 4 + 15 = 19."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "4, 7, 10, ...",
+          "say": "See the pattern: from four to seven, three; from seven to ten, three. The difference is always three.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "4"
+              },
+              "to": {
+                "l": 0,
+                "q": "7"
+              },
+              "bow": "up",
+              "note": "+3"
+            },
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "7"
+              },
+              "to": {
+                "l": 0,
+                "q": "10"
+              },
+              "bow": "up",
+              "color": "blue"
+            }
+          ]
+        },
+        {
+          "line": "a6 = 4 + 5 × 3",
+          "say": "From the first term to the sixth is five steps. So it reads: four plus five times three.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 1,
+              "q": "5",
+              "color": "blue",
+              "note": "5 steps"
+            }
+          ]
+        },
+        {
+          "line": "a6 = 4 + 15",
+          "say": "Five times three gives fifteen.",
+          "marks": []
+        },
+        {
+          "line": "a6 = 19",
+          "say": "Four plus fifteen, nineteen. That's the sixth term.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 3,
+              "q": "19",
+              "color": "lime",
+              "note": "6th term"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "What is the 5th term of 2, 5, 8, …?",
+    "answer": "14",
+    "hint": "The difference is 3; step forward four times from the first term.",
+    "explanation": "a₅ = 2 + (5 − 1)×3 = 2 + 12 = 14.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "14",
+      "16",
+      "13",
+      "28"
+    ],
+    "medium": {
+      "practice": "In the sequence 5, 9, 13, … what is the 5th term?",
+      "answer": "21",
+      "hint": "The difference is 4; apply the progression formula.",
+      "explanation": "a₅ = 5 + (5 − 1)×4 = 21.",
+      "formatHint": "Write just the number.",
+      "options": [
+        "21",
+        "23",
+        "20",
+        "42"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: in the sequence 3, 6, 9, … what is the next term?",
+        "answer": "12",
+        "hint": "Notice the jump: from 3 to 6, and from 6 to 9.",
+        "explanation": "9 + 3 = 12. The difference is always 3 — keep this 3, it's the engine of the sequence.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Still on 3, 6, 9, …: what is the 5th term?",
+        "answer": "15",
+        "hint": "From the 1st to the 5th is four steps of 3.",
+        "explanation": "a₅ = 3 + 4 × 3 = 15. Now you used the formula aₙ = a₁ + (n − 1)r. Keep this 15.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "If the 5th term is 15 and the difference is 3, what is the 6th term?",
+        "answer": "18",
+        "hint": "It's just one more step of 3 from the 15.",
+        "explanation": "15 + 3 = 18: after the formula, you only add the difference once. Now the difference changes.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "New sequence, difference 4: 6, 10, 14, … what is the 6th term?",
+        "answer": "26",
+        "hint": "The difference is 4; from the 1st to the 6th is five steps.",
+        "explanation": "a₆ = 6 + 5 × 4 = 26. Same recipe as question 2, just with other numbers.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Backwards: in the sequence 7, 10, 13, … which position holds the term 31?",
+        "answer": "9",
+        "hint": "31 = 7 + (n − 1) × 3: how many 3s fit into 31 − 7?",
+        "explanation": "31 − 7 = 24 and 24 ÷ 3 = 8 steps, so the position is 8 + 1 = 9. The formula backwards, exam style.",
+        "formatHint": "Write only the position number."
+      }
+    ]
+  },
+  {
+    "id": "m-calculus",
+    "title": "Limits and derivatives",
+    "short": "Read change and slope in simple functions.",
+    "minutes": 20,
+    "concept": "A limit describes how a function approaches a value. The derivative measures the instant rate of change — the slope of the curve at that point.",
+    "formula": "d/dx (xⁿ) = n·xⁿ⁻¹",
+    "example": "Differentiate f(x) = x² + 3x",
+    "steps": [
+      "Differentiate x²: 2x.",
+      "Differentiate 3x: 3.",
+      "Put the terms together: f'(x) = 2x + 3."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "f(x) = x² + 3x",
+          "say": "Differentiating means measuring the slope of the curve. We go term by term, with calm.",
+          "marks": []
+        },
+        {
+          "line": "(x²)' = 2x",
+          "say": "X squared: the exponent comes down and multiplies. The two moves to the front and you get two x.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "x²"
+              },
+              "to": {
+                "l": 1,
+                "q": "2x"
+              },
+              "bow": "up",
+              "note": "the exponent comes down"
+            }
+          ]
+        },
+        {
+          "line": "(3x)' = 3",
+          "say": "Three x becomes just three: the exponent was one, it came down, and the x disappears.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "3x"
+              },
+              "to": {
+                "l": 2,
+                "q": "3",
+                "o": 1
+              },
+              "bow": "down"
+            }
+          ]
+        },
+        {
+          "line": "f'(x) = 2x + 3",
+          "say": "I join the pieces: two x plus three. The derivative is ready.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 3,
+              "q": "2x",
+              "color": "lime"
+            },
+            {
+              "k": "circle",
+              "l": 3,
+              "q": "+ 3",
+              "color": "lime",
+              "note": "result"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "What is the derivative of f(x) = 5x?",
+    "answer": "5",
+    "hint": "The derivative of ax is the constant a.",
+    "explanation": "d/dx(5x) = 5.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "5",
+      "7",
+      "4",
+      "10"
+    ],
+    "medium": {
+      "practice": "Differentiate f(x) = 3x² + 2x.",
+      "answer": "6x + 2",
+      "hint": "Differentiate each term and join the results.",
+      "explanation": "f'(x) = 6x + 2.",
+      "formatHint": "Write the expression using x.",
+      "options": [
+        "6x + 2",
+        "2x + 2",
+        "6x − 2",
+        "x + 2"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: what is the derivative of f(x) = x²?",
+        "answer": "2x",
+        "hint": "The exponent comes down and multiplies the x.",
+        "explanation": "(x²)' = 2x: the 2 came to the front. Keep this 2x — you'll see it again later.",
+        "formatHint": "Write the expression with x, for example 4x."
+      },
+      {
+        "q": "And with a single term: what is the derivative of f(x) = 7x?",
+        "answer": "7",
+        "hint": "The x has exponent 1; when it comes down, the x disappears.",
+        "explanation": "(7x)' = 7: the coefficient is left on its own. Keep this 7 so you can join the pieces.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Join the pieces: what is the derivative of f(x) = x² + 7x?",
+        "answer": "2x + 7",
+        "hint": "Differentiate term by term, like in the teacher's example.",
+        "explanation": "f'(x) = 2x + 7 — the 2x from question 1 with the 7 from question 2. It's the lesson example with your own numbers.",
+        "formatHint": "Write the expression, for example 3x + 5."
+      },
+      {
+        "q": "Now differentiate f(x) = 5x² + 4x.",
+        "answer": "10x + 4",
+        "hint": "Bring each exponent down and multiply by the number in front.",
+        "explanation": "f'(x) = 10x + 4: 5 × 2 = 10 and the 4x becomes 4. Same recipe, new coefficients.",
+        "formatHint": "Write the expression, for example 3x + 5."
+      },
+      {
+        "q": "Exam style: differentiate f(x) = 3x² + x and calculate f'(2).",
+        "answer": "13",
+        "hint": "First the derivative; then substitute x by 2.",
+        "explanation": "f'(x) = 6x + 1, and f'(2) = 12 + 1 = 13. Differentiate, then evaluate at a point: that's how it lands on the exam.",
+        "formatHint": "Write only the number."
+      }
+    ]
+  },
+  {
+    "id": "m-probability",
+    "title": "Probability and statistics",
+    "short": "Measure possibilities and summarize data.",
+    "minutes": 18,
+    "concept": "Probability is the favorable cases divided by the possible cases. The mean adds the data up and divides by how many values there are.",
+    "formula": "P(E) = favoráveis / possíveis",
+    "formulaTri": {
+      "top": [
+        "F",
+        "favorable",
+        "the favorable cases"
+      ],
+      "left": [
+        "P",
+        "probability",
+        "the probability"
+      ],
+      "right": [
+        "T",
+        "total",
+        "the total number of cases"
+      ]
+    },
+    "example": "A bag holds 3 red balls and 2 blue ones. P(red)?",
+    "steps": [
+      "Count the favorable cases: 3 red balls.",
+      "Count the total: 3 + 2 = 5 balls.",
+      "P(red) = 3/5 = 0.6 = 60%."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "P = {favoráveis/possíveis}",
+          "say": "Probability is a ratio: the favorable cases divided by the possible cases.",
+          "marks": [
+            {
+              "k": "note",
+              "l": 0,
+              "q": "favoráveis",
+              "color": "blue",
+              "note": "what I want"
+            },
+            {
+              "k": "underline",
+              "l": 0,
+              "q": "possíveis",
+              "color": "coral",
+              "note": "the total"
+            }
+          ]
+        },
+        {
+          "line": "P = {3/(3 + 2)}",
+          "say": "Favorable: the three red balls. Possible: all the balls, three plus two.",
+          "marks": []
+        },
+        {
+          "line": "P = {3/5}",
+          "say": "Three out of five.",
+          "marks": []
+        },
+        {
+          "line": "P = 0,6 = 60%",
+          "say": "Zero point six, or sixty percent. That's the probability of drawing red.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 3,
+              "q": "60%",
+              "color": "lime",
+              "note": "answer"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "What is the mean of 4, 6 and 8?",
+    "answer": "6",
+    "hint": "Add the three values and divide by 3.",
+    "explanation": "Mean = (4 + 6 + 8)/3 = 18/3 = 6.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "6",
+      "8",
+      "5",
+      "12"
+    ],
+    "medium": {
+      "practice": "A bag holds 4 red balls and 6 blue ones. P(red)?",
+      "answer": "0,4",
+      "hint": "Divide the favorable cases by the total.",
+      "explanation": "P = 4/(4+6) = 0.4 = 40%.",
+      "formatHint": "Accepts 0.4 or 40%.",
+      "options": [
+        "0,4",
+        "2,4",
+        "-0,6",
+        "0,8"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: a bag holds 1 red ball and 1 blue one. What is the probability of drawing red?",
+        "answer": "0,5",
+        "hint": "Favorable 1, possible 2: build the ratio.",
+        "explanation": "P = 1/2 = 0.5. Half. Now we'll put more balls in the bag.",
+        "formatHint": "Write it as a decimal (comma or point)."
+      },
+      {
+        "q": "Now the bag has 3 red and 1 blue. What is the probability of drawing red?",
+        "answer": "0,75",
+        "hint": "Favorable 3; possible 3 + 1.",
+        "explanation": "P = 3/4 = 0.75, or 75%. Keep this 0.75 — you need it in a moment.",
+        "formatHint": "Write it as a decimal (comma or point)."
+      },
+      {
+        "q": "In the same bag (3 red, 1 blue), what is the probability of drawing blue?",
+        "answer": "0,25",
+        "hint": "It's what's missing for all the probabilities to add up to 1.",
+        "explanation": "P = 1/4 = 0.25 and 0.75 + 0.25 = 1: together the two cover every case. Notice how 0.75 and 0.25 complete each other up to 1.",
+        "formatHint": "Write it as a decimal (comma or point)."
+      },
+      {
+        "q": "New bag: 7 red balls and 3 blue ones. What is the probability of drawing red?",
+        "answer": "0,7",
+        "hint": "Same ratio: 7 favorable over the total.",
+        "explanation": "P = 7/10 = 0.7, or 70%. Same method with new numbers. The other half of the lesson is still missing: the mean.",
+        "formatHint": "Write it as a decimal (comma or point)."
+      },
+      {
+        "q": "Now the mean: Maria scored 12, 14 and 19. What is her mean?",
+        "answer": "15",
+        "hint": "Add the three values and divide by 3.",
+        "explanation": "Mean = (12 + 14 + 19) ÷ 3 = 45 ÷ 3 = 15. It's the same divide-by-the-total move you already used in probability.",
+        "formatHint": "Write only the number."
+      }
+    ]
+  },
+  {
+    "id": "m-word",
+    "title": "Word problems",
+    "short": "Turn text into equations and decide with a method.",
+    "minutes": 16,
+    "concept": "Read twice: first to understand, then to mark the data and the question. Name the unknown and write the relationship before you calculate.",
+    "formula": "dados → incógnita → relação → cálculo → unidade",
+    "example": "A book costs 2 500 Kz after a 20% discount. What was the original price?",
+    "steps": [
+      "If the original price is P, after the discount you have 80% of P.",
+      "Write 0.8P = 2 500.",
+      "Divide: P = 2 500/0.8 = 3 125 Kz."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "x + 7 = 19",
+          "say": "A number we don't know? We call it x. A number plus seven gives nineteen. The equation is set up.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "x",
+              "color": "blue",
+              "note": "the number"
+            }
+          ]
+        },
+        {
+          "line": "x = 19 - 7",
+          "say": "The plus seven moves to the other side subtracting: it changed sides, so it changes sign.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "+ 7"
+              },
+              "to": {
+                "l": 1,
+                "q": "- 7"
+              },
+              "bow": "up",
+              "note": "it flips the sign"
+            }
+          ]
+        },
+        {
+          "line": "x = 12",
+          "say": "Nineteen minus seven gives twelve. The number is twelve. Check: twelve plus seven, nineteen. It works.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 2,
+              "q": "12",
+              "color": "lime",
+              "note": "answer"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "A number increased by 7 gives 19. What is the number?",
+    "answer": "12",
+    "hint": "Call the number x and write x + 7 = 19.",
+    "explanation": "x + 7 = 19 → x = 19 − 7 = 12.",
+    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "options": [
+      "12",
+      "14",
+      "11",
+      "24"
+    ],
+    "medium": {
+      "practice": "A product costs 3 000 Kz after a 25% discount. Original price?",
+      "answer": "4000",
+      "hint": "The 3 000 Kz are 75% of the original price.",
+      "explanation": "0.75P = 3 000 → P = 4 000 Kz.",
+      "formatHint": "Write only the value, without Kz.",
+      "options": [
+        "4000",
+        "4002",
+        "3999",
+        "8000"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: a number plus 3 gives 10. What is the number?",
+        "answer": "7",
+        "hint": "Call it x and move the 3 to the other side as a subtraction.",
+        "explanation": "x = 10 − 3 = 7. Keep this 7 — it comes right back in question 3.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "And if it's minus: a number minus 4 gives 9. What is the number?",
+        "answer": "13",
+        "hint": "Now the 4 switches sides and adds.",
+        "explanation": "x = 9 + 4 = 13. Same trick as question 1, backwards: what subtracts moves over as adding.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Now with doubling: twice a number is 14. What is the number?",
+        "answer": "7",
+        "hint": "Undo the operation: if it's twice the number, divide by 2.",
+        "explanation": "x = 14 ÷ 2 = 7 — there's the 7 from question 1 again. Undoing an operation is always this: adding ↔ subtracting, multiplying ↔ dividing.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "A coat costs 4 000 Kz after a 20% discount. What was the original price?",
+        "answer": "5000",
+        "hint": "The 4 000 Kz are 80% of the original: write 0.8P = 4 000.",
+        "explanation": "P = 4 000 ÷ 0.8 = 5 000 Kz. It's the lesson example with new numbers: first the relationship, only then the calculation.",
+        "formatHint": "Write only the number, without Kz."
+      },
+      {
+        "q": "The other way round: a phone costs 8 000 Kz and has a 25% discount. How much do you pay?",
+        "answer": "6000",
+        "hint": "If the discount is 25%, you pay 75% of the price.",
+        "explanation": "8 000 × 0.75 = 6 000 Kz. It's question 4 backwards: there you looked for the old price, here for the price with the discount already applied.",
+        "formatHint": "Write only the number, without Kz."
+      }
+    ]
+  }
+]

@@ -37,6 +37,9 @@ a { color: inherit; text-decoration: none; }
 .brand-mark { flex: none; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; background: var(--lime); }
 .brand-mark svg { display: block; }
 .topbar-actions { display: flex; align-items: center; gap: 12px; }
+.lang-switch { display: flex; align-items: center; height: 38px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--white); }
+.lang-switch button { width: 33px; height: 100%; border: 0; background: transparent; color: var(--ink-soft); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
+.lang-switch button[aria-pressed="true"] { background: var(--ink); color: var(--lime); }
 .icon-button, .avatar { width: 38px; height: 38px; border: 1px solid var(--line); background: var(--white); border-radius: 12px; display: grid; place-items: center; color: var(--ink-soft); }
 .icon-button:hover { color: var(--ink); border-color: var(--ink); }
 .avatar { border: 0; background: var(--ink); color: var(--lime); font-size: 11px; font-weight: 800; }
@@ -288,16 +291,38 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
 }
 /* ===== Quadro manuscrito (exemplo guiado) ===== */
 .example-card .example-label .tag { white-space: nowrap; }
-.quadro { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; min-height: 224px; padding: 32px 24px 36px; border-radius: var(--radius-md); background: #fffdf6; border: 1px solid #e6e1d0; box-shadow: inset 0 2px 0 rgba(255,255,255,.9), inset 0 -20px 32px rgba(19,34,56,.035), 0 12px 28px rgba(19,34,56,.07); }
+.quadro { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; min-height: 348px; padding: 44px 30px 52px; border-radius: var(--radius-md); background: #fffdf6; border: 1px solid #e6e1d0; box-shadow: inset 0 2px 0 rgba(255,255,255,.9), inset 0 -20px 32px rgba(19,34,56,.035), 0 12px 28px rgba(19,34,56,.07); }
 .quadro::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(#e9e4d2 1px, transparent 1.1px); background-size: 21px 21px; pointer-events: none; }
-/* gap fits a note (18px, 9px under its line) with real air left over; arrow arcs bow ~16–20px */
-.quadro-lines { position: relative; z-index: 2; display: grid; gap: 38px; }
+/* the gap has to swallow an arc (≈34 px of bow) plus one 18 px note, or annotations land on the next line */
+.quadro-lines { position: relative; z-index: 2; display: grid; gap: 74px; }
 .quadro-line { position: relative; min-height: 1.5em; text-align: center; }
 .quadro-line .eq { display: inline-block; font-family: "Kalam", "Plus Jakarta Sans", sans-serif; font-weight: 400; font-size: clamp(22px, 3.4vw, 27px); line-height: 1.4; color: #26324c; letter-spacing: .015em; }
 .quadro-line.final .eq { color: #2e7c43; }
 .quadro-ink { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: visible; }
 .quadro-notes { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
 .quadro-note { position: absolute; transform: translate(-50%, 0) rotate(var(--rot, -2deg)); font-family: "Caveat", "Plus Jakarta Sans", cursive; font-weight: 600; font-size: 18px; line-height: 1; white-space: nowrap; }
+/* ===== Passo a passo: número, voz por passo, navegação ===== */
+.quadro-line .step-badge { position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 27px; height: 27px; display: grid; place-items: center; border: 1.6px solid #c3cadb; border-radius: 50%; font-family: "Kalam", "Plus Jakarta Sans", cursive; font-size: 15px; font-weight: 700; color: #8592a8; }
+.quadro-line.current-line .step-badge { border-color: var(--ink); background: var(--lime); color: var(--ink); }
+.step-voice { position: absolute; right: 0; top: 50%; width: 30px; height: 30px; transform: translateY(-50%); display: grid; place-items: center; border: 1px solid #e6e1d0; border-radius: 10px; background: rgba(255,253,246,.92); color: #93a0b5; transition: color .16s ease, border-color .16s ease; }
+.step-voice:hover { color: var(--ink); border-color: var(--ink); }
+.step-voice.speaking { color: var(--lime-dark); border-color: var(--lime-dark); background: #f2fbE6; }
+.quadro-full .quadro-line .step-badge { left: 4px; }
+.quadro-full .step-voice { right: 4px; }
+.step-nav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+.step-chips { display: flex; gap: 6px; }
+.step-chip { width: 31px; height: 31px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--white); color: var(--ink-soft); font-family: "DM Mono", monospace; font-size: 11.5px; display: grid; place-items: center; transition: background .16s ease, color .16s ease, border-color .16s ease; }
+.step-chip:hover { border-color: var(--ink-soft); color: var(--ink); }
+.step-chip[aria-current="true"] { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.ladder-dots button { flex: 1; height: 6px; min-width: 18px; padding: 0; border: 0; border-radius: 4px; background: var(--paper-2); transition: background .2s ease, transform .2s ease; }
+.ladder-dots button.done { background: var(--lime-dark); }
+.ladder-dots button:hover { transform: scaleY(1.9); }
+.ladder-dots button[aria-current="true"] { background: var(--ink); transform: scaleY(1.9); }
+.lesson-timer { display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); font-family: "DM Mono", monospace; font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+.lesson-timer small { color: #9aa6b6; font-size: 10.5px; }
+.lesson-timer.under-par { color: var(--lime-dark); border-color: #cbe6a8; }
+.lesson-head .lesson-timer { margin-left: auto; align-self: center; flex: none; }
+@media (max-width: 520px) { .lesson-head { flex-wrap: wrap; } .lesson-head .lesson-timer { margin-left: 0; } }
 /* ===== Fracções verticais (linhas do quadro e triângulo) ===== */
 /* .84em keeps the num/den pair from inflating the handwritten line; middle + small nudge keeps "x = 15/3" on one baseline */
 .quadro-line .frac, .tri-eq .frac { display: inline-flex; flex-direction: column; align-items: stretch; vertical-align: middle; margin: 0 .16em; transform: translateY(-.05em); font-size: .84em; text-align: center; }
@@ -373,8 +398,8 @@ body.qf-lock { overflow: hidden; }
 body.qf-lock .bottom-nav { display: none; }
 
 @media (max-width: 520px) {
-  .quadro { min-height: 196px; padding: 26px 18px 30px; }
-  .quadro-lines { gap: 32px; } /* 16px notes need the same air as desktop */
+  .quadro { min-height: 288px; padding: 34px 16px 42px; }
+  .quadro-lines { gap: 56px; } /* arcs and notes still need a full lane between lines */
   .quadro-line .eq { font-size: 21px; }
   .quadro-note { font-size: 16px; }
   .example-label { flex-wrap: wrap; }
@@ -388,6 +413,9 @@ body.qf-lock .bottom-nav { display: none; }
   .tri-sym { font-size: 26px; }
   .tri-cell small { font-size: 9px; }
   .tri-eq { font-size: 21px; padding: 6px 16px 8px; }
+  .quadro-note { font-size: 16px; }
+  .quadro-line .step-badge { width: 23px; height: 23px; font-size: 13px; }
+  .step-voice { width: 27px; height: 27px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

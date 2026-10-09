@@ -1,0 +1,122 @@
+[
+  {
+    "subject": "Mathematics",
+    "prompt": "Solve: 2x + 6 = 18.",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "12"
+    ],
+    "correct": 1,
+    "explanation": "2x = 12, so x = 6."
+  },
+  {
+    "subject": "Physics",
+    "prompt": "A 5 kg body receives a resultant force of 20 N. The acceleration is…",
+    "options": [
+      "2 m/s²",
+      "4 m/s²",
+      "15 m/s²",
+      "100 m/s²"
+    ],
+    "correct": 1,
+    "explanation": "By the second law: a = F/m = 20/5 = 4 m/s²."
+  },
+  {
+    "subject": "Mathematics",
+    "prompt": "What is the area of a triangle with base 8 cm and height 5 cm?",
+    "options": [
+      "13 cm²",
+      "20 cm²",
+      "40 cm²",
+      "80 cm²"
+    ],
+    "correct": 1,
+    "explanation": "A = (base × height)/2 = (8 × 5)/2 = 20 cm²."
+  },
+  {
+    "subject": "Physics",
+    "prompt": "A 4 Ω resistor is connected to 12 V. The current is…",
+    "options": [
+      "0.33 A",
+      "3 A",
+      "8 A",
+      "48 A"
+    ],
+    "correct": 1,
+    "explanation": "I = V/R = 12/4 = 3 A."
+  },
+  {
+    "subject": "Mathematics",
+    "prompt": "If sin θ = 0.5 and the hypotenuse is 10, the opposite side measures…",
+    "options": [
+      "5",
+      "10",
+      "20",
+      "0.05"
+    ],
+    "correct": 0,
+    "explanation": "sin θ = opposite/hypotenuse, so opposite = 0.5 × 10 = 5."
+  },
+  {
+    "subject": "Physics",
+    "prompt": "What is the work of a 15 N force that moves something 3 m in the same direction?",
+    "options": [
+      "5 J",
+      "18 J",
+      "45 J",
+      "90 J"
+    ],
+    "correct": 2,
+    "explanation": "W = Fd = 15 × 3 = 45 J."
+  },
+  {
+    "subject": "Mathematics",
+    "prompt": "The mean of 6, 8 and 10 is…",
+    "options": [
+      "7",
+      "8",
+      "9",
+      "24"
+    ],
+    "correct": 1,
+    "explanation": "(6 + 8 + 10)/3 = 24/3 = 8."
+  },
+  {
+    "subject": "Physics",
+    "prompt": "72 km/h is the same as…",
+    "options": [
+      "7.2 m/s",
+      "20 m/s",
+      "72 m/s",
+      "259.2 m/s"
+    ],
+    "correct": 1,
+    "explanation": "Divide by 3.6: 72/3.6 = 20 m/s."
+  },
+  {
+    "subject": "Mathematics",
+    "prompt": "What is the derivative of f(x) = x²?",
+    "options": [
+      "x",
+      "2x",
+      "x²/2",
+      "2"
+    ],
+    "correct": 1,
+    "explanation": "By the power rule, d(x²)/dx = 2x."
+  },
+  {
+    "subject": "Physics",
+    "prompt": "A wave with f = 4 Hz and λ = 3 m has a speed of…",
+    "options": [
+      "0.75 m/s",
+      "7 m/s",
+      "12 m/s",
+      "24 m/s"
+    ],
+    "correct": 2,
+    "explanation": "v = fλ = 4 × 3 = 12 m/s."
+  }
+]

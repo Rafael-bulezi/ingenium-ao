@@ -26,7 +26,9 @@ for the Metodista engineering access exam. Repo dir: `metodista-engineering-prep
 | localStorage key | `metodista-prep-v1` — **never rename** (users' progress lives here) |
 | Content | 25 lessons (12 math + 13 physics), **125 ladder questions (5/lesson)**, 12 walkthroughs (math), 10 formulaTri (2 math + 8 physics) + `content/triangles.json` (base + 2 deep levels each), 77 audio MP3s (30 of them `*-tri-*`) |
 | Routes | `#/` home · `#/path/:subject` · `#/lesson/:id` · `#/triangles` · `#/test` · `#/profile` |
-| State keys | `completed[]`, `practice{}`, `test`, `voiceOff`, **`prep`** (modo preparação: abre todas as lições), **`triDeep{lessonId:0-2}`** (nível expandido de cada triângulo) |
+| State keys | `completed[]`, `practice{}`, `test`, `voiceOff`, **`prep`** (modo preparação: abre todas as lições), **`triDeep{lessonId:0-2}`** (nível expandido de cada triângulo), **`lang`** (`pt`/`en`), **`time{lessonId:seconds}`** (cronómetro por lição) |
+| Languages | PT = `content/*.json` + `audio/*.mp3`; EN = `content/en/*.json` + `audio/en/*.mp3`. UI chrome lives in the `EN` map in `app.js` (PT literal → English); `check-i18n-coverage.mjs` proves no `t()` literal is missing an entry |
+| Logo | `favicon.svg` + the same geometry inline in `index.html` `.brand-mark`: cover-triangle (outline + divider bar + filled bottom-left cell). One idea, monochrome-safe, legible at 16px |
 
 ## 3. Repeatable recipes
 
@@ -53,9 +55,19 @@ POST  /v10/projects/<new>/domains  {"name":"<new>.vercel.app"}
 **Mobile QA** — use the mobile-viewport-qa skill harness (same-origin iframe, 390/375/320);
 for full-page views use a tall iframe (`h=4200`) + `screenshot({fullPage:true})`.
 
-## 4. Stumbling blocks (what we did wrong)
+**Narration (re)generation — free, keyless edge-tts; run after changing any `say` text:**
+```bash
+cd "C:/Users/rafae/Documents/Qoder/2026-10-09/3a69f352"
+node build-audio-manifest.mjs                     # rebuilds audio-manifest-pt.json + -en.json from content
+PYTHONIOENCODING=utf-8 python audio-batch2.py audio-manifest-pt.json pt-PT-DuarteNeural metodista-engineering-prep/audio
+PYTHONIOENCODING=utf-8 python audio-batch2.py audio-manifest-en.json en-US-AvaMultilingualNeural metodista-engineering-prep/audio
+node patch-en-canvas-lines.mjs                    # after touching EN walkthrough lines/refs (asserts REFS OK)
+node check-i18n-coverage.mjs                      # every t() literal has an English entry
+```
+`audio-batch2.py` is resume-safe (skips files > 1500 b) — delete the target files to force a redo.
+To try the more expressive Brazilian voice instead: `pt-BR-ThalitaMultilingualNeural`.
 
-1. **Vercel rename ≠ domain move.** After `PATCH`ing the project to `ingenium-ao`, the new domain
+## 4. Stumbling blocks (what we did wrong)1. **Vercel rename ≠ domain move.** After `PATCH`ing the project to `ingenium-ao`, the new domain
    404'd (`DEPLOYMENT_NOT_FOUND`) because `rota-engenharia.vercel.app` was an explicitly attached
    domain. Fix: `POST /v10/projects/ingenium-ao/domains {"name":"ingenium-ao.vercel.app"}`. Always
    re-check `<name>.vercel.app` with curl after a rename.
@@ -92,6 +104,25 @@ for full-page views use a tall iframe (`h=4200`) + `screenshot({fullPage:true})`
     needs a cache-bust. When Playwright input is untrustworthy, drive the app's own handlers from the
     same-origin harness (`el.dispatchEvent(new PointerEvent(...))`, `el.click()`) — deterministic, and
     it reads real heights/levels.
+
+14. **Programmatic navigation left the URL stale → "the lesson won't open".** `navigate()` never
+    wrote `location.hash`, so after the back button the URL still said `#/lesson/x`; clicking that
+    same lesson set an identical hash, no `hashchange` fired, nothing happened. Fix: `syncHash()`
+    (`history.replaceState`, which cannot loop) called from `render()`.
+15. **Annotation arrows were pinned to one bow direction**, so they crossed the `=` and the notes
+    landed on the next line's equation. Fix: generate candidate routes (over/under/lane/around-each
+    end), score sampled points against the real text boxes, take the cleanest; notes get placed the
+    same way against text **and** already-placed notes. Anchor a note to the *midpoint of the drawn
+    path*, not to a corner of the route, or narrow screens push it to the top of the board.
+16. **Translating content while keeping annotation refs valid is a trap.** `walkthrough.line` and
+    the marks' `q` strings are matched character-by-character, so a translator must change them
+    *together* or not at all. `patch-en-canvas-lines.mjs` does both and then proves every `q`
+    resolves in all four content files (`REFS OK`). `formula` is display-only, so it is safe to
+    translate on its own.
+17. **Playwright input through the harness iframe is untrustworthy** (clicks return ok but deliver
+    nothing; `force: true` works for cells but the auto-hiding nav drifts out from under the click).
+    For logic, drive the app's own handlers from the same-origin harness with `dispatchEvent` /
+    `el.click()`; keep screenshots for layout only.
 
 ## 5. Standing constraints
 

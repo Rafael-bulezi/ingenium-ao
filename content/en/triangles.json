@@ -1,0 +1,72 @@
+{
+  "m-geometry": {
+    "base": "The area of a rectangle is the base times the height. If you know the area and one side, you divide to find the other.",
+    "deep": [
+      { "t": "How to use it", "p": "Cover the quantity you want to find. With your finger over A, you get A = b × h. Cover b and you get b = A ÷ h. The spot in the triangle gives you the right operation — you don't need to memorize three formulas." },
+      { "t": "On the exam", "p": "A rectangle 8 cm by 3 cm has area 8 × 3 = 24 cm². Always write the unit: centimeter times centimeter gives square centimeters." }
+    ]
+  },
+  "m-probability": {
+    "base": "Probability is the favorable cases divided by the possible cases. The result always stays between 0 and 1 — or between 0% and 100%.",
+    "deep": [
+      { "t": "How to use it", "p": "Cover P and divide the favorable cases by the total. Cover F and multiply P by the total. Cover T and divide the favorable cases by the probability. It's the same move for any question." },
+      { "t": "On the exam", "p": "3 red balls out of 5 in total: P = 3 ÷ 5 = 0.6, or 60%. If the question asks for a percentage, multiply the result by 100 and write the % sign." }
+    ]
+  },
+  "p-motion": {
+    "base": "If you have two of the three — distance, speed, time — cover the third one in the triangle and the math appears.",
+    "deep": [
+      { "t": "How to use it", "p": "Distance: cover Δs and multiply v by Δt. Speed: cover v and divide Δs by Δt. Time: cover Δt and divide Δs by v. Dividing is always the move that isolates a quantity." },
+      { "t": "On the exam", "p": "120 m in 6 s → v = 120 ÷ 6 = 20 m/s. Answer with the right unit: m/s, not just 20. If they want km/h, convert: multiply by 3.6." }
+    ]
+  },
+  "p-newton": {
+    "base": "Force is mass times acceleration. More mass or more acceleration always gives more force.",
+    "deep": [
+      { "t": "How to use it", "p": "Cover F and multiply m by a. Cover m and divide F by a. Cover a and divide F by m. Before you divide, check that the units are in SI: kg, m/s², N." },
+      { "t": "On the exam", "p": "20 N applied to a mass of 4 kg → a = 20 ÷ 4 = 5 m/s². Notice the question gave you the force, not the acceleration: the triangle exists for exactly that." }
+    ]
+  },
+  "p-forces": {
+    "base": "Weight is the force of gravity acting on a mass: mass times gravity. In exam calculations, use g = 10 m/s².",
+    "deep": [
+      { "t": "How to use it", "p": "Cover P and multiply m by g. Cover m and divide P by g. Cover g and divide P by m — this is how you find the gravity of another planet." },
+      { "t": "On the exam", "p": "6 kg × 10 = 60 N. Weight is in newtons (N) and mass is in kilograms (kg): they are different quantities, and the question pays for that distinction." }
+    ]
+  },
+  "p-energy": {
+    "base": "Work measures the energy used: power times time. More power or more time means more energy.",
+    "deep": [
+      { "t": "How to use it", "p": "Cover W and multiply P by t. Cover P and divide W by t — that gives you the power from the energy used. Cover t and divide W by P." },
+      { "t": "On the exam", "p": "50 W for 4 s → W = 50 × 4 = 200 J. Watch the letters: J (joule) for energy and W (watt) for power — don't swap them." }
+    ]
+  },
+  "p-momentum": {
+    "base": "Momentum is mass times velocity. A slow van can have more momentum than a very fast ball.",
+    "deep": [
+      { "t": "How to use it", "p": "Cover p and multiply m by v. Cover m and divide p by v. Cover v and divide p by m. The move is the same as always: multiply the bottom pair, divide to isolate." },
+      { "t": "On the exam", "p": "2 kg at 6 m/s → p = 2 × 6 = 12 kg·m/s. The unit joins the two quantities: kilogram meter per second." }
+    ]
+  },
+  "p-fluids": {
+    "base": "Pressure is a force spread over an area. The same force on a small area makes much more pressure.",
+    "deep": [
+      { "t": "How to use it", "p": "Cover p and divide F by A. Cover F and multiply p by A. Cover A and divide F by p. Notice: a small area makes the result bigger — that's why a thin nail goes into wood." },
+      { "t": "On the exam", "p": "200 N on an area of 4 m² → p = 200 ÷ 4 = 50 Pa. The unit is the pascal (Pa), which is the same as a newton per square meter." }
+    ]
+  },
+  "p-electricity": {
+    "base": "Voltage is current times resistance: Ohm's law. If you know two of the three values, the third one comes from here.",
+    "deep": [
+      { "t": "How to use it", "p": "Cover V and multiply I by R. Cover I and divide V by R. Cover R and divide V by I. Check the units: volt (V), ampere (A) and ohm (Ω)." },
+      { "t": "On the exam", "p": "12 V across a 6 Ω resistor → I = 12 ÷ 6 = 2 A. Then you can take the power with P = V × I: 12 × 2 = 24 W." }
+    ]
+  },
+  "p-waves": {
+    "base": "The speed of a wave is the frequency times the wavelength. Longer steps, or more steps per second, mean more speed.",
+    "deep": [
+      { "t": "How to use it", "p": "Cover v and multiply f by λ. Cover f and divide v by λ. Cover λ and divide v by f. The λ is the wavelength — the distance between two crests." },
+      { "t": "On the exam", "p": "5 Hz × 2 m → v = 10 m/s. Frequency is in hertz (Hz), which is one wave per second; wavelength is in meters." }
+    ]
+  }
+}

@@ -1,0 +1,1121 @@
+[
+  {
+    "id": "p-units",
+    "title": "Units and measurement",
+    "short": "Convert without losing the order of magnitude.",
+    "priority": true,
+    "minutes": 15,
+    "concept": "Physical quantities always come as a number and a unit. In SI units, length is in meters, time in seconds, mass in kilograms, and current in amperes.",
+    "formula": "1 km = 1000 m  ·  1 h = 3600 s",
+    "example": "Convert 72 km/h to m/s.",
+    "steps": [
+      "Write it as 72 × (1000 m)/(3600 s).",
+      "Simplify 1000/3600 = 1/3.6.",
+      "Result: 72 ÷ 3.6 = 20 m/s."
+    ],
+    "practice": "Convert 2.5 km to meters.",
+    "answer": "2500",
+    "hint": "Multiply the kilometers by 1000.",
+    "explanation": "2.5 × 1000 = 2500 m.",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "2500",
+      "2502",
+      "2499",
+      "5000"
+    ],
+    "medium": {
+      "practice": "Convert 90 km/h to m/s.",
+      "answer": "25",
+      "hint": "Divide by 3.6.",
+      "explanation": "90 ÷ 3.6 = 25 m/s.",
+      "formatHint": "Write just the number.",
+      "options": [
+        "25",
+        "27",
+        "24",
+        "50"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Easy start: how many meters are in 1 km?",
+        "answer": "1000 m",
+        "hint": "Kilo means thousand: multiply by 1000.",
+        "explanation": "1 km = 1000 m. Keep this 1000 — it comes back when you convert speed.",
+        "formatHint": "Include the unit (e.g. 1000 m)"
+      },
+      {
+        "q": "And how many seconds are in 1 hour?",
+        "answer": "3600 s",
+        "hint": "An hour has 60 minutes, each one with 60 seconds.",
+        "explanation": "1 h = 3600 s. With the meter from question 1, you have both pieces to turn km/h into m/s.",
+        "formatHint": "Include the unit (e.g. 3600 s)"
+      },
+      {
+        "q": "Put the two pieces together: convert 36 km/h to m/s.",
+        "answer": "10 m/s",
+        "hint": "Divide by 3.6, the same shortcut as in the lesson example.",
+        "explanation": "36000 ÷ 3600 = 10, which is just 36 ÷ 3.6 = 10 m/s. The km became meters and the hour became seconds. You now have the most-asked conversion on the exam.",
+        "formatHint": "Include the unit (e.g. 10 m/s)"
+      },
+      {
+        "q": "Now with 54 km/h. What is that in m/s?",
+        "answer": "15 m/s",
+        "hint": "Same method as question 3: divide by 3.6.",
+        "explanation": "54 ÷ 3.6 = 15 m/s. Same formula, only new numbers. Keep this 15.",
+        "formatHint": "Include the unit (e.g. 15 m/s)"
+      },
+      {
+        "q": "A speedometer reads 15 m/s. What is that in km/h?",
+        "answer": "54 km/h",
+        "hint": "To go from m/s to km/h, multiply by 3.6.",
+        "explanation": "15 × 3.6 = 54 km/h: that's question 4 run backwards. On the exam it shows up in either direction.",
+        "formatHint": "Include the unit (e.g. 54 km/h)"
+      }
+    ]
+  },
+  {
+    "id": "p-vectors",
+    "title": "Vectors in physics",
+    "short": "Show forces and motion with direction.",
+    "priority": true,
+    "minutes": 17,
+    "concept": "Draw arrows to scale, break forces into components when you need to, and pick a positive axis before you do any math.",
+    "formula": "A⃗ = (Ax, Ay)  ·  ΣFx = Fx,total",
+    "example": "A force of 10 N to the east and another of 4 N to the west.",
+    "steps": [
+      "Choose east as positive.",
+      "Do the algebraic sum: R = 10 − 4.",
+      "Result: R = 6 N to the east."
+    ],
+    "practice": "Two forces of 7 N and 3 N point in the same direction. What's the resultant?",
+    "answer": "10",
+    "hint": "Forces with the same direction and the same sense add up.",
+    "explanation": "R = 7 + 3 = 10 N.",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "10",
+      "12",
+      "9",
+      "20"
+    ],
+    "medium": {
+      "practice": "Forces of 12 N to the east and 5 N to the west. What's the resultant?",
+      "answer": "7",
+      "hint": "Choose east as positive and subtract.",
+      "explanation": "R = 12 − 5 = 7 N to the east.",
+      "formatHint": "Write 7 or 7 N.",
+      "options": [
+        "7",
+        "9",
+        "6",
+        "14"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: two forces of 4 N and 5 N both pull to the east. What's the resultant?",
+        "answer": "9 N to the east",
+        "hint": "Same direction and same sense: the forces add up.",
+        "explanation": "R = 4 + 5 = 9 N to the east. Keep this 9 — you'll use it again right after.",
+        "formatHint": "Include the unit and the direction (e.g. 9 N to the east)"
+      },
+      {
+        "q": "The resultant of two forces in the same sense is 9 N and one of them is 5 N. What's the other?",
+        "answer": "4 N",
+        "hint": "It's the sum backwards: subtract the force you know.",
+        "explanation": "9 − 5 = 4 N. You got the force from question 1 back by going the other way.",
+        "formatHint": "Include the unit (e.g. 4 N)"
+      },
+      {
+        "q": "Now opposite senses: 9 N to the east and 4 N to the west. What's the resultant?",
+        "answer": "5 N to the east",
+        "hint": "Choose east as positive and subtract, like in the lesson.",
+        "explanation": "R = 9 − 4 = 5 N to the east. The same forces as before, now fighting each other.",
+        "formatHint": "Include the unit and the direction (e.g. 5 N to the east)"
+      },
+      {
+        "q": "Forces of 14 N to the east and 6 N to the west. What's the resultant?",
+        "answer": "8 N to the east",
+        "hint": "East positive: subtract the force pointing the other way.",
+        "explanation": "R = 14 − 6 = 8 N to the east — the lesson example with new numbers. Keep this 8.",
+        "formatHint": "Include the unit and the direction (e.g. 8 N to the east)"
+      },
+      {
+        "q": "20 N to the east against a force to the west gives R = 8 N to the east. How big is the force to the west?",
+        "answer": "12 N",
+        "hint": "Think backwards: 20 N minus what gives 8 N?",
+        "explanation": "20 − 12 = 8, so the force to the west is 12 N. You solved the resultant from the answer back to the start — exam style.",
+        "formatHint": "Include the unit (e.g. 12 N)"
+      }
+    ]
+  },
+  {
+    "id": "p-motion",
+    "title": "Motion",
+    "short": "Link position, time, speed and acceleration.",
+    "priority": true,
+    "minutes": 19,
+    "concept": "Speed measures distance per unit of time. Acceleration measures the change in velocity per unit of time. Pick the equation that holds the quantities you already know.",
+    "formula": "v = Δs/Δt  ·  a = Δv/Δt",
+    "formulaTri": {
+      "top": [
+        "Δs",
+        "distance",
+        "the distance"
+      ],
+      "left": [
+        "v",
+        "speed",
+        "the speed"
+      ],
+      "right": [
+        "Δt",
+        "time",
+        "the time"
+      ]
+    },
+    "example": "A car covers 120 m in 6 s. What's the average speed?",
+    "steps": [
+      "Identify Δs = 120 m and Δt = 6 s.",
+      "Apply v = Δs/Δt = 120/6.",
+      "Result: v = 20 m/s."
+    ],
+    "practice": "An object changes from 5 m/s to 17 m/s in 4 s. What's the acceleration?",
+    "answer": "3",
+    "hint": "Divide the change in velocity by the time.",
+    "explanation": "a = (17 − 5)/4 = 12/4 = 3 m/s².",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "3",
+      "5",
+      "2",
+      "6"
+    ],
+    "medium": {
+      "practice": "An object goes from 4 m/s to 16 m/s in 3 s. What's the acceleration?",
+      "answer": "4",
+      "hint": "Divide the change in velocity by the time.",
+      "explanation": "a = (16 − 4)/3 = 4 m/s².",
+      "formatHint": "Write just the value.",
+      "options": [
+        "4",
+        "6",
+        "3",
+        "8"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: an object covers 40 m in 4 s. What's the average speed?",
+        "answer": "10 m/s",
+        "hint": "v = Δs ÷ Δt.",
+        "explanation": "v = 40 ÷ 4 = 10 m/s. Keep this 10 — you'll need it in a moment.",
+        "formatHint": "Include the unit (e.g. 10 m/s)"
+      },
+      {
+        "q": "The object from question 1 goes from 10 m/s to 18 m/s in 4 s. What's the acceleration?",
+        "answer": "2 m/s²",
+        "hint": "a = Δv ÷ Δt: work out the change in velocity first.",
+        "explanation": "Δv = 18 − 10 = 8, so a = 8 ÷ 4 = 2 m/s². You used the 10 from question 1 as the starting velocity.",
+        "formatHint": "Include the unit (e.g. 2 m/s²)"
+      },
+      {
+        "q": "How long does it take to cover 50 m at a speed of 10 m/s?",
+        "answer": "5 s",
+        "hint": "Cover time on the triangle: Δt = Δs ÷ v.",
+        "explanation": "Δt = 50 ÷ 10 = 5 s. Back to the speed from question 1, now solving for time.",
+        "formatHint": "Include the unit (e.g. 5 s)"
+      },
+      {
+        "q": "A car covers 150 m in 10 s. What's the average speed?",
+        "answer": "15 m/s",
+        "hint": "Divide the distance by the time, like in the lesson example.",
+        "explanation": "v = 150 ÷ 10 = 15 m/s, the teacher's example with new numbers. Keep this 15.",
+        "formatHint": "Include the unit (e.g. 15 m/s)"
+      },
+      {
+        "q": "The car at 15 m/s brakes and stops after 5 s. What's the acceleration?",
+        "answer": "-3 m/s²",
+        "hint": "Δv = 0 − 15: watch the sign.",
+        "explanation": "a = −15 ÷ 5 = −3 m/s²; the minus sign says the car is slowing down. It's the detail the exam likes to hide.",
+        "formatHint": "Include the unit and the sign (e.g. -3 m/s²)"
+      }
+    ]
+  },
+  {
+    "id": "p-newton",
+    "title": "Newton's laws",
+    "short": "Explain how forces change motion.",
+    "priority": true,
+    "minutes": 20,
+    "concept": "The second law turns forces into acceleration. It's the resultant force, not one force on its own, that matters.",
+    "formula": "F_resultant = m·a",
+    "formulaTri": {
+      "top": [
+        "F",
+        "force",
+        "the force"
+      ],
+      "left": [
+        "m",
+        "mass",
+        "the mass"
+      ],
+      "right": [
+        "a",
+        "acceleration",
+        "the acceleration"
+      ]
+    },
+    "example": "What's the acceleration of a 4 kg mass under a resultant force of 20 N?",
+    "steps": [
+      "Write F = ma.",
+      "Make a the subject: a = F/m = 20/4.",
+      "Result: a = 5 m/s²."
+    ],
+    "practice": "What force accelerates 3 kg at 2 m/s²?",
+    "answer": "6",
+    "hint": "F = m × a.",
+    "explanation": "F = 3 × 2 = 6 N.",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "6",
+      "8",
+      "5",
+      "12"
+    ],
+    "medium": {
+      "practice": "What force accelerates 8 kg at 3 m/s²?",
+      "answer": "24",
+      "hint": "Use F = m×a.",
+      "explanation": "F = 8 × 3 = 24 N.",
+      "formatHint": "Write just the value.",
+      "options": [
+        "24",
+        "26",
+        "23",
+        "48"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: what force accelerates a 2 kg mass at 3 m/s²?",
+        "answer": "6 N",
+        "hint": "F = m × a.",
+        "explanation": "F = 2 × 3 = 6 N. Keep this 6 — you'll use it in a moment.",
+        "formatHint": "Include the unit (e.g. 6 N)"
+      },
+      {
+        "q": "The same 6 N force applied to 3 kg: what's the acceleration?",
+        "answer": "2 m/s²",
+        "hint": "Cover acceleration on the triangle: a = F ÷ m.",
+        "explanation": "a = 6 ÷ 3 = 2 m/s² — Newton's law run backwards. Keep this 2.",
+        "formatHint": "Include the unit (e.g. 2 m/s²)"
+      },
+      {
+        "q": "What force gives a 4 kg mass 2 m/s²?",
+        "answer": "8 N",
+        "hint": "Multiply again: F = m × a.",
+        "explanation": "F = 4 × 2 = 8 N. You're now working the formula both ways, using the 2 from question 2.",
+        "formatHint": "Include the unit (e.g. 8 N)"
+      },
+      {
+        "q": "A 5 kg body is under a resultant force of 20 N. What's the acceleration?",
+        "answer": "4 m/s²",
+        "hint": "a = F ÷ m.",
+        "explanation": "a = 20 ÷ 5 = 4 m/s². It's the lesson example with new numbers. Keep the force 20.",
+        "formatHint": "Include the unit (e.g. 4 m/s²)"
+      },
+      {
+        "q": "With the same 20 N force, what mass picks up 2 m/s²?",
+        "answer": "10 kg",
+        "hint": "Cover mass on the triangle: m = F ÷ a.",
+        "explanation": "m = 20 ÷ 2 = 10 kg. You ran the whole triangle backwards to hunt down the mass — exam style.",
+        "formatHint": "Include the unit (e.g. 10 kg)"
+      }
+    ]
+  },
+  {
+    "id": "p-forces",
+    "title": "Forces and friction",
+    "short": "See what helps motion and what fights it.",
+    "priority": true,
+    "minutes": 18,
+    "concept": "Weight points down, the normal force is the surface pushing back, and friction opposes motion or the tendency to move.",
+    "formula": "P = m·g  ·  f = μN",
+    "formulaTri": {
+      "top": [
+        "P",
+        "weight",
+        "the weight"
+      ],
+      "left": [
+        "m",
+        "mass",
+        "the mass"
+      ],
+      "right": [
+        "g",
+        "gravity",
+        "the gravity"
+      ]
+    },
+    "example": "With g ≈ 10 m/s², what's the weight of 6 kg?",
+    "steps": [
+      "Use P = m·g.",
+      "Substitute P = 6 × 10.",
+      "Result: P = 60 N pointing down."
+    ],
+    "practice": "If μ = 0.2 and N = 50 N, what's the friction force?",
+    "answer": "10",
+    "hint": "f = μN.",
+    "explanation": "f = 0.2 × 50 = 10 N.",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "10",
+      "12",
+      "9",
+      "20"
+    ],
+    "medium": {
+      "practice": "With μ = 0.3 and N = 40 N, what's the friction force?",
+      "answer": "12",
+      "hint": "Apply f = μN.",
+      "explanation": "f = 0.3 × 40 = 12 N.",
+      "formatHint": "Write just the value.",
+      "options": [
+        "12",
+        "14",
+        "11",
+        "24"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: with g = 10 m/s², what's the weight of 2 kg?",
+        "answer": "20 N",
+        "hint": "P = m × g.",
+        "explanation": "P = 2 × 10 = 20 N. In question 2 we flip the formula and ask for the mass.",
+        "formatHint": "Include the unit (e.g. 20 N)"
+      },
+      {
+        "q": "A body weighs 40 N. With g = 10 m/s², what's the mass?",
+        "answer": "4 kg",
+        "hint": "Cover mass on the triangle: m = P ÷ g.",
+        "explanation": "m = 40 ÷ 10 = 4 kg. Keep these 4 kg — next up they're sitting on a table.",
+        "formatHint": "Include the unit (e.g. 4 kg)"
+      },
+      {
+        "q": "The 4 kg body is on a table, so N = P. With μ = 0.2, what's the friction force?",
+        "answer": "8 N",
+        "hint": "First the weight of the body, then f = μN.",
+        "explanation": "N = 40 N, so f = 0.2 × 40 = 8 N. You put weight and friction into one calculation.",
+        "formatHint": "Include the unit (e.g. 8 N)"
+      },
+      {
+        "q": "An 8 kg schoolbag is on the floor. With g = 10 m/s², what's the weight?",
+        "answer": "80 N",
+        "hint": "P = m × g.",
+        "explanation": "P = 8 × 10 = 80 N. Keep this 80 — it closes the lesson next.",
+        "formatHint": "Include the unit (e.g. 80 N)"
+      },
+      {
+        "q": "The schoolbag from question 4 weighs 80 N and rests on the floor with μ = 0.25. What's the friction force?",
+        "answer": "20 N",
+        "hint": "On flat ground N = P; then apply f = μN.",
+        "explanation": "f = 0.25 × 80 = 20 N. Weight and friction in one question, the way the exam usually asks.",
+        "formatHint": "Include the unit (e.g. 20 N)"
+      }
+    ]
+  },
+  {
+    "id": "p-energy",
+    "title": "Work, energy and power",
+    "short": "Link force, displacement and time.",
+    "priority": true,
+    "minutes": 20,
+    "concept": "Work transfers energy when a force causes a displacement. Power tells you how quickly that energy is transferred.",
+    "formula": "W = F·d  ·  P = W/t",
+    "formulaTri": {
+      "top": [
+        "W",
+        "work",
+        "the work"
+      ],
+      "left": [
+        "P",
+        "power",
+        "the power"
+      ],
+      "right": [
+        "t",
+        "time",
+        "the time"
+      ]
+    },
+    "example": "A force of 30 N moves a box 4 m in the same direction. How much work?",
+    "steps": [
+      "Because force and displacement line up, W = Fd.",
+      "Calculate W = 30 × 4.",
+      "Result: W = 120 J."
+    ],
+    "practice": "A motor does 600 J in 20 s. What's the power?",
+    "answer": "30",
+    "hint": "P = work divided by time.",
+    "explanation": "P = 600/20 = 30 W.",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "30",
+      "32",
+      "29",
+      "60"
+    ],
+    "medium": {
+      "practice": "A force of 50 N moves a box 6 m. How much work?",
+      "answer": "300",
+      "hint": "Force and displacement line up.",
+      "explanation": "W = Fd = 50 × 6 = 300 J.",
+      "formatHint": "Write just the value.",
+      "options": [
+        "300",
+        "302",
+        "299",
+        "600"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: a force of 10 N moves a box 2 m. How much work?",
+        "answer": "20 J",
+        "hint": "W = F × d, with force and displacement lined up.",
+        "explanation": "W = 10 × 2 = 20 J. Keep this 20 — you'll use it in a moment.",
+        "formatHint": "Include the unit (e.g. 20 J)"
+      },
+      {
+        "q": "Work of 20 J moved a body 4 m. What was the force?",
+        "answer": "5 N",
+        "hint": "Cover force on the triangle: F = W ÷ d.",
+        "explanation": "F = 20 ÷ 4 = 5 N. The same 20 from question 1, now solved backwards.",
+        "formatHint": "Include the unit (e.g. 5 N)"
+      },
+      {
+        "q": "That work of 20 J was done in 2 s. What's the power?",
+        "answer": "10 W",
+        "hint": "P = W ÷ t.",
+        "explanation": "P = 20 ÷ 2 = 10 W. Here comes the lesson's second formula: work tied to time.",
+        "formatHint": "Include the unit (e.g. 10 W)"
+      },
+      {
+        "q": "A force of 25 N moves a trolley 4 m. How much work?",
+        "answer": "100 J",
+        "hint": "Force and displacement aligned: W = F × d.",
+        "explanation": "W = 25 × 4 = 100 J, the lesson example with new numbers. Keep this 100.",
+        "formatHint": "Include the unit (e.g. 100 J)"
+      },
+      {
+        "q": "A 20 W motor has to do 100 J of work. How long does it take?",
+        "answer": "5 s",
+        "hint": "Cover time: t = W ÷ P.",
+        "explanation": "t = 100 ÷ 20 = 5 s, using the work from question 4. It's power run backwards — exam style.",
+        "formatHint": "Include the unit (e.g. 5 s)"
+      }
+    ]
+  },
+  {
+    "id": "p-momentum",
+    "title": "Momentum",
+    "short": "Work through collisions and conserved momentum.",
+    "minutes": 18,
+    "concept": "Momentum depends on mass and velocity. In an isolated system, the total momentum stays the same before and after.",
+    "formula": "p = m·v",
+    "formulaTri": {
+      "top": [
+        "p",
+        "momentum",
+        "the momentum"
+      ],
+      "left": [
+        "m",
+        "mass",
+        "the mass"
+      ],
+      "right": [
+        "v",
+        "velocity",
+        "the velocity"
+      ]
+    },
+    "example": "What's the momentum of a 2 kg ball moving at 6 m/s?",
+    "steps": [
+      "Use p = m·v.",
+      "Substitute p = 2 × 6.",
+      "Result: p = 12 kg·m/s."
+    ],
+    "practice": "A 4 kg mass has momentum 20 kg·m/s. What's the velocity?",
+    "answer": "5",
+    "hint": "Make v the subject of p = mv.",
+    "explanation": "v = p/m = 20/4 = 5 m/s.",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "5",
+      "7",
+      "4",
+      "10"
+    ],
+    "medium": {
+      "practice": "A 5 kg mass has momentum 35 kg·m/s. What's the velocity?",
+      "answer": "7",
+      "hint": "Make v the subject of p = mv.",
+      "explanation": "v = 35/5 = 7 m/s.",
+      "formatHint": "Write just the value.",
+      "options": [
+        "7",
+        "9",
+        "6",
+        "14"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Easy start: a 2 kg ball rolls along at 3 m/s. What's the momentum p = m·v?",
+        "answer": "6 kg·m/s",
+        "hint": "Multiply the mass by the velocity: 2 × 3.",
+        "explanation": "p = 2 × 3 = 6 kg·m/s. Keep that formula — you'll use it in a moment.",
+        "formatHint": "Include the unit (e.g. 6 kg·m/s)."
+      },
+      {
+        "q": "Now backwards: a 4 kg trolley has momentum 20 kg·m/s. What's the velocity?",
+        "answer": "5 m/s",
+        "hint": "Make v the subject: divide the momentum by the mass.",
+        "explanation": "v = 20 ÷ 4 = 5 m/s; it's the same formula, solved for the velocity.",
+        "formatHint": "Include the unit (e.g. 5 m/s)."
+      },
+      {
+        "q": "Back to the 2 kg ball, but now at twice the speed: 6 m/s. What's the momentum?",
+        "answer": "12 kg·m/s",
+        "hint": "Same mass, double the velocity: p = 2 × 6.",
+        "explanation": "p = 2 × 6 = 12 kg·m/s: the velocity doubled and so did the momentum. New numbers next.",
+        "formatHint": "Include the unit (e.g. 12 kg·m/s)."
+      },
+      {
+        "q": "A 5 kg box slides along at 8 m/s. What's its momentum?",
+        "answer": "40 kg·m/s",
+        "hint": "Use p = m·v with the new numbers.",
+        "explanation": "p = 5 × 8 = 40 kg·m/s. Only the exam step is left: what if the velocity changes?",
+        "formatHint": "Include the unit (e.g. 40 kg·m/s)."
+      },
+      {
+        "q": "A 1000 kg car slows from 15 m/s to 10 m/s. How much momentum did it lose?",
+        "answer": "5000 kg·m/s",
+        "hint": "It lost 5 m/s. Apply p = m·v to that difference only.",
+        "explanation": "Δv = 5 m/s, so Δp = 1000 × 5 = 5000 kg·m/s. This is the kind of math that shows up in collisions.",
+        "formatHint": "Include the unit (e.g. 5000 kg·m/s)."
+      }
+    ]
+  },
+  {
+    "id": "p-circular",
+    "title": "Circular motion",
+    "short": "Understand radius, speed and centripetal acceleration.",
+    "priority": true,
+    "minutes": 17,
+    "concept": "Even with constant speed, circular motion keeps changing direction. Centripetal acceleration points to the center.",
+    "formula": "a_c = v²/r",
+    "example": "A bend has v = 10 m/s and radius 20 m. What's the centripetal acceleration?",
+    "steps": [
+      "Use a_c = v²/r.",
+      "Square the speed: 10² = 100.",
+      "Divide: a_c = 100/20 = 5 m/s²."
+    ],
+    "practice": "If v = 6 m/s and r = 3 m, what's a_c?",
+    "answer": "12",
+    "hint": "Work out 6² and divide by 3.",
+    "explanation": "a_c = 36/3 = 12 m/s².",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "12",
+      "14",
+      "11",
+      "24"
+    ],
+    "medium": {
+      "practice": "If v = 8 m/s and r = 4 m, what's the centripetal acceleration?",
+      "answer": "16",
+      "hint": "Square v and divide by r.",
+      "explanation": "a_c = 8²/4 = 16 m/s².",
+      "formatHint": "Write just the value.",
+      "options": [
+        "16",
+        "18",
+        "15",
+        "32"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Easy start: on a bend the car does 4 m/s. What is v² (4 × 4)?",
+        "answer": "16",
+        "hint": "Multiply the speed by itself.",
+        "explanation": "v² = 16. Keep this 16 — it's the first step of the formula in the next question.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "On that bend the radius is 2 m. Divide the 16 by 2. What's the centripetal acceleration?",
+        "answer": "8 m/s²",
+        "hint": "a_c = v² ÷ r, with v² = 16 and r = 2.",
+        "explanation": "a_c = 16 ÷ 2 = 8 m/s²: you used the whole formula, with the 16 already done.",
+        "formatHint": "Include the unit (e.g. 8 m/s²)."
+      },
+      {
+        "q": "Another bend: v = 6 m/s and r = 2 m. What's the centripetal acceleration?",
+        "answer": "18 m/s²",
+        "hint": "Square 6 and divide by the radius.",
+        "explanation": "a_c = 36 ÷ 2 = 18 m/s²: you did the squaring yourself. Bigger numbers next.",
+        "formatHint": "Include the unit (e.g. 18 m/s²)."
+      },
+      {
+        "q": "A bend has v = 10 m/s and radius 25 m. What's the centripetal acceleration?",
+        "answer": "4 m/s²",
+        "hint": "v² = 100. Then divide by 25.",
+        "explanation": "a_c = 100 ÷ 25 = 4 m/s²: big radius, small acceleration. Now we go backwards.",
+        "formatHint": "Include the unit (e.g. 4 m/s²)."
+      },
+      {
+        "q": "On a roundabout, a_c = 9 m/s² and r = 4 m. What's the speed?",
+        "answer": "6 m/s",
+        "hint": "Make v the subject: v² = a_c × r, then think about the square root.",
+        "explanation": "v² = 9 × 4 = 36, so v = 6 m/s. Same formula as question 4, now solved for the speed.",
+        "formatHint": "Include the unit (e.g. 6 m/s)."
+      }
+    ]
+  },
+  {
+    "id": "p-fluids",
+    "title": "Pressure and fluids",
+    "short": "Link force, area and depth.",
+    "minutes": 16,
+    "concept": "Pressure is force spread over an area. In fluids, pressure grows with depth and depends on density.",
+    "formula": "p = F/A  ·  p_h = ρgh",
+    "formulaTri": {
+      "top": [
+        "F",
+        "force",
+        "the force"
+      ],
+      "left": [
+        "p",
+        "pressure",
+        "the pressure"
+      ],
+      "right": [
+        "A",
+        "area",
+        "the area"
+      ]
+    },
+    "example": "A force of 200 N acts on 4 m². What's the pressure?",
+    "steps": [
+      "Use p = F/A.",
+      "Substitute p = 200/4.",
+      "Result: p = 50 Pa."
+    ],
+    "practice": "100 N act on 5 m². What's the pressure?",
+    "answer": "20",
+    "hint": "Divide force by area.",
+    "explanation": "p = 100/5 = 20 Pa.",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "20",
+      "22",
+      "19",
+      "40"
+    ],
+    "medium": {
+      "practice": "A force of 180 N acts on 6 m². What's the pressure?",
+      "answer": "30",
+      "hint": "Use p = F/A.",
+      "explanation": "p = 180/6 = 30 Pa.",
+      "formatHint": "Write just the value.",
+      "options": [
+        "30",
+        "32",
+        "29",
+        "60"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Easy start: 20 N acts on an area of 4 m². What's the pressure p = F/A?",
+        "answer": "5 Pa",
+        "hint": "Divide the force by the area: 20 ÷ 4.",
+        "explanation": "p = 20 ÷ 4 = 5 Pa. Keep these 5 Pa — they come straight back in the next one.",
+        "formatHint": "Include the unit (e.g. 5 Pa)."
+      },
+      {
+        "q": "If the pressure is 5 Pa and the area becomes 8 m², what's the force F = p·A?",
+        "answer": "40 N",
+        "hint": "Multiply the pressure by the area: 5 × 8.",
+        "explanation": "F = 5 × 8 = 40 N: the same relation as question 1, now asking for the force.",
+        "formatHint": "Include the unit (e.g. 40 N)."
+      },
+      {
+        "q": "That 40 N rests on an area of 5 m². What's the pressure?",
+        "answer": "8 Pa",
+        "hint": "Back to the formula p = F ÷ A with the 40 N.",
+        "explanation": "p = 40 ÷ 5 = 8 Pa: you've closed the force–pressure–area triangle. Bigger numbers next.",
+        "formatHint": "Include the unit (e.g. 8 Pa)."
+      },
+      {
+        "q": "A force of 120 N acts on an area of 4 m². What's the pressure?",
+        "answer": "30 Pa",
+        "hint": "Divide 120 by 4.",
+        "explanation": "p = 120 ÷ 4 = 30 Pa: the classic exam case with F/A straight off. Only depth is missing.",
+        "formatHint": "Include the unit (e.g. 30 Pa)."
+      },
+      {
+        "q": "In a swimming pool, ρ = 1000 kg/m³ and g = 10 m/s². What's the water pressure at 3 m deep?",
+        "answer": "30000 Pa",
+        "hint": "Use p_h = ρgh: multiply 1000 × 10 × 3.",
+        "explanation": "p_h = 1000 × 10 × 3 = 30000 Pa. That's the lesson's second formula, already in exam style.",
+        "formatHint": "Include the unit (e.g. 30000 Pa)."
+      }
+    ]
+  },
+  {
+    "id": "p-heat",
+    "title": "Heat and temperature",
+    "short": "Tell thermal energy and temperature apart.",
+    "minutes": 17,
+    "concept": "Temperature describes the thermal state; heat is energy transferred because of a temperature difference. Thermal capacity links energy, mass and temperature change.",
+    "formula": "Q = m·c·ΔT",
+    "example": "How much heat raises 2 kg, with c = 1000 J/kg°C, by 5°C?",
+    "steps": [
+      "Work out the change: ΔT = 5°C.",
+      "Use Q = mcΔT = 2 × 1000 × 5.",
+      "Result: Q = 10000 J."
+    ],
+    "practice": "If m = 1 kg, c = 4000 and ΔT = 2°C, what's Q?",
+    "answer": "8000",
+    "hint": "Multiply the three factors.",
+    "explanation": "Q = 1 × 4000 × 2 = 8000 J.",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "8000",
+      "8002",
+      "7999",
+      "16000"
+    ],
+    "medium": {
+      "practice": "m = 2 kg, c = 500 J/kg°C and ΔT = 4°C. How much heat?",
+      "answer": "4000",
+      "hint": "Multiply mass, specific heat and the change.",
+      "explanation": "Q = 2 × 500 × 4 = 4000 J.",
+      "formatHint": "Write just the value.",
+      "options": [
+        "4000",
+        "4002",
+        "3999",
+        "8000"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Easy start: the water warms from 20 °C to 30 °C. What's ΔT?",
+        "answer": "10 °C",
+        "hint": "ΔT is the difference: final temperature minus the starting one.",
+        "explanation": "ΔT = 30 − 20 = 10 °C. Keep this 10 — you'll multiply it in question 3.",
+        "formatHint": "Include the unit (e.g. 10 °C)."
+      },
+      {
+        "q": "If m = 2 kg and c = 500 J/kg°C, how many joules raise the temperature by 1 °C?",
+        "answer": "1000 J",
+        "hint": "Multiply the mass by the specific heat: 2 × 500.",
+        "explanation": "m × c = 1000 J for every °C. Keep the 1000: it joins the 10 next.",
+        "formatHint": "Include the unit (e.g. 1000 J)."
+      },
+      {
+        "q": "Put it all together: Q = mcΔT with m·c = 1000 and ΔT = 10 °C. What's Q?",
+        "answer": "10000 J",
+        "hint": "Multiply the 1000 by the 10 °C.",
+        "explanation": "Q = 1000 × 10 = 10000 J. Piece by piece you built the whole formula; now with new numbers.",
+        "formatHint": "Include the unit (e.g. 10000 J)."
+      },
+      {
+        "q": "m = 3 kg, c = 200 J/kg°C and ΔT = 10 °C. What's the heat Q?",
+        "answer": "6000 J",
+        "hint": "Multiply the three factors: 3 × 200 × 10.",
+        "explanation": "Q = 3 × 200 × 10 = 6000 J. Only the exam step is left: making ΔT the subject.",
+        "formatHint": "Include the unit (e.g. 6000 J)."
+      },
+      {
+        "q": "Heating 2 kg of water (c = 1000 J/kg°C) takes 4000 J. What's ΔT?",
+        "answer": "2 °C",
+        "hint": "Make ΔT the subject: divide Q by m × c.",
+        "explanation": "ΔT = 4000 ÷ (2 × 1000) = 2 °C. Same formula as question 4, now solved for ΔT.",
+        "formatHint": "Include the unit (e.g. 2 °C)."
+      }
+    ]
+  },
+  {
+    "id": "p-electricity",
+    "title": "Electricity and circuits",
+    "short": "Calculate current, voltage, resistance and power.",
+    "priority": true,
+    "minutes": 22,
+    "concept": "Current is the flow of charge; voltage is energy per charge; resistance holds that flow back. In series the current is the same; in parallel the voltage is the same.",
+    "formula": "V = I·R  ·  P = V·I",
+    "formulaTri": {
+      "top": [
+        "V",
+        "voltage",
+        "the voltage"
+      ],
+      "left": [
+        "I",
+        "current",
+        "the current"
+      ],
+      "right": [
+        "R",
+        "resistance",
+        "the resistance"
+      ]
+    },
+    "example": "A 6 Ω resistor connected to 12 V. What's the current?",
+    "steps": [
+      "Apply Ohm's law: I = V/R.",
+      "Substitute I = 12/6.",
+      "Result: I = 2 A."
+    ],
+    "practice": "An appliance draws 3 A at 10 V. What's the power?",
+    "answer": "30",
+    "hint": "P = V × I.",
+    "explanation": "P = 10 × 3 = 30 W.",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "30",
+      "32",
+      "29",
+      "60"
+    ],
+    "medium": {
+      "practice": "A 5 Ω resistor connected to 20 V. What's the current?",
+      "answer": "4",
+      "hint": "Apply I = V/R.",
+      "explanation": "I = 20/5 = 4 A.",
+      "formatHint": "Write just the value.",
+      "options": [
+        "4",
+        "6",
+        "3",
+        "8"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Easy start: a 5 Ω resistor is connected to 10 V. What's the current I = V/R?",
+        "answer": "2 A",
+        "hint": "Divide the voltage by the resistance: 10 ÷ 5.",
+        "explanation": "I = 10 ÷ 5 = 2 A. Keep these 2 A — you'll use them in the next one.",
+        "formatHint": "Include the unit (e.g. 2 A)."
+      },
+      {
+        "q": "With the same 10 V and 2 A, what's the power P = V·I?",
+        "answer": "20 W",
+        "hint": "Multiply the voltage by the current: 10 × 2.",
+        "explanation": "P = 10 × 2 = 20 W: current first, power after, just like the exam.",
+        "formatHint": "Include the unit (e.g. 20 W)."
+      },
+      {
+        "q": "An appliance at 20 V pulls 4 A. What's the resistance R = V/I?",
+        "answer": "5 Ω",
+        "hint": "Divide the voltage by the current: 20 ÷ 4.",
+        "explanation": "R = 20 ÷ 4 = 5 Ω — the same 5 Ω as question 1. Keep an eye out — this 5 comes back.",
+        "formatHint": "Include the unit (e.g. 5 Ω)."
+      },
+      {
+        "q": "A 4 Ω resistor is connected to 20 V. What's the current?",
+        "answer": "5 A",
+        "hint": "Apply I = V ÷ R: 20 ÷ 4.",
+        "explanation": "I = 20 ÷ 4 = 5 A. Keep these 5 A — they're all that's left for the final power.",
+        "formatHint": "Include the unit (e.g. 5 A)."
+      },
+      {
+        "q": "The same 4 Ω resistor at 20 V: what's the power dissipated?",
+        "answer": "100 W",
+        "hint": "You already have 5 A. Use P = V·I with the 20 V.",
+        "explanation": "P = 20 × 5 = 100 W (or V²/R = 400 ÷ 4). Two steps of Ohm in one question — exam style.",
+        "formatHint": "Include the unit (e.g. 100 W)."
+      }
+    ]
+  },
+  {
+    "id": "p-magnetism",
+    "title": "Magnetism",
+    "short": "Read fields and forces in currents and magnets.",
+    "minutes": 15,
+    "concept": "Magnetic fields have direction and can push on currents and moving charges. Use the right-hand rule to find the direction of the field around a wire.",
+    "formula": "F = B·I·L·sin θ",
+    "example": "A wire perpendicular to the field has B = 2 T, I = 3 A and L = 0.5 m. What's the force?",
+    "steps": [
+      "Because θ = 90°, sin θ = 1.",
+      "Use F = BIL = 2 × 3 × 0.5.",
+      "Result: F = 3 N."
+    ],
+    "practice": "If B = 1 T, I = 4 A and L = 2 m, what's the perpendicular force?",
+    "answer": "8",
+    "hint": "Multiply B, I and L.",
+    "explanation": "F = 1 × 4 × 2 = 8 N.",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "8",
+      "10",
+      "7",
+      "16"
+    ],
+    "medium": {
+      "practice": "B = 2 T, I = 2 A and L = 3 m, wire perpendicular. What's the force?",
+      "answer": "12",
+      "hint": "Because it's perpendicular, sin 90° = 1.",
+      "explanation": "F = BIL = 2 × 2 × 3 = 12 N.",
+      "formatHint": "Write just the value.",
+      "options": [
+        "12",
+        "14",
+        "11",
+        "24"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Easy start: wire perpendicular to the field, B = 2 T and I = 3 A. What is B × I?",
+        "answer": "6",
+        "hint": "Multiply the two values: 2 × 3.",
+        "explanation": "B × I = 6. Keep this 6 — all that's left is to multiply by the length of the wire.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Multiply the 6 from question 1 by L = 0.5 m. What's the force F = B·I·L?",
+        "answer": "3 N",
+        "hint": "The wire is perpendicular, so sin θ = 1.",
+        "explanation": "F = 6 × 0.5 = 3 N. You've already used the whole formula; now with more length.",
+        "formatHint": "Include the unit (e.g. 3 N)."
+      },
+      {
+        "q": "Same B = 2 T and I = 3 A, but now L = 2 m. What's the force?",
+        "answer": "12 N",
+        "hint": "Reuse the 6: multiply by 2.",
+        "explanation": "F = 6 × 2 = 12 N: doubling the length doubled the force. New numbers next.",
+        "formatHint": "Include the unit (e.g. 12 N)."
+      },
+      {
+        "q": "A 5 m cable perpendicular to the field: B = 2 T and I = 4 A. What's the force?",
+        "answer": "40 N",
+        "hint": "Multiply the three factors: B × I × L.",
+        "explanation": "F = 2 × 4 × 5 = 40 N. The exam detail is still to come: a wire that isn't perpendicular.",
+        "formatHint": "Include the unit (e.g. 40 N)."
+      },
+      {
+        "q": "A wire at 30° to the field (sin 30° = 0.5): B = 4 T, I = 5 A and L = 1 m. What's the force?",
+        "answer": "10 N",
+        "hint": "Multiply B × I × L, then by 0.5.",
+        "explanation": "F = 4 × 5 × 1 × 0.5 = 10 N: it was 20 N perpendicular, and the sine cut it in half.",
+        "formatHint": "Include the unit (e.g. 10 N)."
+      }
+    ]
+  },
+  {
+    "id": "p-waves",
+    "title": "Waves and optics",
+    "short": "Link frequency, wavelength and light.",
+    "minutes": 18,
+    "concept": "Waves carry energy. The frequency tells you how many cycles happen each second; the wavelength is the distance between crests.",
+    "formula": "v = f·λ",
+    "formulaTri": {
+      "top": [
+        "v",
+        "speed",
+        "the speed"
+      ],
+      "left": [
+        "f",
+        "frequency",
+        "the frequency"
+      ],
+      "right": [
+        "λ",
+        "wavelength",
+        "the wavelength"
+      ]
+    },
+    "example": "A wave has f = 5 Hz and λ = 2 m. What's the speed?",
+    "steps": [
+      "Use v = fλ.",
+      "Substitute v = 5 × 2.",
+      "Result: v = 10 m/s."
+    ],
+    "practice": "If v = 12 m/s and f = 4 Hz, what's λ?",
+    "answer": "3",
+    "hint": "Make λ the subject: λ = v/f.",
+    "explanation": "λ = 12/4 = 3 m.",
+    "formatHint": "Write the answer in the format shown. You can use a comma or a point for decimals.",
+    "options": [
+      "3",
+      "5",
+      "2",
+      "6"
+    ],
+    "medium": {
+      "practice": "A wave has v = 18 m/s and f = 6 Hz. What's the wavelength?",
+      "answer": "3",
+      "hint": "Make λ the subject of v = fλ.",
+      "explanation": "λ = 18/6 = 3 m.",
+      "formatHint": "Write just the value.",
+      "options": [
+        "3",
+        "5",
+        "2",
+        "6"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Easy start: a wave has f = 4 Hz and λ = 2 m. What is f × λ?",
+        "answer": "8",
+        "hint": "Multiply the two values.",
+        "explanation": "f × λ = 8: that's the speed of the wave. Keep this 8 — you use it next.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "With v = 8 m/s, the frequency drops to 2 Hz. What is λ = v/f?",
+        "answer": "4 m",
+        "hint": "Divide the speed by the frequency.",
+        "explanation": "λ = 8 ÷ 2 = 4 m: you ran the operation the other way. The 4 carries into the next one.",
+        "formatHint": "Include the unit (e.g. 4 m)."
+      },
+      {
+        "q": "A wave has f = 5 Hz and λ = 4 m (the one from question 2). What's the speed v?",
+        "answer": "20 m/s",
+        "hint": "Multiply again: f × λ.",
+        "explanation": "v = 5 × 4 = 20 m/s. Keep this 20 — it's the speed in question 4.",
+        "formatHint": "Include the unit (e.g. 20 m/s)."
+      },
+      {
+        "q": "A wave moving at 20 m/s has frequency 4 Hz. What's the wavelength?",
+        "answer": "5 m",
+        "hint": "Make λ the subject: divide 20 by 4.",
+        "explanation": "λ = 20 ÷ 4 = 5 m: the same numbers as before, operation reversed. Only the kHz detail is left.",
+        "formatHint": "Include the unit (e.g. 5 m)."
+      },
+      {
+        "q": "A sound wave has f = 0.5 kHz (500 Hz) and λ = 0.6 m. What's the speed?",
+        "answer": "300 m/s",
+        "hint": "0.5 kHz is 500 Hz. Multiply 500 × 0.6.",
+        "explanation": "v = 500 × 0.6 = 300 m/s: that's the real speed of sound. On the exam, always convert the kHz.",
+        "formatHint": "Include the unit (e.g. 300 m/s)."
+      }
+    ]
+  }
+]

@@ -66,8 +66,8 @@
           ]
         },
         {
-          "line": "x = {15/3}",
-          "say": "Agora é leg, leg, tome, tome. O três está a multiplicar, passa para o outro lado a dividir.",
+          "line": "{3x/3} = {15/3}",
+          "say": "O três está a multiplicar o x, por isso divides os dois lados por três. Vês como ele desce para o denominador de cada lado? A balança mantém-se equilibrada.",
           "marks": [
             {
               "k": "arrow",
@@ -77,10 +77,26 @@
               },
               "to": {
                 "l": 3,
-                "q": "3"
+                "q": "3",
+                "o": 1
               },
               "bow": "up",
-              "note": "passa a dividir"
+              "note": "divides os dois lados por 3"
+            },
+            {
+              "k": "strike",
+              "l": 3,
+              "q": "3",
+              "o": 1,
+              "color": "coral"
+            },
+            {
+              "k": "strike",
+              "l": 3,
+              "q": "3",
+              "o": 2,
+              "color": "coral",
+              "note": "corta os dois 3"
             }
           ]
         },

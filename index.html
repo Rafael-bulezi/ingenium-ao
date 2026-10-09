@@ -6,19 +6,25 @@
     <meta name="theme-color" content="#132238" />
     <meta name="description" content="Ingenium — estudo focado de Matemática e Física para o exame de acesso à Engenharia na Universidade Metodista." />
     <title>Ingenium · Matemática + Física</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Mono:wght@400;500&family=Kalam:wght@300;400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=DM+Mono:wght@400&family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <div class="app-shell">
       <header class="topbar">
         <a class="brand" href="#home" aria-label="Ingenium, início">
-          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 28 28" width="26" height="26"><path d="M14 4.5 25 23H3Z" fill="none" stroke="#132238" stroke-width="2.4" stroke-linejoin="round"/><path d="M8.7 15.6h10.6" stroke="#132238" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" width="30" height="30"><path d="M16 6.2 27.1 25.4H4.9Z" fill="none" stroke="#132238" stroke-width="2.6" stroke-linejoin="round"/><path d="M11.5 15.1h9" stroke="#132238" stroke-width="2.4" stroke-linecap="round"/><path d="M11.5 15.1h4.5v10.3H6.4Z" fill="#132238"/></svg></span>
           <strong>INGENIUM</strong>
         </a>
         <div class="topbar-actions">
+          <div class="lang-switch" role="group" aria-label="Idioma">
+            <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+            <button type="button" data-lang="en" aria-pressed="false">EN</button>
+          </div>
           <button class="icon-button" id="reset-progress" title="Recomeçar progresso" aria-label="Recomeçar progresso">↺</button>
           <div class="avatar" aria-label="Perfil">RB</div>
         </div>
@@ -34,11 +40,11 @@
       </main>
 
       <nav class="bottom-nav" aria-label="Navegação principal">
-        <a href="#home" data-nav="home"><span class="nav-icon">⌂</span><span>Início</span></a>
-        <a href="#path" data-nav="path"><span class="nav-icon">✦</span><span>Rota</span></a>
-        <a href="#triangles" data-nav="triangles"><span class="nav-icon">△</span><span>Triângulos</span></a>
-        <a href="#test" data-nav="test"><span class="nav-icon">▣</span><span>Mini-teste</span></a>
-        <a href="#profile" data-nav="profile"><span class="nav-icon">○</span><span>Perfil</span></a>
+        <a href="#home" data-nav="home"><span class="nav-icon">⌂</span><span data-i18n="Início">Início</span></a>
+        <a href="#path" data-nav="path"><span class="nav-icon">✦</span><span data-i18n="Rota">Rota</span></a>
+        <a href="#triangles" data-nav="triangles"><span class="nav-icon">△</span><span data-i18n="Triângulos">Triângulos</span></a>
+        <a href="#test" data-nav="test"><span class="nav-icon">▣</span><span data-i18n="Mini-teste">Mini-teste</span></a>
+        <a href="#profile" data-nav="profile"><span class="nav-icon">○</span><span data-i18n="Perfil">Perfil</span></a>
       </nav>
     </div>
     <div id="toast" class="toast" role="status" aria-live="polite"></div>

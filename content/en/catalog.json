@@ -1,0 +1,181 @@
+{
+  "math": [
+    {
+      "id": "m-algebra",
+      "title": "Essential algebra",
+      "short": "Simplify, organize, and find the unknown value.",
+      "priority": true,
+      "minutes": 18
+    },
+    {
+      "id": "m-equations",
+      "title": "Equations and inequalities",
+      "short": "Solve equalities and compare intervals with confidence.",
+      "priority": false,
+      "minutes": 16
+    },
+    {
+      "id": "m-functions",
+      "title": "Functions and graphs",
+      "short": "Read inputs, outputs, and the slope of a line.",
+      "priority": false,
+      "minutes": 17
+    },
+    {
+      "id": "m-systems",
+      "title": "Systems of equations",
+      "short": "Combine two clues to find two values.",
+      "priority": false,
+      "minutes": 19
+    },
+    {
+      "id": "m-powers",
+      "title": "Powers, roots and logarithms",
+      "short": "Spot exponent patterns and inverse operations.",
+      "priority": false,
+      "minutes": 18
+    },
+    {
+      "id": "m-trig",
+      "title": "Trigonometry",
+      "short": "Connect angles and sides in a right triangle.",
+      "priority": true,
+      "minutes": 20
+    },
+    {
+      "id": "m-geometry",
+      "title": "Geometry",
+      "short": "Calculate areas, perimeters, and relationships between shapes.",
+      "priority": false,
+      "minutes": 17
+    },
+    {
+      "id": "m-vectors",
+      "title": "Vectors",
+      "short": "Work with direction, orientation, and components.",
+      "priority": true,
+      "minutes": 19
+    },
+    {
+      "id": "m-sequences",
+      "title": "Sequences",
+      "short": "Find the pattern and predict the next term.",
+      "priority": false,
+      "minutes": 15
+    },
+    {
+      "id": "m-calculus",
+      "title": "Limits and derivatives",
+      "short": "Read change and slope in simple functions.",
+      "priority": false,
+      "minutes": 20
+    },
+    {
+      "id": "m-probability",
+      "title": "Probability and statistics",
+      "short": "Measure possibilities and summarize data.",
+      "priority": false,
+      "minutes": 18
+    },
+    {
+      "id": "m-word",
+      "title": "Word problems",
+      "short": "Turn text into equations and decide with a method.",
+      "priority": false,
+      "minutes": 16
+    }
+  ],
+  "physics": [
+    {
+      "id": "p-units",
+      "title": "Units and measurement",
+      "short": "Convert without losing the order of magnitude.",
+      "priority": true,
+      "minutes": 15
+    },
+    {
+      "id": "p-vectors",
+      "title": "Vectors in physics",
+      "short": "Show forces and motion with direction.",
+      "priority": true,
+      "minutes": 17
+    },
+    {
+      "id": "p-motion",
+      "title": "Motion",
+      "short": "Link position, time, speed and acceleration.",
+      "priority": true,
+      "minutes": 19
+    },
+    {
+      "id": "p-newton",
+      "title": "Newton's laws",
+      "short": "Explain how forces change motion.",
+      "priority": true,
+      "minutes": 20
+    },
+    {
+      "id": "p-forces",
+      "title": "Forces and friction",
+      "short": "See what helps motion and what fights it.",
+      "priority": true,
+      "minutes": 18
+    },
+    {
+      "id": "p-energy",
+      "title": "Work, energy and power",
+      "short": "Link force, displacement and time.",
+      "priority": true,
+      "minutes": 20
+    },
+    {
+      "id": "p-momentum",
+      "title": "Momentum",
+      "short": "Work through collisions and conserved momentum.",
+      "priority": false,
+      "minutes": 18
+    },
+    {
+      "id": "p-circular",
+      "title": "Circular motion",
+      "short": "Understand radius, speed and centripetal acceleration.",
+      "priority": true,
+      "minutes": 17
+    },
+    {
+      "id": "p-fluids",
+      "title": "Pressure and fluids",
+      "short": "Link force, area and depth.",
+      "priority": false,
+      "minutes": 16
+    },
+    {
+      "id": "p-heat",
+      "title": "Heat and temperature",
+      "short": "Tell thermal energy and temperature apart.",
+      "priority": false,
+      "minutes": 17
+    },
+    {
+      "id": "p-electricity",
+      "title": "Electricity and circuits",
+      "short": "Calculate current, voltage, resistance and power.",
+      "priority": true,
+      "minutes": 22
+    },
+    {
+      "id": "p-magnetism",
+      "title": "Magnetism",
+      "short": "Read fields and forces in currents and magnets.",
+      "priority": false,
+      "minutes": 15
+    },
+    {
+      "id": "p-waves",
+      "title": "Waves and optics",
+      "short": "Link frequency, wavelength and light.",
+      "priority": false,
+      "minutes": 18
+    }
+  ]
+}

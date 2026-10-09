@@ -13,6 +13,68 @@ const subjects = {
   physics: { label:"Física", tone:"physics", lessons:physicsLessons }
 };
 
+/* Interface is bilingual; lesson content is bilingual too (content/en/*.json mirrors content/*.json).
+   PT strings are the source of truth, so a missing key degrades to Portuguese instead of breaking. */
+const EN = {
+  "Início":"Home","Rota":"Path","Triângulos":"Triangles","Mini-teste":"Quiz","Perfil":"Profile",
+  "Engenharia · Metodista":"Engineering · Metodista","Começa aqui.":"Start here.","Bom ritmo.":"Good pace.","Rota completa.":"Path complete.",
+  "lições feitas":"lessons done","Continuar":"Continue","Rever":"Review","10 fórmulas":"10 formulas","20 min":"20 min","Toda a rota":"Full path",
+  "lições":"lessons","Matemática":"Mathematics","Física":"Physics","concluídas":"completed",
+  "A tua rota":"Your path","Constrói a base.":"Build the base.","feitas":"done","por fazer":"to do","prep · tudo aberto":"prep · all open",
+  "Triângulos de fórmulas":"Formula triangles","Tapa para descobrir. Arrasta para aprofundar.":"Cover to discover. Drag to go deeper.",
+  "min":"min","prioridade IE":"IE priority","concluída":"completed",
+  "Ideia-chave":"Key idea","Fórmula em triângulo":"Formula triangle",
+  "Tapa a grandeza que queres descobrir — como se tapasses com o dedo.":"Cover the quantity you want to find — as if you covered it with your finger.",
+  "Exemplo guiado":"Worked example","quadro · passo a passo":"board · step by step",
+  "Sair do ecrã inteiro":"Exit fullscreen","Ver em ecrã inteiro":"View fullscreen",
+  "Mostrar passo":"Show step","← Voltar ao passo":"← Back to step","Repetir passo":"Repeat step","Ver tudo":"Show all",
+  "Solução completa ✓":"Full solution ✓","Voz: ligada":"Voice: on","Voz: desligada":"Voice: off",
+  "Ouve só este passo":"Listen to just this step","Ir para o passo":"Go to step","Ouvir o passo":"Listen to step","Rever um passo":"Review a step",
+  "Agora tu":"Now you","Prática rápida":"Quick practice","Pergunta":"Question","de":"of",
+  "Verificar":"Check","Verificar escolha":"Check answer","Dar uma pista":"Give me a hint","Mostrar resposta":"Show answer",
+  "Próxima pergunta":"Next question","← Anterior":"← Back","Ladder completa ✓":"Ladder complete ✓",
+  "Escreve a resposta":"Write your answer","A tua resposta":"Your answer","Fácil":"Easy","Médio":"Medium","Escrever":"Type","Escolha múltipla":"Multiple choice",
+  "Escolher dificuldade":"Choose difficulty","Escolher formato de resposta":"Choose answer format",
+  "Marcar esta lição como concluída":"Mark this lesson as complete","Próxima lição →":"Next lesson →","Voltar à rota":"Back to path",
+  "Experimentar o mini-teste →":"Try the quiz →","Progresso":"Progress","Nota do coach":"Coach note","Mostra o trabalho.":"Show your work.",
+  "Mesmo quando a resposta parece óbvia, escreve a fórmula. É assim que evitas perder pontos por distração.":"Even when the answer looks obvious, write the formula. That is how you stop losing points to carelessness.",
+  "Mini-teste de 20 min":"20-minute quiz","Formulário visual":"Formula sheet","Triângulos.":"Triangles.",
+  "Tapa a grandeza que queres descobrir. Arrasta o puxador para a explicação crescer.":"Cover the quantity you want to find. Drag the handle to grow the explanation.",
+  "fórmulas":"formulas","Lição completa →":"Full lesson →","arrasta para aprofundar":"drag to go deeper",
+  "arrasta para saber mais":"drag for more","arrasta para fechar":"drag to close","triângulos":"triangles",
+  "Avaliação rápida":"Quick check","Mini-teste.":"Quiz.","Vinte minutos para medir o que já sabes.":"Twenty minutes to see what you know.",
+  "São 10 perguntas de escolha múltipla. No fim, recebes a pontuação, as respostas certas e uma revisão curta de cada raciocínio.":"Ten multiple-choice questions. At the end you get your score, the right answers and a short review of each reasoning.",
+  "perguntas":"questions","contagem":"countdown","tentativa guiada":"guided try","Começar agora":"Start now","tempo":"time","restante":"left",
+  "Escolhe com método.":"Choose with method.","pontuação":"score","Resultado guardado":"Result saved","Boa revisão.":"Good review.",
+  "Tentar novamente":"Try again","Resposta certa:":"Correct answer:","Compara cada resposta com o raciocínio. A explicação vale tanto quanto o ponto.":"Compare every answer with the reasoning. The explanation is worth as much as the point.",
+  "Área de foco":"Focus area","Preparação para Engenharia":"Engineering prep","O teu progresso fica guardado neste navegador.":"Your progress is saved in this browser.",
+  "último teste":"last quiz","Modo preparação":"Prep mode","Tudo aberto.":"Everything open.",
+  "Ligado, podes abrir qualquer lição sem completar as anteriores — ideal para revisões rápidas antes do exame.":"When on, you can open any lesson without finishing the previous ones — ideal for quick reviews before the exam.",
+  "Preferência de estudo":"Study preference","Consistência vence pressa.":"Consistency beats hurry.",
+  "Faz uma lição por sessão, escreve as unidades e volta aos erros do mini-teste. O exame fica mais pequeno quando o método fica automático.":"Do one lesson per session, write the units, and go back to your quiz mistakes. The exam gets smaller when the method becomes automatic.",
+  "Continuar a estudar →":"Keep studying →","Limpar progresso":"Clear progress","Recomeçar progresso":"Restart progress",
+  "Lição concluída. Mais um nó na rota.":"Lesson complete. One more node on the path.","Lição reaberta para revisão.":"Lesson reopened for review.",
+  "Modo preparação ligado. Todas as lições estão abertas.":"Prep mode on. Every lesson is open.","Modo preparação desligado. A rota volta ao normal.":"Prep mode off. The path is back to normal.",
+  "Progresso limpo. A rota está pronta de novo.":"Progress cleared. The path is ready again.","Escreve a tua resposta primeiro.":"Write your answer first.",
+  "Escreve a resposta":"Write the answer","Não foi possível carregar esta parte.":"We could not load this part.",
+  "Verifica a ligação e tenta novamente.":"Check your connection and try again.","Recarregar":"Reload",
+  "A carregar o mini-teste…":"Loading the quiz…","A preparar os triângulos…":"Preparing the triangles…","A preparar a tua rota…":"Preparing your path…",
+  "A preparar a próxima etapa…":"Getting the next step ready…","Cobrir":"Cover","idioma":"language",
+  "da rota":"of the path","passo a passo":"step by step","próximo movimento":"next move","Ir para a pergunta":"Go to question",
+  "Deu bom, demais.":"Nailed it.","Pista:":"Hint:","Resposta:":"Answer:","lição":"lesson",
+  "Calma, sem drama. Vê a pista ou revela a resposta e reescreve o passo.":"No drama. Take the hint or reveal the answer, then rewrite the step.",
+  "Calma, sem drama. Vê a pista ou revela a resposta e reescreve os passos.":"No drama. Take the hint or reveal the answer, then rewrite the steps.",
+  "Deu bom, demais. Resposta certa — agora relê o quadro para fixar o método.":"Nailed it. Correct answer — now re-read the board to lock in the method.",
+  "Progresso da matéria":"Subject progress","Progresso do teste":"Quiz progress","Terminar teste":"Finish quiz","Próxima":"Next",
+  "Base forte. Agora transforma acerto em consistência.":"Strong base. Now turn accuracy into consistency.",
+  "Bom começo. Revê os erros e repete as lições marcadas.":"Good start. Review the mistakes and repeat the marked lessons.",
+  "Sem drama: os erros mostram exactamente onde estudar a seguir.":"No drama: the mistakes show you exactly what to study next."
+};
+function lang() { return state.lang === "en" ? "en" : "pt"; }
+function t(str) { return lang() === "en" ? (EN[str] || str) : str; }
+function contentUrl(name) { return `/content/${lang() === "pt" ? "" : "en/"}${name}.json`; }
+function audioUrl(...parts) { return `/audio/${lang() === "pt" ? "" : "en/"}${parts.join("-")}.mp3`; }
+
 function loadChunk(name, url) {
   if (loadedChunks[name]) return Promise.resolve();
   if (loadingChunks[name]) return loadingChunks[name];
@@ -31,17 +93,35 @@ function loadChunk(name, url) {
     .catch(error => { delete loadingChunks[name]; throw error; });
   return loadingChunks[name];
 }
-function ensureCatalog() { return loadChunk("catalog", "/content/catalog.json"); }
-function ensureLessonDetails(key) { return ensureCatalog().then(() => loadChunk(key, `/content/${key}.json`)); }
-function ensureTestData() { return loadChunk("test", "/content/test.json"); }
-function ensureTriData() { return ensureCatalog().then(() => Promise.all([ensureLessonDetails("math"), ensureLessonDetails("physics"), loadChunk("triangles", "/content/triangles.json")])); }
+function ensureCatalog() { return loadChunk("catalog", contentUrl("catalog")); }
+function ensureLessonDetails(key) { return ensureCatalog().then(() => loadChunk(key, contentUrl(key))); }
+function ensureTestData() { return loadChunk("test", contentUrl("test")); }
+function ensureTriData() { return ensureCatalog().then(() => Promise.all([ensureLessonDetails("math"), ensureLessonDetails("physics"), loadChunk("triangles", contentUrl("triangles"))])); }
+function applyStaticLang() {
+  document.documentElement.lang = lang();
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+  const reset = document.querySelector("#reset-progress");
+  if (reset) { reset.title = t("Recomeçar progresso"); reset.setAttribute("aria-label", t("Recomeçar progresso")); }
+  document.querySelectorAll("[data-lang]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.lang === lang())));
+}
+function reloadLang() {
+  Object.keys(lessonDetails).forEach(k => delete lessonDetails[k]);
+  Object.keys(loadedChunks).forEach(k => { loadedChunks[k] = false; });
+  Object.keys(loadingChunks).forEach(k => delete loadingChunks[k]);
+  mathLessons = []; physicsLessons = [];
+  subjects.math.lessons = mathLessons; subjects.physics.lessons = physicsLessons;
+  testQuestions = []; triExplain = {};
+  document.documentElement.lang = lang();
+  applyStaticLang();
+  render();
+}
 
 let state = loadState();
 let route = { view:"home", subject:"math", lessonId:null };
 let testSession = null;
 let toastTimer;
 
-function loadingMarkup(label="A preparar a próxima etapa…") {
+function loadingMarkup(label=t("A preparar a próxima etapa…")) {
   return `<div class="loading-state"><span class="loading-mark"></span><p>${label}</p><span class="loading-line"></span><span class="loading-line short"></span></div>`;
 }
 async function ensureDataForView() {
@@ -51,7 +131,7 @@ async function ensureDataForView() {
   if (route.view === "triangles") await ensureTriData();
 }
 
-function defaultState() { return { completed: [], practice: {}, test: null, voiceOff: false, prep: false, triDeep: {} }; }
+function defaultState() { return { completed: [], practice: {}, test: null, voiceOff: false, prep: false, triDeep: {}, time: {}, lang: "pt" }; }
 function loadState() { try { return { ...defaultState(), ...JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")} } catch { return defaultState(); } }
 function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
 function allLessons() { return [...mathLessons, ...physicsLessons]; }
@@ -73,6 +153,9 @@ function answersMatch(value, answer) {
 }
 function showToast(message) { const el = document.querySelector("#toast"); el.textContent = message; el.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove("show"), 2600); }
 function navigate(hash) { stopSpeaking(); const parts = hash.replace(/^#\/?/, "").split("/"); const view = parts[0] || "home"; if (quadroFull && !(view === "lesson" && parts[1] === route.lessonId)) setQuadroFull(false); route.view = view; if (route.view === "lesson") route.lessonId = parts[1] || getNextLesson().id; if (route.view === "path") route.subject = parts[1] || route.subject; render(); window.scrollTo({top:0, behavior:"smooth"}); showNav(); }
+// Programmatic navigations (back button, subject tabs) never touch location.hash, so an
+// <a href="#lesson/x"> to the route you just left fires no hashchange and silently does nothing.
+function syncHash() { const want = `#/${route.view}${route.view === "lesson" ? "/" + route.lessonId : route.view === "path" ? "/" + route.subject : ""}`; if (location.hash !== want) history.replaceState(null, "", want); }
 function subjectButton(key, label, active) { return `<button class="tab ${active ? "active" : ""}" data-subject="${key}">${label}</button>`; }
 function progressBar(value, label="") { return `<div class="progress-track" aria-label="${label}"><span style="width:${value}%"></span></div>`; }
 function progressDots(lessons) { return `<span class="mini-progress">${lessons.slice(0, Math.min(8, lessons.length)).map(l => `<i class="${isDone(l.id) ? "done" : ""}"></i>`).join("")}</span>`; }
@@ -82,26 +165,26 @@ function renderHome() {
   const math = subjectProgress("math"); const physics = subjectProgress("physics");
   const nextKey = next.id.startsWith("p-") ? "physics" : "math";
   return `<div class="home-top">
-    <div class="home-hello"><p class="eyebrow">Engenharia · Metodista</p><h1>${completedCount() === 0 ? "Começa aqui." : completedCount() === totalCount() ? "Rota completa." : "Bom ritmo."}</h1><p class="home-count"><strong>${completedCount()}/${totalCount()}</strong> lições feitas</p></div>
-    <div class="home-ring" style="--score:${pct()}%" role="img" aria-label="${pct()}% da rota concluída"><strong>${pct()}%</strong></div>
+    <div class="home-hello"><p class="eyebrow">${t("Engenharia · Metodista")}</p><h1>${t(completedCount() === 0 ? "Começa aqui." : completedCount() === totalCount() ? "Rota completa." : "Bom ritmo.")}</h1><p class="home-count"><strong>${completedCount()}/${totalCount()}</strong> ${t("lições feitas")}</p></div>
+    <div class="home-ring" style="--score:${pct()}%" role="img" aria-label="${pct()}% ${t("da rota")}"><strong>${pct()}%</strong></div>
   </div>
-  <a class="continue-card" href="#lesson/${next.id}"><p class="eyebrow">${isDone(next.id) ? "Rever" : "Continuar"} · ${subjects[nextKey].label}</p><h2>${escapeHtml(next.title)}</h2><div class="continue-foot"><span class="tag">${next.minutes} min</span>${progressDots(subjects[nextKey].lessons)}<span class="node-cta">→</span></div></a>
+  <a class="continue-card" href="#lesson/${next.id}"><p class="eyebrow">${t(isDone(next.id) ? "Rever" : "Continuar")} · ${t(subjects[nextKey].label)}</p><h2>${escapeHtml(next.title)}</h2><div class="continue-foot"><span class="tag">${next.minutes} ${t("min")}</span>${progressDots(subjects[nextKey].lessons)}<span class="node-cta">→</span></div></a>
   <div class="quick-grid">
-    <a class="quick-tile" href="#triangles"><span class="quick-icon" aria-hidden="true">△</span><strong>Triângulos</strong><small>10 fórmulas</small></a>
-    <a class="quick-tile" href="#test"><span class="quick-icon" aria-hidden="true">▣</span><strong>Mini-teste</strong><small>20 min</small></a>
-    <a class="quick-tile" href="#path"><span class="quick-icon" aria-hidden="true">✦</span><strong>Toda a rota</strong><small>${totalCount()} lições</small></a>
+    <a class="quick-tile" href="#triangles"><span class="quick-icon" aria-hidden="true">△</span><strong>${t("Triângulos")}</strong><small>${t("10 fórmulas")}</small></a>
+    <a class="quick-tile" href="#test"><span class="quick-icon" aria-hidden="true">▣</span><strong>${t("Mini-teste")}</strong><small>${t("20 min")}</small></a>
+    <a class="quick-tile" href="#path"><span class="quick-icon" aria-hidden="true">✦</span><strong>${t("Toda a rota")}</strong><small>${totalCount()} ${t("lições")}</small></a>
   </div>
   <div class="subject-rows">
-    <a href="#path/math" class="subject-row"><span class="subject-symbol math">x²</span><span class="subject-row-copy"><strong>Matemática</strong><small>${math.done}/${math.total} concluídas</small></span><span class="node-cta">→</span></a>
-    <a href="#path/physics" class="subject-row"><span class="subject-symbol physics">F</span><span class="subject-row-copy"><strong>Física</strong><small>${physics.done}/${physics.total} concluídas</small></span><span class="node-cta">→</span></a>
+    <a href="#path/math" class="subject-row"><span class="subject-symbol math">x²</span><span class="subject-row-copy"><strong>${t("Matemática")}</strong><small>${math.done}/${math.total} ${t("concluídas")}</small></span><span class="node-cta">→</span></a>
+    <a href="#path/physics" class="subject-row"><span class="subject-symbol physics">F</span><span class="subject-row-copy"><strong>${t("Física")}</strong><small>${physics.done}/${physics.total} ${t("concluídas")}</small></span><span class="node-cta">→</span></a>
   </div>`;
 }
 
 function renderPath() {
   const key = route.subject === "physics" ? "physics" : "math"; const subject = subjects[key]; const prog = subjectProgress(key);
-  return `<div class="path-head"><div><p class="eyebrow">A tua rota</p><h1>Constrói a base.</h1></div><div class="path-stats"><span class="stat-pill"><strong>${prog.done}</strong> feitas</span><span class="stat-pill"><strong>${prog.total - prog.done}</strong> por fazer</span>${state.prep ? '<span class="stat-pill prep">prep · tudo aberto</span>' : ""}</div></div><div class="tabs">${subjectButton("math","Matemática",key === "math")}${subjectButton("physics","Física",key === "physics")}</div><a class="tri-shortcut" href="#triangles"><span class="tri-shortcut-tri" aria-hidden="true">△</span><div><strong>Triângulos de fórmulas</strong><small>Tapa para descobrir. Arrasta para aprofundar.</small></div><span class="node-cta">→</span></a><div class="path-wrap">${subject.lessons.map((lesson, index) => {
+  return `<div class="path-head"><div><p class="eyebrow">${t("A tua rota")}</p><h1>${t("Constrói a base.")}</h1></div><div class="path-stats"><span class="stat-pill"><strong>${prog.done}</strong> ${t("feitas")}</span><span class="stat-pill"><strong>${prog.total - prog.done}</strong> ${t("por fazer")}</span>${state.prep ? `<span class="stat-pill prep">${t("prep · tudo aberto")}</span>` : ""}</div></div><div class="tabs">${subjectButton("math",t("Matemática"),key === "math")}${subjectButton("physics",t("Física"),key === "physics")}</div><a class="tri-shortcut" href="#triangles"><span class="tri-shortcut-tri" aria-hidden="true">△</span><div><strong>${t("Triângulos de fórmulas")}</strong><small>${t("Tapa para descobrir. Arrasta para aprofundar.")}</small></div><span class="node-cta">→</span></a><div class="path-wrap">${subject.lessons.map((lesson, index) => {
     const done = isDone(lesson.id); const previousDone = index === 0 || isDone(subject.lessons[index-1].id); const locked = !state.prep && !done && !previousDone;
-    return `<article class="lesson-node ${done ? "done" : ""} ${!locked && !done ? "current" : ""} ${locked ? "locked" : ""}"><div class="node-bullet">${done ? "✓" : String(index + 1).padStart(2,"0")}</div><a class="node-card" href="${locked ? "#path/"+key : "#lesson/"+lesson.id}"><div><h3>${escapeHtml(lesson.title)}</h3><p>${escapeHtml(lesson.short)}</p><div class="node-meta"><span class="tag">${lesson.minutes} min</span>${lesson.priority ? '<span class="tag priority">prioridade IE</span>' : ""}${done ? '<span class="tag done">concluída</span>' : ""}</div></div><span class="node-cta">${locked ? "•" : "→"}</span></a></article>`;
+    return `<article class="lesson-node ${done ? "done" : ""} ${!locked && !done ? "current" : ""} ${locked ? "locked" : ""}"><div class="node-bullet">${done ? "✓" : String(index + 1).padStart(2,"0")}</div><a class="node-card" href="${locked ? "#path/"+key : "#lesson/"+lesson.id}"><div><h3>${escapeHtml(lesson.title)}</h3><p>${escapeHtml(lesson.short)}</p><div class="node-meta"><span class="tag">${lesson.minutes} ${t("min")}</span>${lesson.priority ? `<span class="tag priority">${t("prioridade IE")}</span>` : ""}${done ? `<span class="tag done">${t("concluída")}</span>` : ""}</div></div><span class="node-cta">${locked ? "•" : "→"}</span></a></article>`;
   }).join("")}</div>`;
 }
 
@@ -115,6 +198,7 @@ let quadroFull = false;
 let navHideTimer = null;
 const EXPAND_ICON = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 2H2v4.5M9.5 2H14v4.5M6.5 14H2V9.5M9.5 14H14V9.5"/></svg>';
 const COLLAPSE_ICON = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6.5h4.5V2M14 6.5H9.5V2M2 9.5h4.5V14M14 9.5H9.5V14"/></svg>';
+const SPEAKER_ICON = '<svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 3 4 5.8H2v4.4h2L7.5 13z"/><path d="M10.4 6.1a2.6 2.6 0 0 1 0 3.8M12.6 4a5.6 5.6 0 0 1 0 8"/></svg>';
 
 function setNavHidden(hidden) { const nav = document.querySelector(".bottom-nav"); if (nav) nav.classList.toggle("nav-hidden", hidden); }
 function scheduleNavHide() { clearTimeout(navHideTimer); navHideTimer = setTimeout(() => setNavHidden(true), 4200); }
@@ -126,7 +210,7 @@ function setQuadroFull(on) {
   if (card) card.classList.toggle("quadro-full", on);
   document.querySelectorAll("[data-quadro='full']").forEach(btn => {
     btn.innerHTML = on ? COLLAPSE_ICON : EXPAND_ICON;
-    btn.title = on ? "Sair do ecrã inteiro" : "Ver em ecrã inteiro";
+    btn.title = t(on ? "Sair do ecrã inteiro" : "Ver em ecrã inteiro");
   });
   requestAnimationFrame(() => requestAnimationFrame(() => { if (route.view === "lesson") afterLessonRender(); }));
 }
@@ -184,25 +268,27 @@ function inlineWrite(text) {
   }).join("");
 }
 
-function triExchange(t, cell) {
-  const [sTop, , wTop] = t.top;
-  const [sLeft, , wLeft] = t.left;
-  const [sRight, , wRight] = t.right;
-  if (cell === "top") return { line: `${sTop} = ${sLeft} × ${sRight}`, say: `Tapa ${wTop}. Então ${sTop} é ${wLeft} vezes ${wRight}.` };
-  if (cell === "left") return { line: `${sLeft} = {${sTop}/${sRight}}`, say: `Tapa ${wLeft}. Para isolar ${sLeft}, divides ${sTop} por ${sRight}.` };
-  return { line: `${sRight} = {${sTop}/${sLeft}}`, say: `Tapa ${wRight}. Para isolar ${sRight}, divides ${sTop} por ${sLeft}.` };
+function triExchange(t0, cell) {
+  const [sTop, , wTop] = t0.top;
+  const [sLeft, , wLeft] = t0.left;
+  const [sRight, , wRight] = t0.right;
+  const en = lang() === "en";
+  const bare = s => s.replace(/^(the|a|an)\s+/i, "");
+  if (cell === "top") return { line: `${sTop} = ${sLeft} × ${sRight}`, say: en ? `Cover ${wTop}. So ${sTop} is ${bare(wLeft)} times ${bare(wRight)}.` : `Tapa ${wTop}. Então ${sTop} é ${wLeft} vezes ${wRight}.` };
+  if (cell === "left") return { line: `${sLeft} = {${sTop}/${sRight}}`, say: en ? `Cover ${wLeft}. To isolate ${sLeft}, divide ${sTop} by ${bare(wRight)}.` : `Tapa ${wLeft}. Para isolar ${sLeft}, divides ${sTop} por ${sRight}.` };
+  return { line: `${sRight} = {${sTop}/${sLeft}}`, say: en ? `Cover ${wRight}. To isolate ${sRight}, divide ${sTop} by ${bare(wLeft)}.` : `Tapa ${wRight}. Para isolar ${sRight}, divides ${sTop} por ${sLeft}.` };
 }
 
 function triCell(cell, data) {
   const [sym, label] = data;
   const cls = cell === "top" ? "tri-top" : cell === "left" ? "tri-left" : "tri-right";
-  return `<button class="tri-cell ${cls}" data-tri="${cell}" aria-pressed="false" aria-label="Cobrir ${escapeHtml(sym)}, ${escapeHtml(label)}"><span class="tri-sym">${escapeHtml(sym)}</span><small>${escapeHtml(label)}</small></button>`;
+  return `<button class="tri-cell ${cls}" data-tri="${cell}" aria-pressed="false" aria-label="${t("Cobrir")} ${escapeHtml(sym)}, ${escapeHtml(label)}"><span class="tri-sym">${escapeHtml(sym)}</span><small>${escapeHtml(label)}</small></button>`;
 }
 
 function triCard(lesson) {
-  const t = lesson.formulaTri;
-  if (!t || !Array.isArray(t.top) || !Array.isArray(t.left) || !Array.isArray(t.right)) return "";
-  return `<article class="card tri-card" data-lesson="${lesson.id}"><p class="eyebrow">Fórmula em triângulo</p><div class="tri-formula">${inlineWrite(`${t.top[0]} = ${t.left[0]} × ${t.right[0]}`)}</div><p class="tri-hint">Tapa a grandeza que queres descobrir — como se tapasses com o dedo.</p><div class="tri-wrap"><svg class="tri-ink" aria-hidden="true"></svg>${triCell("top", t.top)}${triCell("left", t.left)}${triCell("right", t.right)}</div><div class="tri-result" aria-live="polite"></div></article>`;
+  const t0 = lesson.formulaTri;
+  if (!t0 || !Array.isArray(t0.top) || !Array.isArray(t0.left) || !Array.isArray(t0.right)) return "";
+  return `<article class="card tri-card" data-lesson="${lesson.id}"><p class="eyebrow">${t("Fórmula em triângulo")}</p><div class="tri-formula">${inlineWrite(`${t0.top[0]} = ${t0.left[0]} × ${t0.right[0]}`)}</div><p class="tri-hint">${t("Tapa a grandeza que queres descobrir — como se tapasses com o dedo.")}</p><div class="tri-wrap"><svg class="tri-ink" aria-hidden="true"></svg>${triCell("top", t0.top)}${triCell("left", t0.left)}${triCell("right", t0.right)}</div><div class="tri-result" aria-live="polite"></div></article>`;
 }
 
 function drawTriFrame() {
@@ -260,15 +346,15 @@ function triPageCard(lesson) {
   const deep = Array.isArray(info.deep) ? info.deep : [];
   const level = Math.min(Math.max((state.triDeep && state.triDeep[lesson.id]) || 0, 0), deep.length);
   const key = lesson.id.startsWith("p-") ? "physics" : "math";
-  return `<article class="card tri-card tri-page-card" data-lesson="${lesson.id}" data-level="${level}"><div class="tri-page-head"><div><p class="eyebrow" style="color:var(--${key === "physics" ? "coral" : "blue"})">${subjects[key].label}</p><h2>${escapeHtml(lesson.title)}</h2></div><a class="text-link" href="#lesson/${lesson.id}">Lição completa →</a></div><div class="tri-formula">${inlineWrite(`${t.top[0]} = ${t.left[0]} × ${t.right[0]}`)}</div><p class="tri-hint">Tapa a grandeza que queres descobrir — como se tapasses com o dedo.</p><div class="tri-wrap"><svg class="tri-ink" aria-hidden="true"></svg>${triCell("top", t.top)}${triCell("left", t.left)}${triCell("right", t.right)}</div><div class="tri-result" aria-live="polite"></div><p class="tri-base">${escapeHtml(info.base || "")}</p><div class="tri-deep-extra">${deep.map(d => `<div class="tri-deep-block"><strong>${escapeHtml(d.t)}</strong><p>${escapeHtml(d.p)}</p></div>`).join("")}</div><button type="button" class="tri-drag" data-tri-drag aria-expanded="${level > 0}"><span class="tri-drag-grip" aria-hidden="true"></span><span class="tri-drag-label"></span></button></article>`;
+  return `<article class="card tri-card tri-page-card" data-lesson="${lesson.id}" data-level="${level}"><div class="tri-page-head"><div><p class="eyebrow" style="color:var(--${key === "physics" ? "coral" : "blue"})">${t(subjects[key].label)}</p><h2>${escapeHtml(lesson.title)}</h2></div><a class="text-link" href="#lesson/${lesson.id}">${t("Lição completa →")}</a></div><div class="tri-formula">${inlineWrite(`${t.top[0]} = ${t.left[0]} × ${t.right[0]}`)}</div><p class="tri-hint">${t("Tapa a grandeza que queres descobrir — como se tapasses com o dedo.")}</p><div class="tri-wrap"><svg class="tri-ink" aria-hidden="true"></svg>${triCell("top", t.top)}${triCell("left", t.left)}${triCell("right", t.right)}</div><div class="tri-result" aria-live="polite"></div><p class="tri-base">${escapeHtml(info.base || "")}</p><div class="tri-deep-extra">${deep.map(d => `<div class="tri-deep-block"><strong>${escapeHtml(d.t)}</strong><p>${escapeHtml(d.p)}</p></div>`).join("")}</div><button type="button" class="tri-drag" data-tri-drag aria-expanded="${level > 0}"><span class="tri-drag-grip" aria-hidden="true"></span><span class="tri-drag-label"></span></button></article>`;
 }
 
 function renderTriangles() {
   const tris = allLessons().map(l => lessonDetails[l.id]).filter(l => l && l.formulaTri && triExplain[l.id]);
   const math = tris.filter(l => !l.id.startsWith("p-"));
   const physics = tris.filter(l => l.id.startsWith("p-"));
-  const section = (title, list) => list.length ? `<div class="section-head"><h2>${title}</h2><span class="muted tri-count">${list.length} triângulos</span></div><div class="tri-grid">${list.map(triPageCard).join("")}</div>` : "";
-  return `<div class="path-head"><div><p class="eyebrow">Formulário visual</p><h1>Triângulos.</h1><p class="lead">Tapa a grandeza que queres descobrir. Arrasta o puxador para a explicação crescer.</p></div><div class="path-stats"><span class="stat-pill"><strong>${tris.length}</strong> fórmulas</span></div></div>${section("Matemática", math)}${section("Física", physics)}`;
+  const section = (title, list) => list.length ? `<div class="section-head"><h2>${t(title)}</h2><span class="muted tri-count">${list.length} ${t("triângulos")}</span></div><div class="tri-grid">${list.map(triPageCard).join("")}</div>` : "";
+  return `<div class="path-head"><div><p class="eyebrow">${t("Formulário visual")}</p><h1>${t("Triângulos.")}</h1><p class="lead">${t("Tapa a grandeza que queres descobrir. Arrasta o puxador para a explicação crescer.")}</p></div><div class="path-stats"><span class="stat-pill"><strong>${tris.length}</strong> ${t("fórmulas")}</span></div></div>${section("Matemática", math)}${section("Física", physics)}`;
 }
 
 function triDets(card) {
@@ -294,7 +380,7 @@ function syncTriDeep(animate = false) {
     const drag = card.querySelector("[data-tri-drag]");
     if (drag) {
       drag.setAttribute("aria-expanded", String(level > 0));
-      drag.querySelector(".tri-drag-label").textContent = level === max ? "arrasta para fechar" : level > 0 ? "arrasta para saber mais" : "arrasta para aprofundar";
+      drag.querySelector(".tri-drag-label").textContent = t(level === max ? "arrasta para fechar" : level > 0 ? "arrasta para saber mais" : "arrasta para aprofundar");
     }
   });
 }
@@ -351,18 +437,21 @@ function exampleCard(lesson, shownSteps) {
   const complete = shown >= total;
   const { lines } = quadroModel(lesson, shown);
   const totalLines = lesson.walkthrough.steps.filter(s => s.line).length;
-  const linesHtml = lines.map(l => `<div class="quadro-line ${l.ord === totalLines - 1 ? "final" : ""}" data-line-ord="${l.ord}" data-step-line="${l.step}"><span class="eq" style="transform: rotate(${tiltOf(l.ord)}deg)">${inlineWrite(l.text)}</span></div>`).join("");
+  const linesHtml = lines.map(l => `<div class="quadro-line ${l.ord === totalLines - 1 ? "final" : ""}" data-line-ord="${l.ord}" data-step-line="${l.step}"><span class="step-badge" aria-hidden="true">${l.step + 1}</span><span class="eq" style="transform: rotate(${tiltOf(l.ord)}deg)">${inlineWrite(l.text)}</span><button type="button" class="step-voice" data-say="${l.step}" title="${t("Ouve só este passo")}" aria-label="${t("Ouvir o passo")} ${l.step + 1}">${SPEAKER_ICON}</button></div>`).join("");
+  const chips = total > 1 ? `<div class="step-chips" role="group" aria-label="${t("Rever um passo")}">${Array.from({ length: total }, (_, i) => `<button type="button" class="step-chip" data-step-goto="${i}" aria-current="${shown === i + 1 ? "true" : "false"}" title="${t("Ir para o passo")} ${i + 1}">${i + 1}</button>`).join("")}</div>` : "";
   const controls = [
-    !complete ? `<button class="button button-lime button-small" data-step="next">Mostrar passo ${shown + 1} <span>→</span></button>` : `<span class="tag done">Solução completa ✓</span>`,
-    shown > 0 ? `<button class="button button-ghost button-small" data-step="replay" title="Repete a voz e o desenho deste passo">Repetir passo ${shown}</button>` : "",
-    !complete && shown > 0 ? `<button class="button button-ghost button-small" data-step="all">Ver tudo</button>` : "",
-    `<button class="button button-ghost button-small" data-voice aria-pressed="${state.voiceOff ? "false" : "true"}">${state.voiceOff ? "Voz: desligada" : "Voz: ligada"}</button>`
+    !complete ? `<button class="button button-lime button-small" data-step="next">${t("Mostrar passo")} ${shown + 1} <span>→</span></button>` : `<span class="tag done">${t("Solução completa ✓")}</span>`,
+    shown > 1 ? `<button class="button button-ghost button-small" data-step="prev">${t("← Voltar ao passo")} ${shown - 1}</button>` : "",
+    shown > 0 ? `<button class="button button-ghost button-small" data-step="replay" title="${lang() === "en" ? "Replays the voice and the drawing of this step" : "Repete a voz e o desenho deste passo"}">${t("Repetir passo")} ${shown}</button>` : "",
+    !complete && shown > 0 ? `<button class="button button-ghost button-small" data-step="all">${t("Ver tudo")}</button>` : "",
+    `<button class="button button-ghost button-small" data-voice aria-pressed="${state.voiceOff ? "false" : "true"}">${state.voiceOff ? t("Voz: desligada") : t("Voz: ligada")}</button>`,
+    chips
   ].join("");
-  return `<article class="card example-card${quadroFull ? " quadro-full" : ""}"><div class="example-label"><div><p class="eyebrow">Exemplo guiado</p><h2>${escapeHtml(lesson.example)}</h2></div><span class="example-tools"><span class="tag">quadro · passo a passo</span><button class="icon-button quadro-expand" data-quadro="full" aria-pressed="${quadroFull}" title="${quadroFull ? "Sair do ecrã inteiro" : "Ver em ecrã inteiro"}" aria-label="Ecrã inteiro do quadro">${quadroFull ? COLLAPSE_ICON : EXPAND_ICON}</button></span></div><div class="quadro" id="quadro"><div class="quadro-lines">${linesHtml}</div><svg class="quadro-ink" aria-hidden="true"></svg><div class="quadro-notes" aria-hidden="true"></div></div><div class="solution-controls">${controls}</div></article>`;
+  return `<article class="card example-card${quadroFull ? " quadro-full" : ""}"><div class="example-label"><div><p class="eyebrow">${t("Exemplo guiado")}</p><h2>${escapeHtml(lesson.example)}</h2></div><span class="example-tools"><span class="tag">${t("quadro · passo a passo")}</span><button class="icon-button quadro-expand" data-quadro="full" aria-pressed="${quadroFull}" title="${quadroFull ? t("Sair do ecrã inteiro") : t("Ver em ecrã inteiro")}" aria-label="${lang() === "en" ? "Board fullscreen" : "Ecrã inteiro do quadro"}">${quadroFull ? COLLAPSE_ICON : EXPAND_ICON}</button></span></div><div class="quadro" id="quadro"><div class="quadro-lines">${linesHtml}</div><svg class="quadro-ink" aria-hidden="true"></svg><div class="quadro-notes" aria-hidden="true"></div></div><div class="solution-controls">${controls}</div></article>`;
 }
 
 function legacyExampleCard(lesson, shownSteps) {
-  return `<article class="card"><div class="example-label"><div><p class="eyebrow">Exemplo guiado</p><h2>${escapeHtml(lesson.example)}</h2></div><span class="tag">passo a passo</span></div><div class="step-list">${lesson.steps.map((step, i) => `${i > 0 ? `<div class="step-connector" aria-hidden="true"><span>↳</span><small>próximo movimento</small></div>` : ""}<div class="step ${i < shownSteps ? "" : "hidden-step"}"><span class="step-number">${i+1}</span><p>${escapeHtml(step)}</p></div>`).join("")}</div><div class="solution-controls">${shownSteps < lesson.steps.length ? `<button class="button button-lime button-small" data-step="next">Mostrar passo ${shownSteps + 1} <span>→</span></button>` : `<span class="tag done">Solução completa ✓</span>`}${shownSteps > 0 && shownSteps < lesson.steps.length ? `<button class="button button-ghost button-small" data-step="all">Ver tudo</button>` : ""}</div></article>`;
+  return `<article class="card"><div class="example-label"><div><p class="eyebrow">${t("Exemplo guiado")}</p><h2>${escapeHtml(lesson.example)}</h2></div><span class="tag">${t("passo a passo")}</span></div><div class="step-list">${lesson.steps.map((step, i) => `${i > 0 ? `<div class="step-connector" aria-hidden="true"><span>↳</span><small>${t("próximo movimento")}</small></div>` : ""}<div class="step ${i < shownSteps ? "" : "hidden-step"}"><span class="step-number">${i+1}</span><p>${escapeHtml(step)}</p></div>`).join("")}</div><div class="solution-controls">${shownSteps < lesson.steps.length ? `<button class="button button-lime button-small" data-step="next">${t("Mostrar passo")} ${shownSteps + 1} <span>→</span></button>` : `<span class="tag done">${t("Solução completa ✓")}</span>`}${shownSteps > 0 && shownSteps < lesson.steps.length ? `<button class="button button-ghost button-small" data-step="all">${t("Ver tudo")}</button>` : ""}</div></article>`;
 }
 
 function ladderCard(lesson, practice) {
@@ -374,8 +463,8 @@ function ladderCard(lesson, practice) {
   const res = results[qi] || {};
   const last = qi === total - 1;
   const done = Boolean(res.correct || res.revealed);
-  const dots = ladder.map((_, i) => `<i class="${results[i] && results[i].correct ? "done" : ""}"></i>`).join("");
-  return `<article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">Agora tu</p><h2>Prática rápida</h2></div><span class="tag">Pergunta ${qi + 1} de ${total}</span></div><div class="ladder-dots" aria-hidden="true">${dots}</div><p class="question-line">${escapeHtml(item.q)}</p><div class="answer-row"><input id="practice-answer" value="${escapeHtml(res.value || "")}" placeholder="${escapeHtml(item.formatHint || "Escreve a resposta")}" aria-label="A tua resposta" title="${escapeHtml(item.formatHint || "Escreve a resposta")}" /><span class="format-help" title="${escapeHtml(item.formatHint || "Escreve a resposta")}">i</span><button class="button button-primary button-small" data-practice="check">Verificar</button></div><div class="solution-controls">${qi > 0 ? `<button class="button button-ghost button-small" data-practice="prev">← Anterior</button>` : ""}${!done ? `<button class="button button-ghost button-small" data-practice="hint">Dar uma pista</button><button class="button button-ghost button-small" data-practice="reveal">Mostrar resposta</button>` : ""}${done && !last ? `<button class="button button-lime button-small" data-practice="next">Próxima pergunta <span>→</span></button>` : ""}${done && last ? `<span class="tag done">Ladder completa ✓</span>` : ""}</div>${res.correct ? `<div class="practice-feedback good"><strong>Deu bom, demais.</strong> ${escapeHtml(item.explanation)}</div>` : ""}${res.checked && !res.correct && !res.revealed ? `<div class="practice-feedback try">Calma, sem drama. Vê a pista ou revela a resposta e reescreve o passo.</div>` : ""}${res.hintShown && !done ? `<div class="practice-feedback">Pista: ${escapeHtml(item.hint)}</div>` : ""}${res.revealed ? `<div class="practice-feedback good"><strong>Resposta: ${escapeHtml(item.answer)}</strong><br>${escapeHtml(item.explanation)}</div>` : ""}</article>`;
+  const dots = ladder.map((_, i) => `<button type="button" class="${results[i] && results[i].correct ? "done" : ""}" data-practice="goto" data-qi="${i}" aria-current="${i === qi ? "true" : "false"}" aria-label="${t("Ir para a pergunta")} ${i + 1}" title="${t("Pergunta")} ${i + 1}"></button>`).join("");
+  return `<article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">${t("Agora tu")}</p><h2>${t("Prática rápida")}</h2></div><span class="tag">${t("Pergunta")} ${qi + 1} ${t("de")} ${total}</span></div><div class="ladder-dots" aria-hidden="true">${dots}</div><p class="question-line">${escapeHtml(item.q)}</p><div class="answer-row"><input id="practice-answer" value="${escapeHtml(res.value || "")}" placeholder="${escapeHtml(item.formatHint || t("Escreve a resposta"))}" aria-label="${t("A tua resposta")}" title="${escapeHtml(item.formatHint || t("Escreve a resposta"))}" /><span class="format-help" title="${escapeHtml(item.formatHint || t("Escreve a resposta"))}">i</span><button class="button button-primary button-small" data-practice="check">${t("Verificar")}</button></div><div class="solution-controls">${qi > 0 ? `<button class="button button-ghost button-small" data-practice="prev">${t("← Anterior")}</button>` : ""}${!done ? `<button class="button button-ghost button-small" data-practice="hint">${t("Dar uma pista")}</button><button class="button button-ghost button-small" data-practice="reveal">${t("Mostrar resposta")}</button>` : ""}${done && !last ? `<button class="button button-lime button-small" data-practice="next">${t("Próxima pergunta")} <span>→</span></button>` : ""}${done && last ? `<span class="tag done">${t("Ladder completa ✓")}</span>` : ""}</div>${res.correct ? `<div class="practice-feedback good"><strong>${t("Deu bom, demais.")}</strong> ${escapeHtml(item.explanation)}</div>` : ""}${res.checked && !res.correct && !res.revealed ? `<div class="practice-feedback try">${t("Calma, sem drama. Vê a pista ou revela a resposta e reescreve o passo.")}</div>` : ""}${res.hintShown && !done ? `<div class="practice-feedback">${t("Pista:")} ${escapeHtml(item.hint)}</div>` : ""}${res.revealed ? `<div class="practice-feedback good"><strong>${t("Resposta:")} ${escapeHtml(item.answer)}</strong><br>${escapeHtml(item.explanation)}</div>` : ""}</article>`;
 }
 
 function lineBox(quadro, base, l) {
@@ -481,35 +570,86 @@ function strikePath(r, rnd) {
   return smoothOpen([[r.x1 - 3, ym + 2 + (rnd() - 0.5) * 2], [(r.x1 + r.x2) / 2, ym - 2 + (rnd() - 0.5) * 2], [r.x2 + 3, ym + 2 + (rnd() - 0.5) * 2]]);
 }
 
-function arrowPaths(a, b, bow, rnd) {
-  const acx = (a.x1 + a.x2) / 2, acy = (a.y1 + a.y2) / 2;
-  const bcx = (b.x1 + b.x2) / 2, bcy = (b.y1 + b.y2) / 2;
-  const dx = bcx - acx, dy = bcy - acy;
-  const dist = Math.hypot(dx, dy) || 1;
-  const ux = dx / dist, uy = dy / dist;
-  const reach = r => Math.abs(ux) * (r.x2 - r.x1) / 2 + Math.abs(uy) * (r.y2 - r.y1) / 2;
-  const sx = acx + ux * (reach(a) + 8), sy = acy + uy * (reach(a) + 8);
-  const ex = bcx - ux * (reach(b) + 9), ey = bcy - uy * (reach(b) + 9);
-  const bend = Math.max(16, dist * 0.26) * (bow === "down" ? 1 : -1);
-  let px = -uy, py = ux;
-  if ((bow === "up" && py > 0) || (bow === "down" && py < 0)) { px = -px; py = -py; }
-  const mx = (sx + ex) / 2 + px * bend, my = (sy + ey) / 2 + py * bend;
-  const pts = [];
-  for (let i = 0; i <= 10; i++) {
-    const t = i / 10;
-    const x = (1 - t) * (1 - t) * sx + 2 * (1 - t) * t * mx + t * t * ex;
-    const y = (1 - t) * (1 - t) * sy + 2 * (1 - t) * t * my + t * t * ey;
-    pts.push([x + (rnd() - 0.5) * 1.7, y + (rnd() - 0.5) * 1.7]);
+function inflate(r, pad) { return { x1: r.x1 - pad, y1: r.y1 - pad, x2: r.x2 + pad, y2: r.y2 + pad }; }
+function inside(p, r) { return p[0] > r.x1 && p[0] < r.x2 && p[1] > r.y1 && p[1] < r.y2; }
+function boxCenter(r) { return { x: (r.x1 + r.x2) / 2, y: (r.y1 + r.y2) / 2 }; }
+
+function pathScore(pts, obstacles, a, b) {
+  let hits = 0, len = 0;
+  const freeA = inflate(a, 15), freeB = inflate(b, 15);
+  pts.forEach((p, i) => {
+    if (i) len += Math.hypot(p[0] - pts[i - 1][0], p[1] - pts[i - 1][1]);
+    if (inside(p, freeA) || inside(p, freeB)) return;
+    if (obstacles.some(o => inside(p, o))) hits++;
+  });
+  return hits * 4000 + len;
+}
+
+function samplePolyline(pts, step) {
+  const out = [pts[0]];
+  for (let i = 1; i < pts.length; i++) {
+    const p = pts[i - 1], q = pts[i];
+    const n = Math.max(1, Math.ceil(Math.hypot(q[0] - p[0], q[1] - p[1]) / (step || 7)));
+    for (let k = 1; k <= n; k++) out.push([p[0] + (q[0] - p[0]) * k / n, p[1] + (q[1] - p[1]) * k / n]);
   }
-  const tx = ex - mx, ty = ey - my;
+  return out;
+}
+
+/* The term has to visibly travel to the other side of the "=" and land on its new home, so route
+   it through free space: over the top, under the bottom, down the lane between two lines, or around
+   the left/right end — whichever candidate touches no glyph. */
+function arrowCandidates(a, b, W, H) {
+  const ac = boxCenter(a), bc = boxCenter(b);
+  const cands = [];
+  [18, 34, 54, 78].forEach(k => {
+    const top = Math.max(4, Math.min(a.y1, b.y1) - k);
+    cands.push([[ac.x, a.y1 - 5], [ac.x, top], [bc.x, top], [bc.x, b.y1 - 5]]);
+    const bottom = Math.min(H - 4, Math.max(a.y2, b.y2) + k);
+    cands.push([[ac.x, a.y2 + 5], [ac.x, bottom], [bc.x, bottom], [bc.x, b.y2 + 5]]);
+    const right = Math.min(W - 4, Math.max(a.x2, b.x2) + k);
+    cands.push([[a.x2 + 5, ac.y], [right, ac.y], [right, bc.y], [b.x2 + 5, bc.y]]);
+    const left = Math.max(4, Math.min(a.x1, b.x1) - k);
+    cands.push([[a.x1 - 5, ac.y], [left, ac.y], [left, bc.y], [b.x1 - 5, bc.y]]);
+  });
+  if (b.y1 - a.y2 > 26) {
+    const lane = (a.y2 + b.y1) / 2;
+    cands.push([[ac.x, a.y2 + 5], [ac.x, lane], [bc.x, lane], [bc.x, b.y1 - 5]]);
+    cands.push([[ac.x, a.y2 + 5], [ac.x, lane + 13], [bc.x, lane + 13], [bc.x, b.y2 + 5]]);
+    cands.push([[ac.x, a.y2 + 5], [(ac.x + bc.x) / 2, lane], [bc.x, b.y1 - 5]]);
+  }
+  if (a.y1 - b.y2 > 26) {
+    const lane = (b.y2 + a.y1) / 2;
+    cands.push([[ac.x, a.y1 - 5], [ac.x, lane], [bc.x, lane], [bc.x, b.y2 + 5]]);
+    cands.push([[ac.x, a.y1 - 5], [(ac.x + bc.x) / 2, lane], [bc.x, b.y2 + 5]]);
+  }
+  cands.push([[ac.x, ac.y], [bc.x, bc.y]]);
+  return cands;
+}
+
+function routeArrow(a, b, obstacles, W, H) {
+  let best = null, bestScore = Infinity;
+  arrowCandidates(a, b, W, H).forEach(c => {
+    const s = pathScore(samplePolyline(c, 6), obstacles, a, b);
+    if (s < bestScore) { bestScore = s; best = c; }
+  });
+  const ac = boxCenter(a);
+  return { pts: best || [[ac.x, a.y1], [boxCenter(b).x, b.y1]], clear: bestScore < 4000 };
+}
+
+function arrowPaths(route, rnd) {
+  const pts = route.pts;
+  const dense = samplePolyline(pts, 9).map(p => [p[0] + (rnd() - 0.5) * 1.7, p[1] + (rnd() - 0.5) * 1.7]);
+  const n = dense.length;
+  const ex = dense[n - 1], prev = dense[Math.max(0, n - 4)];
+  const tx = ex[0] - prev[0], ty = ex[1] - prev[1];
   const tl = Math.hypot(tx, ty) || 1;
   const dxn = tx / tl, dyn = ty / tl;
   const head = angle => {
-    const hx = ex - (dxn * Math.cos(angle) - dyn * Math.sin(angle)) * 11;
-    const hy = ey - (dyn * Math.cos(angle) + dxn * Math.sin(angle)) * 11;
-    return `M${r0(ex)} ${r0(ey)} L${r0(hx)} ${r0(hy)}`;
+    const hx = ex[0] - (dxn * Math.cos(angle) - dyn * Math.sin(angle)) * 11;
+    const hy = ex[1] - (dyn * Math.cos(angle) + dxn * Math.sin(angle)) * 11;
+    return `M${r0(ex[0])} ${r0(ex[1])} L${r0(hx)} ${r0(hy)}`;
   };
-  return [smoothOpen(pts), head(0.42), head(-0.42)];
+  return { strokes: [smoothOpen(dense), head(0.42), head(-0.42)], apex: dense[Math.floor(n / 2)] };
 }
 
 function sketchPaths(lineRect, quadro, shape, rnd) {
@@ -545,12 +685,6 @@ function boxAround(r, rnd) {
 }
 
 function noteAnchor(rects, mark) {
-  if (mark.k === "arrow" && rects.from && rects.to) {
-    const bowUp = (mark.bow || "up") === "up";
-    const x = (rects.from.x1 + rects.from.x2 + rects.to.x1 + rects.to.x2) / 4;
-    const y = bowUp ? Math.min(rects.from.y1, rects.to.y1) - 30 : Math.max(rects.from.y2, rects.to.y2) + 12;
-    return { x, y: Math.max(2, y) };
-  }
   if (rects.sketch) return { x: (rects.sketch.x1 + rects.sketch.x2) / 2, y: (rects.sketch.y1 + rects.sketch.y2) / 2 - 9 };
   const r = rects.target;
   if (!r) return { x: 40, y: 16 };
@@ -558,15 +692,48 @@ function noteAnchor(rects, mark) {
   return { x: (r.x1 + r.x2) / 2, y: r.y2 + 9 };
 }
 
-function drawMark(svg, notesLayer, quadro, mark, rects, animate, delay, seed) {
+/* Notes are the loudest collision source: they used to be pinned at a fixed offset from their
+   mark and landed on the next line's equation. Try the free spots around the mark (or the arrow's
+   apex) and take the one that touches nothing. */
+function placeNote(note, scene, anchor, apex) {
+  const w = note.offsetWidth, h = note.offsetHeight;
+  const spots = [];
+  const add = (x, y) => spots.push([Math.min(Math.max(x, w / 2 + 6), Math.max(w / 2 + 6, scene.W - w / 2 - 6)), Math.min(Math.max(y, 4), Math.max(4, scene.H - h - 4))]);
+  if (apex) { add(apex[0], apex[1] - h - 9); add(apex[0], apex[1] + 9); add(apex[0] - w / 2 - 14, apex[1] - h / 2); add(apex[0] + w / 2 + 14, apex[1] - h / 2); }
+  if (anchor.right != null) { add(anchor.right + w / 2 + 8, anchor.y); add(anchor.right - w * 1.1, anchor.y - h - 6); add(anchor.right - w * 1.1, anchor.y + 6); }
+  const cx = anchor.x != null ? anchor.x : scene.W / 2;
+  add(cx, anchor.y); add(cx, anchor.y - h - 8); add(cx, anchor.y + h + 8);
+  add(cx - w * 0.7, anchor.y - 4); add(cx + w * 0.7, anchor.y - 4);
+  const ref = apex ? { x: apex[0], y: apex[1] } : { x: cx, y: anchor.y };
+  let best = null, bestScore = Infinity;
+  spots.forEach(([x, y]) => {
+    const rect = { x1: x - w / 2, y1: y, x2: x + w / 2, y2: y + h };
+    const ir = inflate(rect, 4);
+    let hits = 0;
+    scene.obstacles.forEach(o => { if (ir.x1 < o.x2 && ir.x2 > o.x1 && ir.y1 < o.y2 && ir.y2 > o.y1) hits++; });
+    scene.placed.forEach(p => { if (ir.x1 < p.x2 && ir.x2 > p.x1 && ir.y1 < p.y2 && ir.y2 > p.y1) hits += 3; });
+    const score = hits * 4000 + Math.hypot(x - ref.x, y - ref.y);
+    if (score < bestScore) { bestScore = score; best = { x, y, rect }; }
+  });
+  scene.placed.push(best.rect);
+  return best;
+}
+
+function drawMark(svg, notesLayer, quadro, mark, rects, animate, delay, seed, scene) {
   const rnd = mulberry32((seed >>> 0) * 2654435761 % 4294967296 + 7);
   const color = MARK_COLORS[mark.color] || MARK_COLORS.coral;
   const strokes = [];
   let sketchBox = null;
+  let apex = null;
   if (mark.k === "circle" && rects.target) strokes.push(...circlePaths(rects.target, rnd));
   if (mark.k === "underline" && rects.target) strokes.push(underlinePath(rects.target, rnd));
   if (mark.k === "strike" && rects.target) strokes.push(strikePath(rects.target, rnd));
-  if (mark.k === "arrow" && rects.from && rects.to) strokes.push(...arrowPaths(rects.from, rects.to, mark.bow || "up", rnd));
+  if (mark.k === "arrow" && rects.from && rects.to) {
+    const route = routeArrow(rects.from, rects.to, scene.obstacles, scene.W, scene.H);
+    const res = arrowPaths(route, rnd);
+    strokes.push(...res.strokes);
+    apex = res.apex;
+  }
   if (mark.k === "sketch" && rects.target) {
     if (mark.q) strokes.push(...boxAround(rects.target, rnd));
     else { const res = sketchPaths(rects.target, quadro, mark.shape || "rect", rnd); strokes.push(res.d); sketchBox = res.box; }
@@ -593,13 +760,9 @@ function drawMark(svg, notesLayer, quadro, mark, rects, animate, delay, seed) {
     note.style.color = color;
     note.style.setProperty("--rot", `${(rnd() * 5 - 2.5).toFixed(2)}deg`);
     notesLayer.appendChild(note);
-    const anchor = noteAnchor({ ...rects, sketch: sketchBox }, mark);
-    const w = note.offsetWidth;
-    const nx = anchor.right != null
-      ? Math.max(w / 2 + 6, Math.min(anchor.right + w / 2, quadro.clientWidth - w / 2 - 6))
-      : Math.min(Math.max(anchor.x, w / 2 + 6), Math.max(w / 2 + 6, quadro.clientWidth - w / 2 - 6));
-    note.style.left = `${nx}px`;
-    note.style.top = `${anchor.y}px`;
+    const spot = placeNote(note, scene, noteAnchor({ ...rects, sketch: sketchBox }, mark), apex);
+    note.style.left = `${r0(spot.x)}px`;
+    note.style.top = `${r0(spot.y)}px`;
     if (animate) note.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 240, delay: delay + 480, fill: "backwards" });
   }
 }
@@ -614,13 +777,22 @@ function decorateQuadro(lesson, shown, animStep) {
   const base = quadro.getBoundingClientRect();
   svg.setAttribute("viewBox", `0 0 ${quadro.clientWidth} ${quadro.clientHeight}`);
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const scene = {
+    W: quadro.clientWidth,
+    H: quadro.clientHeight,
+    placed: [],
+    obstacles: [...quadro.querySelectorAll(".quadro-line .eq")].map(el => {
+      const r = el.getBoundingClientRect();
+      return inflate({ x1: r.left - base.left, y1: r.top - base.top, x2: r.right - base.left, y2: r.bottom - base.top }, 5);
+    })
+  };
   const { marks } = quadroModel(lesson, shown);
   let animated = 0;
   marks.forEach(({ step, mark }, index) => {
     const rects = resolveMarkRects(quadro, base, mark);
     if (!rects) return;
     const animate = !reduce && step === animStep;
-    drawMark(svg, notesLayer, quadro, mark, rects, animate, 420 + animated * 430, step * 131 + index * 17);
+    drawMark(svg, notesLayer, quadro, mark, rects, animate, 420 + animated * 430, step * 131 + index * 17, scene);
     if (animate) animated++;
   });
 }
@@ -643,8 +815,8 @@ function afterLessonRender() {
     eq.animate([{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0 0 0)" }], { duration, easing: "linear", fill: "backwards" });
   }
   if (lineEl) setTimeout(() => lineEl.scrollIntoView({ behavior: "smooth", block: "nearest" }), 60);
-  setTimeout(() => playStepAudio(`/audio/${lesson.id}-${job.stepIndex}.mp3`, step.say), 300);
-  if (typeof Audio !== "undefined" && job.stepIndex + 1 < total) { const pre = new Audio(); pre.preload = "auto"; pre.src = `/audio/${lesson.id}-${job.stepIndex + 1}.mp3`; preloaded.push(pre); if (preloaded.length > 3) preloaded.shift(); }
+  setTimeout(() => playStepAudio(audioUrl(lesson.id, job.stepIndex), step.say), 300);
+  if (typeof Audio !== "undefined" && job.stepIndex + 1 < total) { const pre = new Audio(); pre.preload = "auto"; pre.src = audioUrl(lesson.id, job.stepIndex + 1); preloaded.push(pre); if (preloaded.length > 3) preloaded.shift(); }
   if (document.fonts && !document.fonts.check('16px "Kalam"')) document.fonts.ready.then(() => { if (document.querySelector("#quadro") && route.view === "lesson") decorateQuadro(lesson, shown, null); });
 }
 
@@ -670,30 +842,31 @@ function renderLesson() {
   const options = activeData.options || [];
   const optionOrder = options.length ? options.map((_, i) => i).sort((a,b) => ((a + lesson.id.length * 3) % options.length) - ((b + lesson.id.length * 3) % options.length)) : [];
   const currentAnswer = practice.selected || "";
-  return `<div class="lesson-head"><button class="back-button" data-back="path/${key}" aria-label="Voltar à rota">←</button><div><p class="eyebrow">${subject.label} · lição ${index + 1} de ${subject.lessons.length}</p><h1>${escapeHtml(lesson.title)}</h1><p class="lead">${escapeHtml(lesson.short)}</p></div></div><div class="lesson-layout"><div class="lesson-main">
-    <article class="card concept-card"><p class="eyebrow" style="color:var(--lime)">Ideia-chave</p><h2>${escapeHtml(lesson.concept.split(".")[0])}.</h2><p>${escapeHtml(lesson.concept)}</p><div class="formula">${escapeHtml(lesson.formula)}</div></article>
+  return `<div class="lesson-head"><button class="back-button" data-back="path/${key}" aria-label="${t("Voltar à rota")}">←</button><div><p class="eyebrow">${t(subject.label)} · ${t("lição")} ${index + 1} ${t("de")} ${subject.lessons.length}</p><h1>${escapeHtml(lesson.title)}</h1><p class="lead">${escapeHtml(lesson.short)}</p></div>${timerMarkup(lesson)}</div><div class="lesson-layout"><div class="lesson-main">
+    <article class="card concept-card"><p class="eyebrow" style="color:var(--lime)">${t("Ideia-chave")}</p><h2>${escapeHtml(lesson.concept.split(".")[0])}.</h2><p>${escapeHtml(lesson.concept)}</p><div class="formula">${escapeHtml(lesson.formula)}</div></article>
     ${triCard(lesson)}
     ${exampleCard(lesson, shownSteps)}
-    ${lesson.ladder && lesson.ladder.length ? ladderCard(lesson, practice) : `<article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">Agora tu</p><h2>Prática rápida</h2></div><div class="level-switch" aria-label="Escolher dificuldade"><button class="level-button ${activeLevel === "easy" ? "active" : ""}" data-level="easy">Fácil</button><button class="level-button ${activeLevel === "medium" ? "active" : ""}" data-level="medium">Médio</button></div></div><div class="mode-switch" aria-label="Escolher formato de resposta"><button class="mode-button ${activeMode === "typed" ? "active" : ""}" data-mode="typed">Escrever</button><button class="mode-button ${activeMode === "mc" ? "active" : ""}" data-mode="mc">Escolha múltipla</button></div><p class="question-line">${escapeHtml(activeData.practice)}</p>${activeMode === "mc" ? `<div class="practice-options">${optionOrder.map((optionIndex, displayIndex) => `<button class="practice-option ${currentAnswer === options[optionIndex] ? "selected" : ""}" data-choice="${optionIndex}"><span>${String.fromCharCode(65 + displayIndex)}</span>${escapeHtml(options[optionIndex])}</button>`).join("")}</div><button class="button button-primary button-small" data-practice="check">Verificar escolha</button>` : `<div class="answer-row"><input id="practice-answer" value="" placeholder="${escapeHtml(activeData.formatHint || "Escreve a resposta")}" aria-label="A tua resposta" title="${escapeHtml(activeData.formatHint || "Escreve a resposta")}" /><span class="format-help" title="${escapeHtml(activeData.formatHint || "Escreve a resposta")}">i</span><button class="button button-primary button-small" data-practice="check">Verificar</button></div>`}<div class="solution-controls"><button class="button button-ghost button-small" data-practice="hint">Dar uma pista</button><button class="button button-ghost button-small" data-practice="reveal">Mostrar resposta</button></div>${practice?.feedback ? `<div class="practice-feedback ${practice.correct ? "good" : "try"}">${practice.feedback}</div>` : ""}${practice?.hintShown ? `<div class="practice-feedback">Pista: ${escapeHtml(activeData.hint)}</div>` : ""}${practice?.revealed ? `<div class="practice-feedback good"><strong>Resposta: ${escapeHtml(activeData.answer)}</strong><br>${escapeHtml(activeData.explanation)}</div>` : ""}</article>`}
-    <article class="card"><label class="check-row"><input type="checkbox" data-complete ${isDone(lesson.id) ? "checked" : ""} /> <span>Marcar esta lição como concluída</span></label>${isDone(lesson.id) && next ? `<div class="hero-actions" style="margin-top:16px"><a class="button button-lime" href="#lesson/${next.id}">Próxima lição →</a><a class="button button-ghost" href="#path/${key}">Voltar à rota</a></div>` : isDone(lesson.id) ? `<div class="hero-actions" style="margin-top:16px"><a class="button button-lime" href="#test">Experimentar o mini-teste →</a></div>` : ""}</article>
-  </div><aside class="lesson-side"><div class="card side-card"><p class="eyebrow">Progresso ${subject.label}</p><h3>${subjectProgress(key).done}/${subject.lessons.length} concluídas</h3>${progressBar(Math.round(subjectProgress(key).done / subject.lessons.length * 100), "Progresso da matéria")}<div class="side-progress">${subject.lessons.map(l => `<i class="${isDone(l.id) ? "done" : ""}"></i>`).join("")}</div></div><div class="card side-card"><p class="eyebrow">Nota do coach</p><h3>Mostra o trabalho.</h3><p class="muted">Mesmo quando a resposta parece óbvia, escreve a fórmula. É assim que evitas perder pontos por distração.</p><div class="side-actions"><a class="button button-ghost button-small" href="#test">Mini-teste de 20 min</a></div></div></aside></div>`;
+    ${lesson.ladder && lesson.ladder.length ? ladderCard(lesson, practice) : `<article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">${t("Agora tu")}</p><h2>${t("Prática rápida")}</h2></div><div class="level-switch" aria-label="${t("Escolher dificuldade")}"><button class="level-button ${activeLevel === "easy" ? "active" : ""}" data-level="easy">${t("Fácil")}</button><button class="level-button ${activeLevel === "medium" ? "active" : ""}" data-level="medium">${t("Médio")}</button></div></div><div class="mode-switch" aria-label="${t("Escolher formato de resposta")}"><button class="mode-button ${activeMode === "typed" ? "active" : ""}" data-mode="typed">${t("Escrever")}</button><button class="mode-button ${activeMode === "mc" ? "active" : ""}" data-mode="mc">${t("Escolha múltipla")}</button></div><p class="question-line">${escapeHtml(activeData.practice)}</p>${activeMode === "mc" ? `<div class="practice-options">${optionOrder.map((optionIndex, displayIndex) => `<button class="practice-option ${currentAnswer === options[optionIndex] ? "selected" : ""}" data-choice="${optionIndex}"><span>${String.fromCharCode(65 + displayIndex)}</span>${escapeHtml(options[optionIndex])}</button>`).join("")}</div><button class="button button-primary button-small" data-practice="check">${t("Verificar escolha")}</button>` : `<div class="answer-row"><input id="practice-answer" value="" placeholder="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}" aria-label="${t("A tua resposta")}" title="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}" /><span class="format-help" title="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}">i</span><button class="button button-primary button-small" data-practice="check">${t("Verificar")}</button></div>`}<div class="solution-controls"><button class="button button-ghost button-small" data-practice="hint">${t("Dar uma pista")}</button><button class="button button-ghost button-small" data-practice="reveal">${t("Mostrar resposta")}</button></div>${practice?.feedback ? `<div class="practice-feedback ${practice.correct ? "good" : "try"}">${practice.feedback}</div>` : ""}${practice?.hintShown ? `<div class="practice-feedback">${t("Pista:")} ${escapeHtml(activeData.hint)}</div>` : ""}${practice?.revealed ? `<div class="practice-feedback good"><strong>${t("Resposta:")} ${escapeHtml(activeData.answer)}</strong><br>${escapeHtml(activeData.explanation)}</div>` : ""}</article>`}
+    <article class="card"><label class="check-row"><input type="checkbox" data-complete ${isDone(lesson.id) ? "checked" : ""} /> <span>${t("Marcar esta lição como concluída")}</span></label>${isDone(lesson.id) && next ? `<div class="hero-actions" style="margin-top:16px"><a class="button button-lime" href="#lesson/${next.id}">${t("Próxima lição →")}</a><a class="button button-ghost" href="#path/${key}">${t("Voltar à rota")}</a></div>` : isDone(lesson.id) ? `<div class="hero-actions" style="margin-top:16px"><a class="button button-lime" href="#test">${t("Experimentar o mini-teste →")}</a></div>` : ""}</article>
+  </div><aside class="lesson-side"><div class="card side-card"><p class="eyebrow">${t("Progresso")} ${t(subject.label)}</p><h3>${subjectProgress(key).done}/${subject.lessons.length} ${t("concluídas")}</h3>${progressBar(Math.round(subjectProgress(key).done / subject.lessons.length * 100), t("Progresso da matéria"))}<div class="side-progress">${subject.lessons.map(l => `<i class="${isDone(l.id) ? "done" : ""}"></i>`).join("")}</div></div><div class="card side-card"><p class="eyebrow">${t("Nota do coach")}</p><h3>${t("Mostra o trabalho.")}</h3><p class="muted">${t("Mesmo quando a resposta parece óbvia, escreve a fórmula. É assim que evitas perder pontos por distração.")}</p><div class="side-actions"><a class="button button-ghost button-small" href="#test">${t("Mini-teste de 20 min")}</a></div></div></aside></div>`;
 }
 
 function renderTest() {
-  if (!testSession) return `<div class="test-header"><div><p class="eyebrow">Avaliação rápida</p><h1>Mini-teste.</h1></div><div class="timer"><small>tempo</small>20:00</div></div><div class="test-card"><div class="test-intro"><p class="eyebrow" style="color:var(--lime)">Matemática + Física</p><h2>Vinte minutos para medir o que já sabes.</h2><p>São 10 perguntas de escolha múltipla. No fim, recebes a pontuação, as respostas certas e uma revisão curta de cada raciocínio.</p><div class="test-rules"><div class="test-rule"><strong>10</strong><span>perguntas</span></div><div class="test-rule"><strong>20′</strong><span>contagem</span></div><div class="test-rule"><strong>1</strong><span>tentativa guiada</span></div></div><button class="button button-lime" data-test="start">Começar agora <span>→</span></button></div></div>`;
+  if (!testSession) return `<div class="test-header"><div><p class="eyebrow">${t("Avaliação rápida")}</p><h1>${t("Mini-teste.")}</h1></div><div class="timer"><small>${t("tempo")}</small>20:00</div></div><div class="test-card"><div class="test-intro"><p class="eyebrow" style="color:var(--lime)">${t("Matemática")} + ${t("Física")}</p><h2>${t("Vinte minutos para medir o que já sabes.")}</h2><p>${t("São 10 perguntas de escolha múltipla. No fim, recebes a pontuação, as respostas certas e uma revisão curta de cada raciocínio.")}</p><div class="test-rules"><div class="test-rule"><strong>10</strong><span>${t("perguntas")}</span></div><div class="test-rule"><strong>20′</strong><span>${t("contagem")}</span></div><div class="test-rule"><strong>1</strong><span>${t("tentativa guiada")}</span></div></div><button class="button button-lime" data-test="start">${t("Começar agora")} <span>→</span></button></div></div>`;
   if (testSession.finished) return renderTestResult();
   const q = testQuestions[testSession.index]; const selected = testSession.answers[testSession.index]; const remaining = Math.max(0, testSession.endsAt - Date.now()); const mins = String(Math.floor(remaining/60000)).padStart(2,"0"); const secs = String(Math.floor((remaining%60000)/1000)).padStart(2,"0");
-  return `<div class="test-header"><div><p class="eyebrow">Mini-teste · ${q.subject}</p><h1>Escolhe com método.</h1></div><div class="timer"><small>restante</small><span id="test-timer">${mins}:${secs}</span></div></div><div class="test-card"><div class="question-card"><div class="question-progress"><span>${testSession.index + 1} / ${testQuestions.length}</span>${progressBar(Math.round((testSession.index / testQuestions.length)*100), "Progresso do teste")}</div><h2>${escapeHtml(q.prompt)}</h2><div class="option-list">${q.options.map((option, i) => `<button class="option ${selected === i ? "selected" : ""}" data-option="${i}"><span class="option-letter">${String.fromCharCode(65+i)}</span>${escapeHtml(option)}</button>`).join("")}</div><div class="test-actions">${testSession.index > 0 ? `<button class="button button-ghost button-small" data-test="prev">← Anterior</button>` : `<span></span>`}${testSession.index === testQuestions.length - 1 ? `<button class="button button-primary button-small" data-test="finish">Terminar teste</button>` : `<button class="button button-primary button-small" data-test="next">Próxima →</button>`}</div></div></div>`;
+  return `<div class="test-header"><div><p class="eyebrow">${t("Mini-teste")} · ${t(q.subject)}</p><h1>${t("Escolhe com método.")}</h1></div><div class="timer"><small>${t("restante")}</small><span id="test-timer">${mins}:${secs}</span></div></div><div class="test-card"><div class="question-card"><div class="question-progress"><span>${testSession.index + 1} / ${testQuestions.length}</span>${progressBar(Math.round((testSession.index / testQuestions.length)*100), t("Progresso do teste"))}</div><h2>${escapeHtml(q.prompt)}</h2><div class="option-list">${q.options.map((option, i) => `<button class="option ${selected === i ? "selected" : ""}" data-option="${i}"><span class="option-letter">${String.fromCharCode(65+i)}</span>${escapeHtml(option)}</button>`).join("")}</div><div class="test-actions">${testSession.index > 0 ? `<button class="button button-ghost button-small" data-test="prev">${t("← Anterior")}</button>` : `<span></span>`}${testSession.index === testQuestions.length - 1 ? `<button class="button button-primary button-small" data-test="finish">${t("Terminar teste")}</button>` : `<button class="button button-primary button-small" data-test="next">${t("Próxima")} →</button>`}</div></div></div>`;
 }
 function renderTestResult() {
-  const score = testSession.score; const pctScore = Math.round(score / testQuestions.length * 100); const feedback = pctScore >= 80 ? "Base forte. Agora transforma acerto em consistência." : pctScore >= 50 ? "Bom começo. Revê os erros e repete as lições marcadas." : "Sem drama: os erros mostram exactamente onde estudar a seguir.";
-  return `<div class="test-header"><div><p class="eyebrow">Resultado guardado</p><h1>Boa revisão.</h1></div><div class="timer"><small>pontuação</small>${score}/${testQuestions.length}</div></div><div class="test-card"><div class="result-card"><div class="score-ring" style="--score:${pctScore}%"><strong>${pctScore}%</strong></div><h2>${feedback}</h2><p>Compara cada resposta com o raciocínio. A explicação vale tanto quanto o ponto.</p><div class="hero-actions" style="justify-content:center"><button class="button button-lime" data-test="restart">Tentar novamente</button><a class="button button-ghost" style="color:var(--white);border-color:#506076" href="#path">Voltar à rota</a></div></div><div class="review-list">${testQuestions.map((q,i) => { const correct = testSession.answers[i] === q.correct; return `<div class="review-item ${correct ? "correct" : "incorrect"}"><strong>${correct ? "✓" : "×"} ${i+1}. ${escapeHtml(q.prompt)}</strong><p>Resposta certa: <b>${escapeHtml(q.options[q.correct])}</b>. ${escapeHtml(q.explanation)}</p></div>`; }).join("")}</div></div>`;
+  const score = testSession.score; const pctScore = Math.round(score / testQuestions.length * 100); const feedback = pctScore >= 80 ? t("Base forte. Agora transforma acerto em consistência.") : pctScore >= 50 ? t("Bom começo. Revê os erros e repete as lições marcadas.") : t("Sem drama: os erros mostram exactamente onde estudar a seguir.");
+  return `<div class="test-header"><div><p class="eyebrow">${t("Resultado guardado")}</p><h1>${t("Boa revisão.")}</h1></div><div class="timer"><small>${t("pontuação")}</small>${score}/${testQuestions.length}</div></div><div class="test-card"><div class="result-card"><div class="score-ring" style="--score:${pctScore}%"><strong>${pctScore}%</strong></div><h2>${feedback}</h2><p>${t("Compara cada resposta com o raciocínio. A explicação vale tanto quanto o ponto.")}</p><div class="hero-actions" style="justify-content:center"><button class="button button-lime" data-test="restart">${t("Tentar novamente")}</button><a class="button button-ghost" style="color:var(--white);border-color:#506076" href="#path">${t("Voltar à rota")}</a></div></div><div class="review-list">${testQuestions.map((q,i) => { const correct = testSession.answers[i] === q.correct; return `<div class="review-item ${correct ? "correct" : "incorrect"}"><strong>${correct ? "✓" : "×"} ${i+1}. ${escapeHtml(q.prompt)}</strong><p>${t("Resposta certa:")} <b>${escapeHtml(q.options[q.correct])}</b>. ${escapeHtml(q.explanation)}</p></div>`; }).join("")}</div></div>`;
 }
 
-function renderProfile() { const test = state.test; return `<div class="profile-card"><div class="profile-top"><div class="profile-avatar">RB</div><div><p class="eyebrow" style="color:var(--lime)">Área de foco</p><h1>Preparação para Engenharia</h1><p>O teu progresso fica guardado neste navegador.</p></div></div><div class="profile-metrics"><div class="metric"><strong>${completedCount()}</strong><span>lições feitas</span></div><div class="metric"><strong>${pct()}%</strong><span>da rota</span></div><div class="metric"><strong>${test ? `${test.score}/10` : "—"}</strong><span>último teste</span></div></div><div class="card" style="margin-top:16px"><div class="prep-row"><div><p class="eyebrow">Modo preparação</p><h2>Tudo aberto.</h2><p class="muted">Ligado, podes abrir qualquer lição sem completar as anteriores — ideal para revisões rápidas antes do exame.</p></div><button class="switch ${state.prep ? "on" : ""}" data-prep aria-pressed="${state.prep}" aria-label="Modo preparação"><span></span></button></div></div><div class="card" style="margin-top:16px"><p class="eyebrow">Preferência de estudo</p><h2>Consistência vence pressa.</h2><p class="muted" style="line-height:1.7">Faz uma lição por sessão, escreve as unidades e volta aos erros do mini-teste. O exame fica mais pequeno quando o método fica automático.</p><div class="hero-actions"><a class="button button-primary" href="#lesson/${getNextLesson().id}">Continuar a estudar →</a><button class="button button-ghost" data-profile="reset">Limpar progresso</button></div></div></div>`; }
+function renderProfile() { const test = state.test; return `<div class="profile-card"><div class="profile-top"><div class="profile-avatar">RB</div><div><p class="eyebrow" style="color:var(--lime)">${t("Área de foco")}</p><h1>${t("Preparação para Engenharia")}</h1><p>${t("O teu progresso fica guardado neste navegador.")}</p></div></div><div class="profile-metrics"><div class="metric"><strong>${completedCount()}</strong><span>${t("lições feitas")}</span></div><div class="metric"><strong>${pct()}%</strong><span>${t("da rota")}</span></div><div class="metric"><strong>${test ? `${test.score}/10` : "—"}</strong><span>${t("último teste")}</span></div></div><div class="card" style="margin-top:16px"><div class="prep-row"><div><p class="eyebrow">${t("Modo preparação")}</p><h2>${t("Tudo aberto.")}</h2><p class="muted">${t("Ligado, podes abrir qualquer lição sem completar as anteriores — ideal para revisões rápidas antes do exame.")}</p></div><button class="switch ${state.prep ? "on" : ""}" data-prep aria-pressed="${state.prep}" aria-label="${t("Modo preparação")}"><span></span></button></div></div><div class="card" style="margin-top:16px"><p class="eyebrow">${t("Preferência de estudo")}</p><h2>${t("Consistência vence pressa.")}</h2><p class="muted" style="line-height:1.7">${t("Faz uma lição por sessão, escreve as unidades e volta aos erros do mini-teste. O exame fica mais pequeno quando o método fica automático.")}</p><div class="hero-actions"><a class="button button-primary" href="#lesson/${getNextLesson().id}">${t("Continuar a estudar →")}</a><button class="button button-ghost" data-profile="reset">${t("Limpar progresso")}</button></div></div></div>`; }
 
 async function render() {
   document.querySelectorAll(".view").forEach(el => el.classList.toggle("hidden", el.dataset.view !== route.view));
+  syncHash();
   const target = document.querySelector(`[data-view="${route.view}"]`); if (!target) return;
   const viewAtStart = route.view;
   const needsCatalog = ["home", "path", "profile", "lesson", "triangles"].includes(route.view) && !loadedChunks.catalog;
@@ -701,13 +874,14 @@ async function render() {
   const needsLesson = route.view === "lesson" && !loadedChunks[lessonKey];
   const needsTest = route.view === "test" && !loadedChunks.test;
   const needsTri = route.view === "triangles" && !loadedChunks.triangles;
-  if (needsCatalog || needsLesson || needsTest || needsTri) target.innerHTML = loadingMarkup(route.view === "test" ? "A carregar o mini-teste…" : route.view === "triangles" ? "A preparar os triângulos…" : "A preparar a tua rota…");
-  try { await ensureDataForView(); } catch (error) { target.innerHTML = `<div class="card load-error"><h2>Não foi possível carregar esta parte.</h2><p class="muted">Verifica a ligação e tenta novamente.</p><button class="button button-primary" data-retry>Recarregar</button></div>`; return; }
+  if (needsCatalog || needsLesson || needsTest || needsTri) target.innerHTML = loadingMarkup(t(route.view === "test" ? "A carregar o mini-teste…" : route.view === "triangles" ? "A preparar os triângulos…" : "A preparar a tua rota…"));
+  try { await ensureDataForView(); } catch (error) { target.innerHTML = `<div class="card load-error"><h2>${t("Não foi possível carregar esta parte.")}</h2><p class="muted">${t("Verifica a ligação e tenta novamente.")}</p><button class="button button-primary" data-retry>${t("Recarregar")}</button></div>`; return; }
   if (route.view !== viewAtStart) return;
   target.innerHTML = route.view === "home" ? renderHome() : route.view === "path" ? renderPath() : route.view === "lesson" ? renderLesson() : route.view === "test" ? renderTest() : route.view === "triangles" ? renderTriangles() : renderProfile();
   if (route.view === "lesson") {
     afterLessonRender();
     drawTriFrame();
+    startLessonTimer();
     if (document.fonts) document.fonts.ready.then(() => { if (route.view === "lesson") drawTriFrame(); });
   }
   if (route.view === "triangles") {
@@ -721,10 +895,31 @@ async function render() {
 
 
 let timerLoop;
+function fmtTime(s) { return `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`; }
+function timerMarkup(lesson) {
+  const secs = (state.time && state.time[lesson.id]) || 0;
+  return `<span class="lesson-timer${secs && secs < lesson.minutes * 60 ? " under-par" : ""}" id="lesson-timer" title="${lang() === "en" ? "Time on this lesson · par " + lesson.minutes + " min" : "Tempo nesta lição · meta " + lesson.minutes + " min"}">◷ ${fmtTime(secs)}<small>/${lesson.minutes}′</small></span>`;
+}
+let lessonTimer, timerTicks = 0;
+function startLessonTimer() {
+  clearInterval(lessonTimer);
+  lessonTimer = setInterval(() => {
+    if (route.view !== "lesson") { clearInterval(lessonTimer); return; }
+    if (document.hidden) return;
+    const lesson = lessonById(route.lessonId);
+    if (!lesson || isDone(lesson.id)) return;
+    state.time = state.time || {};
+    const secs = (state.time[lesson.id] || 0) + 1;
+    state.time[lesson.id] = secs;
+    const el = document.querySelector("#lesson-timer");
+    if (el) { el.innerHTML = `◷ ${fmtTime(secs)}<small>/${lesson.minutes}′</small>`; el.classList.toggle("under-par", secs < lesson.minutes * 60); }
+    if (++timerTicks % 5 === 0) saveState();
+  }, 1000);
+}
 function startTimerLoop() { clearInterval(timerLoop); timerLoop = setInterval(() => { if (!testSession || testSession.finished) return clearInterval(timerLoop); if (Date.now() >= testSession.endsAt) { finishTest(); } else { const el = document.querySelector("#test-timer"); if (el) { const r = Math.max(0, testSession.endsAt-Date.now()); el.textContent = `${String(Math.floor(r/60000)).padStart(2,"0")}:${String(Math.floor((r%60000)/1000)).padStart(2,"0")}`; } } }, 500); }
 function startTest() { testSession = { index:0, answers:Array(testQuestions.length).fill(null), endsAt:Date.now()+20*60*1000, finished:false, score:0 }; render(); }
 function finishTest() { if (!testSession || testSession.finished) return; testSession.score = testSession.answers.reduce((n, answer, i) => n + (answer === testQuestions[i].correct ? 1 : 0), 0); testSession.finished = true; state.test = {score:testSession.score, at:new Date().toISOString()}; saveState(); clearInterval(timerLoop); render(); }
-function resetAll() { state = defaultState(); testSession = null; saveState(); showToast("Progresso limpo. A rota está pronta de novo."); navigate("#home"); }
+function resetAll() { state = defaultState(); testSession = null; saveState(); showToast(t("Progresso limpo. A rota está pronta de novo.")); navigate("#home"); }
 
 document.addEventListener("click", event => {
   if (event.target.closest(".bottom-nav")) showNav();
@@ -738,13 +933,31 @@ document.addEventListener("click", event => {
     const total = stepCount(lesson);
     const action = step.dataset.step;
     if (action === "next") { state.stepsShown = Math.min((state.stepsShown || 0) + 1, total); if (lesson.walkthrough) quadroFx = { lessonId: lesson.id, stepIndex: state.stepsShown - 1 }; }
+    else if (action === "prev") { state.stepsShown = Math.max(1, (state.stepsShown || 1) - 1); if (lesson.walkthrough) quadroFx = { lessonId: lesson.id, stepIndex: state.stepsShown - 1 }; }
     else if (action === "replay") { if (lesson.walkthrough) quadroFx = { lessonId: lesson.id, stepIndex: Math.max(0, (state.stepsShown || 1) - 1) }; }
     else { state.stepsShown = total; quadroFx = null; }
     saveState(); render(); return;
   }
+  const gotoStep = event.target.closest("[data-step-goto]"); if (gotoStep) {
+    const lesson = lessonById(route.lessonId);
+    const upto = Number(gotoStep.dataset.stepGoto) + 1;
+    state.stepsShown = Math.min(Math.max(upto, 1), stepCount(lesson));
+    if (lesson.walkthrough) quadroFx = { lessonId: lesson.id, stepIndex: upto - 1 };
+    saveState(); render(); return;
+  }
+  const say = event.target.closest("[data-say]"); if (say) {
+    const lesson = lessonById(route.lessonId);
+    const step = lesson?.walkthrough?.steps?.[Number(say.dataset.say)];
+    if (!step) return;
+    document.querySelectorAll(".step-voice").forEach(b => b.classList.remove("speaking"));
+    say.classList.add("speaking");
+    playStepAudio(audioUrl(lesson.id, say.dataset.say), step.say);
+    return;
+  }
   const voice = event.target.closest("[data-voice]"); if (voice) { state.voiceOff = !state.voiceOff; stopSpeaking(); saveState(); render(); return; }
   const qf = event.target.closest("[data-quadro='full']"); if (qf) { setQuadroFull(!quadroFull); return; }
-  const prep = event.target.closest("[data-prep]"); if (prep) { state.prep = !state.prep; saveState(); showToast(state.prep ? "Modo preparação ligado. Todas as lições estão abertas." : "Modo preparação desligado. A rota volta ao normal."); render(); return; }
+  const prep = event.target.closest("[data-prep]"); if (prep) { state.prep = !state.prep; saveState(); showToast(state.prep ? t("Modo preparação ligado. Todas as lições estão abertas.") : t("Modo preparação desligado. A rota volta ao normal.")); render(); return; }
+  const langBtn = event.target.closest("[data-lang]"); if (langBtn) { if (state.lang !== langBtn.dataset.lang) { state.lang = langBtn.dataset.lang; saveState(); reloadLang(); } return; }
   const triGrip = event.target.closest("[data-tri-drag]"); if (triGrip && event.detail === 0) {
     const card = triGrip.closest(".tri-page-card");
     if (card) { const level = Number(card.dataset.level) || 0; setTriLevel(card, level >= card._dets.length - 1 ? 0 : level + 1); }
@@ -763,7 +976,7 @@ document.addEventListener("click", event => {
     tri.setAttribute("aria-pressed", "true");
     const { line, say } = triExchange(t, tri.dataset.tri);
     result.innerHTML = `<span class="tri-eq">${inlineWrite(line)}</span>`;
-    playStepAudio(`/audio/${lesson.id}-tri-${tri.dataset.tri}.mp3`, say);
+    playStepAudio(audioUrl(lesson.id, "tri", tri.dataset.tri), say);
     return;
   }
   const level = event.target.closest("[data-level]"); if (level) { const lesson = lessonById(route.lessonId); state.practice[lesson.id] = {...(state.practice[lesson.id] || {}), level:level.dataset.level, selected:"", feedback:null, hintShown:false, revealed:false}; saveState(); render(); return; }
@@ -782,21 +995,21 @@ document.addEventListener("click", event => {
       const action = practice.dataset.practice;
       if (action === "check") {
         const value = document.querySelector("#practice-answer")?.value || "";
-        if (!value.trim()) { showToast("Escreve a tua resposta primeiro."); return; }
+        if (!value.trim()) { showToast(t("Escreve a tua resposta primeiro.")); return; }
         results[qi] = { ...res, value, checked: true, correct: answersMatch(value, item.answer) };
       } else if (action === "hint") results[qi] = { ...res, hintShown: true };
       else if (action === "reveal") results[qi] = { ...res, revealed: true };
-      state.practice[lesson.id] = { ...saved, results, qi: action === "next" ? Math.min(qi + 1, total - 1) : action === "prev" ? Math.max(qi - 1, 0) : qi };
+      state.practice[lesson.id] = { ...saved, results, qi: action === "next" ? Math.min(qi + 1, total - 1) : action === "prev" ? Math.max(qi - 1, 0) : action === "goto" ? Math.min(Math.max(Number(practice.dataset.qi) || 0, 0), total - 1) : qi };
       saveState(); render(); return;
     }
     const levelData = saved.level === "medium" && lesson.medium ? lesson.medium : lesson;
     state.practice[lesson.id] = {...saved};
     if (practice.dataset.practice === "hint") state.practice[lesson.id].hintShown = true;
     if (practice.dataset.practice === "reveal") state.practice[lesson.id].revealed = true;
-    if (practice.dataset.practice === "check") { const value = saved.mode === "mc" ? (saved.selected || "") : (document.querySelector("#practice-answer")?.value || ""); const correct = answersMatch(value, levelData.answer); state.practice[lesson.id].correct = correct; state.practice[lesson.id].feedback = correct ? "Deu bom, demais. Resposta certa — agora relê o quadro para fixar o método." : "Calma, sem drama. Vê a pista ou revela a resposta e reescreve os passos."; }
+    if (practice.dataset.practice === "check") { const value = saved.mode === "mc" ? (saved.selected || "") : (document.querySelector("#practice-answer")?.value || ""); const correct = answersMatch(value, levelData.answer); state.practice[lesson.id].correct = correct; state.practice[lesson.id].feedback = correct ? t("Deu bom, demais. Resposta certa — agora relê o quadro para fixar o método.") : t("Calma, sem drama. Vê a pista ou revela a resposta e reescreve os passos."); }
     saveState(); render(); return;
   }
-  const complete = event.target.closest("[data-complete]"); if (complete) { const id = route.lessonId; if (complete.checked && !isDone(id)) state.completed.push(id); if (!complete.checked) state.completed = state.completed.filter(x => x !== id); saveState(); showToast(complete.checked ? "Lição concluída. Mais um nó na rota." : "Lição reaberta para revisão."); render(); return; }
+  const complete = event.target.closest("[data-complete]"); if (complete) { const id = route.lessonId; if (complete.checked && !isDone(id)) state.completed.push(id); if (!complete.checked) state.completed = state.completed.filter(x => x !== id); saveState(); showToast(t(complete.checked ? "Lição concluída. Mais um nó na rota." : "Lição reaberta para revisão.")); render(); return; }
   const test = event.target.closest("[data-test]"); if (test) { const action=test.dataset.test; if (action === "start") startTest(); if (action === "next") { testSession.index = Math.min(testSession.index + 1, testQuestions.length-1); render(); } if (action === "prev") { testSession.index = Math.max(testSession.index - 1, 0); render(); } if (action === "finish") finishTest(); if (action === "restart") startTest(); return; }
   const option = event.target.closest("[data-option]"); if (option && testSession) { testSession.answers[testSession.index] = Number(option.dataset.option); render(); return; }
   const profile = event.target.closest("[data-profile]"); if (profile?.dataset.profile === "reset") resetAll();
@@ -804,4 +1017,5 @@ document.addEventListener("click", event => {
 });
 window.addEventListener("hashchange", () => navigate(location.hash));
 document.addEventListener("keydown", event => { if (event.key === "Escape" && quadroFull) setQuadroFull(false); });
+applyStaticLang();
 navigate(location.hash || "#home");
