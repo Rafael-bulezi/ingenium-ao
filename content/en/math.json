@@ -638,10 +638,10 @@
   },
   {
     "id": "m-powers",
-    "title": "Powers, roots and logarithms",
-    "short": "Spot exponent patterns and inverse operations.",
+    "title": "Powers and roots",
+    "short": "Use exponents and roots to simplify expressions.",
     "minutes": 18,
-    "concept": "A power repeats a multiplication; a root undoes a power; a logarithm asks which exponent produces a number.",
+    "concept": "A power represents repeated multiplication; a root undoes a power. When multiplying powers with the same base, add the exponents.",
     "formula": "aᵐ · aⁿ = aᵐ⁺ⁿ  ·  √a² = a",
     "example": "Simplify: 2³ × 2²",
     "steps": [
@@ -716,16 +716,16 @@
         }
       ]
     },
-    "practice": "What is the value of log₁₀(1000)?",
-    "answer": "3",
-    "hint": "Ask yourself: 10 to what power gives 1000?",
-    "explanation": "10³ = 1000, so log₁₀(1000) = 3.",
-    "formatHint": "Write the answer in the format shown. For decimals, use a comma or a point.",
+    "practice": "What is √81?",
+    "answer": "9",
+    "hint": "What number multiplied by itself gives 81?",
+    "explanation": "9 × 9 = 81, so √81 = 9.",
+    "formatHint": "Write only the number.",
     "options": [
-      "3",
-      "5",
-      "2",
-      "6"
+      "9",
+      "8",
+      "7",
+      "18"
     ],
     "medium": {
       "practice": "Simplify: 2⁴ × 2³.",
@@ -770,11 +770,155 @@
         "formatHint": "Write only the number."
       },
       {
-        "q": "Question the other way round: 2 to what power gives 8? You write it as log₂(8).",
-        "answer": "3",
-        "hint": "Look for the 8 from question 1 and see which exponent was sitting on it.",
-        "explanation": "3, because 2³ = 8, so log₂(8) = 3. A logarithm is nothing more than this: asking what the exponent was.",
+        "q": "Finish the ladder with a root: what is √49?",
+        "answer": "7",
+        "hint": "What number times itself gives 49?",
+        "explanation": "7 × 7 = 49, so √49 = 7.",
         "formatHint": "Write only the number."
+      }
+    ]
+  },
+  {
+    "id": "m-logarithms",
+    "title": "Logarithms",
+    "short": "Find the hidden exponent in a power.",
+    "minutes": 20,
+    "concept": "log_b(a) asks: b raised to which exponent gives a? So log_b(a) = c means b^c = a. The base must be positive and not equal to 1; the number inside the logarithm must be positive.",
+    "formula": "log_b(a) = c  ⇔  bᶜ = a",
+    "example": "Evaluate log₂(32).",
+    "steps": [
+      "Call the value we are looking for x: log₂(32) = x.",
+      "Rewrite it in exponential form: 2ˣ = 32.",
+      "Since 2⁵ = 32, the hidden exponent is 5.",
+      "Check in the original form: log₂(32) = 5."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "log₂(32) = x",
+          "say": "A logarithm asks for the exponent. I will call the missing exponent x.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "x",
+              "color": "coral",
+              "note": "missing exponent"
+            }
+          ]
+        },
+        {
+          "line": "2ˣ = 32",
+          "say": "The base two stays as the power base. The x becomes the exponent.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "x"
+              },
+              "to": {
+                "l": 1,
+                "q": "ˣ"
+              },
+              "bow": "up",
+              "color": "blue"
+            },
+            {
+              "k": "circle",
+              "l": 1,
+              "q": "32",
+              "color": "coral"
+            }
+          ]
+        },
+        {
+          "line": "2⁵ = 32",
+          "say": "Two to the fifth power is thirty-two. So the exponent we need is five.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 2,
+              "q": "5",
+              "color": "lime",
+              "note": "correct exponent"
+            }
+          ]
+        },
+        {
+          "line": "log₂(32) = 5",
+          "say": "Answer: the logarithm of thirty-two to base two is five. Check by returning to the power form.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 3,
+              "q": "5",
+              "color": "lime",
+              "note": "answer"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "What is log₃(81)?",
+    "answer": "4",
+    "hint": "Ask: 3 raised to what power gives 81?",
+    "explanation": "3⁴ = 81, so log₃(81) = 4.",
+    "formatHint": "Write only the exponent.",
+    "options": [
+      "4",
+      "3",
+      "9",
+      "27"
+    ],
+    "medium": {
+      "practice": "What is log₁₀(1000)?",
+      "answer": "3",
+      "hint": "Write 1000 as a power of 10.",
+      "explanation": "10³ = 1000, so log₁₀(1000) = 3.",
+      "formatHint": "Write only the exponent.",
+      "options": [
+        "3",
+        "2",
+        "10",
+        "100"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Warm-up: log₂(8) asks 2 raised to what power gives 8. What is the exponent?",
+        "answer": "3",
+        "hint": "2³ = 8.",
+        "explanation": "3, because 2³ = 8. A logarithm finds the exponent.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Now log₅(25): 5 raised to what power gives 25?",
+        "answer": "2",
+        "hint": "5² = 25.",
+        "explanation": "2, because 5² = 25.",
+        "formatHint": "Write only the number."
+      },
+      {
+        "q": "Evaluate log₂(16) + log₂(4).",
+        "answer": "6",
+        "hint": "Read each logarithm as an exponent: 2⁴ = 16 and 2² = 4.",
+        "explanation": "log₂(16) = 4 and log₂(4) = 2, so 4 + 2 = 6.",
+        "formatHint": "Write only the result."
+      },
+      {
+        "q": "Solve log₃(x) = 2. What is x?",
+        "answer": "9",
+        "hint": "Rewrite in exponential form: 3² = x.",
+        "explanation": "log₃(x) = 2 is equivalent to 3² = x, so x = 9.",
+        "formatHint": "Write only the value of x."
+      },
+      {
+        "q": "Challenge: log₁₀(1000) + log₂(8). What is the result?",
+        "answer": "6",
+        "hint": "Find each exponent, then add.",
+        "explanation": "log₁₀(1000) = 3 and log₂(8) = 3; the sum is 6.",
+        "formatHint": "Write only the result."
       }
     ]
   },

@@ -638,10 +638,10 @@
   },
   {
     "id": "m-powers",
-    "title": "Potências, raízes e logaritmos",
-    "short": "Reconhece padrões de expoentes e operações inversas.",
+    "title": "Potências e raízes",
+    "short": "Usa expoentes e raízes para simplificar expressões.",
     "minutes": 18,
-    "concept": "Potenciação repete multiplicações; a raiz desfaz uma potência; o logaritmo pergunta qual expoente produz um número.",
+    "concept": "Uma potência representa multiplicações repetidas; a raiz desfaz uma potência. Com a mesma base, na multiplicação somamos os expoentes.",
     "formula": "aᵐ · aⁿ = aᵐ⁺ⁿ  ·  √a² = a",
     "example": "Simplifica: 2³ × 2²",
     "steps": [
@@ -716,16 +716,16 @@
         }
       ]
     },
-    "practice": "Quanto vale log₁₀(1000)?",
-    "answer": "3",
-    "hint": "Pergunta: 10 elevado a quanto dá 1000?",
-    "explanation": "10³ = 1000, portanto log₁₀(1000) = 3.",
-    "formatHint": "Escreve a resposta no formato indicado. Podes usar vírgula ou ponto nos decimais.",
+    "practice": "Quanto vale √81?",
+    "answer": "9",
+    "hint": "Qual número multiplicado por si mesmo dá 81?",
+    "explanation": "9 × 9 = 81, portanto √81 = 9.",
+    "formatHint": "Escreve apenas o número.",
     "options": [
-      "3",
-      "5",
-      "2",
-      "6"
+      "9",
+      "8",
+      "7",
+      "18"
     ],
     "medium": {
       "practice": "Simplifica: 2⁴ × 2³.",
@@ -770,11 +770,155 @@
         "formatHint": "Escreve só o número."
       },
       {
-        "q": "Pergunta ao contrário: 2 elevado a quanto dá 8? Escreve-se log₂(8).",
+        "q": "Fecha a escada com uma raiz: quanto vale √49?",
+        "answer": "7",
+        "hint": "Que número vezes ele próprio dá 49?",
+        "explanation": "7 × 7 = 49, logo √49 = 7.",
+        "formatHint": "Escreve apenas o número."
+      }
+    ]
+  },
+  {
+    "id": "m-logarithms",
+    "title": "Logaritmos",
+    "short": "Descobre o expoente escondido numa potência.",
+    "minutes": 20,
+    "concept": "log_b(a) pergunta: b elevado a que expoente dá a? Assim, log_b(a) = c significa b^c = a. A base tem de ser positiva e diferente de 1; o número dentro do logaritmo tem de ser positivo.",
+    "formula": "log_b(a) = c  ⇔  bᶜ = a",
+    "example": "Calcula log₂(32).",
+    "steps": [
+      "Chama x ao valor que procuramos: log₂(32) = x.",
+      "Passa para a forma de potência: 2ˣ = 32.",
+      "Como 2⁵ = 32, o expoente escondido é 5.",
+      "Confere na forma original: log₂(32) = 5."
+    ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "log₂(32) = x",
+          "say": "O logaritmo pergunta qual é o expoente. Vou chamar x ao expoente que falta.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "x",
+              "color": "coral",
+              "note": "expoente em falta"
+            }
+          ]
+        },
+        {
+          "line": "2ˣ = 32",
+          "say": "A base dois fica como base da potência. O x passa a ser o expoente.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "x"
+              },
+              "to": {
+                "l": 1,
+                "q": "ˣ"
+              },
+              "bow": "up",
+              "color": "blue"
+            },
+            {
+              "k": "circle",
+              "l": 1,
+              "q": "32",
+              "color": "coral"
+            }
+          ]
+        },
+        {
+          "line": "2⁵ = 32",
+          "say": "Dois elevado a cinco dá trinta e dois. Portanto, o expoente que procuramos é cinco.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 2,
+              "q": "5",
+              "color": "lime",
+              "note": "expoente certo"
+            }
+          ]
+        },
+        {
+          "line": "log₂(32) = 5",
+          "say": "Resposta: logaritmo de trinta e dois na base dois é cinco. Confere sempre voltando à potência.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 3,
+              "q": "5",
+              "color": "lime",
+              "note": "resposta"
+            }
+          ]
+        }
+      ]
+    },
+    "practice": "Quanto vale log₃(81)?",
+    "answer": "4",
+    "hint": "Pergunta: 3 elevado a quanto dá 81?",
+    "explanation": "3⁴ = 81, portanto log₃(81) = 4.",
+    "formatHint": "Escreve apenas o expoente.",
+    "options": [
+      "4",
+      "3",
+      "9",
+      "27"
+    ],
+    "medium": {
+      "practice": "Quanto vale log₁₀(1000)?",
+      "answer": "3",
+      "hint": "Escreve 1000 como uma potência de 10.",
+      "explanation": "10³ = 1000, portanto log₁₀(1000) = 3.",
+      "formatHint": "Escreve apenas o expoente.",
+      "options": [
+        "3",
+        "2",
+        "10",
+        "100"
+      ]
+    },
+    "ladder": [
+      {
+        "q": "Aquecimento: log₂(8) pergunta 2 elevado a quanto dá 8. Qual é o expoente?",
         "answer": "3",
-        "hint": "Procura o 8 da pergunta 1 e vê o expoente que lá estava.",
-        "explanation": "3, porque 2³ = 8, logo log₂(8) = 3. Logaritmo é só isto: perguntar qual era o expoente.",
-        "formatHint": "Escreve só o número."
+        "hint": "2³ = 8.",
+        "explanation": "3, porque 2³ = 8. Um logaritmo procura o expoente.",
+        "formatHint": "Escreve apenas o número."
+      },
+      {
+        "q": "Agora log₅(25): 5 elevado a quanto dá 25?",
+        "answer": "2",
+        "hint": "5² = 25.",
+        "explanation": "2, porque 5² = 25.",
+        "formatHint": "Escreve apenas o número."
+      },
+      {
+        "q": "Calcula log₂(16) + log₂(4).",
+        "answer": "6",
+        "hint": "Calcula cada logaritmo como um expoente: 2⁴ = 16 e 2² = 4.",
+        "explanation": "log₂(16) = 4 e log₂(4) = 2; 4 + 2 = 6.",
+        "formatHint": "Escreve apenas o resultado."
+      },
+      {
+        "q": "Resolve log₃(x) = 2. Quanto vale x?",
+        "answer": "9",
+        "hint": "Passa para a forma exponencial: 3² = x.",
+        "explanation": "log₃(x) = 2 equivale a 3² = x, logo x = 9.",
+        "formatHint": "Escreve apenas o valor de x."
+      },
+      {
+        "q": "Desafio: log₁₀(1000) + log₂(8). Qual é o resultado?",
+        "answer": "6",
+        "hint": "Calcula cada expoente e depois soma.",
+        "explanation": "log₁₀(1000) = 3 e log₂(8) = 3; a soma é 6.",
+        "formatHint": "Escreve apenas o resultado."
       }
     ]
   },

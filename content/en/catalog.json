@@ -30,10 +30,17 @@
     },
     {
       "id": "m-powers",
-      "title": "Powers, roots and logarithms",
-      "short": "Spot exponent patterns and inverse operations.",
+      "title": "Powers and roots",
+      "short": "Use exponents and roots to simplify expressions.",
       "priority": false,
       "minutes": 18
+    },
+    {
+      "id": "m-logarithms",
+      "title": "Logarithms",
+      "short": "Read logarithms as exponents and solve simple equations.",
+      "priority": false,
+      "minutes": 20
     },
     {
       "id": "m-trig",

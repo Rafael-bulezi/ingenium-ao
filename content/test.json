@@ -118,5 +118,17 @@
     ],
     "correct": 2,
     "explanation": "v = fλ = 4 × 3 = 12 m/s."
+  },
+  {
+    "subject": "Matemática",
+    "prompt": "Quanto vale log₂(16)?",
+    "options": [
+      "4",
+      "3",
+      "2",
+      "8"
+    ],
+    "correct": 0,
+    "explanation": "2⁴ = 16, portanto log₂(16) = 4."
   }
 ]

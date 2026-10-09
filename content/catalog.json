@@ -30,10 +30,17 @@
     },
     {
       "id": "m-powers",
-      "title": "Potências, raízes e logaritmos",
-      "short": "Reconhece padrões de expoentes e operações inversas.",
+      "title": "Potências e raízes",
+      "short": "Usa expoentes e raízes para simplificar expressões.",
       "priority": false,
       "minutes": 18
+    },
+    {
+      "id": "m-logarithms",
+      "title": "Logaritmos",
+      "short": "Interpreta logaritmos como expoentes e resolve equações simples.",
+      "priority": false,
+      "minutes": 20
     },
     {
       "id": "m-trig",
