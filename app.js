@@ -4,7 +4,8 @@ let mathLessons = [];
 let physicsLessons = [];
 let testQuestions = [];
 const lessonDetails = {};
-const loadedChunks = { catalog:false, math:false, physics:false, test:false };
+let triExplain = {};
+const loadedChunks = { catalog:false, math:false, physics:false, test:false, triangles:false };
 const loadingChunks = {};
 
 const subjects = {
@@ -24,6 +25,7 @@ function loadChunk(name, url) {
       }
       if (name === "math" || name === "physics") data.forEach(lesson => { lessonDetails[lesson.id] = lesson; });
       if (name === "test") testQuestions = data;
+      if (name === "triangles") triExplain = data;
       loadedChunks[name] = true;
     })
     .catch(error => { delete loadingChunks[name]; throw error; });
@@ -32,6 +34,7 @@ function loadChunk(name, url) {
 function ensureCatalog() { return loadChunk("catalog", "/content/catalog.json"); }
 function ensureLessonDetails(key) { return ensureCatalog().then(() => loadChunk(key, `/content/${key}.json`)); }
 function ensureTestData() { return loadChunk("test", "/content/test.json"); }
+function ensureTriData() { return ensureCatalog().then(() => Promise.all([ensureLessonDetails("math"), ensureLessonDetails("physics"), loadChunk("triangles", "/content/triangles.json")])); }
 
 let state = loadState();
 let route = { view:"home", subject:"math", lessonId:null };
@@ -42,12 +45,13 @@ function loadingMarkup(label="A preparar a próxima etapa…") {
   return `<div class="loading-state"><span class="loading-mark"></span><p>${label}</p><span class="loading-line"></span><span class="loading-line short"></span></div>`;
 }
 async function ensureDataForView() {
-  if (route.view === "home" || route.view === "path" || route.view === "profile" || route.view === "lesson") await ensureCatalog();
+  if (route.view === "home" || route.view === "path" || route.view === "profile" || route.view === "lesson" || route.view === "triangles") await ensureCatalog();
   if (route.view === "lesson") await ensureLessonDetails(route.lessonId.startsWith("p-") ? "physics" : "math");
   if (route.view === "test") await ensureTestData();
+  if (route.view === "triangles") await ensureTriData();
 }
 
-function defaultState() { return { completed: [], practice: {}, test: null, voiceOff: false }; }
+function defaultState() { return { completed: [], practice: {}, test: null, voiceOff: false, prep: false, triDeep: {} }; }
 function loadState() { try { return { ...defaultState(), ...JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")} } catch { return defaultState(); } }
 function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
 function allLessons() { return [...mathLessons, ...physicsLessons]; }
@@ -76,22 +80,27 @@ function progressDots(lessons) { return `<span class="mini-progress">${lessons.s
 function renderHome() {
   const next = getNextLesson();
   const math = subjectProgress("math"); const physics = subjectProgress("physics");
-  return `<div class="home-hero">
-    <div class="hero-copy"><p class="eyebrow">Rota de acesso · Engenharia</p><h1>Um passo de cada vez.<br><span>Mais confiança.</span></h1><p class="lead">Matemática e Física em pequenas lições, com contas abertas, prática guiada e revisão sem stress.</p><div class="hero-actions"><a class="button button-primary" href="#lesson/${next.id}">Continuar rota <span>→</span></a><a class="button button-ghost" href="#test">Fazer mini-teste</a></div></div>
-    <aside class="streak-card"><p class="eyebrow" style="color:#aeb8c6">O teu mapa de hoje</p><div class="streak-number"><strong>${pct()}%</strong><span>da rota concluída</span></div><h3>${completedCount() === 0 ? "Começa pelo primeiro nó." : completedCount() === totalCount() ? "Rota completa." : "A próxima resposta está perto."}</h3><p>${completedCount() === 0 ? "A primeira lição demora menos de 20 minutos e já deixa uma ferramenta contigo." : `${totalCount() - completedCount()} lições ainda esperam por ti. Mantém o ritmo.`}</p>${progressBar(pct(), "Progresso total")}<div class="progress-meta"><span>${completedCount()} concluídas</span><span>${totalCount()} no total</span></div></aside>
+  const nextKey = next.id.startsWith("p-") ? "physics" : "math";
+  return `<div class="home-top">
+    <div class="home-hello"><p class="eyebrow">Engenharia · Metodista</p><h1>${completedCount() === 0 ? "Começa aqui." : completedCount() === totalCount() ? "Rota completa." : "Bom ritmo."}</h1><p class="home-count"><strong>${completedCount()}/${totalCount()}</strong> lições feitas</p></div>
+    <div class="home-ring" style="--score:${pct()}%" role="img" aria-label="${pct()}% da rota concluída"><strong>${pct()}%</strong></div>
   </div>
-  <div class="section-head"><h2>Escolhe a matéria</h2><a class="text-link" href="#path">Ver toda a rota →</a></div>
-  <div class="subject-grid">
-    <a href="#path/math" class="subject-card math"><span class="subject-symbol">x²</span><p class="eyebrow" style="color:var(--blue)">Trilho 01</p><h3>Matemática</h3><p>Da álgebra à probabilidade, com ferramentas para pensar como o exame pede.</p><footer><span>${math.done}/${math.total} lições</span>${progressDots(subjects.math.lessons)}</footer></a>
-    <a href="#path/physics" class="subject-card physics"><span class="subject-symbol">F</span><p class="eyebrow" style="color:var(--coral)">Trilho 02</p><h3>Física</h3><p>Movimento, forças, energia e electricidade — sempre com unidades e método.</p><footer><span>${physics.done}/${physics.total} lições</span>${progressDots(subjects.physics.lessons)}</footer></a>
+  <a class="continue-card" href="#lesson/${next.id}"><p class="eyebrow">${isDone(next.id) ? "Rever" : "Continuar"} · ${subjects[nextKey].label}</p><h2>${escapeHtml(next.title)}</h2><div class="continue-foot"><span class="tag">${next.minutes} min</span>${progressDots(subjects[nextKey].lessons)}<span class="node-cta">→</span></div></a>
+  <div class="quick-grid">
+    <a class="quick-tile" href="#triangles"><span class="quick-icon" aria-hidden="true">△</span><strong>Triângulos</strong><small>10 fórmulas</small></a>
+    <a class="quick-tile" href="#test"><span class="quick-icon" aria-hidden="true">▣</span><strong>Mini-teste</strong><small>20 min</small></a>
+    <a class="quick-tile" href="#path"><span class="quick-icon" aria-hidden="true">✦</span><strong>Toda a rota</strong><small>${totalCount()} lições</small></a>
   </div>
-  <div class="focus-card"><div class="focus-badge">IE</div><div><h3>Trilho recomendado · Industrial e Sistemas Eléctricos</h3><p>As etiquetas douradas marcam os tópicos que merecem atenção extra: álgebra, trigonometria, vectores, mecânica, electricidade, lei de Ohm, circuitos, potência e unidades.</p></div></div>`;
+  <div class="subject-rows">
+    <a href="#path/math" class="subject-row"><span class="subject-symbol math">x²</span><span class="subject-row-copy"><strong>Matemática</strong><small>${math.done}/${math.total} concluídas</small></span><span class="node-cta">→</span></a>
+    <a href="#path/physics" class="subject-row"><span class="subject-symbol physics">F</span><span class="subject-row-copy"><strong>Física</strong><small>${physics.done}/${physics.total} concluídas</small></span><span class="node-cta">→</span></a>
+  </div>`;
 }
 
 function renderPath() {
   const key = route.subject === "physics" ? "physics" : "math"; const subject = subjects[key]; const prog = subjectProgress(key);
-  return `<div class="path-head"><div><p class="eyebrow">A tua rota</p><h1>Constrói a base.</h1></div><div class="path-stats"><span class="stat-pill"><strong>${prog.done}</strong> feitas</span><span class="stat-pill"><strong>${prog.total - prog.done}</strong> por fazer</span></div></div><div class="tabs">${subjectButton("math","Matemática",key === "math")}${subjectButton("physics","Física",key === "physics")}</div><div class="path-wrap">${subject.lessons.map((lesson, index) => {
-    const done = isDone(lesson.id); const previousDone = index === 0 || isDone(subject.lessons[index-1].id); const locked = !done && !previousDone;
+  return `<div class="path-head"><div><p class="eyebrow">A tua rota</p><h1>Constrói a base.</h1></div><div class="path-stats"><span class="stat-pill"><strong>${prog.done}</strong> feitas</span><span class="stat-pill"><strong>${prog.total - prog.done}</strong> por fazer</span>${state.prep ? '<span class="stat-pill prep">prep · tudo aberto</span>' : ""}</div></div><div class="tabs">${subjectButton("math","Matemática",key === "math")}${subjectButton("physics","Física",key === "physics")}</div><a class="tri-shortcut" href="#triangles"><span class="tri-shortcut-tri" aria-hidden="true">△</span><div><strong>Triângulos de fórmulas</strong><small>Tapa para descobrir. Arrasta para aprofundar.</small></div><span class="node-cta">→</span></a><div class="path-wrap">${subject.lessons.map((lesson, index) => {
+    const done = isDone(lesson.id); const previousDone = index === 0 || isDone(subject.lessons[index-1].id); const locked = !state.prep && !done && !previousDone;
     return `<article class="lesson-node ${done ? "done" : ""} ${!locked && !done ? "current" : ""} ${locked ? "locked" : ""}"><div class="node-bullet">${done ? "✓" : String(index + 1).padStart(2,"0")}</div><a class="node-card" href="${locked ? "#path/"+key : "#lesson/"+lesson.id}"><div><h3>${escapeHtml(lesson.title)}</h3><p>${escapeHtml(lesson.short)}</p><div class="node-meta"><span class="tag">${lesson.minutes} min</span>${lesson.priority ? '<span class="tag priority">prioridade IE</span>' : ""}${done ? '<span class="tag done">concluída</span>' : ""}</div></div><span class="node-cta">${locked ? "•" : "→"}</span></a></article>`;
   }).join("")}</div>`;
 }
@@ -193,12 +202,11 @@ function triCell(cell, data) {
 function triCard(lesson) {
   const t = lesson.formulaTri;
   if (!t || !Array.isArray(t.top) || !Array.isArray(t.left) || !Array.isArray(t.right)) return "";
-  return `<article class="card tri-card"><p class="eyebrow">Fórmula em triângulo</p><div class="tri-formula">${inlineWrite(`${t.top[0]} = ${t.left[0]} × ${t.right[0]}`)}</div><p class="tri-hint">Tapa a grandeza que queres descobrir — como se tapasses com o dedo.</p><div class="tri-wrap" id="tri"><svg class="tri-ink" aria-hidden="true"></svg>${triCell("top", t.top)}${triCell("left", t.left)}${triCell("right", t.right)}</div><div class="tri-result" aria-live="polite"></div></article>`;
+  return `<article class="card tri-card" data-lesson="${lesson.id}"><p class="eyebrow">Fórmula em triângulo</p><div class="tri-formula">${inlineWrite(`${t.top[0]} = ${t.left[0]} × ${t.right[0]}`)}</div><p class="tri-hint">Tapa a grandeza que queres descobrir — como se tapasses com o dedo.</p><div class="tri-wrap"><svg class="tri-ink" aria-hidden="true"></svg>${triCell("top", t.top)}${triCell("left", t.left)}${triCell("right", t.right)}</div><div class="tri-result" aria-live="polite"></div></article>`;
 }
 
 function drawTriFrame() {
-  const wrap = document.querySelector("#tri");
-  if (!wrap) return;
+  document.querySelectorAll(".tri-wrap").forEach(wrap => {
   const svg = wrap.querySelector(".tri-ink");
   const w = wrap.clientWidth, h = wrap.clientHeight;
   if (!w || !h) return;
@@ -241,7 +249,100 @@ function drawTriFrame() {
     el.style.left = `${r0(pos[0])}px`;
     el.style.top = `${r0(pos[1])}px`;
   });
+  });
 }
+
+/* ===== Página dos triângulos: todos os triângulos + explicação que cresce ===== */
+
+function triPageCard(lesson) {
+  const t = lesson.formulaTri;
+  const info = triExplain[lesson.id] || {};
+  const deep = Array.isArray(info.deep) ? info.deep : [];
+  const level = Math.min(Math.max((state.triDeep && state.triDeep[lesson.id]) || 0, 0), deep.length);
+  const key = lesson.id.startsWith("p-") ? "physics" : "math";
+  return `<article class="card tri-card tri-page-card" data-lesson="${lesson.id}" data-level="${level}"><div class="tri-page-head"><div><p class="eyebrow" style="color:var(--${key === "physics" ? "coral" : "blue"})">${subjects[key].label}</p><h2>${escapeHtml(lesson.title)}</h2></div><a class="text-link" href="#lesson/${lesson.id}">Lição completa →</a></div><div class="tri-formula">${inlineWrite(`${t.top[0]} = ${t.left[0]} × ${t.right[0]}`)}</div><p class="tri-hint">Tapa a grandeza que queres descobrir — como se tapasses com o dedo.</p><div class="tri-wrap"><svg class="tri-ink" aria-hidden="true"></svg>${triCell("top", t.top)}${triCell("left", t.left)}${triCell("right", t.right)}</div><div class="tri-result" aria-live="polite"></div><p class="tri-base">${escapeHtml(info.base || "")}</p><div class="tri-deep-extra">${deep.map(d => `<div class="tri-deep-block"><strong>${escapeHtml(d.t)}</strong><p>${escapeHtml(d.p)}</p></div>`).join("")}</div><button type="button" class="tri-drag" data-tri-drag aria-expanded="${level > 0}"><span class="tri-drag-grip" aria-hidden="true"></span><span class="tri-drag-label"></span></button></article>`;
+}
+
+function renderTriangles() {
+  const tris = allLessons().map(l => lessonDetails[l.id]).filter(l => l && l.formulaTri && triExplain[l.id]);
+  const math = tris.filter(l => !l.id.startsWith("p-"));
+  const physics = tris.filter(l => l.id.startsWith("p-"));
+  const section = (title, list) => list.length ? `<div class="section-head"><h2>${title}</h2><span class="muted tri-count">${list.length} triângulos</span></div><div class="tri-grid">${list.map(triPageCard).join("")}</div>` : "";
+  return `<div class="path-head"><div><p class="eyebrow">Formulário visual</p><h1>Triângulos.</h1><p class="lead">Tapa a grandeza que queres descobrir. Arrasta o puxador para a explicação crescer.</p></div><div class="path-stats"><span class="stat-pill"><strong>${tris.length}</strong> fórmulas</span></div></div>${section("Matemática", math)}${section("Física", physics)}`;
+}
+
+function triDets(card) {
+  const extra = card.querySelector(".tri-deep-extra");
+  const blocks = [...extra.querySelectorAll(".tri-deep-block")];
+  const dets = [0];
+  let acc = 0;
+  blocks.forEach(b => { acc += b.offsetHeight + 14; dets.push(acc); });
+  return dets;
+}
+function syncTriDeep(animate = false) {
+  document.querySelectorAll(".tri-page-card").forEach(card => {
+    if (triDrag && triDrag.card === card) return;
+    const extra = card.querySelector(".tri-deep-extra");
+    if (!extra) return;
+    const dets = triDets(card);
+    const max = dets.length - 1;
+    const level = Math.min(Math.max(Number(card.dataset.level) || 0, 0), max);
+    card._dets = dets; card.dataset.level = level;
+    extra.classList.remove("dragging");
+    if (!animate) { extra.classList.add("no-anim"); extra.style.height = `${dets[level]}px`; void extra.offsetHeight; extra.classList.remove("no-anim"); }
+    else extra.style.height = `${dets[level]}px`;
+    const drag = card.querySelector("[data-tri-drag]");
+    if (drag) {
+      drag.setAttribute("aria-expanded", String(level > 0));
+      drag.querySelector(".tri-drag-label").textContent = level === max ? "arrasta para fechar" : level > 0 ? "arrasta para saber mais" : "arrasta para aprofundar";
+    }
+  });
+}
+function setTriLevel(card, level) {
+  const max = ((card._dets && card._dets.length) || 1) - 1;
+  const next = Math.min(Math.max(level, 0), max);
+  card.dataset.level = next;
+  state.triDeep = state.triDeep || {};
+  if (next) state.triDeep[card.dataset.lesson] = next; else delete state.triDeep[card.dataset.lesson];
+  saveState();
+  syncTriDeep(true);
+}
+let triDrag = null;
+document.addEventListener("pointerdown", event => {
+  const drag = event.target.closest("[data-tri-drag]");
+  if (!drag) return;
+  const card = drag.closest(".tri-page-card");
+  const extra = card && card.querySelector(".tri-deep-extra");
+  if (!extra || !card._dets) return;
+  triDrag = { card, extra, startY: event.clientY, startH: extra.offsetHeight, moved: false };
+  extra.classList.add("dragging");
+  if (drag.setPointerCapture) { try { drag.setPointerCapture(event.pointerId); } catch {} }
+});
+document.addEventListener("pointermove", event => {
+  if (!triDrag) return;
+  const dy = triDrag.startY - event.clientY;
+  if (Math.abs(dy) > 4) triDrag.moved = true;
+  const maxH = triDrag.card._dets[triDrag.card._dets.length - 1];
+  const h = Math.min(Math.max(triDrag.startH + dy, 0), maxH);
+  triDrag.extra.style.height = `${Math.round(h)}px`;
+});
+function endTriDrag() {
+  if (!triDrag) return;
+  const { card, extra, moved } = triDrag;
+  triDrag = null;
+  extra.classList.remove("dragging");
+  const level = Number(card.dataset.level) || 0;
+  if (!moved) { setTriLevel(card, level >= card._dets.length - 1 ? 0 : level + 1); return; }
+  const h = extra.offsetHeight;
+  let best = 0, bestD = Infinity;
+  card._dets.forEach((d, i) => { const dist = Math.abs(d - h); if (dist < bestD) { bestD = dist; best = i; } });
+  setTriLevel(card, best);
+}
+document.addEventListener("pointerup", endTriDrag);
+document.addEventListener("pointercancel", endTriDrag);
+let triResizeTimer;
+window.addEventListener("resize", () => { clearTimeout(triResizeTimer); triResizeTimer = setTimeout(() => { if (route.view === "triangles") syncTriDeep(); }, 160); });
+
 
 function exampleCard(lesson, shownSteps) {
   if (!lesson.walkthrough || !Array.isArray(lesson.walkthrough.steps) || !lesson.walkthrough.steps.length) return legacyExampleCard(lesson, shownSteps);
@@ -589,24 +690,30 @@ function renderTestResult() {
   return `<div class="test-header"><div><p class="eyebrow">Resultado guardado</p><h1>Boa revisão.</h1></div><div class="timer"><small>pontuação</small>${score}/${testQuestions.length}</div></div><div class="test-card"><div class="result-card"><div class="score-ring" style="--score:${pctScore}%"><strong>${pctScore}%</strong></div><h2>${feedback}</h2><p>Compara cada resposta com o raciocínio. A explicação vale tanto quanto o ponto.</p><div class="hero-actions" style="justify-content:center"><button class="button button-lime" data-test="restart">Tentar novamente</button><a class="button button-ghost" style="color:var(--white);border-color:#506076" href="#path">Voltar à rota</a></div></div><div class="review-list">${testQuestions.map((q,i) => { const correct = testSession.answers[i] === q.correct; return `<div class="review-item ${correct ? "correct" : "incorrect"}"><strong>${correct ? "✓" : "×"} ${i+1}. ${escapeHtml(q.prompt)}</strong><p>Resposta certa: <b>${escapeHtml(q.options[q.correct])}</b>. ${escapeHtml(q.explanation)}</p></div>`; }).join("")}</div></div>`;
 }
 
-function renderProfile() { const test = state.test; return `<div class="profile-card"><div class="profile-top"><div class="profile-avatar">RB</div><div><p class="eyebrow" style="color:var(--lime)">Área de foco</p><h1>Preparação para Engenharia</h1><p>O teu progresso fica guardado neste navegador.</p></div></div><div class="profile-metrics"><div class="metric"><strong>${completedCount()}</strong><span>lições feitas</span></div><div class="metric"><strong>${pct()}%</strong><span>da rota</span></div><div class="metric"><strong>${test ? `${test.score}/10` : "—"}</strong><span>último teste</span></div></div><div class="card" style="margin-top:16px"><p class="eyebrow">Preferência de estudo</p><h2>Consistência vence pressa.</h2><p class="muted" style="line-height:1.7">Faz uma lição por sessão, escreve as unidades e volta aos erros do mini-teste. O exame fica mais pequeno quando o método fica automático.</p><div class="hero-actions"><a class="button button-primary" href="#lesson/${getNextLesson().id}">Continuar a estudar →</a><button class="button button-ghost" data-profile="reset">Limpar progresso</button></div></div></div>`; }
+function renderProfile() { const test = state.test; return `<div class="profile-card"><div class="profile-top"><div class="profile-avatar">RB</div><div><p class="eyebrow" style="color:var(--lime)">Área de foco</p><h1>Preparação para Engenharia</h1><p>O teu progresso fica guardado neste navegador.</p></div></div><div class="profile-metrics"><div class="metric"><strong>${completedCount()}</strong><span>lições feitas</span></div><div class="metric"><strong>${pct()}%</strong><span>da rota</span></div><div class="metric"><strong>${test ? `${test.score}/10` : "—"}</strong><span>último teste</span></div></div><div class="card" style="margin-top:16px"><div class="prep-row"><div><p class="eyebrow">Modo preparação</p><h2>Tudo aberto.</h2><p class="muted">Ligado, podes abrir qualquer lição sem completar as anteriores — ideal para revisões rápidas antes do exame.</p></div><button class="switch ${state.prep ? "on" : ""}" data-prep aria-pressed="${state.prep}" aria-label="Modo preparação"><span></span></button></div></div><div class="card" style="margin-top:16px"><p class="eyebrow">Preferência de estudo</p><h2>Consistência vence pressa.</h2><p class="muted" style="line-height:1.7">Faz uma lição por sessão, escreve as unidades e volta aos erros do mini-teste. O exame fica mais pequeno quando o método fica automático.</p><div class="hero-actions"><a class="button button-primary" href="#lesson/${getNextLesson().id}">Continuar a estudar →</a><button class="button button-ghost" data-profile="reset">Limpar progresso</button></div></div></div>`; }
 
 async function render() {
   document.querySelectorAll(".view").forEach(el => el.classList.toggle("hidden", el.dataset.view !== route.view));
   const target = document.querySelector(`[data-view="${route.view}"]`); if (!target) return;
   const viewAtStart = route.view;
-  const needsCatalog = ["home", "path", "profile", "lesson"].includes(route.view) && !loadedChunks.catalog;
+  const needsCatalog = ["home", "path", "profile", "lesson", "triangles"].includes(route.view) && !loadedChunks.catalog;
   const lessonKey = route.lessonId?.startsWith("p-") ? "physics" : "math";
   const needsLesson = route.view === "lesson" && !loadedChunks[lessonKey];
   const needsTest = route.view === "test" && !loadedChunks.test;
-  if (needsCatalog || needsLesson || needsTest) target.innerHTML = loadingMarkup(route.view === "test" ? "A carregar o mini-teste…" : "A preparar a tua rota…");
+  const needsTri = route.view === "triangles" && !loadedChunks.triangles;
+  if (needsCatalog || needsLesson || needsTest || needsTri) target.innerHTML = loadingMarkup(route.view === "test" ? "A carregar o mini-teste…" : route.view === "triangles" ? "A preparar os triângulos…" : "A preparar a tua rota…");
   try { await ensureDataForView(); } catch (error) { target.innerHTML = `<div class="card load-error"><h2>Não foi possível carregar esta parte.</h2><p class="muted">Verifica a ligação e tenta novamente.</p><button class="button button-primary" data-retry>Recarregar</button></div>`; return; }
   if (route.view !== viewAtStart) return;
-  target.innerHTML = route.view === "home" ? renderHome() : route.view === "path" ? renderPath() : route.view === "lesson" ? renderLesson() : route.view === "test" ? renderTest() : renderProfile();
+  target.innerHTML = route.view === "home" ? renderHome() : route.view === "path" ? renderPath() : route.view === "lesson" ? renderLesson() : route.view === "test" ? renderTest() : route.view === "triangles" ? renderTriangles() : renderProfile();
   if (route.view === "lesson") {
     afterLessonRender();
     drawTriFrame();
     if (document.fonts) document.fonts.ready.then(() => { if (route.view === "lesson") drawTriFrame(); });
+  }
+  if (route.view === "triangles") {
+    drawTriFrame();
+    syncTriDeep();
+    if (document.fonts) document.fonts.ready.then(() => { if (route.view === "triangles") { drawTriFrame(); syncTriDeep(); } });
   }
   document.querySelectorAll("[data-nav]").forEach(el => el.classList.toggle("active", el.dataset.nav === route.view));
   if (route.view === "test" && testSession && !testSession.finished) startTimerLoop();
@@ -637,11 +744,17 @@ document.addEventListener("click", event => {
   }
   const voice = event.target.closest("[data-voice]"); if (voice) { state.voiceOff = !state.voiceOff; stopSpeaking(); saveState(); render(); return; }
   const qf = event.target.closest("[data-quadro='full']"); if (qf) { setQuadroFull(!quadroFull); return; }
+  const prep = event.target.closest("[data-prep]"); if (prep) { state.prep = !state.prep; saveState(); showToast(state.prep ? "Modo preparação ligado. Todas as lições estão abertas." : "Modo preparação desligado. A rota volta ao normal."); render(); return; }
+  const triGrip = event.target.closest("[data-tri-drag]"); if (triGrip && event.detail === 0) {
+    const card = triGrip.closest(".tri-page-card");
+    if (card) { const level = Number(card.dataset.level) || 0; setTriLevel(card, level >= card._dets.length - 1 ? 0 : level + 1); }
+    return;
+  }
   const tri = event.target.closest("[data-tri]"); if (tri) {
-    const lesson = lessonById(route.lessonId);
-    const t = lesson?.formulaTri;
-    if (!t) return;
     const card = tri.closest(".tri-card");
+    const lesson = lessonById(card?.dataset.lesson || route.lessonId);
+    const t = lesson?.formulaTri;
+    if (!t || !card) return;
     const result = card.querySelector(".tri-result");
     const was = tri.classList.contains("covered");
     card.querySelectorAll(".tri-cell").forEach(c => { c.classList.remove("covered"); c.setAttribute("aria-pressed", "false"); });

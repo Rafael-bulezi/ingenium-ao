@@ -22,8 +22,9 @@ for the Metodista engineering access exam. Repo dir: `metodista-engineering-prep
 | Deploy mode | Git-connected: **push to `main` → production auto-deploy** (~15 s + build) |
 | Vercel CLI auth file (this machine) | `%APPDATA%\com.vercel.cli\Data\auth.json` |
 | localStorage key | `metodista-prep-v1` — **never rename** (users' progress lives here) |
-| Content | 25 lessons (12 math + 13 physics), **125 ladder questions (5/lesson)**, 12 walkthroughs (math), 10 formulaTri (2 math + 8 physics), 77 audio MP3s |
-| Routes | `#/` home · `#/path/:subject` · `#/lesson/:id` · `#/test` · `#/profile` |
+| Content | 25 lessons (12 math + 13 physics), **125 ladder questions (5/lesson)**, 12 walkthroughs (math), 10 formulaTri (2 math + 8 physics) + `content/triangles.json` (base + 2 deep levels each), 77 audio MP3s (30 of them `*-tri-*`) |
+| Routes | `#/` home · `#/path/:subject` · `#/lesson/:id` · `#/triangles` · `#/test` · `#/profile` |
+| State keys | `completed[]`, `practice{}`, `test`, `voiceOff`, **`prep`** (modo preparação: abre todas as lições), **`triDeep{lessonId:0-2}`** (nível expandido de cada triângulo) |
 
 ## 3. Repeatable recipes
 
@@ -75,6 +76,20 @@ for full-page views use a tall iframe (`h=4200`) + `screenshot({fullPage:true})`
    the first patch silently wrote nothing there. Check the JSON path before string-replacing.
 10. **Never commit QA scaffolding**: `__harness.html` / `__probe.html` (SPA server returns 200 for
     deleted paths — a 200 on a deleted file proves nothing; check the body).
+11. **`allLessons()` is the catalog, not the details.** Catalog entries carry no `formulaTri` — only
+    `lessonDetails[id]` (from `math.json`/`physics.json`) does. The first triangles page rendered
+    **0 cards** for exactly this reason. Fix: map catalog → `lessonDetails` when filtering, and let
+    `ensureTriData()` load both detail chunks plus `triangles.json`.
+12. **`syncTriDeep()` clobbered an in-progress drag.** `document.fonts.ready` (and the resize
+    handler) re-sync every card to its *committed* level, so a drag released in that window measured
+    0 px and snapped back to closed — looked like "drag doesn't work". Fix: skip the card that is
+    currently captured (`triDrag.card === card`).
+13. **Harness URL fragment trap**: appending `&diag=1&hq=…` to a URL already ending in `#top` put the
+    params *inside the fragment* — the server never saw them, the same cached harness kept loading,
+    and every fix looked ignored. Query params go **before** `#`, and the harness document itself
+    needs a cache-bust. When Playwright input is untrustworthy, drive the app's own handlers from the
+    same-origin harness (`el.dispatchEvent(new PointerEvent(...))`, `el.click()`) — deterministic, and
+    it reads real heights/levels.
 
 ## 5. Standing constraints
 

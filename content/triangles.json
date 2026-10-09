@@ -1,0 +1,72 @@
+{
+  "m-geometry": {
+    "base": "A área de um rectângulo é a base vezes a altura. Se souberes a área e um dos lados, divides para descobrir o outro.",
+    "deep": [
+      { "t": "Como usar", "p": "Tapa a grandeza que queres descobrir. Com o dedo a tapar A, ficas com A = b × h. A tapar b, ficas com b = A ÷ h. A posição no triângulo dá-te a conta certa — não precisas de decorar três fórmulas." },
+      { "t": "No exame", "p": "Um rectângulo de 8 cm por 3 cm tem área 8 × 3 = 24 cm². Escreve sempre a unidade: centímetro vezes centímetro dá centímetro quadrado." }
+    ]
+  },
+  "m-probability": {
+    "base": "A probabilidade é a divisão entre casos favoráveis e casos possíveis. O resultado anda sempre entre 0 e 1 — ou entre 0% e 100%.",
+    "deep": [
+      { "t": "Como usar", "p": "Tapa P e divides os favoráveis pelo total. Tapa F e multiplicas P pelo total. Tapa T e divides os favoráveis pela probabilidade. É o mesmo gesto para qualquer pergunta." },
+      { "t": "No exame", "p": "3 bolas vermelhas em 5 no total: P = 3 ÷ 5 = 0,6, ou 60%. Se o enunciado pede percentagem, multiplica o resultado por 100 e escreve o símbolo %." }
+    ]
+  },
+  "p-motion": {
+    "base": "Se tens duas das três — distância, velocidade, tempo — tapa a terceira no triângulo e a conta aparece.",
+    "deep": [
+      { "t": "Como usar", "p": "Distância: tapa Δs e multiplicas v por Δt. Velocidade: tapa v e divides Δs por Δt. Tempo: tapa Δt e divides Δs por v. Dividir é sempre o gesto de isolar." },
+      { "t": "No exame", "p": "120 m em 6 s → v = 120 ÷ 6 = 20 m/s. Responde com a unidade certa: m/s, não só 20. Se pedirem em km/h, converte: multiplica por 3,6." }
+    ]
+  },
+  "p-newton": {
+    "base": "A força é a massa vezes a aceleração. Mais massa ou mais aceleração dão sempre mais força.",
+    "deep": [
+      { "t": "Como usar", "p": "Tapa F e multiplicas m por a. Tapa m e divides F por a. Tapa a e divides F por m. Antes de dividir, confirma que as unidades estão no SI: kg, m/s², N." },
+      { "t": "No exame", "p": "20 N aplicados numa massa de 4 kg → a = 20 ÷ 4 = 5 m/s². Repara que o enunciado deu a força e não a aceleração: o triângulo existe precisamente para isso." }
+    ]
+  },
+  "p-forces": {
+    "base": "O peso é a força da gravidade sobre a massa: massa vezes gravidade. Nas contas do exame, usa g = 10 m/s².",
+    "deep": [
+      { "t": "Como usar", "p": "Tapa P e multiplicas m por g. Tapa m e divides P por g. Tapa g e divides P por m — assim descobres a gravidade de outro planeta." },
+      { "t": "No exame", "p": "6 kg × 10 = 60 N. Peso é em newtons (N) e massa é em quilogramas (kg): são grandezas diferentes, e o enunciado paga por essa distinção." }
+    ]
+  },
+  "p-energy": {
+    "base": "O trabalho mede a energia gasta: potência vezes tempo. Mais potência ou mais tempo, mais energia.",
+    "deep": [
+      { "t": "Como usar", "p": "Tapa W e multiplicas P por t. Tapa P e divides W por t — descobres a potência a partir da energia gasta. Tapa t e divides W por P." },
+      { "t": "No exame", "p": "50 W durante 4 s → W = 50 × 4 = 200 J. Atenção às letras: J (joule) para energia e W (watt) para potência — não troques." }
+    ]
+  },
+  "p-momentum": {
+    "base": "A quantidade de movimento é a massa vezes a velocidade. Uma carrinha lenta pode ter mais embalo do que uma bola muito rápida.",
+    "deep": [
+      { "t": "Como usar", "p": "Tapa p e multiplicas m por v. Tapa m e divides p por v. Tapa v e divides p por m. O gesto é o mesmo de sempre: multiplicar por baixo, dividir para isolar." },
+      { "t": "No exame", "p": "2 kg a 6 m/s → p = 2 × 6 = 12 kg·m/s. A unidade junta as duas grandezas: quilograma metro por segundo." }
+    ]
+  },
+  "p-fluids": {
+    "base": "A pressão é a força espalhada por uma área. A mesma força numa área pequena faz muito mais pressão.",
+    "deep": [
+      { "t": "Como usar", "p": "Tapa p e divides F por A. Tapa F e multiplicas p por A. Tapa A e divides F por p. Repara: área pequena aumenta o resultado — é por isso que o prego fino entra na madeira." },
+      { "t": "No exame", "p": "200 N numa área de 4 m² → p = 200 ÷ 4 = 50 Pa. A unidade é o pascal (Pa), que é o mesmo que newton por metro quadrado." }
+    ]
+  },
+  "p-electricity": {
+    "base": "A tensão é a corrente vezes a resistência: a lei de Ohm. Se souberes dois dos três valores, o terceiro sai daqui.",
+    "deep": [
+      { "t": "Como usar", "p": "Tapa V e multiplicas I por R. Tapa I e divides V por R. Tapa R e divides V por I. Confirma as unidades: volt (V), ampere (A) e ohm (Ω)." },
+      { "t": "No exame", "p": "12 V num resistor de 6 Ω → I = 12 ÷ 6 = 2 A. Depois podes puxar a potência com P = V × I: 12 × 2 = 24 W." }
+    ]
+  },
+  "p-waves": {
+    "base": "A velocidade de uma onda é a frequência vezes o comprimento de onda. Passos mais longos ou mais frequentes andam mais depressa.",
+    "deep": [
+      { "t": "Como usar", "p": "Tapa v e multiplicas f por λ. Tapa f e divides v por λ. Tapa λ e divides v por f. O λ é o comprimento de onda — a distância entre duas cristas." },
+      { "t": "No exame", "p": "5 Hz × 2 m → v = 10 m/s. Frequência é em hertz (Hz), que é uma onda por segundo; comprimento de onda é em metros." }
+    ]
+  }
+}
