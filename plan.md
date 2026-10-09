@@ -20,8 +20,10 @@ A mobile-first study companion for Metodista engineering entrance-exam preparati
 ## Implementation approach
 - Plain TypeScript-free HTML/CSS/JS app to keep the artifact portable and fast.
 - `index.html` provides the shell and accessible landmarks.
-- `styles.css` owns responsive layout, trail visuals, lesson cards, test states, and reduced-motion behavior.
-- `app.js` owns the content model, route-like view switching, localStorage progress, sequential solution reveals, practice feedback, and a 20-minute mini-test.
+- `styles.css` owns responsive layout, trail visuals, lesson cards, test states, loading states, and reduced-motion behavior.
+- `app.js` owns route-like view switching, localStorage progress, sequential solution reveals, practice feedback, and chunk orchestration. It loads only the compact catalog first; full Mathematics, Physics, and test JSON chunks are fetched on demand.
+- `content/catalog.json` contains only titles, summaries, priority flags, and durations for the initial dashboard/path.
+- `content/math.json`, `content/physics.json`, and `content/test.json` hold full lesson/test data and are requested only when those experiences open.
 - `public/manus-routes.json` declares the single-page route for Webdev.
 - `app.config.ts` provides a stable project logo metadata literal.
 - The app deliberately does not need login or a database in v1: progress is saved in the learner’s browser using localStorage.
@@ -49,3 +51,4 @@ metodista/
 - Language: Portuguese for the student-facing content, with familiar formula notation.
 - No decorative stock imagery: this is a focused study tool, so visual personality comes from the trail, color, and motion system.
 - No account or cloud sync in this version; browser persistence is transparent and immediate.
+- Loading skeletons appear only while a content chunk is in flight. Once a view is loaded, normal answer selection, navigation, and progress updates render in memory without replacing the active controls; this avoids interaction races on fast taps.

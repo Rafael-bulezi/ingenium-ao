@@ -1,54 +1,51 @@
 const STORAGE_KEY = "metodista-prep-v1";
 
-const mathLessons = [
-  { id:"m-algebra", title:"Álgebra essencial", short:"Simplifica, organiza e encontra o valor desconhecido.", priority:true, minutes:18, concept:"Álgebra é a linguagem de relações. Antes de calcular, identifica os termos semelhantes e mantém os dois lados da equação equilibrados.", formula:"ax + b = c  →  x = (c − b) / a", example:"Resolve: 3x + 5 = 20", steps:["Subtrai 5 dos dois lados: 3x = 20 − 5 = 15.","Divide os dois lados por 3: x = 15 ÷ 3.","Resultado: x = 5. Verifica: 3(5) + 5 = 20."], practice:"Qual é o valor de x em 4x − 7 = 21?", answer:"7", hint:"Primeiro soma 7 aos dois lados; depois divide por 4.", explanation:"4x − 7 = 21 → 4x = 28 → x = 7." },
-  { id:"m-equations", title:"Equações e inequações", short:"Resolve igualdade e compara intervalos com segurança.", minutes:16, concept:"Uma inequação segue as mesmas regras de uma equação, mas ao multiplicar ou dividir por um número negativo o sinal muda de direção.", formula:"−2x > 8  →  x < −4", example:"Resolve: 2x + 3 ≤ 11", steps:["Subtrai 3: 2x ≤ 8.","Divide por 2 (positivo): x ≤ 4.","Na recta real, marca 4 com círculo fechado e pinta para a esquerda."], practice:"Resolve: 5x − 10 > 0.", answer:"> 2", hint:"Soma 10 e divide por 5.", explanation:"5x > 10 → x > 2. Como dividimos por número positivo, o sinal mantém-se." },
-  { id:"m-functions", title:"Funções e gráficos", short:"Lê entradas, saídas e inclinação de uma recta.", minutes:17, concept:"Numa função, cada entrada x tem uma saída f(x). Em uma função linear, o coeficiente de x mostra a inclinação e o termo independente mostra onde a recta corta o eixo y.", formula:"f(x) = mx + b", example:"Para f(x) = 2x + 1, calcula f(3)", steps:["Substitui x por 3: f(3) = 2(3) + 1.","Multiplica: 2 × 3 = 6.","Soma: f(3) = 6 + 1 = 7."], practice:"Se g(x) = 3x − 2, qual é g(4)?", answer:"10", hint:"Troca x por 4 e segue a ordem das operações.", explanation:"g(4) = 3(4) − 2 = 12 − 2 = 10." },
-  { id:"m-systems", title:"Sistemas de equações", short:"Combina duas pistas para encontrar dois valores.", minutes:19, concept:"Num sistema, procura um par (x, y) que satisfaça as duas equações. A substituição e a eliminação são os caminhos mais rápidos.", formula:"x + y = 10  e  x − y = 2", example:"Resolve o sistema: x + y = 10; x − y = 2", steps:["Soma as equações para eliminar y: 2x = 12.","Divide por 2: x = 6.","Substitui na primeira: 6 + y = 10, logo y = 4."], practice:"Se x + y = 9 e x − y = 1, qual é x?", answer:"5", hint:"Soma as duas equações para eliminar y.", explanation:"2x = 10 → x = 5. Depois y = 4." },
-  { id:"m-powers", title:"Potências, raízes e logaritmos", short:"Reconhece padrões de expoentes e operações inversas.", minutes:18, concept:"Potenciação repete multiplicações; a raiz desfaz uma potência; o logaritmo pergunta qual expoente produz um número.", formula:"aᵐ · aⁿ = aᵐ⁺ⁿ  ·  √a² = a", example:"Simplifica: 2³ × 2²", steps:["As bases são iguais, então soma os expoentes: 2³⁺².","Fica 2⁵.","Calcula: 2⁵ = 32."], practice:"Quanto vale log₁₀(1000)?", answer:"3", hint:"Pergunta: 10 elevado a quanto dá 1000?", explanation:"10³ = 1000, portanto log₁₀(1000) = 3." },
-  { id:"m-trig", title:"Trigonometria", short:"Liga ângulos e lados em triângulos rectângulos.", priority:true, minutes:20, concept:"Seno, cosseno e tangente comparam lados de um triângulo rectângulo. Escolhe a razão que contém os lados conhecidos e o lado procurado.", formula:"sen θ = oposto/hipotenusa · cos θ = adjacente/hipotenusa", example:"Num triângulo, hipotenusa = 10 e θ = 30°. Encontra o lado oposto.", steps:["Oposto e hipotenusa pedem seno: sen 30° = oposto/10.","Como sen 30° = 0,5, fica 0,5 = oposto/10.","Multiplica por 10: oposto = 5."], practice:"Se sen θ = 0,6 e a hipotenusa é 10, qual é o lado oposto?", answer:"6", hint:"Usa sen θ = oposto / hipotenusa.", explanation:"0,6 = oposto/10 → oposto = 0,6 × 10 = 6." },
-  { id:"m-geometry", title:"Geometria", short:"Calcula áreas, perímetros e relações de figuras.", minutes:17, concept:"Desenha a figura, identifica a medida pedida e escolhe a fórmula antes de substituir números.", formula:"A_rectângulo = base × altura", example:"Qual é a área de um rectângulo de 8 cm por 3 cm?", steps:["Escolhe a fórmula: A = b × h.","Substitui: A = 8 × 3.","Resultado: A = 24 cm²."], practice:"Qual é o perímetro de um quadrado com lado 6 cm?", answer:"24", hint:"Um quadrado tem quatro lados iguais.", explanation:"P = 4 × lado = 4 × 6 = 24 cm." },
-  { id:"m-vectors", title:"Vectores", short:"Trabalha direcção, sentido e componentes.", priority:true, minutes:19, concept:"Um vector tem módulo e direcção. Em componentes, soma x com x e y com y; nunca mistures componentes diferentes.", formula:"R⃗ = (Rx, Ry)  ·  |R| = √(Rx² + Ry²)", example:"Soma A = (3, 4) com B = (1, −2)", steps:["Soma as componentes x: Rx = 3 + 1 = 4.","Soma as componentes y: Ry = 4 − 2 = 2.","Resultado: R = (4, 2)."], practice:"Qual é o módulo do vector (3, 4)?", answer:"5", hint:"Usa Pitágoras: √(3² + 4²).", explanation:"|v| = √(9 + 16) = √25 = 5." },
-  { id:"m-sequences", title:"Sequências", short:"Encontra o padrão e prevê o próximo termo.", minutes:15, concept:"Numa progressão aritmética, a diferença é constante. Numa geométrica, a razão entre termos é constante.", formula:"aₙ = a₁ + (n − 1)r", example:"Na sequência 4, 7, 10, … encontra o 6.º termo.", steps:["Identifica a diferença: r = 7 − 4 = 3.","Usa a₆ = 4 + (6 − 1)×3.","Calcula: a₆ = 4 + 15 = 19."], practice:"Qual é o 5.º termo de 2, 5, 8, …?", answer:"14", hint:"A diferença é 3; avança quatro vezes a partir do primeiro termo.", explanation:"a₅ = 2 + (5 − 1)×3 = 2 + 12 = 14." },
-  { id:"m-calculus", title:"Limites e derivadas", short:"Lê variação e inclinação em funções simples.", minutes:20, concept:"O limite descreve a aproximação de uma função. A derivada mede a taxa de variação instantânea — a inclinação da curva naquele ponto.", formula:"d/dx (xⁿ) = n·xⁿ⁻¹", example:"Deriva f(x) = x² + 3x", steps:["Deriva x²: 2x.","Deriva 3x: 3.","Junta os termos: f'(x) = 2x + 3."], practice:"Qual é a derivada de f(x) = 5x?", answer:"5", hint:"A derivada de ax é a constante a.", explanation:"d/dx(5x) = 5." },
-  { id:"m-probability", title:"Probabilidade e estatística", short:"Mede possibilidades e resume dados.", minutes:18, concept:"Probabilidade é casos favoráveis divididos por casos possíveis. Média soma os dados e divide pela quantidade de valores.", formula:"P(E) = favoráveis / possíveis", example:"Num saco há 3 bolas vermelhas e 2 azuis. P(vermelha)?", steps:["Conta os casos favoráveis: 3 vermelhas.","Conta o total: 3 + 2 = 5 bolas.","P(vermelha) = 3/5 = 0,6 = 60%."], practice:"Qual é a média de 4, 6 e 8?", answer:"6", hint:"Soma os três valores e divide por 3.", explanation:"Média = (4 + 6 + 8)/3 = 18/3 = 6." },
-  { id:"m-word", title:"Problemas de palavras", short:"Transforma texto em equações e decide com método.", minutes:16, concept:"Lê duas vezes: primeiro para compreender, depois para marcar dados e pergunta. Define a incógnita e escreve a relação antes de calcular.", formula:"dados → incógnita → relação → cálculo → unidade", example:"Um livro custa 2 500 Kz após desconto de 20%. Qual era o preço original?", steps:["Se o preço original é P, depois do desconto fica 80% de P.","Escreve 0,8P = 2 500.","Divide: P = 2 500/0,8 = 3 125 Kz."], practice:"Um número aumentado de 7 dá 19. Qual é o número?", answer:"12", hint:"Chama x ao número e escreve x + 7 = 19.", explanation:"x + 7 = 19 → x = 19 − 7 = 12." }
-];
+let mathLessons = [];
+let physicsLessons = [];
+let testQuestions = [];
+const lessonDetails = {};
+const loadedChunks = { catalog:false, math:false, physics:false, test:false };
+const loadingChunks = {};
 
-const physicsLessons = [
-  { id:"p-units", title:"Unidades e medição", short:"Converte sem perder a ordem de grandeza.", priority:true, minutes:15, concept:"Grandezas físicas precisam de número e unidade. No SI, comprimento usa metro, tempo segundo, massa quilograma e corrente ampere.", formula:"1 km = 1000 m  ·  1 h = 3600 s", example:"Converte 72 km/h para m/s.", steps:["Escreve 72 × (1000 m)/(3600 s).","Simplifica 1000/3600 = 1/3,6.","Resultado: 72 ÷ 3,6 = 20 m/s."], practice:"Converte 2,5 km para metros.", answer:"2500", hint:"Multiplica quilómetros por 1000.", explanation:"2,5 × 1000 = 2500 m." },
-  { id:"p-vectors", title:"Vectores na Física", short:"Representa forças e movimentos com direcção.", priority:true, minutes:17, concept:"Desenha setas com escala, decompõe forças quando necessário e escolhe um eixo positivo antes de fazer contas.", formula:"A⃗ = (Ax, Ay)  ·  ΣFx = Fx,total", example:"Uma força de 10 N para leste e outra de 4 N para oeste.", steps:["Escolhe leste como positivo.","Faz a soma algébrica: R = 10 − 4.","Resultado: R = 6 N para leste."], practice:"Duas forças de 7 N e 3 N apontam na mesma direcção. Resultante?", answer:"10", hint:"Forças com a mesma direcção e sentido somam-se.", explanation:"R = 7 + 3 = 10 N." },
-  { id:"p-motion", title:"Movimento", short:"Relaciona posição, tempo, velocidade e aceleração.", priority:true, minutes:19, concept:"Velocidade mede distância por tempo. Aceleração mede a mudança de velocidade por tempo. Escolhe a equação que contém os dados conhecidos.", formula:"v = Δs/Δt  ·  a = Δv/Δt", example:"Um carro percorre 120 m em 6 s. Velocidade média?", steps:["Identifica Δs = 120 m e Δt = 6 s.","Aplica v = Δs/Δt = 120/6.","Resultado: v = 20 m/s."], practice:"Um móvel muda de 5 m/s para 17 m/s em 4 s. Qual a aceleração?", answer:"3", hint:"Divide a variação de velocidade pelo tempo.", explanation:"a = (17 − 5)/4 = 12/4 = 3 m/s²." },
-  { id:"p-newton", title:"Leis de Newton", short:"Explica como forças mudam o movimento.", priority:true, minutes:20, concept:"A segunda lei transforma forças em aceleração. A força resultante, e não uma força isolada, é a que importa.", formula:"F_resultante = m·a", example:"Qual a aceleração de uma massa de 4 kg sob força resultante de 20 N?", steps:["Escreve F = ma.","Isola a: a = F/m = 20/4.","Resultado: a = 5 m/s²."], practice:"Qual força acelera 3 kg a 2 m/s²?", answer:"6", hint:"F = m × a.", explanation:"F = 3 × 2 = 6 N." },
-  { id:"p-forces", title:"Forças e atrito", short:"Vê o que ajuda ou resiste ao movimento.", priority:true, minutes:18, concept:"Peso aponta para baixo; normal é a resposta da superfície; atrito opõe-se ao movimento ou à tendência de movimento.", formula:"P = m·g  ·  f = μN", example:"Com g ≈ 10 m/s², qual o peso de 6 kg?", steps:["Usa P = m·g.","Substitui P = 6 × 10.","Resultado: P = 60 N para baixo."], practice:"Se μ = 0,2 e N = 50 N, qual é o atrito?", answer:"10", hint:"f = μN.", explanation:"f = 0,2 × 50 = 10 N." },
-  { id:"p-energy", title:"Trabalho, energia e potência", short:"Liga força, deslocamento e tempo.", priority:true, minutes:20, concept:"Trabalho transfere energia quando uma força provoca deslocamento. Potência diz quão rápido a energia é transferida.", formula:"W = F·d  ·  P = W/t", example:"Uma força de 30 N move uma caixa 4 m na mesma direcção. Trabalho?", steps:["Como força e deslocamento estão alinhados, W = Fd.","Calcula W = 30 × 4.","Resultado: W = 120 J."], practice:"Um motor realiza 600 J em 20 s. Qual a potência?", answer:"30", hint:"P = trabalho dividido pelo tempo.", explanation:"P = 600/20 = 30 W." },
-  { id:"p-momentum", title:"Quantidade de movimento", short:"Analisa colisões e conservação do movimento.", minutes:18, concept:"A quantidade de movimento depende da massa e da velocidade. Num sistema isolado, o momento total antes e depois mantém-se.", formula:"p = m·v", example:"Qual o momento de uma bola de 2 kg a 6 m/s?", steps:["Usa p = m·v.","Substitui p = 2 × 6.","Resultado: p = 12 kg·m/s."], practice:"Uma massa de 4 kg tem momento 20 kg·m/s. Velocidade?", answer:"5", hint:"Isola v em p = mv.", explanation:"v = p/m = 20/4 = 5 m/s." },
-  { id:"p-circular", title:"Movimento circular", short:"Entende raio, velocidade e aceleração centrípeta.", priority:true, minutes:17, concept:"Mesmo com velocidade constante em módulo, no movimento circular a direcção muda. A aceleração centrípeta aponta para o centro.", formula:"a_c = v²/r", example:"Uma curva tem v = 10 m/s e raio 20 m. Aceleração centrípeta?", steps:["Usa a_c = v²/r.","Eleva a velocidade: 10² = 100.","Divide: a_c = 100/20 = 5 m/s²."], practice:"Se v = 6 m/s e r = 3 m, qual é a_c?", answer:"12", hint:"Calcula 6² e divide por 3.", explanation:"a_c = 36/3 = 12 m/s²." },
-  { id:"p-fluids", title:"Pressão e fluidos", short:"Relaciona força, área e profundidade.", minutes:16, concept:"Pressão é força distribuída por área. Em fluidos, a pressão aumenta com a profundidade e depende da densidade.", formula:"p = F/A  ·  p_h = ρgh", example:"Uma força de 200 N atua em 4 m². Pressão?", steps:["Usa p = F/A.","Substitui p = 200/4.","Resultado: p = 50 Pa."], practice:"100 N actuam em 5 m². Pressão?", answer:"20", hint:"Divide força por área.", explanation:"p = 100/5 = 20 Pa." },
-  { id:"p-heat", title:"Calor e temperatura", short:"Distingue energia térmica e medida de aquecimento.", minutes:17, concept:"Temperatura indica o estado térmico; calor é energia transferida por diferença de temperatura. A capacidade térmica liga energia, massa e variação térmica.", formula:"Q = m·c·ΔT", example:"Quanto calor aquece 2 kg com c = 1000 J/kg°C em 5°C?", steps:["Calcula a variação: ΔT = 5°C.","Usa Q = mcΔT = 2 × 1000 × 5.","Resultado: Q = 10 000 J."], practice:"Se m = 1 kg, c = 4000 e ΔT = 2°C, Q?", answer:"8000", hint:"Multiplica os três factores.", explanation:"Q = 1 × 4000 × 2 = 8000 J." },
-  { id:"p-electricity", title:"Electricidade e circuitos", short:"Calcula corrente, tensão, resistência e potência.", priority:true, minutes:22, concept:"Corrente é fluxo de carga; tensão é energia por carga; resistência dificulta o fluxo. Em série a corrente é a mesma; em paralelo a tensão é a mesma.", formula:"V = I·R  ·  P = V·I", example:"Um resistor de 6 Ω ligado a 12 V. Corrente?", steps:["Aplica a lei de Ohm: I = V/R.","Substitui I = 12/6.","Resultado: I = 2 A."], practice:"Um aparelho usa 3 A a 10 V. Qual a potência?", answer:"30", hint:"P = V × I.", explanation:"P = 10 × 3 = 30 W." },
-  { id:"p-magnetism", title:"Magnetismo", short:"Lê campos e forças em correntes e ímanes.", minutes:15, concept:"Campos magnéticos têm direcção e podem exercer força sobre correntes e cargas em movimento. Usa a regra da mão direita para orientar o campo de um fio.", formula:"F = B·I·L·sen θ", example:"Um fio perpendicular ao campo tem B=2 T, I=3 A e L=0,5 m. Força?", steps:["Como θ = 90°, sen θ = 1.","Usa F = BIL = 2 × 3 × 0,5.","Resultado: F = 3 N."], practice:"Se B = 1 T, I = 4 A e L = 2 m, força perpendicular?", answer:"8", hint:"Multiplica B, I e L.", explanation:"F = 1 × 4 × 2 = 8 N." },
-  { id:"p-waves", title:"Ondas e óptica", short:"Relaciona frequência, comprimento de onda e luz.", minutes:18, concept:"Ondas transportam energia. A frequência diz quantos ciclos ocorrem por segundo; o comprimento de onda é a distância entre cristas.", formula:"v = f·λ", example:"Uma onda tem f = 5 Hz e λ = 2 m. Velocidade?", steps:["Usa v = fλ.","Substitui v = 5 × 2.","Resultado: v = 10 m/s."], practice:"Se v = 12 m/s e f = 4 Hz, qual é λ?", answer:"3", hint:"Isola λ: λ = v/f.", explanation:"λ = 12/4 = 3 m." }
-];
+const subjects = {
+  math: { label:"Matemática", tone:"math", lessons:mathLessons },
+  physics: { label:"Física", tone:"physics", lessons:physicsLessons }
+};
 
-const testQuestions = [
-  {subject:"Matemática", prompt:"Resolve: 2x + 6 = 18.", options:["4","6","8","12"], correct:1, explanation:"2x = 12, então x = 6."},
-  {subject:"Física", prompt:"Um corpo de 5 kg recebe força resultante de 20 N. A aceleração é…", options:["2 m/s²","4 m/s²","15 m/s²","100 m/s²"], correct:1, explanation:"Pela segunda lei: a = F/m = 20/5 = 4 m/s²."},
-  {subject:"Matemática", prompt:"Qual é a área de um triângulo de base 8 cm e altura 5 cm?", options:["13 cm²","20 cm²","40 cm²","80 cm²"], correct:1, explanation:"A = (base × altura)/2 = (8 × 5)/2 = 20 cm²."},
-  {subject:"Física", prompt:"Um resistor de 4 Ω está ligado a 12 V. A corrente é…", options:["0,33 A","3 A","8 A","48 A"], correct:1, explanation:"I = V/R = 12/4 = 3 A."},
-  {subject:"Matemática", prompt:"Se sen θ = 0,5 e a hipotenusa é 10, o lado oposto mede…", options:["5","10","20","0,05"], correct:0, explanation:"sen θ = oposto/hipotenusa, portanto oposto = 0,5 × 10 = 5."},
-  {subject:"Física", prompt:"Qual é o trabalho de uma força de 15 N que desloca 3 m na mesma direcção?", options:["5 J","18 J","45 J","90 J"], correct:2, explanation:"W = Fd = 15 × 3 = 45 J."},
-  {subject:"Matemática", prompt:"A média de 6, 8 e 10 é…", options:["7","8","9","24"], correct:1, explanation:"(6 + 8 + 10)/3 = 24/3 = 8."},
-  {subject:"Física", prompt:"72 km/h correspondem a…", options:["7,2 m/s","20 m/s","72 m/s","259,2 m/s"], correct:1, explanation:"Divide por 3,6: 72/3,6 = 20 m/s."},
-  {subject:"Matemática", prompt:"Qual é a derivada de f(x) = x²?", options:["x","2x","x²/2","2"], correct:1, explanation:"Pela regra da potência, d(x²)/dx = 2x."},
-  {subject:"Física", prompt:"Uma onda com f = 4 Hz e λ = 3 m tem velocidade…", options:["0,75 m/s","7 m/s","12 m/s","24 m/s"], correct:2, explanation:"v = fλ = 4 × 3 = 12 m/s."}
-];
+function loadChunk(name, url) {
+  if (loadedChunks[name]) return Promise.resolve();
+  if (loadingChunks[name]) return loadingChunks[name];
+  loadingChunks[name] = fetch(url, { headers:{ "Accept":"application/json" } })
+    .then(response => { if (!response.ok) throw new Error(`Não foi possível carregar ${name}`); return response.json(); })
+    .then(data => {
+      if (name === "catalog") {
+        mathLessons = data.math; physicsLessons = data.physics;
+        subjects.math.lessons = mathLessons; subjects.physics.lessons = physicsLessons;
+      }
+      if (name === "math" || name === "physics") data.forEach(lesson => { lessonDetails[lesson.id] = lesson; });
+      if (name === "test") testQuestions = data;
+      loadedChunks[name] = true;
+    })
+    .catch(error => { delete loadingChunks[name]; throw error; });
+  return loadingChunks[name];
+}
+function ensureCatalog() { return loadChunk("catalog", "/content/catalog.json"); }
+function ensureLessonDetails(key) { return ensureCatalog().then(() => loadChunk(key, `/content/${key}.json`)); }
+function ensureTestData() { return loadChunk("test", "/content/test.json"); }
 
-const subjects = { math: { label:"Matemática", tone:"math", lessons:mathLessons }, physics: { label:"Física", tone:"physics", lessons:physicsLessons } };
 let state = loadState();
 let route = { view:"home", subject:"math", lessonId:null };
 let testSession = null;
 let toastTimer;
+
+function loadingMarkup(label="A preparar a próxima etapa…") {
+  return `<div class="loading-state"><span class="loading-mark"></span><p>${label}</p><span class="loading-line"></span><span class="loading-line short"></span></div>`;
+}
+async function ensureDataForView() {
+  if (route.view === "home" || route.view === "path" || route.view === "profile" || route.view === "lesson") await ensureCatalog();
+  if (route.view === "lesson") await ensureLessonDetails(route.lessonId.startsWith("p-") ? "physics" : "math");
+  if (route.view === "test") await ensureTestData();
+}
 
 function defaultState() { return { completed: [], practice: {}, test: null }; }
 function loadState() { try { return { ...defaultState(), ...JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")} } catch { return defaultState(); } }
@@ -60,7 +57,7 @@ function pct() { return Math.round((completedCount() / totalCount()) * 100); }
 function isDone(id) { return state.completed.includes(id); }
 function subjectProgress(key) { const lessons = subjects[key].lessons; return { done: lessons.filter(l => isDone(l.id)).length, total: lessons.length }; }
 function getNextLesson() { return allLessons().find(l => !isDone(l.id)) || allLessons()[0]; }
-function lessonById(id) { return allLessons().find(l => l.id === id); }
+function lessonById(id) { return lessonDetails[id] || allLessons().find(l => l.id === id); }
 function escapeHtml(str) { return String(str).replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c])); }
 function showToast(message) { const el = document.querySelector("#toast"); el.textContent = message; el.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove("show"), 2600); }
 function navigate(hash) { const parts = hash.replace(/^#/, "").split("/"); route.view = parts[0] || "home"; if (route.view === "lesson") route.lessonId = parts[1] || getNextLesson().id; if (route.view === "path") route.subject = parts[1] || route.subject; render(); window.scrollTo({top:0, behavior:"smooth"}); }
@@ -117,13 +114,22 @@ function renderTestResult() {
 
 function renderProfile() { const test = state.test; return `<div class="profile-card"><div class="profile-top"><div class="profile-avatar">RB</div><div><p class="eyebrow" style="color:var(--lime)">Área de foco</p><h1>Preparação para Engenharia</h1><p>O teu progresso fica guardado neste navegador.</p></div></div><div class="profile-metrics"><div class="metric"><strong>${completedCount()}</strong><span>lições feitas</span></div><div class="metric"><strong>${pct()}%</strong><span>da rota</span></div><div class="metric"><strong>${test ? `${test.score}/10` : "—"}</strong><span>último teste</span></div></div><div class="card" style="margin-top:16px"><p class="eyebrow">Preferência de estudo</p><h2>Consistência vence pressa.</h2><p class="muted" style="line-height:1.7">Faz uma lição por sessão, escreve as unidades e volta aos erros do mini-teste. O exame fica mais pequeno quando o método fica automático.</p><div class="hero-actions"><a class="button button-primary" href="#lesson/${getNextLesson().id}">Continuar a estudar →</a><button class="button button-ghost" data-profile="reset">Limpar progresso</button></div></div></div>`; }
 
-function render() {
+async function render() {
   document.querySelectorAll(".view").forEach(el => el.classList.toggle("hidden", el.dataset.view !== route.view));
   const target = document.querySelector(`[data-view="${route.view}"]`); if (!target) return;
+  const viewAtStart = route.view;
+  const needsCatalog = ["home", "path", "profile", "lesson"].includes(route.view) && !loadedChunks.catalog;
+  const lessonKey = route.lessonId?.startsWith("p-") ? "physics" : "math";
+  const needsLesson = route.view === "lesson" && !loadedChunks[lessonKey];
+  const needsTest = route.view === "test" && !loadedChunks.test;
+  if (needsCatalog || needsLesson || needsTest) target.innerHTML = loadingMarkup(route.view === "test" ? "A carregar o mini-teste…" : "A preparar a tua rota…");
+  try { await ensureDataForView(); } catch (error) { target.innerHTML = `<div class="card load-error"><h2>Não foi possível carregar esta parte.</h2><p class="muted">Verifica a ligação e tenta novamente.</p><button class="button button-primary" data-retry>Recarregar</button></div>`; return; }
+  if (route.view !== viewAtStart) return;
   target.innerHTML = route.view === "home" ? renderHome() : route.view === "path" ? renderPath() : route.view === "lesson" ? renderLesson() : route.view === "test" ? renderTest() : renderProfile();
   document.querySelectorAll("[data-nav]").forEach(el => el.classList.toggle("active", el.dataset.nav === route.view));
   if (route.view === "test" && testSession && !testSession.finished) startTimerLoop();
 }
+
 
 let timerLoop;
 function startTimerLoop() { clearInterval(timerLoop); timerLoop = setInterval(() => { if (!testSession || testSession.finished) return clearInterval(timerLoop); if (Date.now() >= testSession.endsAt) { finishTest(); } else { const el = document.querySelector("#test-timer"); if (el) { const r = Math.max(0, testSession.endsAt-Date.now()); el.textContent = `${String(Math.floor(r/60000)).padStart(2,"0")}:${String(Math.floor((r%60000)/1000)).padStart(2,"0")}`; } } }, 500); }
@@ -132,6 +138,7 @@ function finishTest() { if (!testSession || testSession.finished) return; testSe
 function resetAll() { state = defaultState(); testSession = null; saveState(); showToast("Progresso limpo. A rota está pronta de novo."); navigate("#home"); }
 
 document.addEventListener("click", event => {
+  if (event.target.closest("[data-retry]")) { loadedChunks.catalog = false; render(); return; }
   const subject = event.target.closest("[data-subject]"); if (subject) { route.subject = subject.dataset.subject; render(); return; }
   const back = event.target.closest("[data-back]"); if (back) { navigate("#"+back.dataset.back); return; }
   const step = event.target.closest("[data-step]"); if (step) { if (step.dataset.step === "next") state.stepsShown = Math.min((state.stepsShown || 0) + 1, lessonById(route.lessonId).steps.length); else state.stepsShown = lessonById(route.lessonId).steps.length; saveState(); render(); return; }

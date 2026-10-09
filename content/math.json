@@ -1,0 +1,221 @@
+[
+  {
+    "id": "m-algebra",
+    "title": "Álgebra essencial",
+    "short": "Simplifica, organiza e encontra o valor desconhecido.",
+    "priority": true,
+    "minutes": 18,
+    "concept": "Álgebra é a linguagem de relações. Antes de calcular, identifica os termos semelhantes e mantém os dois lados da equação equilibrados.",
+    "formula": "ax + b = c  →  x = (c − b) / a",
+    "example": "Resolve: 3x + 5 = 20",
+    "steps": [
+      "Subtrai 5 dos dois lados: 3x = 20 − 5 = 15.",
+      "Divide os dois lados por 3: x = 15 ÷ 3.",
+      "Resultado: x = 5. Verifica: 3(5) + 5 = 20."
+    ],
+    "practice": "Qual é o valor de x em 4x − 7 = 21?",
+    "answer": "7",
+    "hint": "Primeiro soma 7 aos dois lados; depois divide por 4.",
+    "explanation": "4x − 7 = 21 → 4x = 28 → x = 7."
+  },
+  {
+    "id": "m-equations",
+    "title": "Equações e inequações",
+    "short": "Resolve igualdade e compara intervalos com segurança.",
+    "minutes": 16,
+    "concept": "Uma inequação segue as mesmas regras de uma equação, mas ao multiplicar ou dividir por um número negativo o sinal muda de direção.",
+    "formula": "−2x > 8  →  x < −4",
+    "example": "Resolve: 2x + 3 ≤ 11",
+    "steps": [
+      "Subtrai 3: 2x ≤ 8.",
+      "Divide por 2 (positivo): x ≤ 4.",
+      "Na recta real, marca 4 com círculo fechado e pinta para a esquerda."
+    ],
+    "practice": "Resolve: 5x − 10 > 0.",
+    "answer": "> 2",
+    "hint": "Soma 10 e divide por 5.",
+    "explanation": "5x > 10 → x > 2. Como dividimos por número positivo, o sinal mantém-se."
+  },
+  {
+    "id": "m-functions",
+    "title": "Funções e gráficos",
+    "short": "Lê entradas, saídas e inclinação de uma recta.",
+    "minutes": 17,
+    "concept": "Numa função, cada entrada x tem uma saída f(x). Em uma função linear, o coeficiente de x mostra a inclinação e o termo independente mostra onde a recta corta o eixo y.",
+    "formula": "f(x) = mx + b",
+    "example": "Para f(x) = 2x + 1, calcula f(3)",
+    "steps": [
+      "Substitui x por 3: f(3) = 2(3) + 1.",
+      "Multiplica: 2 × 3 = 6.",
+      "Soma: f(3) = 6 + 1 = 7."
+    ],
+    "practice": "Se g(x) = 3x − 2, qual é g(4)?",
+    "answer": "10",
+    "hint": "Troca x por 4 e segue a ordem das operações.",
+    "explanation": "g(4) = 3(4) − 2 = 12 − 2 = 10."
+  },
+  {
+    "id": "m-systems",
+    "title": "Sistemas de equações",
+    "short": "Combina duas pistas para encontrar dois valores.",
+    "minutes": 19,
+    "concept": "Num sistema, procura um par (x, y) que satisfaça as duas equações. A substituição e a eliminação são os caminhos mais rápidos.",
+    "formula": "x + y = 10  e  x − y = 2",
+    "example": "Resolve o sistema: x + y = 10; x − y = 2",
+    "steps": [
+      "Soma as equações para eliminar y: 2x = 12.",
+      "Divide por 2: x = 6.",
+      "Substitui na primeira: 6 + y = 10, logo y = 4."
+    ],
+    "practice": "Se x + y = 9 e x − y = 1, qual é x?",
+    "answer": "5",
+    "hint": "Soma as duas equações para eliminar y.",
+    "explanation": "2x = 10 → x = 5. Depois y = 4."
+  },
+  {
+    "id": "m-powers",
+    "title": "Potências, raízes e logaritmos",
+    "short": "Reconhece padrões de expoentes e operações inversas.",
+    "minutes": 18,
+    "concept": "Potenciação repete multiplicações; a raiz desfaz uma potência; o logaritmo pergunta qual expoente produz um número.",
+    "formula": "aᵐ · aⁿ = aᵐ⁺ⁿ  ·  √a² = a",
+    "example": "Simplifica: 2³ × 2²",
+    "steps": [
+      "As bases são iguais, então soma os expoentes: 2³⁺².",
+      "Fica 2⁵.",
+      "Calcula: 2⁵ = 32."
+    ],
+    "practice": "Quanto vale log₁₀(1000)?",
+    "answer": "3",
+    "hint": "Pergunta: 10 elevado a quanto dá 1000?",
+    "explanation": "10³ = 1000, portanto log₁₀(1000) = 3."
+  },
+  {
+    "id": "m-trig",
+    "title": "Trigonometria",
+    "short": "Liga ângulos e lados em triângulos rectângulos.",
+    "priority": true,
+    "minutes": 20,
+    "concept": "Seno, cosseno e tangente comparam lados de um triângulo rectângulo. Escolhe a razão que contém os lados conhecidos e o lado procurado.",
+    "formula": "sen θ = oposto/hipotenusa · cos θ = adjacente/hipotenusa",
+    "example": "Num triângulo, hipotenusa = 10 e θ = 30°. Encontra o lado oposto.",
+    "steps": [
+      "Oposto e hipotenusa pedem seno: sen 30° = oposto/10.",
+      "Como sen 30° = 0,5, fica 0,5 = oposto/10.",
+      "Multiplica por 10: oposto = 5."
+    ],
+    "practice": "Se sen θ = 0,6 e a hipotenusa é 10, qual é o lado oposto?",
+    "answer": "6",
+    "hint": "Usa sen θ = oposto / hipotenusa.",
+    "explanation": "0,6 = oposto/10 → oposto = 0,6 × 10 = 6."
+  },
+  {
+    "id": "m-geometry",
+    "title": "Geometria",
+    "short": "Calcula áreas, perímetros e relações de figuras.",
+    "minutes": 17,
+    "concept": "Desenha a figura, identifica a medida pedida e escolhe a fórmula antes de substituir números.",
+    "formula": "A_rectângulo = base × altura",
+    "example": "Qual é a área de um rectângulo de 8 cm por 3 cm?",
+    "steps": [
+      "Escolhe a fórmula: A = b × h.",
+      "Substitui: A = 8 × 3.",
+      "Resultado: A = 24 cm²."
+    ],
+    "practice": "Qual é o perímetro de um quadrado com lado 6 cm?",
+    "answer": "24",
+    "hint": "Um quadrado tem quatro lados iguais.",
+    "explanation": "P = 4 × lado = 4 × 6 = 24 cm."
+  },
+  {
+    "id": "m-vectors",
+    "title": "Vectores",
+    "short": "Trabalha direcção, sentido e componentes.",
+    "priority": true,
+    "minutes": 19,
+    "concept": "Um vector tem módulo e direcção. Em componentes, soma x com x e y com y; nunca mistures componentes diferentes.",
+    "formula": "R⃗ = (Rx, Ry)  ·  |R| = √(Rx² + Ry²)",
+    "example": "Soma A = (3, 4) com B = (1, −2)",
+    "steps": [
+      "Soma as componentes x: Rx = 3 + 1 = 4.",
+      "Soma as componentes y: Ry = 4 − 2 = 2.",
+      "Resultado: R = (4, 2)."
+    ],
+    "practice": "Qual é o módulo do vector (3, 4)?",
+    "answer": "5",
+    "hint": "Usa Pitágoras: √(3² + 4²).",
+    "explanation": "|v| = √(9 + 16) = √25 = 5."
+  },
+  {
+    "id": "m-sequences",
+    "title": "Sequências",
+    "short": "Encontra o padrão e prevê o próximo termo.",
+    "minutes": 15,
+    "concept": "Numa progressão aritmética, a diferença é constante. Numa geométrica, a razão entre termos é constante.",
+    "formula": "aₙ = a₁ + (n − 1)r",
+    "example": "Na sequência 4, 7, 10, … encontra o 6.º termo.",
+    "steps": [
+      "Identifica a diferença: r = 7 − 4 = 3.",
+      "Usa a₆ = 4 + (6 − 1)×3.",
+      "Calcula: a₆ = 4 + 15 = 19."
+    ],
+    "practice": "Qual é o 5.º termo de 2, 5, 8, …?",
+    "answer": "14",
+    "hint": "A diferença é 3; avança quatro vezes a partir do primeiro termo.",
+    "explanation": "a₅ = 2 + (5 − 1)×3 = 2 + 12 = 14."
+  },
+  {
+    "id": "m-calculus",
+    "title": "Limites e derivadas",
+    "short": "Lê variação e inclinação em funções simples.",
+    "minutes": 20,
+    "concept": "O limite descreve a aproximação de uma função. A derivada mede a taxa de variação instantânea — a inclinação da curva naquele ponto.",
+    "formula": "d/dx (xⁿ) = n·xⁿ⁻¹",
+    "example": "Deriva f(x) = x² + 3x",
+    "steps": [
+      "Deriva x²: 2x.",
+      "Deriva 3x: 3.",
+      "Junta os termos: f'(x) = 2x + 3."
+    ],
+    "practice": "Qual é a derivada de f(x) = 5x?",
+    "answer": "5",
+    "hint": "A derivada de ax é a constante a.",
+    "explanation": "d/dx(5x) = 5."
+  },
+  {
+    "id": "m-probability",
+    "title": "Probabilidade e estatística",
+    "short": "Mede possibilidades e resume dados.",
+    "minutes": 18,
+    "concept": "Probabilidade é casos favoráveis divididos por casos possíveis. Média soma os dados e divide pela quantidade de valores.",
+    "formula": "P(E) = favoráveis / possíveis",
+    "example": "Num saco há 3 bolas vermelhas e 2 azuis. P(vermelha)?",
+    "steps": [
+      "Conta os casos favoráveis: 3 vermelhas.",
+      "Conta o total: 3 + 2 = 5 bolas.",
+      "P(vermelha) = 3/5 = 0,6 = 60%."
+    ],
+    "practice": "Qual é a média de 4, 6 e 8?",
+    "answer": "6",
+    "hint": "Soma os três valores e divide por 3.",
+    "explanation": "Média = (4 + 6 + 8)/3 = 18/3 = 6."
+  },
+  {
+    "id": "m-word",
+    "title": "Problemas de palavras",
+    "short": "Transforma texto em equações e decide com método.",
+    "minutes": 16,
+    "concept": "Lê duas vezes: primeiro para compreender, depois para marcar dados e pergunta. Define a incógnita e escreve a relação antes de calcular.",
+    "formula": "dados → incógnita → relação → cálculo → unidade",
+    "example": "Um livro custa 2 500 Kz após desconto de 20%. Qual era o preço original?",
+    "steps": [
+      "Se o preço original é P, depois do desconto fica 80% de P.",
+      "Escreve 0,8P = 2 500.",
+      "Divide: P = 2 500/0,8 = 3 125 Kz."
+    ],
+    "practice": "Um número aumentado de 7 dá 19. Qual é o número?",
+    "answer": "12",
+    "hint": "Chama x ao número e escreve x + 7 = 19.",
+    "explanation": "x + 7 = 19 → x = 19 − 7 = 12."
+  }
+]

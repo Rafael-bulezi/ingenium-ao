@@ -1,0 +1,122 @@
+[
+  {
+    "subject": "Matemática",
+    "prompt": "Resolve: 2x + 6 = 18.",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "12"
+    ],
+    "correct": 1,
+    "explanation": "2x = 12, então x = 6."
+  },
+  {
+    "subject": "Física",
+    "prompt": "Um corpo de 5 kg recebe força resultante de 20 N. A aceleração é…",
+    "options": [
+      "2 m/s²",
+      "4 m/s²",
+      "15 m/s²",
+      "100 m/s²"
+    ],
+    "correct": 1,
+    "explanation": "Pela segunda lei: a = F/m = 20/5 = 4 m/s²."
+  },
+  {
+    "subject": "Matemática",
+    "prompt": "Qual é a área de um triângulo de base 8 cm e altura 5 cm?",
+    "options": [
+      "13 cm²",
+      "20 cm²",
+      "40 cm²",
+      "80 cm²"
+    ],
+    "correct": 1,
+    "explanation": "A = (base × altura)/2 = (8 × 5)/2 = 20 cm²."
+  },
+  {
+    "subject": "Física",
+    "prompt": "Um resistor de 4 Ω está ligado a 12 V. A corrente é…",
+    "options": [
+      "0,33 A",
+      "3 A",
+      "8 A",
+      "48 A"
+    ],
+    "correct": 1,
+    "explanation": "I = V/R = 12/4 = 3 A."
+  },
+  {
+    "subject": "Matemática",
+    "prompt": "Se sen θ = 0,5 e a hipotenusa é 10, o lado oposto mede…",
+    "options": [
+      "5",
+      "10",
+      "20",
+      "0,05"
+    ],
+    "correct": 0,
+    "explanation": "sen θ = oposto/hipotenusa, portanto oposto = 0,5 × 10 = 5."
+  },
+  {
+    "subject": "Física",
+    "prompt": "Qual é o trabalho de uma força de 15 N que desloca 3 m na mesma direcção?",
+    "options": [
+      "5 J",
+      "18 J",
+      "45 J",
+      "90 J"
+    ],
+    "correct": 2,
+    "explanation": "W = Fd = 15 × 3 = 45 J."
+  },
+  {
+    "subject": "Matemática",
+    "prompt": "A média de 6, 8 e 10 é…",
+    "options": [
+      "7",
+      "8",
+      "9",
+      "24"
+    ],
+    "correct": 1,
+    "explanation": "(6 + 8 + 10)/3 = 24/3 = 8."
+  },
+  {
+    "subject": "Física",
+    "prompt": "72 km/h correspondem a…",
+    "options": [
+      "7,2 m/s",
+      "20 m/s",
+      "72 m/s",
+      "259,2 m/s"
+    ],
+    "correct": 1,
+    "explanation": "Divide por 3,6: 72/3,6 = 20 m/s."
+  },
+  {
+    "subject": "Matemática",
+    "prompt": "Qual é a derivada de f(x) = x²?",
+    "options": [
+      "x",
+      "2x",
+      "x²/2",
+      "2"
+    ],
+    "correct": 1,
+    "explanation": "Pela regra da potência, d(x²)/dx = 2x."
+  },
+  {
+    "subject": "Física",
+    "prompt": "Uma onda com f = 4 Hz e λ = 3 m tem velocidade…",
+    "options": [
+      "0,75 m/s",
+      "7 m/s",
+      "12 m/s",
+      "24 m/s"
+    ],
+    "correct": 2,
+    "explanation": "v = fλ = 4 × 3 = 12 m/s."
+  }
+]

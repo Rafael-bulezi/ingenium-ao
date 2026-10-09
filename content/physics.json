@@ -1,0 +1,244 @@
+[
+  {
+    "id": "p-units",
+    "title": "Unidades e medição",
+    "short": "Converte sem perder a ordem de grandeza.",
+    "priority": true,
+    "minutes": 15,
+    "concept": "Grandezas físicas precisam de número e unidade. No SI, comprimento usa metro, tempo segundo, massa quilograma e corrente ampere.",
+    "formula": "1 km = 1000 m  ·  1 h = 3600 s",
+    "example": "Converte 72 km/h para m/s.",
+    "steps": [
+      "Escreve 72 × (1000 m)/(3600 s).",
+      "Simplifica 1000/3600 = 1/3,6.",
+      "Resultado: 72 ÷ 3,6 = 20 m/s."
+    ],
+    "practice": "Converte 2,5 km para metros.",
+    "answer": "2500",
+    "hint": "Multiplica quilómetros por 1000.",
+    "explanation": "2,5 × 1000 = 2500 m."
+  },
+  {
+    "id": "p-vectors",
+    "title": "Vectores na Física",
+    "short": "Representa forças e movimentos com direcção.",
+    "priority": true,
+    "minutes": 17,
+    "concept": "Desenha setas com escala, decompõe forças quando necessário e escolhe um eixo positivo antes de fazer contas.",
+    "formula": "A⃗ = (Ax, Ay)  ·  ΣFx = Fx,total",
+    "example": "Uma força de 10 N para leste e outra de 4 N para oeste.",
+    "steps": [
+      "Escolhe leste como positivo.",
+      "Faz a soma algébrica: R = 10 − 4.",
+      "Resultado: R = 6 N para leste."
+    ],
+    "practice": "Duas forças de 7 N e 3 N apontam na mesma direcção. Resultante?",
+    "answer": "10",
+    "hint": "Forças com a mesma direcção e sentido somam-se.",
+    "explanation": "R = 7 + 3 = 10 N."
+  },
+  {
+    "id": "p-motion",
+    "title": "Movimento",
+    "short": "Relaciona posição, tempo, velocidade e aceleração.",
+    "priority": true,
+    "minutes": 19,
+    "concept": "Velocidade mede distância por tempo. Aceleração mede a mudança de velocidade por tempo. Escolhe a equação que contém os dados conhecidos.",
+    "formula": "v = Δs/Δt  ·  a = Δv/Δt",
+    "example": "Um carro percorre 120 m em 6 s. Velocidade média?",
+    "steps": [
+      "Identifica Δs = 120 m e Δt = 6 s.",
+      "Aplica v = Δs/Δt = 120/6.",
+      "Resultado: v = 20 m/s."
+    ],
+    "practice": "Um móvel muda de 5 m/s para 17 m/s em 4 s. Qual a aceleração?",
+    "answer": "3",
+    "hint": "Divide a variação de velocidade pelo tempo.",
+    "explanation": "a = (17 − 5)/4 = 12/4 = 3 m/s²."
+  },
+  {
+    "id": "p-newton",
+    "title": "Leis de Newton",
+    "short": "Explica como forças mudam o movimento.",
+    "priority": true,
+    "minutes": 20,
+    "concept": "A segunda lei transforma forças em aceleração. A força resultante, e não uma força isolada, é a que importa.",
+    "formula": "F_resultante = m·a",
+    "example": "Qual a aceleração de uma massa de 4 kg sob força resultante de 20 N?",
+    "steps": [
+      "Escreve F = ma.",
+      "Isola a: a = F/m = 20/4.",
+      "Resultado: a = 5 m/s²."
+    ],
+    "practice": "Qual força acelera 3 kg a 2 m/s²?",
+    "answer": "6",
+    "hint": "F = m × a.",
+    "explanation": "F = 3 × 2 = 6 N."
+  },
+  {
+    "id": "p-forces",
+    "title": "Forças e atrito",
+    "short": "Vê o que ajuda ou resiste ao movimento.",
+    "priority": true,
+    "minutes": 18,
+    "concept": "Peso aponta para baixo; normal é a resposta da superfície; atrito opõe-se ao movimento ou à tendência de movimento.",
+    "formula": "P = m·g  ·  f = μN",
+    "example": "Com g ≈ 10 m/s², qual o peso de 6 kg?",
+    "steps": [
+      "Usa P = m·g.",
+      "Substitui P = 6 × 10.",
+      "Resultado: P = 60 N para baixo."
+    ],
+    "practice": "Se μ = 0,2 e N = 50 N, qual é o atrito?",
+    "answer": "10",
+    "hint": "f = μN.",
+    "explanation": "f = 0,2 × 50 = 10 N."
+  },
+  {
+    "id": "p-energy",
+    "title": "Trabalho, energia e potência",
+    "short": "Liga força, deslocamento e tempo.",
+    "priority": true,
+    "minutes": 20,
+    "concept": "Trabalho transfere energia quando uma força provoca deslocamento. Potência diz quão rápido a energia é transferida.",
+    "formula": "W = F·d  ·  P = W/t",
+    "example": "Uma força de 30 N move uma caixa 4 m na mesma direcção. Trabalho?",
+    "steps": [
+      "Como força e deslocamento estão alinhados, W = Fd.",
+      "Calcula W = 30 × 4.",
+      "Resultado: W = 120 J."
+    ],
+    "practice": "Um motor realiza 600 J em 20 s. Qual a potência?",
+    "answer": "30",
+    "hint": "P = trabalho dividido pelo tempo.",
+    "explanation": "P = 600/20 = 30 W."
+  },
+  {
+    "id": "p-momentum",
+    "title": "Quantidade de movimento",
+    "short": "Analisa colisões e conservação do movimento.",
+    "minutes": 18,
+    "concept": "A quantidade de movimento depende da massa e da velocidade. Num sistema isolado, o momento total antes e depois mantém-se.",
+    "formula": "p = m·v",
+    "example": "Qual o momento de uma bola de 2 kg a 6 m/s?",
+    "steps": [
+      "Usa p = m·v.",
+      "Substitui p = 2 × 6.",
+      "Resultado: p = 12 kg·m/s."
+    ],
+    "practice": "Uma massa de 4 kg tem momento 20 kg·m/s. Velocidade?",
+    "answer": "5",
+    "hint": "Isola v em p = mv.",
+    "explanation": "v = p/m = 20/4 = 5 m/s."
+  },
+  {
+    "id": "p-circular",
+    "title": "Movimento circular",
+    "short": "Entende raio, velocidade e aceleração centrípeta.",
+    "priority": true,
+    "minutes": 17,
+    "concept": "Mesmo com velocidade constante em módulo, no movimento circular a direcção muda. A aceleração centrípeta aponta para o centro.",
+    "formula": "a_c = v²/r",
+    "example": "Uma curva tem v = 10 m/s e raio 20 m. Aceleração centrípeta?",
+    "steps": [
+      "Usa a_c = v²/r.",
+      "Eleva a velocidade: 10² = 100.",
+      "Divide: a_c = 100/20 = 5 m/s²."
+    ],
+    "practice": "Se v = 6 m/s e r = 3 m, qual é a_c?",
+    "answer": "12",
+    "hint": "Calcula 6² e divide por 3.",
+    "explanation": "a_c = 36/3 = 12 m/s²."
+  },
+  {
+    "id": "p-fluids",
+    "title": "Pressão e fluidos",
+    "short": "Relaciona força, área e profundidade.",
+    "minutes": 16,
+    "concept": "Pressão é força distribuída por área. Em fluidos, a pressão aumenta com a profundidade e depende da densidade.",
+    "formula": "p = F/A  ·  p_h = ρgh",
+    "example": "Uma força de 200 N atua em 4 m². Pressão?",
+    "steps": [
+      "Usa p = F/A.",
+      "Substitui p = 200/4.",
+      "Resultado: p = 50 Pa."
+    ],
+    "practice": "100 N actuam em 5 m². Pressão?",
+    "answer": "20",
+    "hint": "Divide força por área.",
+    "explanation": "p = 100/5 = 20 Pa."
+  },
+  {
+    "id": "p-heat",
+    "title": "Calor e temperatura",
+    "short": "Distingue energia térmica e medida de aquecimento.",
+    "minutes": 17,
+    "concept": "Temperatura indica o estado térmico; calor é energia transferida por diferença de temperatura. A capacidade térmica liga energia, massa e variação térmica.",
+    "formula": "Q = m·c·ΔT",
+    "example": "Quanto calor aquece 2 kg com c = 1000 J/kg°C em 5°C?",
+    "steps": [
+      "Calcula a variação: ΔT = 5°C.",
+      "Usa Q = mcΔT = 2 × 1000 × 5.",
+      "Resultado: Q = 10 000 J."
+    ],
+    "practice": "Se m = 1 kg, c = 4000 e ΔT = 2°C, Q?",
+    "answer": "8000",
+    "hint": "Multiplica os três factores.",
+    "explanation": "Q = 1 × 4000 × 2 = 8000 J."
+  },
+  {
+    "id": "p-electricity",
+    "title": "Electricidade e circuitos",
+    "short": "Calcula corrente, tensão, resistência e potência.",
+    "priority": true,
+    "minutes": 22,
+    "concept": "Corrente é fluxo de carga; tensão é energia por carga; resistência dificulta o fluxo. Em série a corrente é a mesma; em paralelo a tensão é a mesma.",
+    "formula": "V = I·R  ·  P = V·I",
+    "example": "Um resistor de 6 Ω ligado a 12 V. Corrente?",
+    "steps": [
+      "Aplica a lei de Ohm: I = V/R.",
+      "Substitui I = 12/6.",
+      "Resultado: I = 2 A."
+    ],
+    "practice": "Um aparelho usa 3 A a 10 V. Qual a potência?",
+    "answer": "30",
+    "hint": "P = V × I.",
+    "explanation": "P = 10 × 3 = 30 W."
+  },
+  {
+    "id": "p-magnetism",
+    "title": "Magnetismo",
+    "short": "Lê campos e forças em correntes e ímanes.",
+    "minutes": 15,
+    "concept": "Campos magnéticos têm direcção e podem exercer força sobre correntes e cargas em movimento. Usa a regra da mão direita para orientar o campo de um fio.",
+    "formula": "F = B·I·L·sen θ",
+    "example": "Um fio perpendicular ao campo tem B=2 T, I=3 A e L=0,5 m. Força?",
+    "steps": [
+      "Como θ = 90°, sen θ = 1.",
+      "Usa F = BIL = 2 × 3 × 0,5.",
+      "Resultado: F = 3 N."
+    ],
+    "practice": "Se B = 1 T, I = 4 A e L = 2 m, força perpendicular?",
+    "answer": "8",
+    "hint": "Multiplica B, I e L.",
+    "explanation": "F = 1 × 4 × 2 = 8 N."
+  },
+  {
+    "id": "p-waves",
+    "title": "Ondas e óptica",
+    "short": "Relaciona frequência, comprimento de onda e luz.",
+    "minutes": 18,
+    "concept": "Ondas transportam energia. A frequência diz quantos ciclos ocorrem por segundo; o comprimento de onda é a distância entre cristas.",
+    "formula": "v = f·λ",
+    "example": "Uma onda tem f = 5 Hz e λ = 2 m. Velocidade?",
+    "steps": [
+      "Usa v = fλ.",
+      "Substitui v = 5 × 2.",
+      "Resultado: v = 10 m/s."
+    ],
+    "practice": "Se v = 12 m/s e f = 4 Hz, qual é λ?",
+    "answer": "3",
+    "hint": "Isola λ: λ = v/f.",
+    "explanation": "λ = 12/4 = 3 m."
+  }
+]

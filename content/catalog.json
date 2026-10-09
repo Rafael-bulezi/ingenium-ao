@@ -1,0 +1,181 @@
+{
+  "math": [
+    {
+      "id": "m-algebra",
+      "title": "Álgebra essencial",
+      "short": "Simplifica, organiza e encontra o valor desconhecido.",
+      "priority": true,
+      "minutes": 18
+    },
+    {
+      "id": "m-equations",
+      "title": "Equações e inequações",
+      "short": "Resolve igualdade e compara intervalos com segurança.",
+      "priority": false,
+      "minutes": 16
+    },
+    {
+      "id": "m-functions",
+      "title": "Funções e gráficos",
+      "short": "Lê entradas, saídas e inclinação de uma recta.",
+      "priority": false,
+      "minutes": 17
+    },
+    {
+      "id": "m-systems",
+      "title": "Sistemas de equações",
+      "short": "Combina duas pistas para encontrar dois valores.",
+      "priority": false,
+      "minutes": 19
+    },
+    {
+      "id": "m-powers",
+      "title": "Potências, raízes e logaritmos",
+      "short": "Reconhece padrões de expoentes e operações inversas.",
+      "priority": false,
+      "minutes": 18
+    },
+    {
+      "id": "m-trig",
+      "title": "Trigonometria",
+      "short": "Liga ângulos e lados em triângulos rectângulos.",
+      "priority": true,
+      "minutes": 20
+    },
+    {
+      "id": "m-geometry",
+      "title": "Geometria",
+      "short": "Calcula áreas, perímetros e relações de figuras.",
+      "priority": false,
+      "minutes": 17
+    },
+    {
+      "id": "m-vectors",
+      "title": "Vectores",
+      "short": "Trabalha direcção, sentido e componentes.",
+      "priority": true,
+      "minutes": 19
+    },
+    {
+      "id": "m-sequences",
+      "title": "Sequências",
+      "short": "Encontra o padrão e prevê o próximo termo.",
+      "priority": false,
+      "minutes": 15
+    },
+    {
+      "id": "m-calculus",
+      "title": "Limites e derivadas",
+      "short": "Lê variação e inclinação em funções simples.",
+      "priority": false,
+      "minutes": 20
+    },
+    {
+      "id": "m-probability",
+      "title": "Probabilidade e estatística",
+      "short": "Mede possibilidades e resume dados.",
+      "priority": false,
+      "minutes": 18
+    },
+    {
+      "id": "m-word",
+      "title": "Problemas de palavras",
+      "short": "Transforma texto em equações e decide com método.",
+      "priority": false,
+      "minutes": 16
+    }
+  ],
+  "physics": [
+    {
+      "id": "p-units",
+      "title": "Unidades e medição",
+      "short": "Converte sem perder a ordem de grandeza.",
+      "priority": true,
+      "minutes": 15
+    },
+    {
+      "id": "p-vectors",
+      "title": "Vectores na Física",
+      "short": "Representa forças e movimentos com direcção.",
+      "priority": true,
+      "minutes": 17
+    },
+    {
+      "id": "p-motion",
+      "title": "Movimento",
+      "short": "Relaciona posição, tempo, velocidade e aceleração.",
+      "priority": true,
+      "minutes": 19
+    },
+    {
+      "id": "p-newton",
+      "title": "Leis de Newton",
+      "short": "Explica como forças mudam o movimento.",
+      "priority": true,
+      "minutes": 20
+    },
+    {
+      "id": "p-forces",
+      "title": "Forças e atrito",
+      "short": "Vê o que ajuda ou resiste ao movimento.",
+      "priority": true,
+      "minutes": 18
+    },
+    {
+      "id": "p-energy",
+      "title": "Trabalho, energia e potência",
+      "short": "Liga força, deslocamento e tempo.",
+      "priority": true,
+      "minutes": 20
+    },
+    {
+      "id": "p-momentum",
+      "title": "Quantidade de movimento",
+      "short": "Analisa colisões e conservação do movimento.",
+      "priority": false,
+      "minutes": 18
+    },
+    {
+      "id": "p-circular",
+      "title": "Movimento circular",
+      "short": "Entende raio, velocidade e aceleração centrípeta.",
+      "priority": true,
+      "minutes": 17
+    },
+    {
+      "id": "p-fluids",
+      "title": "Pressão e fluidos",
+      "short": "Relaciona força, área e profundidade.",
+      "priority": false,
+      "minutes": 16
+    },
+    {
+      "id": "p-heat",
+      "title": "Calor e temperatura",
+      "short": "Distingue energia térmica e medida de aquecimento.",
+      "priority": false,
+      "minutes": 17
+    },
+    {
+      "id": "p-electricity",
+      "title": "Electricidade e circuitos",
+      "short": "Calcula corrente, tensão, resistência e potência.",
+      "priority": true,
+      "minutes": 22
+    },
+    {
+      "id": "p-magnetism",
+      "title": "Magnetismo",
+      "short": "Lê campos e forças em correntes e ímanes.",
+      "priority": false,
+      "minutes": 15
+    },
+    {
+      "id": "p-waves",
+      "title": "Ondas e óptica",
+      "short": "Relaciona frequência, comprimento de onda e luz.",
+      "priority": false,
+      "minutes": 18
+    }
+  ]
+}
