@@ -1,0 +1,6 @@
+.vercel
+node_modules
+plan.md
+TODO.md
+server.js
+app.config.ts
