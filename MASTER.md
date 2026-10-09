@@ -25,11 +25,11 @@ for the Metodista engineering access exam. Repo dir: `metodista-engineering-prep
 | Deploy mode | Git-connected: **push to `main` → production auto-deploy** (~15 s + build) |
 | Vercel CLI auth file (this machine) | `%APPDATA%\com.vercel.cli\Data\auth.json` |
 | localStorage key | `metodista-prep-v1` — **never rename** (users' progress lives here) |
-| Content | 25 lessons (12 math + 13 physics), **125 ladder questions (5/lesson)**, 12 walkthroughs (math), 10 formulaTri (2 math + 8 physics) + `content/triangles.json` (base + 2 deep levels each), 77 audio MP3s (30 of them `*-tri-*`) |
+| Content | 26 lessons (13 math + 13 physics), **130 ladder questions (5/lesson)**, 13 walkthroughs (math), 10 formulaTri (2 math + 8 physics) + `content/triangles.json` (base + 2 deep levels each) + `content/atalhos.json` (40 one-line formulas/tricks), 81 audio MP3s per language (162 total, ~51 of them `*-tri-*`) |
 | Routes | `#/` home · `#/path/:subject` · `#/lesson/:id` · `#/triangles` · `#/atalhos` · `#/test` · `#/profile` |
 | Atalhos page | `content/atalhos.json` + `content/en/atalhos.json`: 40 one-line entries (21 math / 19 physics) of three kinds — `mnemónica` 9, `truque` 15, `fórmula` 16. Filter chips read the kinds from the data, so a new kind needs no code change |
 | State keys | `completed[]`, `practice{}`, `test`, `voiceOff`, **`prep`** (modo preparação: abre todas as lições), **`triDeep{lessonId:0-2}`** (nível expandido de cada triângulo), **`lang`** (`pt`/`en`), **`time{lessonId:seconds}`** (cronómetro por lição) |
-| Languages | PT = `content/*.json` + `audio/*.mp3`; EN = `content/en/*.json` + `audio/en/*.mp3`. UI chrome lives in the `EN` map in `app.js` (PT literal → English); `check-i18n-coverage.mjs` proves no `t()` literal is missing an entry |
+| Languages | PT = `content/*.json` + `audio/*.mp3`; EN = `content/en/*.json` + `audio/en/*.mp3`. After adding or editing a lesson, re-run the manifest + both batches or the new steps silently fall back to the browser voice | UI chrome lives in the `EN` map in `app.js` (PT literal → English); `check-i18n-coverage.mjs` proves no `t()` literal is missing an entry |
 | Logo | `favicon.svg` + the same geometry inline in `index.html` `.brand-mark`: cover-triangle (outline + divider bar + filled bottom-left cell). One idea, monochrome-safe, legible at 16px |
 
 ## 3. Repeatable recipes
