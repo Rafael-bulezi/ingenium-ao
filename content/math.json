@@ -13,6 +13,92 @@
       "Divide os dois lados por 3: x = 15 ÷ 3.",
       "Resultado: x = 5. Verifica: 3(5) + 5 = 20."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "3x + 5 = 20",
+          "say": "Equação do primeiro grau: o bizu é sempre o mesmo, letra para um lado, número para o outro. Olha aqui: três xis mais cinco igual a vinte.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "3x",
+              "color": "blue"
+            },
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "+ 5",
+              "color": "coral",
+              "note": "número troca de lado"
+            }
+          ]
+        },
+        {
+          "line": "3x = 20 - 5",
+          "say": "O mais cinco muda de lado e troca o sinal: era mais cinco, passa a menos cinco. A letra fica sozinha de um lado, o número do outro.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "+ 5"
+              },
+              "to": {
+                "l": 1,
+                "q": "- 5"
+              },
+              "bow": "up",
+              "note": "troca o sinal"
+            }
+          ]
+        },
+        {
+          "line": "3x = 15",
+          "say": "Vinte menos cinco dá quinze. Continua tudo simples: a letra de um lado, o número do outro.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 2,
+              "q": "15",
+              "color": "lime"
+            }
+          ]
+        },
+        {
+          "line": "x = {15/3}",
+          "say": "Agora é leg, leg, tome, tome. O três está a multiplicar, passa para o outro lado a dividir.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 2,
+                "q": "3x"
+              },
+              "to": {
+                "l": 3,
+                "q": "3"
+              },
+              "bow": "up",
+              "note": "passa a dividir"
+            }
+          ]
+        },
+        {
+          "line": "x = 5",
+          "say": "Quinze a dividir por três dá cinco. Cinco é a raiz da equação. Confere: três vezes cinco, quinze, mais cinco, vinte. Bate certo.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 4,
+              "q": "5",
+              "color": "lime",
+              "note": "resultado"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Qual é o valor de x em 4x − 7 = 21?",
     "answer": "7",
     "hint": "Primeiro soma 7 aos dois lados; depois divide por 4.",
@@ -51,6 +137,74 @@
       "Divide por 2 (positivo): x ≤ 4.",
       "Na recta real, marca 4 com círculo fechado e pinta para a esquerda."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "2x + 3 ≤ 11",
+          "say": "Inequação resolve-se como uma equação: o bizu é o mesmo. Só há um detalhe. Se multiplicares ou dividires por um número negativo, o sinal vira de lado. Fica de olho.",
+          "marks": [
+            {
+              "k": "underline",
+              "l": 0,
+              "q": "≤",
+              "color": "coral",
+              "note": "fica de olho no sinal"
+            }
+          ]
+        },
+        {
+          "line": "2x ≤ 11 - 3",
+          "say": "O mais três muda de lado e troca o sinal.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "+ 3"
+              },
+              "to": {
+                "l": 1,
+                "q": "- 3"
+              },
+              "bow": "up",
+              "note": "troca o sinal"
+            }
+          ]
+        },
+        {
+          "line": "2x ≤ 8",
+          "say": "Onze menos três dá oito.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 2,
+              "q": "8",
+              "color": "lime"
+            }
+          ]
+        },
+        {
+          "line": "x ≤ 4",
+          "say": "O dois passa para o outro lado a dividir. Dois é positivo, por isso o sinal não vira. Resposta: xis menor ou igual a quatro.",
+          "marks": [
+            {
+              "k": "underline",
+              "l": 3,
+              "q": "≤",
+              "color": "blue",
+              "note": "não virou"
+            },
+            {
+              "k": "circle",
+              "l": 3,
+              "q": "4",
+              "color": "lime",
+              "note": "resposta"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Resolve: 5x − 10 > 0.",
     "answer": "> 2",
     "hint": "Soma 10 e divide por 5.",
@@ -89,6 +243,68 @@
       "Multiplica: 2 × 3 = 6.",
       "Soma: f(3) = 6 + 1 = 7."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "f(x) = 2x + 1",
+          "say": "Função é uma máquina: entra um valor, sai um resultado. Olha a máquina: f de xis é igual a dois xis mais um.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "x",
+              "o": 1,
+              "color": "blue",
+              "note": "a variável"
+            }
+          ]
+        },
+        {
+          "line": "f(3) = 2 × (3) + 1",
+          "say": "Agora entra o três: onde havia xis, escrevo três, com parênteses por segurança.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "2x"
+              },
+              "to": {
+                "l": 1,
+                "q": "2×(3)"
+              },
+              "bow": "up",
+              "note": "xis vira 3"
+            }
+          ]
+        },
+        {
+          "line": "f(3) = 6 + 1",
+          "say": "Dois vezes três dá seis.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 2,
+              "q": "6",
+              "color": "blue"
+            }
+          ]
+        },
+        {
+          "line": "f(3) = 7",
+          "say": "Seis mais um dá sete. Resposta: f de três é sete. Confere.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 3,
+              "q": "7",
+              "color": "lime",
+              "note": "resultado"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Se g(x) = 3x − 2, qual é g(4)?",
     "answer": "10",
     "hint": "Troca x por 4 e segue a ordem das operações.",
@@ -127,6 +343,110 @@
       "Divide por 2: x = 6.",
       "Substitui na primeira: 6 + y = 10, logo y = 4."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "x + y = 10",
+          "say": "Sistema: duas pistas para encontrar dois valores. Primeira pista: xis mais y igual a dez.",
+          "marks": []
+        },
+        {
+          "line": "x - y = 2",
+          "say": "Segunda pista: xis menos y igual a dois. Repara numa coisa: um tem mais y, o outro tem menos y. Sinais opostos.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "+ y",
+              "color": "coral"
+            },
+            {
+              "k": "circle",
+              "l": 1,
+              "q": "- y",
+              "color": "coral",
+              "note": "sinais opostos"
+            }
+          ]
+        },
+        {
+          "line": "2x = 12",
+          "say": "Somando as duas linhas: xis com xis dá dois xis. Mais y com menos y, leg, leg, tome, tome, o y desaparece. Dez mais dois dá doze.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "x"
+              },
+              "to": {
+                "l": 2,
+                "q": "2x"
+              },
+              "bow": "up",
+              "note": "soma as duas pistas"
+            },
+            {
+              "k": "arrow",
+              "from": {
+                "l": 1,
+                "q": "2"
+              },
+              "to": {
+                "l": 2,
+                "q": "12"
+              },
+              "bow": "down",
+              "color": "blue"
+            }
+          ]
+        },
+        {
+          "line": "x = 6",
+          "say": "Doze a dividir por dois dá seis. Metade do caminho feito.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 3,
+              "q": "6",
+              "color": "lime"
+            }
+          ]
+        },
+        {
+          "line": "6 + y = 10",
+          "say": "Agora substituo o seis na primeira pista: seis mais y igual a dez.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "x"
+              },
+              "to": {
+                "l": 4,
+                "q": "6"
+              },
+              "bow": "up",
+              "note": "substitui"
+            }
+          ]
+        },
+        {
+          "line": "y = 4",
+          "say": "O y é quatro. Confere: seis mais quatro, dez; seis menos quatro, dois. Par encontrado: seis e quatro.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 5,
+              "q": "4",
+              "color": "lime",
+              "note": "resultado"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Se x + y = 9 e x − y = 1, qual é x?",
     "answer": "5",
     "hint": "Soma as duas equações para eliminar y.",
@@ -165,6 +485,73 @@
       "Fica 2⁵.",
       "Calcula: 2⁵ = 32."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "2³ × 2²",
+          "say": "Potências com a mesma base: o bizu é somar os expoentes, sem medo.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "³",
+              "color": "coral",
+              "note": "somam"
+            },
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "²",
+              "color": "coral"
+            }
+          ]
+        },
+        {
+          "line": "3 + 2 = 5",
+          "say": "Três mais dois dá cinco. É o novo expoente.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "³"
+              },
+              "to": {
+                "l": 1,
+                "q": "3"
+              },
+              "bow": "up"
+            },
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "²"
+              },
+              "to": {
+                "l": 1,
+                "q": "2"
+              },
+              "bow": "down",
+              "color": "blue"
+            }
+          ]
+        },
+        {
+          "line": "2⁵ = 32",
+          "say": "Fica dois elevado a cinco. Dois, quatro, oito, dezasseis, trinta e dois.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 2,
+              "q": "32",
+              "color": "lime",
+              "note": "resultado"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Quanto vale log₁₀(1000)?",
     "answer": "3",
     "hint": "Pergunta: 10 elevado a quanto dá 1000?",
@@ -204,6 +591,80 @@
       "Como sen 30° = 0,5, fica 0,5 = oposto/10.",
       "Multiplica por 10: oposto = 5."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "sen 30° = {oposto/10}",
+          "say": "Oposto e hipotenusa pedem seno. Seno de trinta graus é igual ao lado oposto a dividir pela hipotenusa, dez.",
+          "marks": [
+            {
+              "k": "underline",
+              "l": 0,
+              "q": "oposto",
+              "color": "blue"
+            },
+            {
+              "k": "underline",
+              "l": 0,
+              "q": "10",
+              "color": "coral",
+              "note": "fração montada"
+            }
+          ]
+        },
+        {
+          "line": "0,5 = {oposto/10}",
+          "say": "Seno de trinta graus vale zero vírgula cinco, um valor que convém saber de cor.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "sen 30°"
+              },
+              "to": {
+                "l": 1,
+                "q": "0,5"
+              },
+              "bow": "up",
+              "note": "sen 30° = 0,5"
+            }
+          ]
+        },
+        {
+          "line": "oposto = 0,5 × 10",
+          "say": "O dez está a dividir, passa para o outro lado a multiplicar. Multiplica cruzado, sem medo.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 1,
+                "q": "10"
+              },
+              "to": {
+                "l": 2,
+                "q": "× 10"
+              },
+              "bow": "down",
+              "note": "passa a multiplicar"
+            }
+          ]
+        },
+        {
+          "line": "oposto = 5",
+          "say": "Zero vírgula cinco vezes dez dá cinco. O lado oposto mede cinco.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 3,
+              "q": "5",
+              "color": "lime",
+              "note": "resultado"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Se sen θ = 0,6 e a hipotenusa é 10, qual é o lado oposto?",
     "answer": "6",
     "hint": "Usa sen θ = oposto / hipotenusa.",
@@ -236,12 +697,64 @@
     "minutes": 17,
     "concept": "Desenha a figura, identifica a medida pedida e escolhe a fórmula antes de substituir números.",
     "formula": "A_rectângulo = base × altura",
+    "formulaTri": {
+      "top": [
+        "A",
+        "área",
+        "a área"
+      ],
+      "left": [
+        "b",
+        "base",
+        "a base"
+      ],
+      "right": [
+        "h",
+        "altura",
+        "a altura"
+      ]
+    },
     "example": "Qual é a área de um rectângulo de 8 cm por 3 cm?",
     "steps": [
       "Escolhe a fórmula: A = b × h.",
       "Substitui: A = 8 × 3.",
       "Resultado: A = 24 cm²."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "A = base × altura",
+          "say": "Antes de contar, a fórmula: área do rectângulo é base vezes altura. E desenha sempre a figura, ajuda a não trocar os valores.",
+          "marks": [
+            {
+              "k": "sketch",
+              "shape": "rect",
+              "l": 0,
+              "color": "blue",
+              "note": "8 × 3"
+            }
+          ]
+        },
+        {
+          "line": "A = 8 × 3",
+          "say": "Substituo: oito vezes três.",
+          "marks": []
+        },
+        {
+          "line": "A = 24 cm²",
+          "say": "Vinte e quatro. E não esqueças da unidade: centímetros quadrados.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 2,
+              "q": "24",
+              "color": "lime",
+              "note": "resultado"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Qual é o perímetro de um quadrado com lado 6 cm?",
     "answer": "24",
     "hint": "Um quadrado tem quatro lados iguais.",
@@ -281,6 +794,47 @@
       "Soma as componentes y: Ry = 4 − 2 = 2.",
       "Resultado: R = (4, 2)."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "Rx = 3 + 1",
+          "say": "Vectores: componentes com a sua igual, xis com xis. Componente xis: três mais um.",
+          "marks": []
+        },
+        {
+          "line": "Ry = 4 + (-2)",
+          "say": "Componente y: quatro mais menos dois. Nunca misturar xis com y.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 1,
+              "q": "4",
+              "color": "blue"
+            },
+            {
+              "k": "circle",
+              "l": 1,
+              "q": "-2",
+              "color": "coral",
+              "note": "o sinal entra na conta"
+            }
+          ]
+        },
+        {
+          "line": "R = (4, 2)",
+          "say": "Três mais um dá quatro; quatro mais menos dois dá dois. Resultado: quatro, dois.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 2,
+              "q": "(4, 2)",
+              "color": "lime",
+              "note": "resposta"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Qual é o módulo do vector (3, 4)?",
     "answer": "5",
     "hint": "Usa Pitágoras: √(3² + 4²).",
@@ -319,6 +873,73 @@
       "Usa a₆ = 4 + (6 − 1)×3.",
       "Calcula: a₆ = 4 + 15 = 19."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "4, 7, 10, ...",
+          "say": "Vê o padrão: de quatro para sete, três; de sete para dez, três. A diferença é sempre três.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "4"
+              },
+              "to": {
+                "l": 0,
+                "q": "7"
+              },
+              "bow": "up",
+              "note": "+3"
+            },
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "7"
+              },
+              "to": {
+                "l": 0,
+                "q": "10"
+              },
+              "bow": "up",
+              "color": "blue"
+            }
+          ]
+        },
+        {
+          "line": "a6 = 4 + 5 × 3",
+          "say": "Do primeiro termo até ao sexto são cinco passos. Fica: quatro mais cinco vezes três.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 1,
+              "q": "5",
+              "color": "blue",
+              "note": "5 passos"
+            }
+          ]
+        },
+        {
+          "line": "a6 = 4 + 15",
+          "say": "Cinco vezes três dá quinze.",
+          "marks": []
+        },
+        {
+          "line": "a6 = 19",
+          "say": "Quatro mais quinze, dezanove. É o sexto termo.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 3,
+              "q": "19",
+              "color": "lime",
+              "note": "6.º termo"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Qual é o 5.º termo de 2, 5, 8, …?",
     "answer": "14",
     "hint": "A diferença é 3; avança quatro vezes a partir do primeiro termo.",
@@ -357,6 +978,72 @@
       "Deriva 3x: 3.",
       "Junta os termos: f'(x) = 2x + 3."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "f(x) = x² + 3x",
+          "say": "Derivar é medir a inclinação da curva. Vamos termo a termo, com calma.",
+          "marks": []
+        },
+        {
+          "line": "(x²)' = 2x",
+          "say": "Xis ao quadrado: o expoente desce e multiplica. O dois vem para a frente e fica dois xis.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "x²"
+              },
+              "to": {
+                "l": 1,
+                "q": "2x"
+              },
+              "bow": "up",
+              "note": "o expoente desce"
+            }
+          ]
+        },
+        {
+          "line": "(3x)' = 3",
+          "say": "Três xis vira apenas três: o expoente era um, desceu, e o xis desaparece.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "3x"
+              },
+              "to": {
+                "l": 2,
+                "q": "3",
+                "o": 1
+              },
+              "bow": "down"
+            }
+          ]
+        },
+        {
+          "line": "f'(x) = 2x + 3",
+          "say": "Junto as peças: dois xis mais três. A derivada está pronta.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 3,
+              "q": "2x",
+              "color": "lime"
+            },
+            {
+              "k": "circle",
+              "l": 3,
+              "q": "+ 3",
+              "color": "lime",
+              "note": "resultado"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Qual é a derivada de f(x) = 5x?",
     "answer": "5",
     "hint": "A derivada de ax é a constante a.",
@@ -389,12 +1076,76 @@
     "minutes": 18,
     "concept": "Probabilidade é casos favoráveis divididos por casos possíveis. Média soma os dados e divide pela quantidade de valores.",
     "formula": "P(E) = favoráveis / possíveis",
+    "formulaTri": {
+      "top": [
+        "F",
+        "favoráveis",
+        "os casos favoráveis"
+      ],
+      "left": [
+        "P",
+        "probabilidade",
+        "a probabilidade"
+      ],
+      "right": [
+        "T",
+        "total",
+        "o total de casos"
+      ]
+    },
     "example": "Num saco há 3 bolas vermelhas e 2 azuis. P(vermelha)?",
     "steps": [
       "Conta os casos favoráveis: 3 vermelhas.",
       "Conta o total: 3 + 2 = 5 bolas.",
       "P(vermelha) = 3/5 = 0,6 = 60%."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "P = {favoráveis/possíveis}",
+          "say": "Probabilidade é uma razão: casos favoráveis a dividir por casos possíveis.",
+          "marks": [
+            {
+              "k": "note",
+              "l": 0,
+              "q": "favoráveis",
+              "color": "blue",
+              "note": "o que quero"
+            },
+            {
+              "k": "underline",
+              "l": 0,
+              "q": "possíveis",
+              "color": "coral",
+              "note": "o total"
+            }
+          ]
+        },
+        {
+          "line": "P = {3/(3 + 2)}",
+          "say": "Favoráveis: as três vermelhas. Possíveis: todas as bolas, três mais duas.",
+          "marks": []
+        },
+        {
+          "line": "P = {3/5}",
+          "say": "Três em cinco.",
+          "marks": []
+        },
+        {
+          "line": "P = 0,6 = 60%",
+          "say": "Zero vírgula seis, ou sessenta por cento. É a probabilidade de sair vermelha.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 3,
+              "q": "60%",
+              "color": "lime",
+              "note": "resposta"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Qual é a média de 4, 6 e 8?",
     "answer": "6",
     "hint": "Soma os três valores e divide por 3.",
@@ -433,6 +1184,55 @@
       "Escreve 0,8P = 2 500.",
       "Divide: P = 2 500/0,8 = 3 125 Kz."
     ],
+    "walkthrough": {
+      "steps": [
+        {
+          "line": "x + 7 = 19",
+          "say": "Um número que não conhecemos? Chamamos-lhe xis. Um número mais sete dá dezanove. Equação montada.",
+          "marks": [
+            {
+              "k": "circle",
+              "l": 0,
+              "q": "x",
+              "color": "blue",
+              "note": "o número"
+            }
+          ]
+        },
+        {
+          "line": "x = 19 - 7",
+          "say": "O mais sete passa para o outro lado a subtrair: trocou de lado, troca o sinal.",
+          "marks": [
+            {
+              "k": "arrow",
+              "from": {
+                "l": 0,
+                "q": "+ 7"
+              },
+              "to": {
+                "l": 1,
+                "q": "- 7"
+              },
+              "bow": "up",
+              "note": "troca o sinal"
+            }
+          ]
+        },
+        {
+          "line": "x = 12",
+          "say": "Dezanove menos sete dá doze. O número é doze. Confere: doze mais sete, dezanove. Bate certo.",
+          "marks": [
+            {
+              "k": "sketch",
+              "l": 2,
+              "q": "12",
+              "color": "lime",
+              "note": "resposta"
+            }
+          ]
+        }
+      ]
+    },
     "practice": "Um número aumentado de 7 dá 19. Qual é o número?",
     "answer": "12",
     "hint": "Chama x ao número e escreve x + 7 = 19.",

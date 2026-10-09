@@ -85,6 +85,23 @@
     "minutes": 19,
     "concept": "Velocidade mede distância por tempo. Aceleração mede a mudança de velocidade por tempo. Escolhe a equação que contém os dados conhecidos.",
     "formula": "v = Δs/Δt  ·  a = Δv/Δt",
+    "formulaTri": {
+      "top": [
+        "Δs",
+        "distância",
+        "a distância"
+      ],
+      "left": [
+        "v",
+        "velocidade",
+        "a velocidade"
+      ],
+      "right": [
+        "Δt",
+        "tempo",
+        "o tempo"
+      ]
+    },
     "example": "Um carro percorre 120 m em 6 s. Velocidade média?",
     "steps": [
       "Identifica Δs = 120 m e Δt = 6 s.",
@@ -124,6 +141,23 @@
     "minutes": 20,
     "concept": "A segunda lei transforma forças em aceleração. A força resultante, e não uma força isolada, é a que importa.",
     "formula": "F_resultante = m·a",
+    "formulaTri": {
+      "top": [
+        "F",
+        "força",
+        "a força"
+      ],
+      "left": [
+        "m",
+        "massa",
+        "a massa"
+      ],
+      "right": [
+        "a",
+        "aceleração",
+        "a aceleração"
+      ]
+    },
     "example": "Qual a aceleração de uma massa de 4 kg sob força resultante de 20 N?",
     "steps": [
       "Escreve F = ma.",
@@ -163,6 +197,23 @@
     "minutes": 18,
     "concept": "Peso aponta para baixo; normal é a resposta da superfície; atrito opõe-se ao movimento ou à tendência de movimento.",
     "formula": "P = m·g  ·  f = μN",
+    "formulaTri": {
+      "top": [
+        "P",
+        "peso",
+        "o peso"
+      ],
+      "left": [
+        "m",
+        "massa",
+        "a massa"
+      ],
+      "right": [
+        "g",
+        "gravidade",
+        "a gravidade"
+      ]
+    },
     "example": "Com g ≈ 10 m/s², qual o peso de 6 kg?",
     "steps": [
       "Usa P = m·g.",
@@ -202,6 +253,23 @@
     "minutes": 20,
     "concept": "Trabalho transfere energia quando uma força provoca deslocamento. Potência diz quão rápido a energia é transferida.",
     "formula": "W = F·d  ·  P = W/t",
+    "formulaTri": {
+      "top": [
+        "W",
+        "trabalho",
+        "o trabalho"
+      ],
+      "left": [
+        "P",
+        "potência",
+        "a potência"
+      ],
+      "right": [
+        "t",
+        "tempo",
+        "o tempo"
+      ]
+    },
     "example": "Uma força de 30 N move uma caixa 4 m na mesma direcção. Trabalho?",
     "steps": [
       "Como força e deslocamento estão alinhados, W = Fd.",
@@ -240,6 +308,23 @@
     "minutes": 18,
     "concept": "A quantidade de movimento depende da massa e da velocidade. Num sistema isolado, o momento total antes e depois mantém-se.",
     "formula": "p = m·v",
+    "formulaTri": {
+      "top": [
+        "p",
+        "movimento",
+        "a quantidade de movimento"
+      ],
+      "left": [
+        "m",
+        "massa",
+        "a massa"
+      ],
+      "right": [
+        "v",
+        "velocidade",
+        "a velocidade"
+      ]
+    },
     "example": "Qual o momento de uma bola de 2 kg a 6 m/s?",
     "steps": [
       "Usa p = m·v.",
@@ -317,6 +402,23 @@
     "minutes": 16,
     "concept": "Pressão é força distribuída por área. Em fluidos, a pressão aumenta com a profundidade e depende da densidade.",
     "formula": "p = F/A  ·  p_h = ρgh",
+    "formulaTri": {
+      "top": [
+        "F",
+        "força",
+        "a força"
+      ],
+      "left": [
+        "p",
+        "pressão",
+        "a pressão"
+      ],
+      "right": [
+        "A",
+        "área",
+        "a área"
+      ]
+    },
     "example": "Uma força de 200 N atua em 4 m². Pressão?",
     "steps": [
       "Usa p = F/A.",
@@ -394,6 +496,23 @@
     "minutes": 22,
     "concept": "Corrente é fluxo de carga; tensão é energia por carga; resistência dificulta o fluxo. Em série a corrente é a mesma; em paralelo a tensão é a mesma.",
     "formula": "V = I·R  ·  P = V·I",
+    "formulaTri": {
+      "top": [
+        "V",
+        "tensão",
+        "a tensão"
+      ],
+      "left": [
+        "I",
+        "corrente",
+        "a corrente"
+      ],
+      "right": [
+        "R",
+        "resistência",
+        "a resistência"
+      ]
+    },
     "example": "Um resistor de 6 Ω ligado a 12 V. Corrente?",
     "steps": [
       "Aplica a lei de Ohm: I = V/R.",
@@ -470,6 +589,23 @@
     "minutes": 18,
     "concept": "Ondas transportam energia. A frequência diz quantos ciclos ocorrem por segundo; o comprimento de onda é a distância entre cristas.",
     "formula": "v = f·λ",
+    "formulaTri": {
+      "top": [
+        "v",
+        "velocidade",
+        "a velocidade"
+      ],
+      "left": [
+        "f",
+        "frequência",
+        "a frequência"
+      ],
+      "right": [
+        "λ",
+        "comprimento",
+        "o comprimento de onda"
+      ]
+    },
     "example": "Uma onda tem f = 5 Hz e λ = 2 m. Velocidade?",
     "steps": [
       "Usa v = fλ.",

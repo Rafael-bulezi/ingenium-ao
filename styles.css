@@ -283,6 +283,54 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
   .profile-avatar { width: 56px; height: 56px; border-radius: 17px; }
   .profile-top h1 { font-size: 23px; }
 }
+/* ===== Quadro manuscrito (exemplo guiado) ===== */
+.example-card .example-label .tag { white-space: nowrap; }
+.quadro { position: relative; overflow: hidden; padding: 26px 22px 28px; border-radius: var(--radius-md); background: #fffdf6; border: 1px solid #e6e1d0; box-shadow: inset 0 2px 0 rgba(255,255,255,.9), inset 0 -20px 32px rgba(19,34,56,.035), 0 12px 28px rgba(19,34,56,.07); }
+.quadro::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(#e9e4d2 1px, transparent 1.1px); background-size: 21px 21px; pointer-events: none; }
+/* gap must fit a note (18px, anchored 9px under its line) plus the arrow arc bows (~16–20px) */
+.quadro-lines { position: relative; z-index: 2; display: grid; gap: 30px; }
+.quadro-line { position: relative; min-height: 1.5em; }
+.quadro-line .eq { display: inline-block; font-family: "Kalam", "Plus Jakarta Sans", sans-serif; font-weight: 400; font-size: clamp(22px, 3.4vw, 27px); line-height: 1.4; color: #26324c; letter-spacing: .015em; }
+.quadro-line.final .eq { color: #2e7c43; }
+.quadro-ink { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: visible; }
+.quadro-notes { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.quadro-note { position: absolute; transform: translate(-50%, 0) rotate(var(--rot, -2deg)); font-family: "Caveat", "Plus Jakarta Sans", cursive; font-weight: 600; font-size: 18px; line-height: 1; white-space: nowrap; }
+/* ===== Fracções verticais (linhas do quadro e triângulo) ===== */
+/* .84em keeps the num/den pair from inflating the handwritten line; middle + small nudge keeps "x = 15/3" on one baseline */
+.quadro-line .frac, .tri-eq .frac { display: inline-flex; flex-direction: column; align-items: stretch; vertical-align: middle; margin: 0 .16em; transform: translateY(-.05em); font-size: .84em; text-align: center; }
+.frac .fn { line-height: 1.15; padding: 0 .22em .02em; }
+.frac .fd { line-height: 1.15; border-top: 2px solid currentColor; padding: .02em .22em 0; }
+
+/* ===== Fórmula em triângulo ===== */
+.tri-card .tri-formula { margin: 2px 0 6px; font-family: "Kalam", "Plus Jakarta Sans", sans-serif; font-weight: 400; font-size: clamp(22px, 3.2vw, 26px); color: #26324c; }
+.tri-hint { margin: 0; line-height: 1.45; color: var(--ink-soft); font-size: 12px; }
+.tri-wrap { position: relative; width: min(340px, 100%); height: 212px; margin: 14px auto 0; }
+.tri-ink { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.tri-cell { position: absolute; transform: translate(-50%, -50%); width: 84px; height: 58px; min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: 0; background: transparent; border-radius: 14px; transition: background .15s ease; }
+.tri-cell:hover, .tri-cell:active { background: rgba(184, 243, 107, .35); }
+.tri-sym { font-family: "Kalam", "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 27px; line-height: 1; color: #26324c; }
+.tri-cell small { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); }
+.tri-top { left: 50%; top: 26%; }
+.tri-left { left: 28%; top: 74%; }
+.tri-right { left: 72%; top: 74%; }
+.tri-cell.covered .tri-sym, .tri-cell.covered small { visibility: hidden; }
+.tri-cell.covered::after { content: ""; position: absolute; inset: 7px 5px; border-radius: 46% 54% 48% 52% / 58% 44% 56% 42%; background: repeating-linear-gradient(58deg, rgba(38, 50, 76, .85) 0 2px, transparent 2px 5px); transform: rotate(-4deg); }
+.tri-result { min-height: 46px; display: grid; place-items: center; margin-top: 12px; }
+.tri-eq { display: inline-block; padding: 7px 20px 9px; border-radius: 12px; background: var(--paper); font-family: "Kalam", "Plus Jakarta Sans", sans-serif; font-size: clamp(22px, 3.4vw, 27px); color: #2e7c43; }
+
+@media (max-width: 520px) {
+  .quadro { padding: 22px 16px 26px; }
+  .quadro-lines { gap: 28px; } /* 16px notes need the same air as desktop */
+  .quadro-line .eq { font-size: 21px; }
+  .quadro-note { font-size: 16px; }
+  .tri-formula { font-size: 21px; }
+  .tri-hint { margin-top: 2px; }
+  .tri-wrap { height: 190px; margin-top: 10px; }
+  .tri-cell { width: 82px; height: 60px; } /* 60px tall: comfortable thumb target */
+  .tri-sym { font-size: 24px; }
+  .tri-eq { font-size: 21px; padding: 6px 16px 8px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
