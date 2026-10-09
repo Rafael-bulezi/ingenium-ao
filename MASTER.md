@@ -8,8 +8,10 @@ for the Metodista engineering access exam. Repo dir: `metodista-engineering-prep
 | What | Where | Status |
 | --- | --- | --- |
 | **Live app (canonical)** | https://ingenium-ao.vercel.app | ✅ verified 2026-10-09 (200, title shows "Ingenium") |
+| Triangles page | https://ingenium-ao.vercel.app/#/triangles | ✅ verified live — 10 cards, 10 drag grips |
+| Prep mode switch | app → Perfil → "Modo preparação" | ✅ persists in `state.prep`; path shows "prep · tudo aberto" |
 | Old URL (same project, kept working) | https://rota-engenharia.vercel.app | ✅ 200 — still attached; safe to remove later if never shared |
-| GitHub repo | https://github.com/Rafael-bulezi/ingenium-ao | ✅ pushed `main` @ `2b7d22e` (old name redirects) |
+| GitHub repo | https://github.com/Rafael-bulezi/ingenium-ao | ✅ pushed `main` @ `89a2846` (prep mode + #/triangles + app-style home) |
 | Local dev | `cd metodista-engineering-prep && node server.js` | runs on `PORT=3311` (used for all QA) |
 | QA temp harnesses | `__harness.html` / `__probe.html` served from the app | ❌ never commit — delete before `git add` |
 
