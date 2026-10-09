@@ -1,4 +1,4 @@
-# Rota Engenharia — Plan
+# Ingenium — Plan
 
 ## Product direction
 A mobile-first study companion for Metodista engineering entrance-exam preparation, centered on Mathematics and Physics. The experience turns a long syllabus into a calm, game-like learning path: each topic becomes a compact lesson with a concept card, worked example, guided practice, and completion state.
@@ -14,7 +14,7 @@ A mobile-first study companion for Metodista engineering entrance-exam preparati
 - **Typography:** Plus Jakarta Sans for interface and headings, with a slightly heavier display weight for lesson names. Math expressions use a readable serif fallback where helpful.
 - **Brand essence:** “A focused daily path from syllabus anxiety to exam confidence.” Personality: encouraging, precise, energetic.
 - **Brand voice:** Direct, warm, never vague. Example lines: “One idea at a time. You’ve got this.” and “Show your working — that’s where the marks live.”
-- **Wordmark / mark:** A small lime compass-star built from four rounded arrows, paired with the ROTA ENGENHARIA wordmark.
+- **Wordmark / mark:** A small lime compass-star built from four rounded arrows, paired with the INGENIUM wordmark.
 - **Signature brand color:** Progress Lime `#B8F36B`.
 
 ## Implementation approach
@@ -36,7 +36,7 @@ A mobile-first study companion for Metodista engineering entrance-exam preparati
 
 ## Project structure
 ```
-rota-engenharia/
+ingenium-ao/
 ├── index.html                # app shell and semantic view containers
 ├── styles.css                # responsive visual system
 ├── app.js                    # state, interactions, content and rendering

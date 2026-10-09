@@ -24,7 +24,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; background: var(--paper); }
+body { margin: 0; background: var(--paper); }
 button, a { font: inherit; }
 button { cursor: pointer; }
 a { color: inherit; text-decoration: none; }
@@ -148,6 +148,8 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
 .formula { margin: 18px 0 0; padding: 14px; border-left: 3px solid var(--lime); background: rgba(255,255,255,.08); color: var(--lime); font-family: Georgia, serif; font-size: 22px; }
 .example-label { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
 .example-label h2 { margin: 0; }
+.example-tools { display: flex; align-items: center; gap: 8px; flex: none; }
+.quadro-expand { flex: none; width: 34px; height: 34px; border-radius: 11px; }
 .step-list { display: grid; gap: 10px; counter-reset: steps; }
 .step-connector { display: flex; align-items: center; gap: 8px; margin: -4px 0 -4px 18px; color: var(--lime-dark); }
 .step-connector span { font-size: 22px; font-weight: 800; line-height: 1; }
@@ -170,6 +172,9 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
 .practice-option:hover, .practice-option.selected { border-color: var(--blue); background: var(--blue-soft); }
 .practice-option span { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 8px; background: var(--white); font: 500 11px "DM Mono", monospace; }
 .practice-card { border: 2px solid var(--ink); }
+.ladder-dots { display: flex; gap: 6px; margin: 14px 0 18px; }
+.ladder-dots i { flex: 1; height: 6px; border-radius: 4px; background: var(--paper-2); transition: background .2s ease; }
+.ladder-dots i.done { background: var(--lime-dark); }
 .question-line { font-size: 17px; line-height: 1.5; font-weight: 700; }
 .answer-row { display: flex; gap: 10px; margin-top: 16px; }
 .answer-row input { min-width: 0; flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: 0 14px; color: var(--ink); background: var(--paper); outline: none; }
@@ -231,7 +236,8 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
 .metric strong { display: block; font-size: 25px; letter-spacing: -.05em; }
 .metric span { display: block; margin-top: 5px; color: var(--ink-soft); font-size: 10px; }
 
-.bottom-nav { position: fixed; z-index: 10; left: 50%; bottom: 16px; transform: translateX(-50%); width: min(500px, calc(100% - 32px)); padding: 8px; display: grid; grid-template-columns: repeat(4,1fr); gap: 4px; border-radius: 20px; background: rgba(19,34,56,.96); box-shadow: 0 12px 40px rgba(19,34,56,.2); backdrop-filter: blur(15px); }
+.bottom-nav { position: fixed; z-index: 10; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); width: min(500px, calc(100% - 32px)); padding: 8px; display: grid; grid-template-columns: repeat(4,1fr); gap: 4px; border-radius: 20px; background: rgba(19,34,56,.96); box-shadow: 0 12px 40px rgba(19,34,56,.2); backdrop-filter: blur(15px); transition: transform .32s ease, opacity .32s ease; }
+.bottom-nav.nav-hidden { transform: translate(-50%, calc(100% + 28px)); opacity: 0; pointer-events: none; }
 .bottom-nav a { padding: 8px 5px; border-radius: 14px; display: flex; align-items: center; justify-content: center; gap: 5px; flex-direction: column; color: #aeb8c6; font-size: 9px; font-weight: 700; }
 .bottom-nav a.active { background: var(--lime); color: var(--ink); }
 .nav-icon { font-size: 17px; line-height: 1; }
@@ -285,11 +291,11 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
 }
 /* ===== Quadro manuscrito (exemplo guiado) ===== */
 .example-card .example-label .tag { white-space: nowrap; }
-.quadro { position: relative; overflow: hidden; padding: 26px 22px 28px; border-radius: var(--radius-md); background: #fffdf6; border: 1px solid #e6e1d0; box-shadow: inset 0 2px 0 rgba(255,255,255,.9), inset 0 -20px 32px rgba(19,34,56,.035), 0 12px 28px rgba(19,34,56,.07); }
+.quadro { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; min-height: 224px; padding: 32px 24px 36px; border-radius: var(--radius-md); background: #fffdf6; border: 1px solid #e6e1d0; box-shadow: inset 0 2px 0 rgba(255,255,255,.9), inset 0 -20px 32px rgba(19,34,56,.035), 0 12px 28px rgba(19,34,56,.07); }
 .quadro::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(#e9e4d2 1px, transparent 1.1px); background-size: 21px 21px; pointer-events: none; }
-/* gap must fit a note (18px, anchored 9px under its line) plus the arrow arc bows (~16–20px) */
-.quadro-lines { position: relative; z-index: 2; display: grid; gap: 30px; }
-.quadro-line { position: relative; min-height: 1.5em; }
+/* gap fits a note (18px, 9px under its line) with real air left over; arrow arcs bow ~16–20px */
+.quadro-lines { position: relative; z-index: 2; display: grid; gap: 38px; }
+.quadro-line { position: relative; min-height: 1.5em; text-align: center; }
 .quadro-line .eq { display: inline-block; font-family: "Kalam", "Plus Jakarta Sans", sans-serif; font-weight: 400; font-size: clamp(22px, 3.4vw, 27px); line-height: 1.4; color: #26324c; letter-spacing: .015em; }
 .quadro-line.final .eq { color: #2e7c43; }
 .quadro-ink { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: visible; }
@@ -302,32 +308,48 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
 .frac .fd { line-height: 1.15; border-top: 2px solid currentColor; padding: .02em .22em 0; }
 
 /* ===== Fórmula em triângulo ===== */
+.tri-card { text-align: center; }
 .tri-card .tri-formula { margin: 2px 0 6px; font-family: "Kalam", "Plus Jakarta Sans", sans-serif; font-weight: 400; font-size: clamp(22px, 3.2vw, 26px); color: #26324c; }
-.tri-hint { margin: 0; line-height: 1.45; color: var(--ink-soft); font-size: 12px; }
-.tri-wrap { position: relative; width: min(340px, 100%); height: 212px; margin: 14px auto 0; }
+.tri-hint { margin: 0 auto; max-width: 320px; line-height: 1.45; color: var(--ink-soft); font-size: 12px; }
+.tri-wrap { position: relative; width: min(360px, 100%); height: 244px; margin: 16px auto 0; }
 .tri-ink { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.tri-cell { position: absolute; transform: translate(-50%, -50%); width: 84px; height: 58px; min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: 0; background: transparent; border-radius: 14px; transition: background .15s ease; }
+.tri-cell { position: absolute; transform: translate(-50%, -50%); width: 88px; height: 60px; min-height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; border: 0; background: transparent; border-radius: 14px; transition: background .15s ease; }
 .tri-cell:hover, .tri-cell:active { background: rgba(184, 243, 107, .35); }
-.tri-sym { font-family: "Kalam", "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 27px; line-height: 1; color: #26324c; }
-.tri-cell small { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); }
-.tri-top { left: 50%; top: 26%; }
-.tri-left { left: 28%; top: 74%; }
-.tri-right { left: 72%; top: 74%; }
+.tri-sym { font-family: "Kalam", "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 28px; line-height: 1; color: #26324c; }
+.tri-cell small { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); }
+.tri-top { left: 50%; top: 24%; }
+.tri-left { left: 30%; top: 76%; }
+.tri-right { left: 70%; top: 76%; }
 .tri-cell.covered .tri-sym, .tri-cell.covered small { visibility: hidden; }
-.tri-cell.covered::after { content: ""; position: absolute; inset: 7px 5px; border-radius: 46% 54% 48% 52% / 58% 44% 56% 42%; background: repeating-linear-gradient(58deg, rgba(38, 50, 76, .85) 0 2px, transparent 2px 5px); transform: rotate(-4deg); }
+.tri-cell.covered::after { content: ""; position: absolute; inset: 6px 7px; border-radius: 46% 54% 48% 52% / 58% 44% 56% 42%; background: repeating-linear-gradient(58deg, rgba(38, 50, 76, .85) 0 2px, transparent 2px 5px); transform: rotate(-3deg); }
 .tri-result { min-height: 46px; display: grid; place-items: center; margin-top: 12px; }
 .tri-eq { display: inline-block; padding: 7px 20px 9px; border-radius: 12px; background: var(--paper); font-family: "Kalam", "Plus Jakarta Sans", sans-serif; font-size: clamp(22px, 3.4vw, 27px); color: #2e7c43; }
 
+/* ===== Ecrã inteiro do quadro ===== */
+body.qf-lock { overflow: hidden; }
+.example-card.quadro-full { position: fixed; inset: 0; z-index: 70; margin: 0; border: 0; border-radius: 0; display: flex; flex-direction: column; gap: 6px; padding: 20px clamp(16px, 5vw, 72px) 24px; overflow: auto; background: #fffdf6; animation: none; }
+.example-card.quadro-full .example-label { flex-wrap: wrap; }
+.example-card.quadro-full .quadro { flex: 1; min-height: 0; margin: 10px 0; border-color: transparent; background: transparent; box-shadow: none; }
+.example-card.quadro-full .quadro-line .eq { font-size: clamp(26px, 3.6vw, 42px); }
+.example-card.quadro-full .quadro-note { font-size: 22px; }
+.example-card.quadro-full .solution-controls { justify-content: center; }
+body.qf-lock .bottom-nav { display: none; }
+
 @media (max-width: 520px) {
-  .quadro { padding: 22px 16px 26px; }
-  .quadro-lines { gap: 28px; } /* 16px notes need the same air as desktop */
+  .quadro { min-height: 196px; padding: 26px 18px 30px; }
+  .quadro-lines { gap: 32px; } /* 16px notes need the same air as desktop */
   .quadro-line .eq { font-size: 21px; }
   .quadro-note { font-size: 16px; }
+  .example-label { flex-wrap: wrap; }
+  .example-card.quadro-full { padding: 14px 12px 18px; }
+  .example-card.quadro-full .quadro-line .eq { font-size: clamp(24px, 7.4vw, 34px); }
+  .example-card.quadro-full .quadro-note { font-size: 19px; }
   .tri-formula { font-size: 21px; }
   .tri-hint { margin-top: 2px; }
-  .tri-wrap { height: 190px; margin-top: 10px; }
-  .tri-cell { width: 82px; height: 60px; } /* 60px tall: comfortable thumb target */
-  .tri-sym { font-size: 24px; }
+  .tri-wrap { height: 214px; margin-top: 12px; }
+  .tri-cell { width: 86px; height: 58px; }
+  .tri-sym { font-size: 26px; }
+  .tri-cell small { font-size: 9px; }
   .tri-eq { font-size: 21px; padding: 6px 16px 8px; }
 }
 

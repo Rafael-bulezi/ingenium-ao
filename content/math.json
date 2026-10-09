@@ -122,14 +122,51 @@
         "6",
         "14"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "Começamos levinho: x + 5 = 20. Qual é o valor de x?",
+        "answer": "15",
+        "hint": "O 5 passa para o outro lado a trocar o sinal.",
+        "explanation": "20 − 5 = 15, então x = 15. Guarda este 15 — vais precisar dele já a seguir.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Agora com multiplicação: 3x = 15. Qual é o x?",
+        "answer": "5",
+        "hint": "O 3 está a multiplicar, passa para o outro lado a dividir.",
+        "explanation": "15 ÷ 3 = 5. É o mesmo 15 da pergunta 1 — na próxima juntamos as duas ideias.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Junta os dois truques: 3x + 5 = 20. Qual é o x?",
+        "answer": "5",
+        "hint": "Primeiro tira o 5, depois divide por 3.",
+        "explanation": "O 5 passa a menos: 3x = 15 (o número da pergunta 1) e x = 5. É o exemplo do professor, montado peça a peça.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Resolve agora sozinho: 2x + 7 = 19.",
+        "answer": "6",
+        "hint": "Subtrai 7 dos dois lados e depois divide por 2.",
+        "explanation": "2x = 12, logo x = 6. Mesmo método, números novos. Confere: 2(6) + 7 = 19.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "O triplo de um número mais 4 dá 25. Que número é?",
+        "answer": "7",
+        "hint": "Chama x ao número e monta a equação 3x + 4 = 25.",
+        "explanation": "3x = 21, logo x = 7. Repara: usaste os mesmos dois truques do início — tirar o 4 e dividir pelo 3. Isto é o estilo do exame.",
+        "formatHint": "Escreve só o número."
+      }
+    ]
   },
   {
     "id": "m-equations",
     "title": "Equações e inequações",
     "short": "Resolve igualdade e compara intervalos com segurança.",
     "minutes": 16,
-    "concept": "Uma inequação segue as mesmas regras de uma equação, mas ao multiplicar ou dividir por um número negativo o sinal muda de direção.",
+    "concept": "Uma inequação segue as mesmas regras de uma equação, mas ao multiplicar ou dividir por um número negativo o sinal muda de direcção.",
     "formula": "−2x > 8  →  x < −4",
     "example": "Resolve: 2x + 3 ≤ 11",
     "steps": [
@@ -228,7 +265,44 @@
         "< 4",
         "= 4"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "Resolve: x + 3 ≤ 7. Qual é o x?",
+        "answer": "x ≤ 4",
+        "hint": "Tira o 3 dos dois lados, como numa equação normal.",
+        "explanation": "7 − 3 = 4 e o ≤ fica quieto, porque não mexemos em números negativos. Guarda este 4.",
+        "formatHint": "Escreve como x ≤ 4."
+      },
+      {
+        "q": "E agora: 2x ≤ 8. Qual é o x?",
+        "answer": "x ≤ 4",
+        "hint": "O 2 passa a dividir; é positivo, por isso o sinal não vira.",
+        "explanation": "8 ÷ 2 = 4, outra vez x ≤ 4. Guarda o 8 — a próxima pergunta junta as duas.",
+        "formatHint": "Escreve como x ≤ 4."
+      },
+      {
+        "q": "Junta tudo: 2x + 3 ≤ 11. Qual é o x?",
+        "answer": "x ≤ 4",
+        "hint": "Subtrai 3 primeiro, divide por 2 depois.",
+        "explanation": "2x ≤ 8 (o número da pergunta 2) e x ≤ 4. É o exemplo do professor, com o sinal a manter-se.",
+        "formatHint": "Escreve como x ≤ 4."
+      },
+      {
+        "q": "Resolve: 3x + 4 < 19. Qual é o x?",
+        "answer": "x < 5",
+        "hint": "Subtrai 4 e divide por 3 — tudo positivo.",
+        "explanation": "3x < 15, logo x < 5. Mesmo método. A última tem uma armadilha.",
+        "formatHint": "Escreve como x < 5."
+      },
+      {
+        "q": "Última, com o detalhe traiçoeiro: −2x > 8. Qual é o x?",
+        "answer": "x < −4",
+        "hint": "Vais dividir por um número negativo: lembra-te do aviso do professor sobre o sinal.",
+        "explanation": "8 ÷ (−2) = −4 e o > vira <: x < −4. É exactamente o detalhe que faz perder pontos no exame.",
+        "formatHint": "Escreve como x < −4."
+      }
+    ]
   },
   {
     "id": "m-functions",
@@ -328,7 +402,44 @@
         "16",
         "34"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "Máquina simples: f(x) = 2x. Quanto é f(3)?",
+        "answer": "6",
+        "hint": "Onde está o x, escreve 3 e multiplica.",
+        "explanation": "2 × 3 = 6: entra 3, sai 6. Guarda este 6 — a máquina vai crescer.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "A máquina ganhou um +1: f(x) = 2x + 1. Quanto é f(3)?",
+        "answer": "7",
+        "hint": "É o mesmo 2 × 3 da pergunta 1, com mais 1 no fim.",
+        "explanation": "6 + 1 = 7 — é o f(3) do exemplo do professor. Agora a mesma entrada vai passar por outra máquina.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Nova máquina: h(x) = 4x + 2. Quanto é h(3)?",
+        "answer": "14",
+        "hint": "Substitui x por 3 e segue a ordem: multiplica antes de somar.",
+        "explanation": "4 × 3 = 12, mais 2 dá 14. Mesmo processo, números maiores. A seguir, tipo exame.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Se f(x) = 3x + 4, qual é f(5)?",
+        "answer": "19",
+        "hint": "3 × 5 e soma 4 no fim.",
+        "explanation": "15 + 4 = 19. Guarda este 19 — a última pergunta é a mesma conta, ao contrário.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Na função f(x) = 3x + 4, para que x é que f(x) = 19?",
+        "answer": "x = 5",
+        "hint": "Iguala: 3x + 4 = 19 e resolve como uma equação.",
+        "explanation": "3x = 15, x = 5 — o mesmo 19 da pergunta 4, com a máquina a correr ao contrário. Já é estilo exame.",
+        "formatHint": "Escreve como x = ..."
+      }
+    ]
   },
   {
     "id": "m-systems",
@@ -470,7 +581,44 @@
         "8",
         "18"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "No sistema x + y = 10 e x − y = 2, começa por somar: quanto é 10 + 2?",
+        "answer": "12",
+        "hint": "Só somar os números da direita.",
+        "explanation": "12. Parece fácil — e é: é o primeiro passo do sistema do professor. Guarda este 12.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Agora divide esse 12 por 2: quanto dá?",
+        "answer": "6",
+        "hint": "É a metade de 12.",
+        "explanation": "6. É por isso que em x + y = 10 e x − y = 2 o x é 6: somas as pistas e divides por 2. Guarda o 6.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "O sistema completo: x + y = 10 e x − y = 2. Qual é o x?",
+        "answer": "x = 6",
+        "hint": "Soma as duas pistas: x com x dá 2x, e 10 + 2.",
+        "explanation": "2x = 12, logo x = 6 — os números das perguntas 1 e 2 a trabalhar juntos. Lembra: 6 + y = 10.",
+        "formatHint": "Escreve como x = ..."
+      },
+      {
+        "q": "Sistema novo: x + y = 14 e x − y = 4. Qual é o x?",
+        "answer": "x = 9",
+        "hint": "Soma as pistas: 2x = 14 + 4.",
+        "explanation": "2x = 18, x = 9. Mesmo truque de somar para o y desaparecer. Falta a outra metade do par.",
+        "formatHint": "Escreve como x = ..."
+      },
+      {
+        "q": "No mesmo sistema, com x = 9: qual é o y? (x + y = 14)",
+        "answer": "y = 5",
+        "hint": "Substitui o 9 na primeira pista: 9 + y = 14.",
+        "explanation": "y = 5. Confere: 9 + 5 = 14 e 9 − 5 = 4. Par encontrado, tal como 6 e 4 no exemplo do professor.",
+        "formatHint": "Escreve como y = ..."
+      }
+    ]
   },
   {
     "id": "m-powers",
@@ -575,7 +723,44 @@
         "127",
         "256"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "Aquecimento: quanto é 2³?",
+        "answer": "8",
+        "hint": "2 × 2 × 2.",
+        "explanation": "8. Guarda este 8 — vais vê-lo outra vez no fim da escada.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Mesma base: 2³ × 2² vira 2 elevado a quanto?",
+        "answer": "5",
+        "hint": "Soma os expoentes, sem medo.",
+        "explanation": "3 + 2 = 5, é o novo expoente. Falta só calcular o valor.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "E quanto vale 2³ × 2² ao certo?",
+        "answer": "32",
+        "hint": "É 2⁵: faz 2, 4, 8, 16, 32.",
+        "explanation": "32 — o mesmo que 8 (pergunta 1) vezes 4. Agora sozinho, com outra potência.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Simplifica e calcula: 2⁴ × 2².",
+        "answer": "64",
+        "hint": "Soma os expoentes: 2⁴⁺² = 2⁶.",
+        "explanation": "2⁶ = 64. Multiplicação dominada — a última pergunta é a mesma ideia ao contrário.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Pergunta ao contrário: 2 elevado a quanto dá 8? Escreve-se log₂(8).",
+        "answer": "3",
+        "hint": "Procura o 8 da pergunta 1 e vê o expoente que lá estava.",
+        "explanation": "3, porque 2³ = 8, logo log₂(8) = 3. Logaritmo é só isto: perguntar qual era o expoente.",
+        "formatHint": "Escreve só o número."
+      }
+    ]
   },
   {
     "id": "m-trig",
@@ -688,7 +873,44 @@
         "7",
         "16"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "Aquecimento: quanto é 0,5 × 10?",
+        "answer": "5",
+        "hint": "É metade de 10.",
+        "explanation": "5. Parece brincadeira, mas esta conta é o último passo de todos os exercícios de seno. Guarda-a.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Agora ao contrário: quanto é 5 ÷ 10?",
+        "answer": "0,5",
+        "hint": "A vírgula anda uma casa para a esquerda.",
+        "explanation": "0,5. Esta divisão é exactamente o que o seno faz: oposto a dividir pela hipotenusa. Guarda o 0,5.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Num triângulo, sen θ = 0,5 e a hipotenusa mede 10. Quanto mede o oposto?",
+        "answer": "5",
+        "hint": "Seno = oposto ÷ hipotenusa; passa o 10 a multiplicar.",
+        "explanation": "oposto = 0,5 × 10 = 5 — as contas das perguntas 1 e 2 ao mesmo tempo. Agora com outro seno.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Se sen θ = 0,4 e a hipotenusa é 10, qual é o lado oposto?",
+        "answer": "4",
+        "hint": "Mesma montagem: oposto = sen θ × hipotenusa.",
+        "explanation": "0,4 × 10 = 4. Mesmo truque, número novo — é o exercício do professor com outros valores.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Noutro triângulo, cos θ = 0,8 e a hipotenusa mede 10 cm. Quanto mede o adjacente?",
+        "answer": "8 cm",
+        "hint": "Cosseno liga adjacente e hipotenusa: adjacente = cos θ × hipotenusa.",
+        "explanation": "0,8 × 10 = 8, logo 8 cm. Mesma máquina do seno, só muda o lado — estilo exame.",
+        "formatHint": "Inclui a unidade: escreve como 8 cm."
+      }
+    ]
   },
   {
     "id": "m-geometry",
@@ -778,7 +1000,44 @@
         "29",
         "60"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "Aquecimento: qual é a área de um rectângulo de 6 cm por 4 cm?",
+        "answer": "24",
+        "hint": "A = base × altura: multiplica 6 por 4.",
+        "explanation": "A = 6 × 4 = 24 cm². Guarda este 6 — ele volta já na pergunta seguinte.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Agora o perímetro de um quadrado com 6 cm de lado?",
+        "answer": "24",
+        "hint": "Um quadrado tem quatro lados iguais: soma os quatro.",
+        "explanation": "P = 4 × 6 = 24 cm. Deu o mesmo 24 da pergunta 1, mas agora é perímetro: cm, não cm².",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Junta as peças: triângulo com base 6 cm e altura 4 cm. Qual é a área?",
+        "answer": "12",
+        "hint": "É a conta do rectângulo, mas divide por 2.",
+        "explanation": "A = 6 × 4 ÷ 2 = 12 cm². Usaste outra vez os teus 6 e 4: o triângulo é metade do rectângulo.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Triângulo novo, números menos redondos: base 10 cm e altura 7 cm. Área?",
+        "answer": "35",
+        "hint": "Multiplica base por altura e depois divide por 2.",
+        "explanation": "10 × 7 = 70 e 70 ÷ 2 = 35 cm². Mesmo truque. A seguir voltamos ao rectângulo, num problema.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Micro-problema: uma horta rectangular mede 7 m por 4 m. Que área tem?",
+        "answer": "28 m²",
+        "hint": "É a fórmula da pergunta 1: base × altura.",
+        "explanation": "A = 7 × 4 = 28 m². É a pergunta 1 em problema de palavras — repara na unidade: m², não m.",
+        "formatHint": "Inclui a unidade: escreve como 28 m²."
+      }
+    ]
   },
   {
     "id": "m-vectors",
@@ -858,7 +1117,44 @@
         "12",
         "26"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "Aquecimento: soma A = (1, 2) com B = (2, 2). Qual é o vector soma?",
+        "answer": "(3, 4)",
+        "hint": "Xis com xis, y com y: somar componentes iguais.",
+        "explanation": "1 + 2 = 3 e 2 + 2 = 4, logo R = (3, 4). Guarda este (3, 4) — usamo-lo já a seguir.",
+        "formatHint": "Escreve no formato (x, y)."
+      },
+      {
+        "q": "Agora o módulo do vector (3, 4). Quanto é?",
+        "answer": "5",
+        "hint": "Pitágoras: √(x² + y²).",
+        "explanation": "|R| = √(9 + 16) = √25 = 5. É o mesmo (3, 4) que acabaste de somar, agora com módulo.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Junta os truques: soma A = (3, 4) com B = (3, 4). Qual é o módulo da soma?",
+        "answer": "10",
+        "hint": "Soma primeiro as componentes e depois aplica Pitágoras.",
+        "explanation": "A soma dá (6, 8) e √(36 + 64) = √100 = 10. É o 3-4-5 da pergunta 2, agora a dobrar.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Módulo de novo, números maiores: vector (9, 12). Quanto é?",
+        "answer": "15",
+        "hint": "Mesma família do 3-4-5, mas aqui é √(9² + 12²).",
+        "explanation": "√(81 + 144) = √225 = 15. Mesmo método, só com números três vezes maiores.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Micro-problema: um drone voa 12 m para leste e 5 m para norte. Distância em linha recta?",
+        "answer": "13 m",
+        "hint": "É um módulo: √(12² + 5²).",
+        "explanation": "√(144 + 25) = √169 = 13 m — o par 5-12 dá 13, tal como 3-4 dá 5. Estilo exame.",
+        "formatHint": "Inclui a unidade: escreve como 13 m."
+      }
+    ]
   },
   {
     "id": "m-sequences",
@@ -963,7 +1259,44 @@
         "20",
         "42"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "Aquecimento: na sequência 3, 6, 9, … qual é o próximo termo?",
+        "answer": "12",
+        "hint": "Repara no salto: de 3 para 6, e de 6 para 9.",
+        "explanation": "9 + 3 = 12. A diferença é sempre 3 — guarda este 3, é o motor da sequência.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Ainda em 3, 6, 9, …: qual é o 5.º termo?",
+        "answer": "15",
+        "hint": "Do 1.º ao 5.º são quatro passos de 3.",
+        "explanation": "a₅ = 3 + 4 × 3 = 15. Agora usaste a fórmula aₙ = a₁ + (n − 1)r. Guarda este 15.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Se o 5.º termo é 15 e a diferença é 3, qual é o 6.º termo?",
+        "answer": "18",
+        "hint": "É só mais um passo de 3 a partir do 15.",
+        "explanation": "15 + 3 = 18: depois da fórmula, basta somar a diferença uma vez. Agora muda a diferença.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Sequência nova, diferença 4: 6, 10, 14, … qual é o 6.º termo?",
+        "answer": "26",
+        "hint": "A diferença é 4; do 1.º ao 6.º são cinco passos.",
+        "explanation": "a₆ = 6 + 5 × 4 = 26. Mesma receita da pergunta 2, só com outros números.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Ao contrário: na sequência 7, 10, 13, … em que posição está o termo 31?",
+        "answer": "9",
+        "hint": "31 = 7 + (n − 1) × 3: quantos 3 cabem em 31 − 7?",
+        "explanation": "31 − 7 = 24 e 24 ÷ 3 = 8 passos, logo a posição é 8 + 1 = 9. Fórmula ao contrário, estilo exame.",
+        "formatHint": "Escreve só o número da posição."
+      }
+    ]
   },
   {
     "id": "m-calculus",
@@ -1067,7 +1400,44 @@
         "6x − 2",
         "x + 2"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "Aquecimento: qual é a derivada de f(x) = x²?",
+        "answer": "2x",
+        "hint": "O expoente desce e passa a multiplicar o xis.",
+        "explanation": "(x²)' = 2x: o 2 veio para a frente. Guarda este 2x — voltas a vê-lo mais à frente.",
+        "formatHint": "Escreve a expressão com x, por exemplo 4x."
+      },
+      {
+        "q": "E com um só termo: qual é a derivada de f(x) = 7x?",
+        "answer": "7",
+        "hint": "O xis tem expoente 1; quando desce, o xis desaparece.",
+        "explanation": "(7x)' = 7: o coeficiente fica sozinho. Guarda este 7 para juntares as peças.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Junta as peças: qual é a derivada de f(x) = x² + 7x?",
+        "answer": "2x + 7",
+        "hint": "Deriva termo a termo, como no exemplo do professor.",
+        "explanation": "f'(x) = 2x + 7 — o 2x da pergunta 1 com o 7 da pergunta 2. É o exemplo da aula com os teus números.",
+        "formatHint": "Escreve a expressão, por exemplo 3x + 5."
+      },
+      {
+        "q": "Deriva agora f(x) = 5x² + 4x.",
+        "answer": "10x + 4",
+        "hint": "Desce cada expoente e multiplica pelo número da frente.",
+        "explanation": "f'(x) = 10x + 4: 5 × 2 = 10 e o 4x vira 4. Mesma receita, coeficientes novos.",
+        "formatHint": "Escreve a expressão, por exemplo 3x + 5."
+      },
+      {
+        "q": "Estilo exame: deriva f(x) = 3x² + x e calcula f'(2).",
+        "answer": "13",
+        "hint": "Primeiro a derivada; depois substitui x por 2.",
+        "explanation": "f'(x) = 6x + 1, e f'(2) = 12 + 1 = 13. Derivar e avaliar num ponto: é assim que cai no exame.",
+        "formatHint": "Escreve só o número."
+      }
+    ]
   },
   {
     "id": "m-probability",
@@ -1165,11 +1535,48 @@
       "formatHint": "Aceita 0,4 ou 40%.",
       "options": [
         "0,4",
-        "2.4",
-        "-0.6",
-        "0.8"
+        "2,4",
+        "-0,6",
+        "0,8"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "Aquecimento: num saco há 1 bola vermelha e 1 azul. Probabilidade de sair vermelha?",
+        "answer": "0,5",
+        "hint": "Favoráveis 1, possíveis 2: monta a razão.",
+        "explanation": "P = 1/2 = 0,5. Metade. Agora vamos encher o saco com mais bolas.",
+        "formatHint": "Escreve em decimal (vírgula ou ponto)."
+      },
+      {
+        "q": "Agora o saco tem 3 vermelhas e 1 azul. Probabilidade de sair vermelha?",
+        "answer": "0,75",
+        "hint": "Favoráveis 3; possíveis 3 + 1.",
+        "explanation": "P = 3/4 = 0,75, ou 75%. Guarda este 0,75 — precisas dele já a seguir.",
+        "formatHint": "Escreve em decimal (vírgula ou ponto)."
+      },
+      {
+        "q": "No mesmo saco (3 vermelhas, 1 azul), qual é a probabilidade de sair azul?",
+        "answer": "0,25",
+        "hint": "É o que falta para as probabilidades todas somarem 1.",
+        "explanation": "P = 1/4 = 0,25 e 0,75 + 0,25 = 1: as duas juntas cobrem todos os casos. Repara como 0,75 e 0,25 se completam até 1.",
+        "formatHint": "Escreve em decimal (vírgula ou ponto)."
+      },
+      {
+        "q": "Saco novo: 7 bolas vermelhas e 3 azuis. Probabilidade de sair vermelha?",
+        "answer": "0,7",
+        "hint": "Mesma razão: favoráveis 7 sobre o total.",
+        "explanation": "P = 7/10 = 0,7, ou 70%. Mesmo método com números novos. Falta a outra metade da aula: a média.",
+        "formatHint": "Escreve em decimal (vírgula ou ponto)."
+      },
+      {
+        "q": "Média agora: a Maria tirou 12, 14 e 19. Qual é a média dela?",
+        "answer": "15",
+        "hint": "Soma os três valores e divide por 3.",
+        "explanation": "Média = (12 + 14 + 19) ÷ 3 = 45 ÷ 3 = 15. É o mesmo dividir pelo total que já fizeste na probabilidade.",
+        "formatHint": "Escreve só o número."
+      }
+    ]
   },
   {
     "id": "m-word",
@@ -1256,6 +1663,43 @@
         "3999",
         "8000"
       ]
-    }
+    },
+    "ladder": [
+      {
+        "q": "Aquecimento: um número mais 3 dá 10. Qual é o número?",
+        "answer": "7",
+        "hint": "Chama-lhe x e passa o 3 para o outro lado a subtrair.",
+        "explanation": "x = 10 − 3 = 7. Guarda este 7 — ele volta já na pergunta 3.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "E se for menos: um número menos 4 dá 9. Qual é o número?",
+        "answer": "13",
+        "hint": "Agora o 4 troca de lado a somar.",
+        "explanation": "x = 9 + 4 = 13. Mesmo truque da pergunta 1, ao contrário: o que subtrai, passa a somar.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Agora com o dobro: o dobro de um número é 14. Qual é o número?",
+        "answer": "7",
+        "hint": "Desfaz a operação: se é o dobro, divide por 2.",
+        "explanation": "x = 14 ÷ 2 = 7 — voltou o 7 da pergunta 1. Desfazer operações é sempre isto: somar↔subtrair, multiplicar↔dividir.",
+        "formatHint": "Escreve só o número."
+      },
+      {
+        "q": "Um casaco custa 4 000 Kz depois de 20% de desconto. Qual era o preço original?",
+        "answer": "5000",
+        "hint": "Os 4 000 Kz são 80% do original: escreve 0,8P = 4 000.",
+        "explanation": "P = 4 000 ÷ 0,8 = 5 000 Kz. É o exemplo da aula com números novos: primeiro a relação, só depois o cálculo.",
+        "formatHint": "Escreve só o número, sem Kz."
+      },
+      {
+        "q": "Ao contrário: um telemóvel custa 8 000 Kz e tem 25% de desconto. Quanto pagas?",
+        "answer": "6000",
+        "hint": "Se o desconto é 25%, pagas 75% do preço.",
+        "explanation": "8 000 × 0,75 = 6 000 Kz. É a pergunta 4 ao contrário: lá procurava-se o preço antigo, aqui o preço já com desconto.",
+        "formatHint": "Escreve só o número, sem Kz."
+      }
+    ]
   }
 ]

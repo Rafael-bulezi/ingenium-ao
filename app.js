@@ -68,7 +68,7 @@ function answersMatch(value, answer) {
   return Number.isFinite(numeric) && Number.isFinite(expectedNumeric) && numeric === expectedNumeric;
 }
 function showToast(message) { const el = document.querySelector("#toast"); el.textContent = message; el.classList.add("show"); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove("show"), 2600); }
-function navigate(hash) { stopSpeaking(); const parts = hash.replace(/^#/, "").split("/"); route.view = parts[0] || "home"; if (route.view === "lesson") route.lessonId = parts[1] || getNextLesson().id; if (route.view === "path") route.subject = parts[1] || route.subject; render(); window.scrollTo({top:0, behavior:"smooth"}); }
+function navigate(hash) { stopSpeaking(); const parts = hash.replace(/^#\/?/, "").split("/"); const view = parts[0] || "home"; if (quadroFull && !(view === "lesson" && parts[1] === route.lessonId)) setQuadroFull(false); route.view = view; if (route.view === "lesson") route.lessonId = parts[1] || getNextLesson().id; if (route.view === "path") route.subject = parts[1] || route.subject; render(); window.scrollTo({top:0, behavior:"smooth"}); showNav(); }
 function subjectButton(key, label, active) { return `<button class="tab ${active ? "active" : ""}" data-subject="${key}">${label}</button>`; }
 function progressBar(value, label="") { return `<div class="progress-track" aria-label="${label}"><span style="width:${value}%"></span></div>`; }
 function progressDots(lessons) { return `<span class="mini-progress">${lessons.slice(0, Math.min(8, lessons.length)).map(l => `<i class="${isDone(l.id) ? "done" : ""}"></i>`).join("")}</span>`; }
@@ -102,6 +102,25 @@ const MARK_COLORS = { coral: "#e2604b", blue: "#3e6bdc", lime: "#4c8a3f", ink: "
 let quadroFx = null;
 let currentAudio = null;
 let preloaded = [];
+let quadroFull = false;
+let navHideTimer = null;
+const EXPAND_ICON = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 2H2v4.5M9.5 2H14v4.5M6.5 14H2V9.5M9.5 14H14V9.5"/></svg>';
+const COLLAPSE_ICON = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6.5h4.5V2M14 6.5H9.5V2M2 9.5h4.5V14M14 9.5H9.5V14"/></svg>';
+
+function setNavHidden(hidden) { const nav = document.querySelector(".bottom-nav"); if (nav) nav.classList.toggle("nav-hidden", hidden); }
+function scheduleNavHide() { clearTimeout(navHideTimer); navHideTimer = setTimeout(() => setNavHidden(true), 4200); }
+function showNav() { setNavHidden(false); scheduleNavHide(); }
+function setQuadroFull(on) {
+  quadroFull = on;
+  document.body.classList.toggle("qf-lock", on);
+  const card = document.querySelector(".example-card");
+  if (card) card.classList.toggle("quadro-full", on);
+  document.querySelectorAll("[data-quadro='full']").forEach(btn => {
+    btn.innerHTML = on ? COLLAPSE_ICON : EXPAND_ICON;
+    btn.title = on ? "Sair do ecrã inteiro" : "Ver em ecrã inteiro";
+  });
+  requestAnimationFrame(() => requestAnimationFrame(() => { if (route.view === "lesson") afterLessonRender(); }));
+}
 
 function stepCount(lesson) { return lesson.walkthrough && lesson.walkthrough.steps ? lesson.walkthrough.steps.length : (lesson.steps ? lesson.steps.length : 0); }
 function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
@@ -185,25 +204,42 @@ function drawTriFrame() {
   if (!w || !h) return;
   svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
   const rnd = mulberry32(97);
-  const j = () => (rnd() - 0.5) * 3;
-  const W = w * 0.78, H = h * 0.86;
-  const x0 = (w - W) / 2, y0 = (h - H) / 2;
-  const apex = [w / 2 + j(), y0 + j()];
-  const bl = [x0 + j(), y0 + H + j()];
-  const br = [x0 + W + j(), y0 + H + j()];
-  const edge = (p, q) => { const mx = (p[0] + q[0]) / 2 + j(), my = (p[1] + q[1]) / 2 + j(); return ` Q${r0(mx)} ${r0(my)} ${r0(q[0])} ${r0(q[1])}`; };
+  const j = a => (rnd() - 0.5) * a;
+  const topY = 10, botY = h - 12, sideX = 14;
+  const apex = [w / 2 + j(3), topY + j(3)];
+  const bl = [sideX + j(3), botY + j(3)];
+  const br = [w - sideX + j(3), botY + j(3)];
+  const edge = (p, q) => { const mx = (p[0] + q[0]) / 2 + j(3.4), my = (p[1] + q[1]) / 2 + j(3.4); return ` Q${r0(mx)} ${r0(my)} ${r0(q[0])} ${r0(q[1])}`; };
   const outline = `M${r0(apex[0])} ${r0(apex[1])}` + edge(apex, br) + edge(br, bl) + edge(bl, apex) + " Z";
-  const ybar = y0 + H * 0.5;
-  const bar = smoothOpen([[x0 + W * 0.2 + j(), ybar + j()], [x0 + W * 0.5, ybar - 2 + j()], [x0 + W * 0.8 + j(), ybar + j()]]);
+  const frac = 0.40;
+  const ybar = topY + (botY - topY) * frac;
+  const t = (ybar - topY) / (botY - topY);
+  const xL = w / 2 - (w / 2 - sideX) * t, xR = w / 2 + (w / 2 - sideX) * t;
+  const bar = smoothOpen([[xL + 7 + j(3), ybar + j(2)], [w / 2, ybar - 2 + j(2)], [xR - 7 + j(3), ybar + j(2)]]);
   svg.innerHTML = "";
   [outline, bar].forEach(d => {
     const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
     p.setAttribute("d", d);
     p.setAttribute("fill", "none");
     p.setAttribute("stroke", MARK_COLORS.ink);
-    p.setAttribute("stroke-width", "2");
+    p.setAttribute("stroke-width", "2.4");
     p.setAttribute("stroke-linecap", "round");
+    p.setAttribute("stroke-linejoin", "round");
     svg.appendChild(p);
+  });
+  const yCell = (ybar + botY) / 2;
+  const t2 = (yCell - topY) / (botY - topY);
+  const xLc = w / 2 - (w / 2 - sideX) * t2, xRc = w / 2 + (w / 2 - sideX) * t2;
+  const place = {
+    top: [w / 2, (topY + ybar) / 2],
+    left: [xLc + (w / 2 - xLc) * 0.38, yCell],
+    right: [xRc - (xRc - w / 2) * 0.38, yCell]
+  };
+  wrap.querySelectorAll(".tri-cell").forEach(el => {
+    const pos = place[el.dataset.tri];
+    if (!pos) return;
+    el.style.left = `${r0(pos[0])}px`;
+    el.style.top = `${r0(pos[1])}px`;
   });
 }
 
@@ -221,11 +257,24 @@ function exampleCard(lesson, shownSteps) {
     !complete && shown > 0 ? `<button class="button button-ghost button-small" data-step="all">Ver tudo</button>` : "",
     `<button class="button button-ghost button-small" data-voice aria-pressed="${state.voiceOff ? "false" : "true"}">${state.voiceOff ? "Voz: desligada" : "Voz: ligada"}</button>`
   ].join("");
-  return `<article class="card example-card"><div class="example-label"><div><p class="eyebrow">Exemplo guiado</p><h2>${escapeHtml(lesson.example)}</h2></div><span class="tag">quadro · passo a passo</span></div><div class="quadro" id="quadro"><div class="quadro-lines">${linesHtml}</div><svg class="quadro-ink" aria-hidden="true"></svg><div class="quadro-notes" aria-hidden="true"></div></div><div class="solution-controls">${controls}</div></article>`;
+  return `<article class="card example-card${quadroFull ? " quadro-full" : ""}"><div class="example-label"><div><p class="eyebrow">Exemplo guiado</p><h2>${escapeHtml(lesson.example)}</h2></div><span class="example-tools"><span class="tag">quadro · passo a passo</span><button class="icon-button quadro-expand" data-quadro="full" aria-pressed="${quadroFull}" title="${quadroFull ? "Sair do ecrã inteiro" : "Ver em ecrã inteiro"}" aria-label="Ecrã inteiro do quadro">${quadroFull ? COLLAPSE_ICON : EXPAND_ICON}</button></span></div><div class="quadro" id="quadro"><div class="quadro-lines">${linesHtml}</div><svg class="quadro-ink" aria-hidden="true"></svg><div class="quadro-notes" aria-hidden="true"></div></div><div class="solution-controls">${controls}</div></article>`;
 }
 
 function legacyExampleCard(lesson, shownSteps) {
   return `<article class="card"><div class="example-label"><div><p class="eyebrow">Exemplo guiado</p><h2>${escapeHtml(lesson.example)}</h2></div><span class="tag">passo a passo</span></div><div class="step-list">${lesson.steps.map((step, i) => `${i > 0 ? `<div class="step-connector" aria-hidden="true"><span>↳</span><small>próximo movimento</small></div>` : ""}<div class="step ${i < shownSteps ? "" : "hidden-step"}"><span class="step-number">${i+1}</span><p>${escapeHtml(step)}</p></div>`).join("")}</div><div class="solution-controls">${shownSteps < lesson.steps.length ? `<button class="button button-lime button-small" data-step="next">Mostrar passo ${shownSteps + 1} <span>→</span></button>` : `<span class="tag done">Solução completa ✓</span>`}${shownSteps > 0 && shownSteps < lesson.steps.length ? `<button class="button button-ghost button-small" data-step="all">Ver tudo</button>` : ""}</div></article>`;
+}
+
+function ladderCard(lesson, practice) {
+  const ladder = lesson.ladder;
+  const total = ladder.length;
+  const qi = Math.min(Math.max((practice && practice.qi) || 0, 0), total - 1);
+  const item = ladder[qi];
+  const results = (practice && Array.isArray(practice.results)) ? practice.results : [];
+  const res = results[qi] || {};
+  const last = qi === total - 1;
+  const done = Boolean(res.correct || res.revealed);
+  const dots = ladder.map((_, i) => `<i class="${results[i] && results[i].correct ? "done" : ""}"></i>`).join("");
+  return `<article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">Agora tu</p><h2>Prática rápida</h2></div><span class="tag">Pergunta ${qi + 1} de ${total}</span></div><div class="ladder-dots" aria-hidden="true">${dots}</div><p class="question-line">${escapeHtml(item.q)}</p><div class="answer-row"><input id="practice-answer" value="${escapeHtml(res.value || "")}" placeholder="${escapeHtml(item.formatHint || "Escreve a resposta")}" aria-label="A tua resposta" title="${escapeHtml(item.formatHint || "Escreve a resposta")}" /><span class="format-help" title="${escapeHtml(item.formatHint || "Escreve a resposta")}">i</span><button class="button button-primary button-small" data-practice="check">Verificar</button></div><div class="solution-controls">${qi > 0 ? `<button class="button button-ghost button-small" data-practice="prev">← Anterior</button>` : ""}${!done ? `<button class="button button-ghost button-small" data-practice="hint">Dar uma pista</button><button class="button button-ghost button-small" data-practice="reveal">Mostrar resposta</button>` : ""}${done && !last ? `<button class="button button-lime button-small" data-practice="next">Próxima pergunta <span>→</span></button>` : ""}${done && last ? `<span class="tag done">Ladder completa ✓</span>` : ""}</div>${res.correct ? `<div class="practice-feedback good"><strong>Deu bom, demais.</strong> ${escapeHtml(item.explanation)}</div>` : ""}${res.checked && !res.correct && !res.revealed ? `<div class="practice-feedback try">Calma, sem drama. Vê a pista ou revela a resposta e reescreve o passo.</div>` : ""}${res.hintShown && !done ? `<div class="practice-feedback">Pista: ${escapeHtml(item.hint)}</div>` : ""}${res.revealed ? `<div class="practice-feedback good"><strong>Resposta: ${escapeHtml(item.answer)}</strong><br>${escapeHtml(item.explanation)}</div>` : ""}</article>`;
 }
 
 function lineBox(quadro, base, l) {
@@ -524,7 +573,7 @@ function renderLesson() {
     <article class="card concept-card"><p class="eyebrow" style="color:var(--lime)">Ideia-chave</p><h2>${escapeHtml(lesson.concept.split(".")[0])}.</h2><p>${escapeHtml(lesson.concept)}</p><div class="formula">${escapeHtml(lesson.formula)}</div></article>
     ${triCard(lesson)}
     ${exampleCard(lesson, shownSteps)}
-    <article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">Agora tu</p><h2>Prática rápida</h2></div><div class="level-switch" aria-label="Escolher dificuldade"><button class="level-button ${activeLevel === "easy" ? "active" : ""}" data-level="easy">Fácil</button><button class="level-button ${activeLevel === "medium" ? "active" : ""}" data-level="medium">Médio</button></div></div><div class="mode-switch" aria-label="Escolher formato de resposta"><button class="mode-button ${activeMode === "typed" ? "active" : ""}" data-mode="typed">Escrever</button><button class="mode-button ${activeMode === "mc" ? "active" : ""}" data-mode="mc">Escolha múltipla</button></div><p class="question-line">${escapeHtml(activeData.practice)}</p>${activeMode === "mc" ? `<div class="practice-options">${optionOrder.map((optionIndex, displayIndex) => `<button class="practice-option ${currentAnswer === options[optionIndex] ? "selected" : ""}" data-choice="${optionIndex}"><span>${String.fromCharCode(65 + displayIndex)}</span>${escapeHtml(options[optionIndex])}</button>`).join("")}</div><button class="button button-primary button-small" data-practice="check">Verificar escolha</button>` : `<div class="answer-row"><input id="practice-answer" value="" placeholder="${escapeHtml(activeData.formatHint || "Escreve a resposta")}" aria-label="A tua resposta" title="${escapeHtml(activeData.formatHint || "Escreve a resposta")}" /><span class="format-help" title="${escapeHtml(activeData.formatHint || "Escreve a resposta")}">i</span><button class="button button-primary button-small" data-practice="check">Verificar</button></div>`}<div class="solution-controls"><button class="button button-ghost button-small" data-practice="hint">Dar uma pista</button><button class="button button-ghost button-small" data-practice="reveal">Mostrar resposta</button></div>${practice?.feedback ? `<div class="practice-feedback ${practice.correct ? "good" : "try"}">${practice.feedback}</div>` : ""}${practice?.hintShown ? `<div class="practice-feedback">Pista: ${escapeHtml(activeData.hint)}</div>` : ""}${practice?.revealed ? `<div class="practice-feedback good"><strong>Resposta: ${escapeHtml(activeData.answer)}</strong><br>${escapeHtml(activeData.explanation)}</div>` : ""}</article>
+    ${lesson.ladder && lesson.ladder.length ? ladderCard(lesson, practice) : `<article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">Agora tu</p><h2>Prática rápida</h2></div><div class="level-switch" aria-label="Escolher dificuldade"><button class="level-button ${activeLevel === "easy" ? "active" : ""}" data-level="easy">Fácil</button><button class="level-button ${activeLevel === "medium" ? "active" : ""}" data-level="medium">Médio</button></div></div><div class="mode-switch" aria-label="Escolher formato de resposta"><button class="mode-button ${activeMode === "typed" ? "active" : ""}" data-mode="typed">Escrever</button><button class="mode-button ${activeMode === "mc" ? "active" : ""}" data-mode="mc">Escolha múltipla</button></div><p class="question-line">${escapeHtml(activeData.practice)}</p>${activeMode === "mc" ? `<div class="practice-options">${optionOrder.map((optionIndex, displayIndex) => `<button class="practice-option ${currentAnswer === options[optionIndex] ? "selected" : ""}" data-choice="${optionIndex}"><span>${String.fromCharCode(65 + displayIndex)}</span>${escapeHtml(options[optionIndex])}</button>`).join("")}</div><button class="button button-primary button-small" data-practice="check">Verificar escolha</button>` : `<div class="answer-row"><input id="practice-answer" value="" placeholder="${escapeHtml(activeData.formatHint || "Escreve a resposta")}" aria-label="A tua resposta" title="${escapeHtml(activeData.formatHint || "Escreve a resposta")}" /><span class="format-help" title="${escapeHtml(activeData.formatHint || "Escreve a resposta")}">i</span><button class="button button-primary button-small" data-practice="check">Verificar</button></div>`}<div class="solution-controls"><button class="button button-ghost button-small" data-practice="hint">Dar uma pista</button><button class="button button-ghost button-small" data-practice="reveal">Mostrar resposta</button></div>${practice?.feedback ? `<div class="practice-feedback ${practice.correct ? "good" : "try"}">${practice.feedback}</div>` : ""}${practice?.hintShown ? `<div class="practice-feedback">Pista: ${escapeHtml(activeData.hint)}</div>` : ""}${practice?.revealed ? `<div class="practice-feedback good"><strong>Resposta: ${escapeHtml(activeData.answer)}</strong><br>${escapeHtml(activeData.explanation)}</div>` : ""}</article>`}
     <article class="card"><label class="check-row"><input type="checkbox" data-complete ${isDone(lesson.id) ? "checked" : ""} /> <span>Marcar esta lição como concluída</span></label>${isDone(lesson.id) && next ? `<div class="hero-actions" style="margin-top:16px"><a class="button button-lime" href="#lesson/${next.id}">Próxima lição →</a><a class="button button-ghost" href="#path/${key}">Voltar à rota</a></div>` : isDone(lesson.id) ? `<div class="hero-actions" style="margin-top:16px"><a class="button button-lime" href="#test">Experimentar o mini-teste →</a></div>` : ""}</article>
   </div><aside class="lesson-side"><div class="card side-card"><p class="eyebrow">Progresso ${subject.label}</p><h3>${subjectProgress(key).done}/${subject.lessons.length} concluídas</h3>${progressBar(Math.round(subjectProgress(key).done / subject.lessons.length * 100), "Progresso da matéria")}<div class="side-progress">${subject.lessons.map(l => `<i class="${isDone(l.id) ? "done" : ""}"></i>`).join("")}</div></div><div class="card side-card"><p class="eyebrow">Nota do coach</p><h3>Mostra o trabalho.</h3><p class="muted">Mesmo quando a resposta parece óbvia, escreve a fórmula. É assim que evitas perder pontos por distração.</p><div class="side-actions"><a class="button button-ghost button-small" href="#test">Mini-teste de 20 min</a></div></div></aside></div>`;
 }
@@ -571,6 +620,9 @@ function finishTest() { if (!testSession || testSession.finished) return; testSe
 function resetAll() { state = defaultState(); testSession = null; saveState(); showToast("Progresso limpo. A rota está pronta de novo."); navigate("#home"); }
 
 document.addEventListener("click", event => {
+  if (event.target.closest(".bottom-nav")) showNav();
+  else if (event.target.closest("button, a, input, label, select, textarea")) scheduleNavHide();
+  else showNav();
   if (event.target.closest("[data-retry]")) { loadedChunks.catalog = false; render(); return; }
   const subject = event.target.closest("[data-subject]"); if (subject) { route.subject = subject.dataset.subject; render(); return; }
   const back = event.target.closest("[data-back]"); if (back) { navigate("#"+back.dataset.back); return; }
@@ -584,6 +636,7 @@ document.addEventListener("click", event => {
     saveState(); render(); return;
   }
   const voice = event.target.closest("[data-voice]"); if (voice) { state.voiceOff = !state.voiceOff; stopSpeaking(); saveState(); render(); return; }
+  const qf = event.target.closest("[data-quadro='full']"); if (qf) { setQuadroFull(!quadroFull); return; }
   const tri = event.target.closest("[data-tri]"); if (tri) {
     const lesson = lessonById(route.lessonId);
     const t = lesson?.formulaTri;
@@ -603,7 +656,33 @@ document.addEventListener("click", event => {
   const level = event.target.closest("[data-level]"); if (level) { const lesson = lessonById(route.lessonId); state.practice[lesson.id] = {...(state.practice[lesson.id] || {}), level:level.dataset.level, selected:"", feedback:null, hintShown:false, revealed:false}; saveState(); render(); return; }
   const mode = event.target.closest("[data-mode]"); if (mode) { const lesson = lessonById(route.lessonId); state.practice[lesson.id] = {...(state.practice[lesson.id] || {}), mode:mode.dataset.mode, selected:"", feedback:null, hintShown:false, revealed:false}; saveState(); render(); return; }
   const choice = event.target.closest("[data-choice]"); if (choice) { const lesson = lessonById(route.lessonId); const saved = state.practice[lesson.id] || {}; const levelData = saved.level === "medium" && lesson.medium ? lesson.medium : lesson; state.practice[lesson.id] = {...saved, mode:"mc", selected:levelData.options[Number(choice.dataset.choice)], feedback:null}; saveState(); render(); return; }
-  const practice = event.target.closest("[data-practice]"); if (practice) { const lesson = lessonById(route.lessonId); const saved = state.practice[lesson.id] || {}; const levelData = saved.level === "medium" && lesson.medium ? lesson.medium : lesson; state.practice[lesson.id] = {...saved}; if (practice.dataset.practice === "hint") state.practice[lesson.id].hintShown = true; if (practice.dataset.practice === "reveal") state.practice[lesson.id].revealed = true; if (practice.dataset.practice === "check") { const value = saved.mode === "mc" ? (saved.selected || "") : (document.querySelector("#practice-answer")?.value || ""); const correct = answersMatch(value, levelData.answer); state.practice[lesson.id].correct = correct; state.practice[lesson.id].feedback = correct ? "Deu bom, demais. Resposta certa — agora relê o quadro para fixar o método." : "Calma, sem drama. Vê a pista ou revela a resposta e reescreve os passos."; } saveState(); render(); return; }
+  const practice = event.target.closest("[data-practice]");
+  if (practice) {
+    const lesson = lessonById(route.lessonId);
+    const saved = state.practice[lesson.id] || {};
+    if (lesson.ladder && lesson.ladder.length) {
+      const total = lesson.ladder.length;
+      const qi = Math.min(Math.max(saved.qi || 0, 0), total - 1);
+      const item = lesson.ladder[qi];
+      const results = Array.isArray(saved.results) ? saved.results.slice() : [];
+      const res = results[qi] || {};
+      const action = practice.dataset.practice;
+      if (action === "check") {
+        const value = document.querySelector("#practice-answer")?.value || "";
+        if (!value.trim()) { showToast("Escreve a tua resposta primeiro."); return; }
+        results[qi] = { ...res, value, checked: true, correct: answersMatch(value, item.answer) };
+      } else if (action === "hint") results[qi] = { ...res, hintShown: true };
+      else if (action === "reveal") results[qi] = { ...res, revealed: true };
+      state.practice[lesson.id] = { ...saved, results, qi: action === "next" ? Math.min(qi + 1, total - 1) : action === "prev" ? Math.max(qi - 1, 0) : qi };
+      saveState(); render(); return;
+    }
+    const levelData = saved.level === "medium" && lesson.medium ? lesson.medium : lesson;
+    state.practice[lesson.id] = {...saved};
+    if (practice.dataset.practice === "hint") state.practice[lesson.id].hintShown = true;
+    if (practice.dataset.practice === "reveal") state.practice[lesson.id].revealed = true;
+    if (practice.dataset.practice === "check") { const value = saved.mode === "mc" ? (saved.selected || "") : (document.querySelector("#practice-answer")?.value || ""); const correct = answersMatch(value, levelData.answer); state.practice[lesson.id].correct = correct; state.practice[lesson.id].feedback = correct ? "Deu bom, demais. Resposta certa — agora relê o quadro para fixar o método." : "Calma, sem drama. Vê a pista ou revela a resposta e reescreve os passos."; }
+    saveState(); render(); return;
+  }
   const complete = event.target.closest("[data-complete]"); if (complete) { const id = route.lessonId; if (complete.checked && !isDone(id)) state.completed.push(id); if (!complete.checked) state.completed = state.completed.filter(x => x !== id); saveState(); showToast(complete.checked ? "Lição concluída. Mais um nó na rota." : "Lição reaberta para revisão."); render(); return; }
   const test = event.target.closest("[data-test]"); if (test) { const action=test.dataset.test; if (action === "start") startTest(); if (action === "next") { testSession.index = Math.min(testSession.index + 1, testQuestions.length-1); render(); } if (action === "prev") { testSession.index = Math.max(testSession.index - 1, 0); render(); } if (action === "finish") finishTest(); if (action === "restart") startTest(); return; }
   const option = event.target.closest("[data-option]"); if (option && testSession) { testSession.answers[testSession.index] = Number(option.dataset.option); render(); return; }
@@ -611,4 +690,5 @@ document.addEventListener("click", event => {
   if (event.target.closest("#reset-progress")) resetAll();
 });
 window.addEventListener("hashchange", () => navigate(location.hash));
+document.addEventListener("keydown", event => { if (event.key === "Escape" && quadroFull) setQuadroFull(false); });
 navigate(location.hash || "#home");
