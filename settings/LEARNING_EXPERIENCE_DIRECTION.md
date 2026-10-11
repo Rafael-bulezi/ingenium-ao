@@ -1,6 +1,6 @@
 # Ingenium — Learning Experience Direction
 
-**Status:** Groundwork for the next polish pass. This file records direction and acceptance criteria; it does not authorize a broad rebuild or change the app yet.
+**Status:** Full-course learning-guide revamp implemented in the current branch; curriculum review and further polish remain open.
 
 ## Product direction
 
@@ -81,11 +81,11 @@ Every drawing must do instructional work. Keep one main idea per frame, use a co
 
 ## Rollout and checks
 
-1. **Audit the full course:** Review wording and explanations across all 26 lessons. Tag the kinds of reasoning each topic needs instead of assuming one diagram style fits all.
-2. **Pilot across different topic families:** Try clear prompts and sequential examples in symbolic Mathematics (such as equations), pattern/graph Mathematics (such as sequences or functions), and more than one Physics representation (such as forces and circuits). Include vectors as one useful case, not the only case.
-3. **Refine the canvas:** Improve step labels, annotations, and the link between each equation and its supporting visual. Keep the current reveal, replay, and “show all” behaviour.
-4. **Prototype question visuals:** Test the optional view on several different question types. Confirm that each visual clarifies the setup without exposing the answer, and that questions without a useful visual remain text-only.
-5. **Polish progression:** Add and test the next/previous lesson path and the end-of-subject destination.
-6. **Expand only after review:** Check factual accuracy, Portuguese/English parity, accessibility, keyboard use, 360–390px mobile layouts, and browser-console errors before applying changes across the course.
+1. **Full-course guide layer:** Add a plain-language intuition, useful relationship, and symbol glossary to all 26 Mathematics and Physics lessons in Portuguese and English.
+2. **Sequential canvas:** Give every worked example a numbered step title and a short explanation of what changed and why, while preserving existing board marks, audio, step controls, question-sketch option, and lesson progression.
+3. **Physics parity:** Replace the old reveal-only text treatment with a focused staged worked-example panel, using the existing example and solution steps.
+4. **Quality review still needed:** Have subject reviewers verify every explanation and glossary definition, especially edge cases, assumptions, unit conversions, and notation. Check that the full derivation does not disclose its answer early.
+5. **Experience checks completed for this pass:** Validate bilingual data/step parity and test all 26 routes at 390px, including first-step interactions and browser errors. Repeat keyboard/accessibility and additional 360px checks during review.
+6. **Continue iteratively:** Refine unclear practice wording and doodles based on review, then improve the lesson-to-lesson path if testing shows the existing next/previous controls are not obvious enough.
 
-The first implementation pass should be small enough to review but broad enough to prove this direction works beyond vectors: use examples from multiple reasoning and visual families in both subjects. Keep the current product structure and data model wherever practical; add only the fields and UI needed to support clear explanations and useful visuals.
+The present implementation intentionally changes the learning presentation across the full course rather than limiting itself to a vectors pilot. It keeps the existing lesson routes, content structure, progress, practice, and recognizable hand-drawn canvas. Treat the generated bilingual guide copy as a reviewable first draft—not as a substitute for expert curriculum sign-off.

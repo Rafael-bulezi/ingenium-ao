@@ -73,7 +73,48 @@
         "explanation": "15 × 3,6 = 54 km/h: é a pergunta 4 ao contrário. No exame tanto aparece num sentido como no outro.",
         "formatHint": "Inclui a unidade (ex.: 54 km/h)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Grandezas sempre precisam de número e unidade; converter unidades é só manipular factores de conversão sem alterar a quantidade física.",
+      "symbols": [
+        {
+          "symbol": "km/h",
+          "meaning": "quilómetros por hora, unidade de velocidade"
+        },
+        {
+          "symbol": "m/s",
+          "meaning": "metros por segundo, unidade de velocidade no SI"
+        },
+        {
+          "symbol": "km → m",
+          "meaning": "factor de conversão: 1 km = 1000 m"
+        },
+        {
+          "symbol": "h → s",
+          "meaning": "factor de conversão: 1 h = 3600 s"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Aplicar factores",
+          "why": "Multiplica 72 pela fração (1000 m)/(3600 s) para substituir km por m e h por s sem alterar a velocidade.",
+          "line": "Escreve 72 × (1000 m)/(3600 s).",
+          "voice": ""
+        },
+        {
+          "title": "Simplificar frações",
+          "why": "Reduz 1000/3600 a 1/3,6 para tornar o cálculo numérico mais simples e equivalente.",
+          "line": "Simplifica 1000/3600 = 1/3,6.",
+          "voice": ""
+        },
+        {
+          "title": "Calcular o quociente",
+          "why": "Divide 72 por 3,6 para obter a velocidade em m/s; este é o mesmo valor físico expresso noutra unidade.",
+          "line": "Resultado: 72 ÷ 3,6 = 20 m/s.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-vectors",
@@ -149,7 +190,44 @@
         "explanation": "20 − 12 = 8, então a força para oeste vale 12 N. Resolveste a resultante de trás para a frente, estilo exame.",
         "formatHint": "Inclui a unidade (ex.: 12 N)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Vetores representam direcção e magnitude; escolha um eixo positivo e soma sinais para obter o resultado correcto.",
+      "symbols": [
+        {
+          "symbol": "A⃗",
+          "meaning": "vector com componentes Ax e Ay"
+        },
+        {
+          "symbol": "Ax, Ay",
+          "meaning": "componentes do vector nas direcções x e y"
+        },
+        {
+          "symbol": "ΣFx",
+          "meaning": "soma algébrica das componentes de força na direcção x"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Escolher eixo",
+          "why": "Definir leste como positivo fixa os sinais das forças e evita ambiguidade ao somar.",
+          "line": "Escolhe leste como positivo.",
+          "voice": ""
+        },
+        {
+          "title": "Somar algébrica",
+          "why": "Subtrair 4 N de 10 N usa sinais para combinar as forças opostas na mesma linha.",
+          "line": "Faz a soma algébrica: R = 10 − 4.",
+          "voice": ""
+        },
+        {
+          "title": "Interpretar resultado",
+          "why": "O sinal positivo indica a direcção escolhida; verifique consistência com o eixo e as unidades.",
+          "line": "Resultado: R = 6 N para leste.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-motion",
@@ -248,7 +326,48 @@
         "explanation": "a = −15 ÷ 5 = −3 m/s²; o sinal negativo diz que o carro está a travar. É o detalhe que o exame gosta de esconder.",
         "formatHint": "Inclui a unidade e o sinal (ex.: -3 m/s²)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Velocidade é quão depressa alongas a distância em cada segundo; aceleração diz quanto essa velocidade muda por segundo.",
+      "symbols": [
+        {
+          "symbol": "v",
+          "meaning": "velocidade média (m/s)"
+        },
+        {
+          "symbol": "Δs",
+          "meaning": "variação da posição ou distância percorrida (m)"
+        },
+        {
+          "symbol": "Δt",
+          "meaning": "intervalo de tempo decorrido (s)"
+        },
+        {
+          "symbol": "a",
+          "meaning": "aceleração (m/s²), mudança da velocidade por tempo"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Identificar dados",
+          "why": "Extraímos Δs e Δt dos valores dados para saber quais quantidades usar na fórmula.",
+          "line": "Identifica Δs = 120 m e Δt = 6 s.",
+          "voice": ""
+        },
+        {
+          "title": "Escolher a fórmula",
+          "why": "Usamos v = Δs/Δt porque relaciona exatamente a distância percorrida e o tempo conhecido.",
+          "line": "Aplica v = Δs/Δt = 120/6.",
+          "voice": ""
+        },
+        {
+          "title": "Calcular a divisão",
+          "why": "Dividindo Δs por Δt obtemos a velocidade média na unidade correta (m/s).",
+          "line": "Resultado: v = 20 m/s.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-newton",
@@ -341,7 +460,44 @@
         "explanation": "m = 20 ÷ 2 = 10 kg. Fizeste o triângulo todo ao contrário, a caçar a massa — estilo exame.",
         "formatHint": "Inclui a unidade (ex.: 10 kg)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Aceleração surge quando a força resultante age sobre uma massa; sem resultante, não há aceleração.",
+      "symbols": [
+        {
+          "symbol": "F_resultante",
+          "meaning": "soma vetorial das forças que atuam no corpo (N)"
+        },
+        {
+          "symbol": "m",
+          "meaning": "massa do corpo (kg)"
+        },
+        {
+          "symbol": "a",
+          "meaning": "aceleração do corpo (m/s²)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Escreve F = ma.",
+          "why": "Regista a relação fundamental que liga força resultante, massa e aceleração.",
+          "line": "Escreve F = ma.",
+          "voice": ""
+        },
+        {
+          "title": "Isola a",
+          "why": "Divide ambos os lados por m para obter a aceleração a = F/m, tornando a a incógnita.",
+          "line": "Isola a: a = F/m = 20/4.",
+          "voice": ""
+        },
+        {
+          "title": "Calcula o valor",
+          "why": "Substitui F e m na expressão a = F/m para encontrar a aceleração numérica; verifica unidades (m/s²).",
+          "line": "Resultado: a = 5 m/s².",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-forces",
@@ -442,7 +598,48 @@
         "explanation": "f = 0,25 × 80 = 20 N. Peso e atrito na mesma pergunta, como o exame costuma pedir.",
         "formatHint": "Inclui a unidade (ex.: 20 N)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Forças verticais equilibram-se: peso aponta sempre para baixo; a superfície responde com a normal e o atrito resiste ao movimento.",
+      "symbols": [
+        {
+          "symbol": "P",
+          "meaning": "Peso, força devido à gravidade (N)"
+        },
+        {
+          "symbol": "m",
+          "meaning": "Massa do corpo (kg)"
+        },
+        {
+          "symbol": "g",
+          "meaning": "Aceleração da gravidade (m/s²)"
+        },
+        {
+          "symbol": "f ou μN",
+          "meaning": "Força de atrito; f = μN quando aplicável (N)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Escolher a fórmula",
+          "why": "Identificas que o peso se calcula com P = m·g, que liga massa à força peso.",
+          "line": "Usa P = m·g.",
+          "voice": ""
+        },
+        {
+          "title": "Substituir valores",
+          "why": "Colocas m = 6 e g ≈ 10 na expressão para obteres a magnitude do peso.",
+          "line": "Substitui P = 6 × 10.",
+          "voice": ""
+        },
+        {
+          "title": "Calcular o resultado",
+          "why": "Multiplicas 6 por 10 para obter P = 60 N; isto é a força resultante apontando para baixo.",
+          "line": "Resultado: P = 60 N para baixo.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-energy",
@@ -535,7 +732,48 @@
         "explanation": "t = 100 ÷ 20 = 5 s, usando o trabalho da pergunta 4. É a potência ao contrário — estilo exame.",
         "formatHint": "Inclui a unidade (ex.: 5 s)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Trabalho é a energia que uma força transfere ao causar um deslocamento; potência é a velocidade dessa transferência.",
+      "symbols": [
+        {
+          "symbol": "W",
+          "meaning": "Trabalho (joules, J) — energia transferida pela força"
+        },
+        {
+          "symbol": "F",
+          "meaning": "Força aplicada (newtons, N)"
+        },
+        {
+          "symbol": "d",
+          "meaning": "Deslocamento na direcção da força (metros, m)"
+        },
+        {
+          "symbol": "P",
+          "meaning": "Potência — taxa de transferência de energia (watts, W)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Reconhecer alinhamento",
+          "why": "Se força e deslocamento estão na mesma direcção, o produto escalar reduz-se a W = Fd.",
+          "line": "Como força e deslocamento estão alinhados, W = Fd.",
+          "voice": ""
+        },
+        {
+          "title": "Aplicar a fórmula",
+          "why": "Substitui os valores conhecidos na expressão W = Fd para calcular o trabalho.",
+          "line": "Calcula W = 30 × 4.",
+          "voice": ""
+        },
+        {
+          "title": "Calcular o produto",
+          "why": "Multiplica 30 por 4 para obter o trabalho em joules, confirmando unidades (N·m = J).",
+          "line": "Resultado: W = 120 J.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-momentum",
@@ -627,7 +865,44 @@
         "explanation": "Δv = 5 m/s, logo Δp = 1 000 × 5 = 5 000 kg·m/s. É o tipo de conta que aparece em colisões.",
         "formatHint": "Inclui a unidade (ex.: 5000 kg·m/s)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Quantidade de movimento mede o 'ímpeto' de um objeto: quanto mais massa ou velocidade, mais difícil fica pará-lo.",
+      "symbols": [
+        {
+          "symbol": "p",
+          "meaning": "quantidade de movimento (kg·m/s)"
+        },
+        {
+          "symbol": "m",
+          "meaning": "massa do objecto (kg)"
+        },
+        {
+          "symbol": "v",
+          "meaning": "velocidade do objecto (m/s)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Aplica a fórmula",
+          "why": "Usa a relação p = m·v para ligar quantidade de movimento, massa e velocidade.",
+          "line": "Usa p = m·v.",
+          "voice": ""
+        },
+        {
+          "title": "Substitui valores",
+          "why": "Coloca m = 2 e v = 6 na fórmula para calcular p numericamente.",
+          "line": "Substitui p = 2 × 6.",
+          "voice": ""
+        },
+        {
+          "title": "Calcula o produto",
+          "why": "Multiplica 2 por 6 para obter p em kg·m/s e verificar a unidade.",
+          "line": "Resultado: p = 12 kg·m/s.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-circular",
@@ -703,7 +978,44 @@
         "explanation": "v² = 9 × 4 = 36, logo v = 6 m/s. Mesma fórmula da pergunta 4, agora resolvida para a velocidade.",
         "formatHint": "Inclui a unidade (ex.: 6 m/s)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Num movimento circular a velocidade pode manter-se constante, mas a direcção muda continuamente, por isso surge uma aceleração com sentido para o centro da curva.",
+      "symbols": [
+        {
+          "symbol": "v",
+          "meaning": "velocidade escalar (módulo da velocidade) em m/s"
+        },
+        {
+          "symbol": "r",
+          "meaning": "raio da trajectória circular em metros (m)"
+        },
+        {
+          "symbol": "a_c",
+          "meaning": "aceleração centrípeta, dirigida para o centro, em m/s²"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Aplicar a fórmula",
+          "why": "Identificamos que a relação entre velocidade, raio e aceleração é a_c = v²/r, adequada ao movimento circular.",
+          "line": "Usa a_c = v²/r.",
+          "voice": ""
+        },
+        {
+          "title": "Calcular v²",
+          "why": "Elevamos a velocidade ao quadrado porque a fórmula exige v²; aqui 10² = 100 (unidade m²/s²).",
+          "line": "Eleva a velocidade: 10² = 100.",
+          "voice": ""
+        },
+        {
+          "title": "Dividir por r",
+          "why": "Dividimos v² pelo raio para obter a aceleração centrípeta: a_c = 100/20, que dá o valor em m/s².",
+          "line": "Divide: a_c = 100/20 = 5 m/s².",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-fluids",
@@ -795,7 +1107,52 @@
         "explanation": "p_h = 1 000 × 10 × 3 = 30 000 Pa. É a segunda fórmula da lição, já em estilo de exame.",
         "formatHint": "Inclui a unidade (ex.: 30000 Pa)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Pressão mede quão concentrada está uma força numa área; em líquidos, ela aumenta quanto mais fundo fores por causa do peso do fluido.",
+      "symbols": [
+        {
+          "symbol": "p",
+          "meaning": "pressão"
+        },
+        {
+          "symbol": "F",
+          "meaning": "força aplicada"
+        },
+        {
+          "symbol": "A",
+          "meaning": "área sobre a qual a força actua"
+        },
+        {
+          "symbol": "ρ",
+          "meaning": "densidade do fluido"
+        },
+        {
+          "symbol": "g",
+          "meaning": "aceleração da gravidade"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Escrever a fórmula",
+          "why": "Escolhe a equação p = F/A porque relaciona directamente força, área e pressão.",
+          "line": "Usa p = F/A.",
+          "voice": ""
+        },
+        {
+          "title": "Substituir valores",
+          "why": "Coloca F = 200 N e A = 4 m² na fórmula para calcular a pressão numérica.",
+          "line": "Substitui p = 200/4.",
+          "voice": ""
+        },
+        {
+          "title": "Calcular e verificar",
+          "why": "Divide 200 por 4 para obter p; verifica que a unidade resultante é Pa (N/m²).",
+          "line": "Resultado: p = 50 Pa.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-heat",
@@ -870,7 +1227,48 @@
         "explanation": "ΔT = 4 000 ÷ (2 × 1 000) = 2 °C. É a mesma fórmula da pergunta 4, agora a resolver para o ΔT.",
         "formatHint": "Inclui a unidade (ex.: 2 °C)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Temperatura descreve o estado térmico; calor é a energia que se transfere entre corpos quando há diferença de temperatura.",
+      "symbols": [
+        {
+          "symbol": "Q",
+          "meaning": "quantidade de calor transferida (joules, J)"
+        },
+        {
+          "symbol": "m",
+          "meaning": "massa do corpo (quilogramas, kg)"
+        },
+        {
+          "symbol": "c",
+          "meaning": "capacidade térmica específica do material (J/kg°C)"
+        },
+        {
+          "symbol": "ΔT",
+          "meaning": "variação de temperatura (°C)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Determinar ΔT",
+          "why": "Identifica a diferença de temperatura que causa a transferência de energia.",
+          "line": "Calcula a variação: ΔT = 5°C.",
+          "voice": ""
+        },
+        {
+          "title": "Aplicar a fórmula",
+          "why": "Substitui m, c e ΔT em Q = m·c·ΔT para calcular a energia necessária.",
+          "line": "Usa Q = mcΔT = 2 × 1000 × 5.",
+          "voice": ""
+        },
+        {
+          "title": "Resolver a multiplicação",
+          "why": "Multiplica os valores para obter Q em joules e verificar unidades coerentes.",
+          "line": "Resultado: Q = 10 000 J.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-electricity",
@@ -969,7 +1367,48 @@
         "explanation": "P = 20 × 5 = 100 W (ou V²/R = 400 ÷ 4). Dois passos de Ohm na mesma questão, estilo exame.",
         "formatHint": "Inclui a unidade (ex.: 100 W)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Corrente é carga em movimento; a tensão é a energia que empurra essa carga através dos componentes do circuito.",
+      "symbols": [
+        {
+          "symbol": "I",
+          "meaning": "Corrente eléctrica (amperes, A) - taxa de fluxo de carga."
+        },
+        {
+          "symbol": "V",
+          "meaning": "Tensão (volts, V) - energia por unidade de carga."
+        },
+        {
+          "symbol": "R",
+          "meaning": "Resistência (ohms, Ω) - oposição ao fluxo de corrente."
+        },
+        {
+          "symbol": "P",
+          "meaning": "Potência (watts, W) - energia por unidade de tempo, P = V·I."
+        }
+      ],
+      "steps": [
+        {
+          "title": "Aplica a lei de Ohm",
+          "why": "Relaciona tensão, corrente e resistência com a fórmula I = V/R para calcular a corrente a partir de V e R.",
+          "line": "Aplica a lei de Ohm: I = V/R.",
+          "voice": ""
+        },
+        {
+          "title": "Substitui os valores",
+          "why": "Coloca V = 12 V e R = 6 Ω na expressão I = V/R para obter um valor numérico para I.",
+          "line": "Substitui I = 12/6.",
+          "voice": ""
+        },
+        {
+          "title": "Calcula o resultado",
+          "why": "Divide 12 por 6 para encontrar a corrente I; confirma que as unidades resultam em amperes (A).",
+          "line": "Resultado: I = 2 A.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-magnetism",
@@ -1044,7 +1483,52 @@
         "explanation": "F = 4 × 5 × 1 × 0,5 = 10 N: eram 20 N perpendiculares, o seno cortou para metade.",
         "formatHint": "Inclui a unidade (ex.: 10 N)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Campos magnéticos têm direcção e empurram correntes; usa a regra da mão direita para orientar forças em fios e cargas em movimento.",
+      "symbols": [
+        {
+          "symbol": "B",
+          "meaning": "Indução magnética (campo) em tesla"
+        },
+        {
+          "symbol": "I",
+          "meaning": "Corrente no fio em ampere"
+        },
+        {
+          "symbol": "L",
+          "meaning": "Comprimento do segmento do fio na região do campo, em metros"
+        },
+        {
+          "symbol": "θ",
+          "meaning": "Ângulo entre L e a direcção do campo B"
+        },
+        {
+          "symbol": "F",
+          "meaning": "Força magnética sobre o fio, em newtons"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Identificar o ângulo",
+          "why": "θ = 90° porque o fio está perpendicular ao campo, logo sen θ = 1.",
+          "line": "Como θ = 90°, sen θ = 1.",
+          "voice": ""
+        },
+        {
+          "title": "Aplicar a fórmula",
+          "why": "Substitui B, I e L na expressão F = B·I·L·sen θ para calcular a força.",
+          "line": "Usa F = BIL = 2 × 3 × 0,5.",
+          "voice": ""
+        },
+        {
+          "title": "Calcular o resultado",
+          "why": "Multiplica 2 × 3 × 0,5 com sen θ = 1 para obter o valor final da força.",
+          "line": "Resultado: F = 3 N.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-waves",
@@ -1142,6 +1626,43 @@
         "explanation": "v = 500 × 0,6 = 300 m/s: é a velocidade real do som. No exame, converte sempre os kHz.",
         "formatHint": "Inclui a unidade (ex.: 300 m/s)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Ondas transportam energia; a frequência diz quantos ciclos por segundo e o comprimento de onda mede a distância entre cristas.",
+      "symbols": [
+        {
+          "symbol": "v",
+          "meaning": "velocidade da onda (m/s)"
+        },
+        {
+          "symbol": "f",
+          "meaning": "frequência — ciclos por segundo (Hz)"
+        },
+        {
+          "symbol": "λ",
+          "meaning": "comprimento de onda — distância entre cristas (m)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Escolher a fórmula",
+          "why": "Usa v = f·λ porque relaciona diretamente velocidade, frequência e comprimento de onda.",
+          "line": "Usa v = fλ.",
+          "voice": ""
+        },
+        {
+          "title": "Usar a relação",
+          "why": "A relação v = fλ liga a frequência e o comprimento de onda à velocidade.",
+          "line": "Substitui v = 5 × 2.",
+          "voice": ""
+        },
+        {
+          "title": "Calcular o produto",
+          "why": "Multiplica 5 por 2 para obter a velocidade; isso dá v em unidades de m/s, compatíveis com Hz e m.",
+          "line": "Resultado: v = 10 m/s.",
+          "voice": ""
+        }
+      ]
+    }
   }
 ]

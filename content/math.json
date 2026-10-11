@@ -181,7 +181,60 @@
         "explanation": "3x = 21, logo x = 7. Repara: usaste os mesmos dois truques do início — tirar o 4 e dividir pelo 3. Isto é o estilo do exame.",
         "formatHint": "Escreve só o número."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Álgebra organiza relações: mantém a balança equilibrada e separa letras de números antes de calcular.",
+      "symbols": [
+        {
+          "symbol": "x",
+          "meaning": "incógnita — o valor desconhecido que procuramos"
+        },
+        {
+          "symbol": "ax",
+          "meaning": "coeficiente a multiplicando a incógnita x"
+        },
+        {
+          "symbol": "=",
+          "meaning": "equilíbrio entre os dois lados da equação"
+        },
+        {
+          "symbol": "b, c",
+          "meaning": "constantes numéricas na equação ax + b = c"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Identificar termos",
+          "why": "Repara quais termos são com x e quais são números para preparar a separação.",
+          "line": "3x + 5 = 20",
+          "voice": "Equação do primeiro grau: o bizu é sempre o mesmo, letra para um lado, número para o outro. Olha aqui: três xis mais cinco igual a vinte."
+        },
+        {
+          "title": "Isolar a incógnita",
+          "why": "Transfere o termo numérico para o outro lado trocando o sinal para conservar o equilíbrio.",
+          "line": "3x = 20 - 5",
+          "voice": "O mais cinco muda de lado e troca o sinal: era mais cinco, passa a menos cinco. A letra fica sozinha de um lado, o número do outro."
+        },
+        {
+          "title": "Calcular diferença",
+          "why": "Subtrai os números do lado direito para simplificar e obter só um termo numérico.",
+          "line": "3x = 15",
+          "voice": "Vinte menos cinco dá quinze. Continua tudo simples: a letra de um lado, o número do outro."
+        },
+        {
+          "title": "Dividir coeficiente",
+          "why": "Divide ambos os lados pelo coeficiente 3 para remover a multiplicação e manter a balança.",
+          "line": "{3x/3} = {15/3}",
+          "voice": "O três está a multiplicar o x, por isso divides os dois lados por três. Vês como ele desce para o denominador de cada lado? A balança mantém-se equilibrada."
+        },
+        {
+          "title": "Confirmar resultado",
+          "why": "Executa a divisão final e verifica substituindo na equação original para assegurar que bate certo.",
+          "line": "x = 5",
+          "voice": "Quinze a dividir por três dá cinco. Cinco é a raiz da equação. Confere: três vezes cinco, quinze, mais cinco, vinte. Bate certo."
+        }
+      ]
+    }
   },
   {
     "id": "m-equations",
@@ -324,7 +377,50 @@
         "explanation": "8 ÷ (−2) = −4 e o > vira <: x < −4. É exactamente o detalhe que faz perder pontos no exame.",
         "formatHint": "Escreve como x < −4."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Inequações resolvem-se como equações; atenção à direção do sinal quando multiplicas ou divides por negativo.",
+      "symbols": [
+        {
+          "symbol": "≤",
+          "meaning": "menor ou igual"
+        },
+        {
+          "symbol": "x",
+          "meaning": "incógnita a determinar"
+        },
+        {
+          "symbol": "−2x > 8  →  x < −4",
+          "meaning": "exemplo: multiplicar por negativo inverte o sinal"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Escrever a inequação",
+          "why": "Mostra a forma inicial que vamos transformar por operações equivalentes.",
+          "line": "2x + 3 ≤ 11",
+          "voice": "Inequação resolve-se como uma equação: o bizu é o mesmo. Só há um detalhe. Se multiplicares ou dividires por um número negativo, o sinal vira de lado. Fica de olho."
+        },
+        {
+          "title": "Subtrair 3",
+          "why": "Subtraímos 3 a ambos os membros para isolar o termo com x, mudando +3 para −3 no outro lado.",
+          "line": "2x ≤ 11 - 3",
+          "voice": "O mais três muda de lado e troca o sinal."
+        },
+        {
+          "title": "Calcular a diferença",
+          "why": "Executa a subtração 11−3 para simplificar e obter o coeficiente escalar do membro com x.",
+          "line": "2x ≤ 8",
+          "voice": "Onze menos três dá oito."
+        },
+        {
+          "title": "Dividir por 2",
+          "why": "Divide ambos os membros por 2, positivo, para obter x e manter o sentido da inequação; verificar o resultado.",
+          "line": "x ≤ 4",
+          "voice": "O dois passa para o outro lado a dividir. Dois é positivo, por isso o sinal não vira. Resposta: xis menor ou igual a quatro."
+        }
+      ]
+    }
   },
   {
     "id": "m-functions",
@@ -467,7 +563,54 @@
         "explanation": "3x = 15, x = 5 — o mesmo 19 da pergunta 4, com a máquina a correr ao contrário. Já é estilo exame.",
         "formatHint": "Escreve como x = ..."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Uma função associa a cada entrada um único resultado; numa função linear, a inclinação e o corte no eixo y descrevem a recta.",
+      "symbols": [
+        {
+          "symbol": "f(x)",
+          "meaning": "valor de saída da função para a entrada x"
+        },
+        {
+          "symbol": "x",
+          "meaning": "variável; valor de entrada"
+        },
+        {
+          "symbol": "m",
+          "meaning": "coeficiente de x que representa a inclinação da recta"
+        },
+        {
+          "symbol": "b",
+          "meaning": "termo independente; onde a recta corta o eixo y"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Ler a função",
+          "why": "Identificas a expressão que dá a saída f(x) em função de x; aqui é 2x + 1.",
+          "line": "f(x) = 2x + 1",
+          "voice": "Função é uma máquina: entra um valor, sai um resultado. Olha a máquina: f de xis é igual a dois xis mais um."
+        },
+        {
+          "title": "Substituir x por 3",
+          "why": "Trocas a variável pela entrada dada, escrevendo 3 no lugar de x para obter f(3).",
+          "line": "f(3) = 2 × (3) + 1",
+          "voice": "Agora entra o três: onde havia xis, escrevo três, com parênteses por segurança."
+        },
+        {
+          "title": "Multiplicar",
+          "why": "Executas a multiplicação 2 × 3 para transformar a expressão simbólica numa soma numérica.",
+          "line": "f(3) = 6 + 1",
+          "voice": "Dois vezes três dá seis."
+        },
+        {
+          "title": "Somar e verificar",
+          "why": "Calculas a soma final e confirmas que a operação seguiu os passos anteriores corretamente.",
+          "line": "f(3) = 7",
+          "voice": "Seis mais um dá sete. Resposta: f de três é sete. Confere."
+        }
+      ]
+    }
   },
   {
     "id": "m-systems",
@@ -646,7 +789,58 @@
         "explanation": "y = 5. Confere: 9 + 5 = 14 e 9 − 5 = 4. Par encontrado, tal como 6 e 4 no exemplo do professor.",
         "formatHint": "Escreve como y = ..."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Um sistema dá-te duas pistas — usa-as juntas para eliminar incógnitas e encontrar o par (x,y). A eliminação rápida é somar ou subtrair as equações para anular uma variável.",
+      "symbols": [
+        {
+          "symbol": "x, y",
+          "meaning": "as incógnitas que queremos encontrar — um par de valores que satisfaz as duas equações"
+        },
+        {
+          "symbol": "soma/eliminação",
+          "meaning": "combinar as equações para fazer desaparecer uma variável e resolver a outra"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Ler primeira equação",
+          "why": "Regista a primeira pista: x mais y é igual a 10, que relaciona x e y.",
+          "line": "x + y = 10",
+          "voice": "Sistema: duas pistas para encontrar dois valores. Primeira pista: xis mais y igual a dez."
+        },
+        {
+          "title": "Ler segunda equação",
+          "why": "Regista a segunda pista: x menos y é igual a 2; aqui os sinais de y são opostos.",
+          "line": "x - y = 2",
+          "voice": "Segunda pista: xis menos y igual a dois. Repara numa coisa: um tem mais y, o outro tem menos y. Sinais opostos."
+        },
+        {
+          "title": "Eliminar y ao somar",
+          "why": "Ao somar membro a membro, y + (−y) = 0; assim, resta 2x = 12.",
+          "line": "2x = 12",
+          "voice": "Somando as duas linhas: xis com xis dá dois xis. Mais y com menos y, leg, leg, tome, tome, o y desaparece. Dez mais dois dá doze."
+        },
+        {
+          "title": "Isolar x",
+          "why": "Resolve 2x = 12 dividindo por 2 para encontrar o valor de x.",
+          "line": "x = 6",
+          "voice": "Doze a dividir por dois dá seis. Metade do caminho feito."
+        },
+        {
+          "title": "Substituir x",
+          "why": "Coloca o valor de x na primeira equação para obter uma equação apenas em y.",
+          "line": "6 + y = 10",
+          "voice": "Agora substituo o seis na primeira pista: seis mais y igual a dez."
+        },
+        {
+          "title": "Isolar y e verificar",
+          "why": "Resolve y = 4 usando a equação substituída e confirma que ambos os números satisfazem as duas equações.",
+          "line": "y = 4",
+          "voice": "O y é quatro. Confere: seis mais quatro, dez; seis menos quatro, dois. Par encontrado: seis e quatro."
+        }
+      ]
+    }
   },
   {
     "id": "m-powers",
@@ -788,7 +982,48 @@
         "explanation": "7 × 7 = 49, logo √49 = 7.",
         "formatHint": "Escreve apenas o número."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Potências comprimem multiplicações repetidas num expoente; raízes desfazem esse expoente. Com a mesma base, somamos expoentes para simplificar.",
+      "symbols": [
+        {
+          "symbol": "aᵐ",
+          "meaning": "a multiplicado por si próprio m vezes"
+        },
+        {
+          "symbol": "aⁿ",
+          "meaning": "a multiplicado por si próprio n vezes"
+        },
+        {
+          "symbol": "aᵐ · aⁿ",
+          "meaning": "multiplicação de potências com a mesma base"
+        },
+        {
+          "symbol": "aᵐ⁺ⁿ",
+          "meaning": "resultado de adicionar expoentes quando a base é igual"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Identificar bases",
+          "why": "Ambas as potências têm a mesma base (2), por isso podemos aplicar a regra de soma de expoentes.",
+          "line": "2³ × 2²",
+          "voice": "Potências com a mesma base: o bizu é somar os expoentes, sem medo."
+        },
+        {
+          "title": "Somar expoentes",
+          "why": "Ao multiplicar potências de base 2 somam-se os expoentes: 3 + 2 = 5, formando o novo expoente.",
+          "line": "3 + 2 = 5",
+          "voice": "Três mais dois dá cinco. É o novo expoente."
+        },
+        {
+          "title": "Calcular potência",
+          "why": "Eleva-se 2 ao expoente 5 para obter o resultado final; assim confirma-se 2·2·2·2·2 = 32.",
+          "line": "2⁵ = 32",
+          "voice": "Fica dois elevado a cinco. Dois, quatro, oito, dezasseis, trinta e dois."
+        }
+      ]
+    }
   },
   {
     "id": "m-logarithms",
@@ -937,7 +1172,54 @@
         "explanation": "log₁₀(1000) = 3 e log₂(8) = 3; a soma é 6.",
         "formatHint": "Escreve apenas o resultado."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Um logaritmo pergunta qual expoente faz uma potência dar certo; é o inverso de elevar à potência.",
+      "symbols": [
+        {
+          "symbol": "log_b(a)",
+          "meaning": "o expoente que faz b^expoente = a"
+        },
+        {
+          "symbol": "b^c = a",
+          "meaning": "forma exponencial equivalente ao logaritmo"
+        },
+        {
+          "symbol": "b",
+          "meaning": "base: tem de ser positiva e ≠ 1"
+        },
+        {
+          "symbol": "a",
+          "meaning": "argumento: o número dentro do logaritmo, tem de ser positivo"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Definir incógnita",
+          "why": "Escrevemos log₂(32) como x para nomear o expoente que estamos a procurar.",
+          "line": "log₂(32) = x",
+          "voice": "O logaritmo pergunta qual é o expoente. Vou chamar x ao expoente que falta."
+        },
+        {
+          "title": "Passar para potência",
+          "why": "Reescrevemos o logaritmo como 2ˣ = 32 porque log_b(a)=c ⇔ bᶜ=a, colocando x no expoente.",
+          "line": "2ˣ = 32",
+          "voice": "A base dois fica como base da potência. O x passa a ser o expoente."
+        },
+        {
+          "title": "Reconhecer potência conhecida",
+          "why": "Identificamos que 2⁵ = 32, portanto o expoente desconhecido corresponde a 5.",
+          "line": "2⁵ = 32",
+          "voice": "Dois elevado a cinco dá trinta e dois. Portanto, o expoente que procuramos é cinco."
+        },
+        {
+          "title": "Escrever a resposta",
+          "why": "Concluímos log₂(32)=5 e verificamos voltando à forma exponencial para confirmar.",
+          "line": "log₂(32) = 5",
+          "voice": "Resposta: logaritmo de trinta e dois na base dois é cinco. Confere sempre voltando à potência."
+        }
+      ]
+    }
   },
   {
     "id": "m-trig",
@@ -1087,7 +1369,50 @@
         "explanation": "0,8 × 10 = 8, logo 8 cm. Mesma máquina do seno, só muda o lado — estilo exame.",
         "formatHint": "Inclui a unidade: escreve como 8 cm."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Seno, cosseno e tangente ligam ângulos a comprimentos: escolhe a razão que usa os lados que conheces para encontrar o lado pedido.",
+      "symbols": [
+        {
+          "symbol": "sen θ",
+          "meaning": "razão entre o lado oposto e a hipotenusa"
+        },
+        {
+          "symbol": "cos θ",
+          "meaning": "razão entre o lado adjacente e a hipotenusa"
+        },
+        {
+          "symbol": "hipotenusa",
+          "meaning": "o lado mais longo do triângulo rectângulo"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Escolher a razão",
+          "why": "Identificas que o lado oposto e a hipotenusa são os lados relevantes, por isso usas a definição do seno.",
+          "line": "sen 30° = {oposto/10}",
+          "voice": "Oposto e hipotenusa pedem seno. Seno de trinta graus é igual ao lado oposto a dividir pela hipotenusa, dez."
+        },
+        {
+          "title": "Substituir valor do seno",
+          "why": "Trocas sen 30° pela sua medida decimal conhecida (0,5) para obter uma equação numérica.",
+          "line": "0,5 = {oposto/10}",
+          "voice": "Seno de trinta graus vale zero vírgula cinco, um valor que convém saber de cor."
+        },
+        {
+          "title": "Isolar a incógnita",
+          "why": "Multiplicas ambos os lados pela hipotenusa (10) para desfazer a divisão e obter o oposto.",
+          "line": "oposto = 0,5 × 10",
+          "voice": "O dez está a dividir, passa para o outro lado a multiplicar. Multiplica cruzado, sem medo."
+        },
+        {
+          "title": "Calcular o resultado",
+          "why": "Fazes a multiplicação 0,5 × 10 para obter o valor numérico do lado oposto e confirmar a unidade de comprimento.",
+          "line": "oposto = 5",
+          "voice": "Zero vírgula cinco vezes dez dá cinco. O lado oposto mede cinco."
+        }
+      ]
+    }
   },
   {
     "id": "m-geometry",
@@ -1220,7 +1545,48 @@
         "explanation": "A = 7 × 4 = 28 m². É a pergunta 1 em problema de palavras — repara na unidade: m², não m.",
         "formatHint": "Inclui a unidade: escreve como 28 m²."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Desenha a figura e escolhe a fórmula antes de pôr números — assim evitas trocar as medidas.",
+      "symbols": [
+        {
+          "symbol": "A",
+          "meaning": "área"
+        },
+        {
+          "symbol": "base",
+          "meaning": "comprimento da base do rectângulo"
+        },
+        {
+          "symbol": "altura",
+          "meaning": "comprimento da altura do rectângulo"
+        },
+        {
+          "symbol": "cm²",
+          "meaning": "centímetros quadrados, unidade de área"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Escolhe a fórmula",
+          "why": "Identificas que queres a área e aplicas A = base × altura antes de inserir valores.",
+          "line": "A = base × altura",
+          "voice": "Antes de contar, a fórmula: área do rectângulo é base vezes altura. E desenha sempre a figura, ajuda a não trocar os valores."
+        },
+        {
+          "title": "Substitui valores",
+          "why": "Colocas os comprimentos dados na fórmula para obter a expressão numérica A = 8 × 3.",
+          "line": "A = 8 × 3",
+          "voice": "Substituo: oito vezes três."
+        },
+        {
+          "title": "Calcula e unidades",
+          "why": "Multiplicas para obter 24 e incluis a unidade cm² para teres a área correcta.",
+          "line": "A = 24 cm²",
+          "voice": "Vinte e quatro. E não esqueças da unidade: centímetros quadrados."
+        }
+      ]
+    }
   },
   {
     "id": "m-vectors",
@@ -1343,7 +1709,44 @@
         "explanation": "√(144 + 25) = √169 = 13 m — o par 5-12 dá 13, tal como 3-4 dá 5. Estilo exame.",
         "formatHint": "Inclui a unidade: escreve como 13 m."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Um vector tem módulo e direcção; trata cada componente como uma pequena soma independente — xis com xis, ipsilon com ipsilon.",
+      "symbols": [
+        {
+          "symbol": "R⃗",
+          "meaning": "vector resultante"
+        },
+        {
+          "symbol": "Rx, Ry",
+          "meaning": "componentes do vector R⃗ nas direcções x e y"
+        },
+        {
+          "symbol": "|R|",
+          "meaning": "módulo (comprimento) do vector R⃗"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Somar componente x",
+          "why": "Adiciona as componentes x correspondentes para obter a componente x do vector resultante.",
+          "line": "Rx = 3 + 1",
+          "voice": "Vectores: componentes com a sua igual, xis com xis. Componente xis: três mais um."
+        },
+        {
+          "title": "Somar componente y",
+          "why": "Adiciona as componentes y correspondentes (incluindo o sinal) para obter a componente y do resultante.",
+          "line": "Ry = 4 + (-2)",
+          "voice": "Componente y: quatro mais menos dois. Nunca misturar xis com y."
+        },
+        {
+          "title": "Formar o vector resultante",
+          "why": "Combina as componentes Rx e Ry numa ordem (Rx, Ry); verifica o resultado lendo as componentes juntas.",
+          "line": "R = (4, 2)",
+          "voice": "Três mais um dá quatro; quatro mais menos dois dá dois. Resultado: quatro, dois."
+        }
+      ]
+    }
   },
   {
     "id": "m-sequences",
@@ -1495,7 +1898,54 @@
         "explanation": "31 − 7 = 24 e 24 ÷ 3 = 8 passos, logo a posição é 8 + 1 = 9. Fórmula ao contrário, estilo exame.",
         "formatHint": "Escreve só o número da posição."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Uma sequência aritmética cresce por passos iguais; conta quantos saltos ligam termos para prever o termo pedido.",
+      "symbols": [
+        {
+          "symbol": "aₙ",
+          "meaning": "n-ésimo termo da sequência"
+        },
+        {
+          "symbol": "a₁",
+          "meaning": "primeiro termo"
+        },
+        {
+          "symbol": "r",
+          "meaning": "razão (diferença entre termos consecutivos)"
+        },
+        {
+          "symbol": "n",
+          "meaning": "posição do termo que queremos"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Identificar o padrão",
+          "why": "Verificas que a diferença entre termos consecutivos é sempre três, logo a sequência é aritmética com razão r = 3.",
+          "line": "4, 7, 10, ...",
+          "voice": "Vê o padrão: de quatro para sete, três; de sete para dez, três. A diferença é sempre três."
+        },
+        {
+          "title": "Contar os passos",
+          "why": "Do primeiro ao sexto termo há cinco saltos, por isso multiplicas a razão por 5 para subir cinco vezes.",
+          "line": "a6 = 4 + 5 × 3",
+          "voice": "Do primeiro termo até ao sexto são cinco passos. Fica: quatro mais cinco vezes três."
+        },
+        {
+          "title": "Multiplicar a razão",
+          "why": "Calcula 5 × 3 para obter o total acumulado que se soma ao primeiro termo.",
+          "line": "a6 = 4 + 15",
+          "voice": "Cinco vezes três dá quinze."
+        },
+        {
+          "title": "Somar ao primeiro termo",
+          "why": "Adiciona o incremento total ao a₁ para obter o a₆; podes confirmar contando a sequência até ao sexto termo.",
+          "line": "a6 = 19",
+          "voice": "Quatro mais quinze, dezanove. É o sexto termo."
+        }
+      ]
+    }
   },
   {
     "id": "m-calculus",
@@ -1636,7 +2086,54 @@
         "explanation": "f'(x) = 6x + 1, e f'(2) = 12 + 1 = 13. Derivar e avaliar num ponto: é assim que cai no exame.",
         "formatHint": "Escreve só o número."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "A derivada diz-nos a inclinação instantânea da curva num ponto — é a taxa de variação imediata da função.",
+      "symbols": [
+        {
+          "symbol": "f(x)",
+          "meaning": "a função cuja variação estudamos"
+        },
+        {
+          "symbol": "lim",
+          "meaning": "limite — como a função se aproxima de um valor (usado na definição de derivada)"
+        },
+        {
+          "symbol": "f'(x)",
+          "meaning": "derivada de f — taxa de variação instantânea / inclinação da curva"
+        },
+        {
+          "symbol": "d/dx (xⁿ)",
+          "meaning": "operador de derivação aplicado a potências de x"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Escrever a função",
+          "why": "Coloca-se a expressão original para ver cada termo que será derivado separadamente.",
+          "line": "f(x) = x² + 3x",
+          "voice": "Derivar é medir a inclinação da curva. Vamos termo a termo, com calma."
+        },
+        {
+          "title": "Derivar 3x",
+          "why": "A derivada de um termo linear como 3x é a sua constante 3.",
+          "line": "(x²)' = 2x",
+          "voice": "Xis ao quadrado: o expoente desce e multiplica. O dois vem para a frente e fica dois xis."
+        },
+        {
+          "title": "Derivar 3x",
+          "why": "Termo linear: o expoente 1 desce e o x desaparece, sobrando a constante 3.",
+          "line": "(3x)' = 3",
+          "voice": "Três xis vira apenas três: o expoente era um, desceu, e o xis desaparece."
+        },
+        {
+          "title": "Somar resultados",
+          "why": "A derivada é a soma das derivadas termo a termo; assim obtém-se f'(x) e pode verificar-se juntando as peças.",
+          "line": "f'(x) = 2x + 3",
+          "voice": "Junto as peças: dois xis mais três. A derivada está pronta."
+        }
+      ]
+    }
   },
   {
     "id": "m-probability",
@@ -1781,7 +2278,50 @@
         "explanation": "Média = (12 + 14 + 19) ÷ 3 = 45 ÷ 3 = 15. É o mesmo dividir pelo total que já fizeste na probabilidade.",
         "formatHint": "Escreve só o número."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Probabilidade mede quão provável é um evento contando os casos favoráveis e comparando com todos os casos possíveis.",
+      "symbols": [
+        {
+          "symbol": "P(E)",
+          "meaning": "probabilidade do evento E acontecer"
+        },
+        {
+          "symbol": "favoráveis",
+          "meaning": "número de resultados que cumprem o evento"
+        },
+        {
+          "symbol": "possíveis",
+          "meaning": "número total de resultados igualmente prováveis"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Escrever a razão",
+          "why": "Expressamos a probabilidade como uma razão entre casos favoráveis e casos possíveis.",
+          "line": "P = {favoráveis/possíveis}",
+          "voice": "Probabilidade é uma razão: casos favoráveis a dividir por casos possíveis."
+        },
+        {
+          "title": "Identificar números",
+          "why": "Substituímos favoráveis e possíveis pelos números do problema: 3 vermelhas e 3+2 no total.",
+          "line": "P = {3/(3 + 2)}",
+          "voice": "Favoráveis: as três vermelhas. Possíveis: todas as bolas, três mais duas."
+        },
+        {
+          "title": "Simplificar a fração",
+          "why": "Representamos a razão como três em cinco, mantendo a relação exata 3/5.",
+          "line": "P = {3/5}",
+          "voice": "Três em cinco."
+        },
+        {
+          "title": "Converter em percentagem",
+          "why": "0,6 corresponde a 60%; esta forma ajuda a comparar probabilidades.",
+          "line": "P = 0,6 = 60%",
+          "voice": "Zero vírgula seis, ou sessenta por cento. É a probabilidade de sair vermelha."
+        }
+      ]
+    }
   },
   {
     "id": "m-word",
@@ -1905,6 +2445,43 @@
         "explanation": "8 000 × 0,75 = 6 000 Kz. É a pergunta 4 ao contrário: lá procurava-se o preço antigo, aqui o preço já com desconto.",
         "formatHint": "Escreve só o número, sem Kz."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Lê o enunciado duas vezes: primeiro para entender, depois para assinalar os dados e a pergunta.",
+      "symbols": [
+        {
+          "symbol": "x",
+          "meaning": "incógnita — o número que não conhecemos"
+        },
+        {
+          "symbol": "+ 7 / - 7",
+          "meaning": "termos sujeitos a operar na equação — mostram soma ou subtração"
+        },
+        {
+          "symbol": "Kz",
+          "meaning": "unidade de preço (kwanza)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Definir a incógnita",
+          "why": "Escolhemos x para representar o número desconhecido e escrevemos a equação que liga os dados.",
+          "line": "x + 7 = 19",
+          "voice": "Um número que não conhecemos? Chamamos-lhe xis. Um número mais sete dá dezanove. Equação montada."
+        },
+        {
+          "title": "Isolar a incógnita",
+          "why": "Passamos +7 para o outro membro como −7 para manter a igualdade, mantendo a equação equilibrada.",
+          "line": "x = 19 - 7",
+          "voice": "O mais sete passa para o outro lado a subtrair: trocou de lado, troca o sinal."
+        },
+        {
+          "title": "Calcular e verificar",
+          "why": "Subtraímos 7 de 19 para obter x e comprovamos substituindo x na equação original.",
+          "line": "x = 12",
+          "voice": "Dezanove menos sete dá doze. O número é doze. Confere: doze mais sete, dezanove. Bate certo."
+        }
+      ]
+    }
   }
 ]

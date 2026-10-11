@@ -181,7 +181,60 @@
         "explanation": "3x = 21, so x = 7. Notice: you used the same two tricks as at the start — take away the 4 and divide by 3. This is exam style.",
         "formatHint": "Write only the number."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Algebra keeps equations balanced: separate letters from numbers and preserve the balance before calculating.",
+      "symbols": [
+        {
+          "symbol": "x",
+          "meaning": "unknown — the value we are solving for"
+        },
+        {
+          "symbol": "ax",
+          "meaning": "coefficient a multiplied by the unknown x"
+        },
+        {
+          "symbol": "=",
+          "meaning": "balance between the two sides of the equation"
+        },
+        {
+          "symbol": "b, c",
+          "meaning": "numeric constants in the equation ax + b = c"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Spot like terms",
+          "why": "Identify which terms contain x and which are pure numbers to prepare for rearrangement.",
+          "line": "3x + 5 = 20",
+          "voice": "A first-degree equation: the trick is always the same — letter on one side, number on the other. Look here: three x plus five equals twenty."
+        },
+        {
+          "title": "Move the number",
+          "why": "Transfer the numeric term to the other side and change its sign to keep the equation balanced.",
+          "line": "3x = 20 - 5",
+          "voice": "The plus five moves to the other side and flips its sign: it was plus five, now it's minus five. The letter stays alone on one side, the number on the other."
+        },
+        {
+          "title": "Simplify numbers",
+          "why": "Subtract the numbers on the right to reduce to a single numeric term opposite x.",
+          "line": "3x = 15",
+          "voice": "Twenty minus five gives fifteen. Everything stays simple: letter on one side, number on the other."
+        },
+        {
+          "title": "Divide by coefficient",
+          "why": "Divide both sides by the coefficient 3 to remove the multiplication by 3 and preserve balance.",
+          "line": "{3x/3} = {15/3}",
+          "voice": "The three is multiplying the x, so you divide both sides by three. See how it comes down to the denominator on each side? The scale stays balanced."
+        },
+        {
+          "title": "Check solution",
+          "why": "Perform the final division and substitute back into the original equation to confirm it holds.",
+          "line": "x = 5",
+          "voice": "Fifteen divided by three gives five. Five is the root of the equation. Check: three times five, fifteen; plus five, twenty. It works."
+        }
+      ]
+    }
   },
   {
     "id": "m-equations",
@@ -324,7 +377,50 @@
         "explanation": "8 ÷ (−2) = −4 and the > turns into <: x < −4. This is exactly the detail that costs marks on the exam.",
         "formatHint": "Write it as x < −4."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Solve inequalities like equations, but watch the inequality sign when you multiply or divide by a negative number.",
+      "symbols": [
+        {
+          "symbol": "≤",
+          "meaning": "less than or equal to"
+        },
+        {
+          "symbol": "x",
+          "meaning": "unknown to solve for"
+        },
+        {
+          "symbol": "−2x > 8  →  x < −4",
+          "meaning": "example: multiplying by a negative flips the inequality"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Write the inequality",
+          "why": "Shows the starting equation form to be transformed by equivalent operations.",
+          "line": "2x + 3 ≤ 11",
+          "voice": "You solve an inequality like an equation: the trick is the same. There's only one detail. If you multiply or divide by a negative number, the sign flips. Keep an eye on it."
+        },
+        {
+          "title": "Subtract 3",
+          "why": "Subtract 3 from both sides to isolate the x-term, turning +3 into −3 on the other side.",
+          "line": "2x ≤ 11 - 3",
+          "voice": "The plus three moves to the other side and changes sign."
+        },
+        {
+          "title": "Compute the difference",
+          "why": "Perform 11−3 to simplify and find the numeric coefficient multiplying x.",
+          "line": "2x ≤ 8",
+          "voice": "Eleven minus three gives eight."
+        },
+        {
+          "title": "Divide by 2",
+          "why": "Divide both sides by 2 (positive) to solve for x without flipping the inequality; then check the result.",
+          "line": "x ≤ 4",
+          "voice": "The two moves to the other side dividing. Two is positive, so the sign doesn't flip. Answer: x is less than or equal to four."
+        }
+      ]
+    }
   },
   {
     "id": "m-functions",
@@ -467,7 +563,54 @@
         "explanation": "3x = 15, x = 5 — the same 19 from question 4, with the machine running backwards. Now that's exam style.",
         "formatHint": "Write it as x = ..."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "A function gives one output for each input; in a linear function, slope and y-intercept determine the line.",
+      "symbols": [
+        {
+          "symbol": "f(x)",
+          "meaning": "the function output for input x"
+        },
+        {
+          "symbol": "x",
+          "meaning": "variable; input value"
+        },
+        {
+          "symbol": "m",
+          "meaning": "coefficient of x representing the slope"
+        },
+        {
+          "symbol": "b",
+          "meaning": "constant term; where the line crosses the y-axis"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Read the function",
+          "why": "You recognise the formula that defines f(x) in terms of x; here it is 2x + 1.",
+          "line": "f(x) = 2x + 1",
+          "voice": "A function is a machine: a value goes in, a result comes out. Look at the machine: f of x equals two x plus one."
+        },
+        {
+          "title": "Substitute x = 3",
+          "why": "Replace the variable with the given input, writing 3 where x appears to form f(3).",
+          "line": "f(3) = 2 × (3) + 1",
+          "voice": "Now the three goes in: where the x was, I write three, with parentheses to be safe."
+        },
+        {
+          "title": "Multiply",
+          "why": "Carry out the multiplication 2 × 3 to turn the symbolic term into a numeric value.",
+          "line": "f(3) = 6 + 1",
+          "voice": "Two times three gives six."
+        },
+        {
+          "title": "Add and check",
+          "why": "Compute the final sum and confirm the result follows from the previous arithmetic steps.",
+          "line": "f(3) = 7",
+          "voice": "Six plus one gives seven. Answer: f of three is seven. Check it."
+        }
+      ]
+    }
   },
   {
     "id": "m-systems",
@@ -646,7 +789,58 @@
         "explanation": "y = 5. Check: 9 + 5 = 14 and 9 − 5 = 4. Pair found, just like the 6 and 4 in the teacher's example.",
         "formatHint": "Write it as y = ..."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "A system gives two clues — use them together to cancel a variable and find the pair (x,y). Elimination by adding or subtracting is often quickest.",
+      "symbols": [
+        {
+          "symbol": "x, y",
+          "meaning": "the unknowns we want — a pair of values that satisfy both equations"
+        },
+        {
+          "symbol": "elimination (add/subtract)",
+          "meaning": "combine equations to remove one variable so you can solve the other"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Read first equation",
+          "why": "Note the first clue: x + y = 10, which links x and y.",
+          "line": "x + y = 10",
+          "voice": "A system: two clues to find two values. First clue: x plus y equals ten."
+        },
+        {
+          "title": "Read second equation",
+          "why": "Note the second clue: x − y = 2; the y terms have opposite signs.",
+          "line": "x - y = 2",
+          "voice": "Second clue: x minus y equals two. Notice one thing: one has plus y, the other has minus y. Opposite signs."
+        },
+        {
+          "title": "Eliminate y by adding",
+          "why": "Adding the equations makes y + (−y) = 0, leaving 2x = 12.",
+          "line": "2x = 12",
+          "voice": "Adding the two lines: x with x gives two x. Plus y with minus y — gone, gone — the y disappears. Ten plus two gives twelve."
+        },
+        {
+          "title": "Solve for x",
+          "why": "Solve 2x = 12 by dividing by 2 to find the value of x.",
+          "line": "x = 6",
+          "voice": "Twelve divided by two gives six. Half the road is done."
+        },
+        {
+          "title": "Substitute x",
+          "why": "Insert x into the first equation to get a single-variable equation for y.",
+          "line": "6 + y = 10",
+          "voice": "Now I put the six into the first clue: six plus y equals ten."
+        },
+        {
+          "title": "Solve y and check",
+          "why": "Solve y = 4 from the substituted equation and verify both values satisfy both equations.",
+          "line": "y = 4",
+          "voice": "The y is four. Check: six plus four, ten; six minus four, two. Pair found: six and four."
+        }
+      ]
+    }
   },
   {
     "id": "m-powers",
@@ -788,7 +982,48 @@
         "explanation": "7 × 7 = 49, so √49 = 7.",
         "formatHint": "Write only the number."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Powers compress repeated multiplication into exponents; roots reverse that. With the same base, add exponents to simplify multiplication.",
+      "symbols": [
+        {
+          "symbol": "aᵐ",
+          "meaning": "a multiplied by itself m times"
+        },
+        {
+          "symbol": "aⁿ",
+          "meaning": "a multiplied by itself n times"
+        },
+        {
+          "symbol": "aᵐ · aⁿ",
+          "meaning": "product of powers sharing the same base"
+        },
+        {
+          "symbol": "aᵐ⁺ⁿ",
+          "meaning": "result of adding exponents when the base is identical"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Spot the base",
+          "why": "Both powers share base 2, so the exponent-addition rule applies to their product.",
+          "line": "2³ × 2²",
+          "voice": "Powers with the same base: the trick is to add the exponents — no hesitation."
+        },
+        {
+          "title": "Add exponents",
+          "why": "Multiplying powers with base 2 means add the exponents: 3 + 2 = 5, giving the new exponent.",
+          "line": "3 + 2 = 5",
+          "voice": "Three plus two gives five. That's the new exponent."
+        },
+        {
+          "title": "Evaluate power",
+          "why": "Compute 2 to the power of 5 to get the final value; check by multiplying 2 five times (32).",
+          "line": "2⁵ = 32",
+          "voice": "That leaves two to the power of five. Two, four, eight, sixteen, thirty-two."
+        }
+      ]
+    }
   },
   {
     "id": "m-logarithms",
@@ -937,7 +1172,54 @@
         "explanation": "log₁₀(1000) = 3 and log₂(8) = 3; the sum is 6.",
         "formatHint": "Write only the result."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "A logarithm asks which exponent makes a power true; it's the inverse operation of exponentiation.",
+      "symbols": [
+        {
+          "symbol": "log_b(a)",
+          "meaning": "the exponent c such that b^c = a"
+        },
+        {
+          "symbol": "b^c = a",
+          "meaning": "exponential form equivalent to the logarithm"
+        },
+        {
+          "symbol": "b",
+          "meaning": "base: must be positive and not equal to 1"
+        },
+        {
+          "symbol": "a",
+          "meaning": "argument: the number inside the log, must be positive"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Introduce unknown",
+          "why": "Write log₂(32) = x to name the missing exponent we need to find.",
+          "line": "log₂(32) = x",
+          "voice": "A logarithm asks for the exponent. I will call the missing exponent x."
+        },
+        {
+          "title": "Convert to power",
+          "why": "Use equivalence log_b(a)=c ⇔ bᶜ=a to rewrite the expression as 2ˣ = 32, placing x as exponent.",
+          "line": "2ˣ = 32",
+          "voice": "The base two stays as the power base. The x becomes the exponent."
+        },
+        {
+          "title": "Match known power",
+          "why": "Recognize that 2⁵ = 32, so the unknown exponent must be 5.",
+          "line": "2⁵ = 32",
+          "voice": "Two to the fifth power is thirty-two. So the exponent we need is five."
+        },
+        {
+          "title": "State and check",
+          "why": "Give log₂(32)=5 and confirm by returning to the exponential form 2⁵=32.",
+          "line": "log₂(32) = 5",
+          "voice": "Answer: the logarithm of thirty-two to base two is five. Check by returning to the power form."
+        }
+      ]
+    }
   },
   {
     "id": "m-trig",
@@ -1087,7 +1369,50 @@
         "explanation": "0.8 × 10 = 8, so 8 cm. Same machine as the sine, only the side changes — exam style.",
         "formatHint": "Include the unit: write it as 8 cm."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Sine, cosine and tangent tie angles to side lengths: pick the ratio that contains the known and unknown sides to solve for the missing length.",
+      "symbols": [
+        {
+          "symbol": "sin θ",
+          "meaning": "ratio of the opposite side to the hypotenuse"
+        },
+        {
+          "symbol": "cos θ",
+          "meaning": "ratio of the adjacent side to the hypotenuse"
+        },
+        {
+          "symbol": "hypotenuse",
+          "meaning": "the longest side of a right triangle"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Pick the ratio",
+          "why": "You see the opposite and hypotenuse are involved, so you use the sine definition linking them.",
+          "line": "sin 30° = {opposite/10}",
+          "voice": "Opposite and hypotenuse call for sine. The sine of thirty degrees equals the opposite side divided by the hypotenuse, ten."
+        },
+        {
+          "title": "Choose sine",
+          "why": "The opposite side and hypotenuse pair with sine, so use sin 30° = opposite/10.",
+          "line": "0.5 = {opposite/10}",
+          "voice": "The sine of thirty degrees is zero point five, a value worth knowing by heart."
+        },
+        {
+          "title": "Substitute sine",
+          "why": "Since sin 30° = 0.5, the equation becomes 0.5 = opposite/10.",
+          "line": "opposite = 0.5 × 10",
+          "voice": "The ten is dividing, so it moves to the other side multiplying. Cross-multiply, don't hesitate."
+        },
+        {
+          "title": "Isolate the side",
+          "why": "Multiply both sides by 10 to remove the division and isolate the opposite side.",
+          "line": "opposite = 5",
+          "voice": "Zero point five times ten gives five. The opposite side measures five."
+        }
+      ]
+    }
   },
   {
     "id": "m-geometry",
@@ -1220,7 +1545,48 @@
         "explanation": "A = 7 × 4 = 28 m². That's question 1 as a word problem — notice the unit: m², not m.",
         "formatHint": "Include the unit: write it as 28 m²."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Draw the shape and pick the formula before plugging numbers in — it prevents swapping measurements.",
+      "symbols": [
+        {
+          "symbol": "A",
+          "meaning": "area"
+        },
+        {
+          "symbol": "base",
+          "meaning": "length of the rectangle's base"
+        },
+        {
+          "symbol": "height",
+          "meaning": "length of the rectangle's height"
+        },
+        {
+          "symbol": "cm²",
+          "meaning": "square centimetres, unit of area"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Use the formula",
+          "why": "Recognise the requested quantity and set up A = base × height before inserting numbers.",
+          "line": "A = base × height",
+          "voice": "Before any counting, the formula: the area of a rectangle is the base times the height. And always draw the figure — it keeps you from swapping the values."
+        },
+        {
+          "title": "Insert numbers",
+          "why": "Replace base and height with the given measures to form A = 8 × 3.",
+          "line": "A = 8 × 3",
+          "voice": "I substitute: eight times three."
+        },
+        {
+          "title": "Multiply and label",
+          "why": "Compute the product and include cm² so the result is a properly expressed area.",
+          "line": "A = 24 cm²",
+          "voice": "Twenty-four. And don't forget the unit: square centimeters."
+        }
+      ]
+    }
   },
   {
     "id": "m-vectors",
@@ -1343,7 +1709,44 @@
         "explanation": "√(144 + 25) = √169 = 13 m — the pair 5-12 gives 13, just as 3-4 gives 5. Exam style.",
         "formatHint": "Include the unit: write it as 13 m."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "A vector has magnitude and direction; treat each component as its own sum — x with x, y with y, never mixed.",
+      "symbols": [
+        {
+          "symbol": "R⃗",
+          "meaning": "resultant vector"
+        },
+        {
+          "symbol": "Rx, Ry",
+          "meaning": "components of vector R⃗ along x and y directions"
+        },
+        {
+          "symbol": "|R|",
+          "meaning": "magnitude (length) of vector R⃗"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Add x components",
+          "why": "Add the matching x components to obtain the resultant vector's x component.",
+          "line": "Rx = 3 + 1",
+          "voice": "Vectors: each component with its matching one, x with x. The x component: three plus one."
+        },
+        {
+          "title": "Add y components",
+          "why": "Add the matching y components, carrying their signs, to get the resultant y component.",
+          "line": "Ry = 4 + (-2)",
+          "voice": "The y component: four plus minus two. Never mix x with y."
+        },
+        {
+          "title": "Write resultant vector",
+          "why": "Pair Rx and Ry as (Rx, Ry); check by confirming each component came from the correct sums.",
+          "line": "R = (4, 2)",
+          "voice": "Three plus one gives four; four plus minus two gives two. Result: four, two."
+        }
+      ]
+    }
   },
   {
     "id": "m-sequences",
@@ -1495,7 +1898,54 @@
         "explanation": "31 − 7 = 24 and 24 ÷ 3 = 8 steps, so the position is 8 + 1 = 9. The formula backwards, exam style.",
         "formatHint": "Write only the position number."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "An arithmetic sequence advances by equal steps; count how many jumps connect terms to predict the requested term.",
+      "symbols": [
+        {
+          "symbol": "aₙ",
+          "meaning": "n-th term of the sequence"
+        },
+        {
+          "symbol": "a₁",
+          "meaning": "first term"
+        },
+        {
+          "symbol": "r",
+          "meaning": "common difference between consecutive terms"
+        },
+        {
+          "symbol": "n",
+          "meaning": "position of the term you want"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Spot the pattern",
+          "why": "You see the difference between consecutive terms is always three, so the sequence is arithmetic with r = 3.",
+          "line": "4, 7, 10, ...",
+          "voice": "See the pattern: from four to seven, three; from seven to ten, three. The difference is always three."
+        },
+        {
+          "title": "Count the jumps",
+          "why": "From the first to the sixth term there are five jumps, so multiply the common difference by 5.",
+          "line": "a6 = 4 + 5 × 3",
+          "voice": "From the first term to the sixth is five steps. So it reads: four plus five times three."
+        },
+        {
+          "title": "Multiply the difference",
+          "why": "Compute 5 × 3 to find the total increase that will be added to the first term.",
+          "line": "a6 = 4 + 15",
+          "voice": "Five times three gives fifteen."
+        },
+        {
+          "title": "Add to the first term",
+          "why": "Add the total increase to a₁ to get a₆; verify by listing the sequence to the sixth term.",
+          "line": "a6 = 19",
+          "voice": "Four plus fifteen, nineteen. That's the sixth term."
+        }
+      ]
+    }
   },
   {
     "id": "m-calculus",
@@ -1636,7 +2086,54 @@
         "explanation": "f'(x) = 6x + 1, and f'(2) = 12 + 1 = 13. Differentiate, then evaluate at a point: that's how it lands on the exam.",
         "formatHint": "Write only the number."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "The derivative gives the instantaneous slope of the curve at a point — the function's immediate rate of change.",
+      "symbols": [
+        {
+          "symbol": "f(x)",
+          "meaning": "the function whose rate of change we study"
+        },
+        {
+          "symbol": "lim",
+          "meaning": "limit — how the function approaches a value (used in the derivative definition)"
+        },
+        {
+          "symbol": "f'(x)",
+          "meaning": "derivative of f — instantaneous rate of change / slope of the curve"
+        },
+        {
+          "symbol": "d/dx (xⁿ)",
+          "meaning": "differentiation operator applied to powers of x"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Write the function",
+          "why": "Place the original expression to identify each term to differentiate separately.",
+          "line": "f(x) = x² + 3x",
+          "voice": "Differentiating means measuring the slope of the curve. We go term by term, with calm."
+        },
+        {
+          "title": "Differentiate 3x",
+          "why": "The derivative of a linear term such as 3x is its constant coefficient, 3.",
+          "line": "(x²)' = 2x",
+          "voice": "X squared: the exponent comes down and multiplies. The two moves to the front and you get two x."
+        },
+        {
+          "title": "Differentiate 3x",
+          "why": "Linear term: exponent 1 gives a constant when lowered, so x disappears leaving 3.",
+          "line": "(3x)' = 3",
+          "voice": "Three x becomes just three: the exponent was one, it came down, and the x disappears."
+        },
+        {
+          "title": "Combine results",
+          "why": "The derivative is the sum of termwise derivatives; assemble them to form f'(x) and check by combining terms.",
+          "line": "f'(x) = 2x + 3",
+          "voice": "I join the pieces: two x plus three. The derivative is ready."
+        }
+      ]
+    }
   },
   {
     "id": "m-probability",
@@ -1781,7 +2278,50 @@
         "explanation": "Mean = (12 + 14 + 19) ÷ 3 = 45 ÷ 3 = 15. It's the same divide-by-the-total move you already used in probability.",
         "formatHint": "Write only the number."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Probability compares the number of favourable outcomes to the total number of possible outcomes.",
+      "symbols": [
+        {
+          "symbol": "P(E)",
+          "meaning": "probability that event E occurs"
+        },
+        {
+          "symbol": "favourable",
+          "meaning": "count of outcomes that satisfy the event"
+        },
+        {
+          "symbol": "possible",
+          "meaning": "total count of equally likely outcomes"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Set up the ratio",
+          "why": "Write probability as the ratio of favourable cases over possible cases.",
+          "line": "P = {favoráveis/possíveis}",
+          "voice": "Probability is a ratio: the favorable cases divided by the possible cases."
+        },
+        {
+          "title": "Plug in the counts",
+          "why": "Replace favourable and possible with the problem numbers: 3 red and 3+2 total.",
+          "line": "P = {3/(3 + 2)}",
+          "voice": "Favorable: the three red balls. Possible: all the balls, three plus two."
+        },
+        {
+          "title": "Express as a fraction",
+          "why": "Keep the exact relation as three out of five, shown by the fraction 3/5.",
+          "line": "P = {3/5}",
+          "voice": "Three out of five."
+        },
+        {
+          "title": "Convert to a percentage",
+          "why": "0.6 is 60%; this form makes probabilities easier to compare.",
+          "line": "P = 0,6 = 60%",
+          "voice": "Zero point six, or sixty percent. That's the probability of drawing red."
+        }
+      ]
+    }
   },
   {
     "id": "m-word",
@@ -1905,6 +2445,43 @@
         "explanation": "8 000 × 0.75 = 6 000 Kz. It's question 4 backwards: there you looked for the old price, here for the price with the discount already applied.",
         "formatHint": "Write only the number, without Kz."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Read the statement twice: first to understand, then to mark the data and the question.",
+      "symbols": [
+        {
+          "symbol": "x",
+          "meaning": "unknown — the number we need to find"
+        },
+        {
+          "symbol": "+ 7 / - 7",
+          "meaning": "terms showing addition or subtraction in the equation"
+        },
+        {
+          "symbol": "Kz",
+          "meaning": "currency unit (kwanza)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Name the unknown",
+          "why": "Use x to represent the unknown number and form the equation that matches the problem.",
+          "line": "x + 7 = 19",
+          "voice": "A number we don't know? We call it x. A number plus seven gives nineteen. The equation is set up."
+        },
+        {
+          "title": "Move the term",
+          "why": "Change +7 to −7 on the other side to keep both sides balanced while isolating x.",
+          "line": "x = 19 - 7",
+          "voice": "The plus seven moves to the other side subtracting: it changed sides, so it changes sign."
+        },
+        {
+          "title": "Compute and check",
+          "why": "Compute 19−7 to find x and check by substituting x back into the original equation.",
+          "line": "x = 12",
+          "voice": "Nineteen minus seven gives twelve. The number is twelve. Check: twelve plus seven, nineteen. It works."
+        }
+      ]
+    }
   }
 ]

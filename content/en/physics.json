@@ -73,7 +73,48 @@
         "explanation": "15 × 3.6 = 54 km/h: that's question 4 run backwards. On the exam it shows up in either direction.",
         "formatHint": "Include the unit (e.g. 54 km/h)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Quantities need a number and a unit; unit conversion uses conversion factors to rewrite the same quantity in different units.",
+      "symbols": [
+        {
+          "symbol": "km/h",
+          "meaning": "kilometres per hour, a unit of speed"
+        },
+        {
+          "symbol": "m/s",
+          "meaning": "metres per second, the SI unit of speed"
+        },
+        {
+          "symbol": "1 km = 1000 m",
+          "meaning": "conversion factor from kilometres to metres"
+        },
+        {
+          "symbol": "1 h = 3600 s",
+          "meaning": "conversion factor from hours to seconds"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Use conversion factors",
+          "why": "Write 72 × (1000 m)/(3600 s) to replace km and h by metres and seconds without changing the physical speed.",
+          "line": "Write it as 72 × (1000 m)/(3600 s).",
+          "voice": ""
+        },
+        {
+          "title": "Reduce the fraction",
+          "why": "Simplify 1000/3600 to 1/3.6 so the arithmetic becomes easier while remaining equivalent.",
+          "line": "Simplify 1000/3600 = 1/3.6.",
+          "voice": ""
+        },
+        {
+          "title": "Perform the division",
+          "why": "Compute 72 ÷ 3.6 to express the same speed in m/s; the result is the original quantity in new units.",
+          "line": "Result: 72 ÷ 3.6 = 20 m/s.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-vectors",
@@ -149,7 +190,44 @@
         "explanation": "20 − 12 = 8, so the force to the west is 12 N. You solved the resultant from the answer back to the start — exam style.",
         "formatHint": "Include the unit (e.g. 12 N)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Vectors give direction and size; pick a positive axis and keep signs straight when adding components.",
+      "symbols": [
+        {
+          "symbol": "A⃗",
+          "meaning": "vector with components Ax and Ay"
+        },
+        {
+          "symbol": "Ax, Ay",
+          "meaning": "the vector's x and y components"
+        },
+        {
+          "symbol": "ΣFx",
+          "meaning": "algebraic sum of force components in the x direction"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Pick axis",
+          "why": "Choosing east as positive fixes signs so forces in opposite directions combine correctly.",
+          "line": "Choose east as positive.",
+          "voice": ""
+        },
+        {
+          "title": "Algebraic sum",
+          "why": "Subtract 4 N from 10 N to combine opposite forces along the same line using their signs.",
+          "line": "Do the algebraic sum: R = 10 − 4.",
+          "voice": ""
+        },
+        {
+          "title": "Interpret result",
+          "why": "A positive sign shows the chosen direction; check it agrees with the axis and units.",
+          "line": "Result: R = 6 N to the east.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-motion",
@@ -248,7 +326,48 @@
         "explanation": "a = −15 ÷ 5 = −3 m/s²; the minus sign says the car is slowing down. It's the detail the exam likes to hide.",
         "formatHint": "Include the unit and the sign (e.g. -3 m/s²)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Speed tells you how many metres you cover each second; acceleration tells how much that speed changes per second.",
+      "symbols": [
+        {
+          "symbol": "v",
+          "meaning": "average speed (m/s)"
+        },
+        {
+          "symbol": "Δs",
+          "meaning": "change in position or distance travelled (m)"
+        },
+        {
+          "symbol": "Δt",
+          "meaning": "time interval elapsed (s)"
+        },
+        {
+          "symbol": "a",
+          "meaning": "acceleration (m/s²), change of velocity per time"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Identify knowns",
+          "why": "Pick out Δs and Δt from the problem so you know which quantities to use.",
+          "line": "Identify Δs = 120 m and Δt = 6 s.",
+          "voice": ""
+        },
+        {
+          "title": "Select formula",
+          "why": "Use v = Δs/Δt because it directly links the given distance and time.",
+          "line": "Apply v = Δs/Δt = 120/6.",
+          "voice": ""
+        },
+        {
+          "title": "Perform division",
+          "why": "Dividing Δs by Δt yields the average speed in the correct unit (m/s).",
+          "line": "Result: v = 20 m/s.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-newton",
@@ -341,7 +460,44 @@
         "explanation": "m = 20 ÷ 2 = 10 kg. You ran the whole triangle backwards to hunt down the mass — exam style.",
         "formatHint": "Include the unit (e.g. 10 kg)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Acceleration appears when a resultant force acts on mass; if there is no resultant, there is no acceleration.",
+      "symbols": [
+        {
+          "symbol": "F_resultant",
+          "meaning": "vector sum of forces acting on the body (N)"
+        },
+        {
+          "symbol": "m",
+          "meaning": "mass of the body (kg)"
+        },
+        {
+          "symbol": "a",
+          "meaning": "acceleration of the body (m/s²)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Write F = ma.",
+          "why": "Record the fundamental relation linking resultant force, mass and acceleration.",
+          "line": "Write F = ma.",
+          "voice": ""
+        },
+        {
+          "title": "Make a the subject",
+          "why": "Divide both sides by m to express acceleration as a = F/m, isolating a as the unknown.",
+          "line": "Make a the subject: a = F/m = 20/4.",
+          "voice": ""
+        },
+        {
+          "title": "Compute the value",
+          "why": "Substitute F and m into a = F/m to obtain the numerical acceleration and check units (m/s²).",
+          "line": "Result: a = 5 m/s².",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-forces",
@@ -442,7 +598,48 @@
         "explanation": "f = 0.25 × 80 = 20 N. Weight and friction in one question, the way the exam usually asks.",
         "formatHint": "Include the unit (e.g. 20 N)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Vertical forces balance: weight acts downward, the surface provides a normal force, and friction resists motion or its tendency.",
+      "symbols": [
+        {
+          "symbol": "P",
+          "meaning": "Weight, the gravitational force (N)"
+        },
+        {
+          "symbol": "m",
+          "meaning": "Mass of the object (kg)"
+        },
+        {
+          "symbol": "g",
+          "meaning": "Acceleration due to gravity (m/s²)"
+        },
+        {
+          "symbol": "f or μN",
+          "meaning": "Frictional force; f = μN when that model applies (N)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Pick the formula",
+          "why": "Recognize that weight is calculated by P = m·g, linking mass to gravitational force.",
+          "line": "Use P = m·g.",
+          "voice": ""
+        },
+        {
+          "title": "Insert values",
+          "why": "Place m = 6 and g ≈ 10 into the formula to find the weight's magnitude.",
+          "line": "Substitute P = 6 × 10.",
+          "voice": ""
+        },
+        {
+          "title": "Perform the multiplication",
+          "why": "Multiply 6 by 10 to get P = 60 N, which is the force directed downward.",
+          "line": "Result: P = 60 N pointing down.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-energy",
@@ -535,7 +732,48 @@
         "explanation": "t = 100 ÷ 20 = 5 s, using the work from question 4. It's power run backwards — exam style.",
         "formatHint": "Include the unit (e.g. 5 s)"
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Work is the energy a force transfers by causing displacement; power is how fast that energy is transferred.",
+      "symbols": [
+        {
+          "symbol": "W",
+          "meaning": "Work (joules, J) — energy transferred by the force"
+        },
+        {
+          "symbol": "F",
+          "meaning": "Applied force (newtons, N)"
+        },
+        {
+          "symbol": "d",
+          "meaning": "Displacement in the force direction (metres, m)"
+        },
+        {
+          "symbol": "P",
+          "meaning": "Power — rate of energy transfer (watts, W)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Check alignment",
+          "why": "When force and displacement point the same way, the dot product simplifies to W = Fd.",
+          "line": "Because force and displacement line up, W = Fd.",
+          "voice": ""
+        },
+        {
+          "title": "Use the formula",
+          "why": "Insert the known numerical values into W = Fd to set up the calculation.",
+          "line": "Calculate W = 30 × 4.",
+          "voice": ""
+        },
+        {
+          "title": "Compute the product",
+          "why": "Multiply 30 by 4 to get the work in joules, verifying units (N·m = J).",
+          "line": "Result: W = 120 J.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-momentum",
@@ -627,7 +865,44 @@
         "explanation": "Δv = 5 m/s, so Δp = 1000 × 5 = 5000 kg·m/s. This is the kind of math that shows up in collisions.",
         "formatHint": "Include the unit (e.g. 5000 kg·m/s)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Momentum measures how hard it is to stop something: more mass or more speed gives greater momentum.",
+      "symbols": [
+        {
+          "symbol": "p",
+          "meaning": "momentum (kg·m/s)"
+        },
+        {
+          "symbol": "m",
+          "meaning": "mass of the object (kg)"
+        },
+        {
+          "symbol": "v",
+          "meaning": "velocity of the object (m/s)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Use the formula",
+          "why": "Apply p = m·v to relate momentum to mass and velocity.",
+          "line": "Use p = m·v.",
+          "voice": ""
+        },
+        {
+          "title": "Insert the values",
+          "why": "Set m = 2 and v = 6 into the formula to get a numeric expression for p.",
+          "line": "Substitute p = 2 × 6.",
+          "voice": ""
+        },
+        {
+          "title": "Compute the product",
+          "why": "Multiply 2 by 6 to find p in kg·m/s and confirm the unit.",
+          "line": "Result: p = 12 kg·m/s.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-circular",
@@ -703,7 +978,44 @@
         "explanation": "v² = 9 × 4 = 36, so v = 6 m/s. Same formula as question 4, now solved for the speed.",
         "formatHint": "Include the unit (e.g. 6 m/s)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "In circular motion speed can stay the same while direction changes, producing an acceleration that always points toward the center.",
+      "symbols": [
+        {
+          "symbol": "v",
+          "meaning": "speed (magnitude of velocity) in m/s"
+        },
+        {
+          "symbol": "r",
+          "meaning": "radius of the circular path in metres (m)"
+        },
+        {
+          "symbol": "a_c",
+          "meaning": "centripetal acceleration directed to the centre, in m/s²"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Use the formula",
+          "why": "Choose a_c = v²/r because it directly relates speed and radius to centripetal acceleration in circular motion.",
+          "line": "Use a_c = v²/r.",
+          "voice": ""
+        },
+        {
+          "title": "Square the speed",
+          "why": "Compute v² since the formula requires it; with v = 10 m/s we get 10² = 100 (m²/s²).",
+          "line": "Square the speed: 10² = 100.",
+          "voice": ""
+        },
+        {
+          "title": "Divide by the radius",
+          "why": "Divide v² by r to find a_c: a_c = 100/20, yielding the acceleration value in m/s².",
+          "line": "Divide: a_c = 100/20 = 5 m/s².",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-fluids",
@@ -795,7 +1107,52 @@
         "explanation": "p_h = 1000 × 10 × 3 = 30000 Pa. That's the lesson's second formula, already in exam style.",
         "formatHint": "Include the unit (e.g. 30000 Pa)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Pressure tells how concentrated a force is over an area; in fluids it rises with depth because the fluid's weight adds more force below.",
+      "symbols": [
+        {
+          "symbol": "p",
+          "meaning": "pressure"
+        },
+        {
+          "symbol": "F",
+          "meaning": "applied force"
+        },
+        {
+          "symbol": "A",
+          "meaning": "area over which the force acts"
+        },
+        {
+          "symbol": "ρ",
+          "meaning": "fluid density"
+        },
+        {
+          "symbol": "g",
+          "meaning": "acceleration due to gravity"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Write the formula",
+          "why": "Use p = F/A because it directly links force and area to pressure.",
+          "line": "Use p = F/A.",
+          "voice": ""
+        },
+        {
+          "title": "Plug in numbers",
+          "why": "Insert F = 200 N and A = 4 m² into the equation to get a numerical pressure.",
+          "line": "Substitute p = 200/4.",
+          "voice": ""
+        },
+        {
+          "title": "Compute and check units",
+          "why": "Divide 200 by 4 to find p and confirm the result uses pascals (N/m²).",
+          "line": "Result: p = 50 Pa.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-heat",
@@ -870,7 +1227,48 @@
         "explanation": "ΔT = 4000 ÷ (2 × 1000) = 2 °C. Same formula as question 4, now solved for ΔT.",
         "formatHint": "Include the unit (e.g. 2 °C)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Temperature states how hot something is; heat is the energy transferred between objects because of temperature difference.",
+      "symbols": [
+        {
+          "symbol": "Q",
+          "meaning": "amount of heat transferred (joules, J)"
+        },
+        {
+          "symbol": "m",
+          "meaning": "mass of the object (kilograms, kg)"
+        },
+        {
+          "symbol": "c",
+          "meaning": "specific heat capacity of the material (J/kg°C)"
+        },
+        {
+          "symbol": "ΔT",
+          "meaning": "temperature change (°C)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Find ΔT",
+          "why": "Determine the temperature change that drives the heat transfer.",
+          "line": "Work out the change: ΔT = 5°C.",
+          "voice": ""
+        },
+        {
+          "title": "Use the formula",
+          "why": "Insert m, c and ΔT into Q = m·c·ΔT to express the required energy.",
+          "line": "Use Q = mcΔT = 2 × 1000 × 5.",
+          "voice": ""
+        },
+        {
+          "title": "Calculate Q",
+          "why": "Multiply the substituted values to get Q in joules and check units match.",
+          "line": "Result: Q = 10000 J.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-electricity",
@@ -969,7 +1367,48 @@
         "explanation": "P = 20 × 5 = 100 W (or V²/R = 400 ÷ 4). Two steps of Ohm in one question — exam style.",
         "formatHint": "Include the unit (e.g. 100 W)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Current is charge in motion; voltage is the energy that pushes charge through circuit elements.",
+      "symbols": [
+        {
+          "symbol": "I",
+          "meaning": "Electric current (amperes, A) — rate of charge flow."
+        },
+        {
+          "symbol": "V",
+          "meaning": "Voltage (volts, V) — energy per unit charge."
+        },
+        {
+          "symbol": "R",
+          "meaning": "Resistance (ohms, Ω) — opposition to current flow."
+        },
+        {
+          "symbol": "P",
+          "meaning": "Power (watts, W) — energy per time, P = V·I."
+        }
+      ],
+      "steps": [
+        {
+          "title": "Apply Ohm's law",
+          "why": "Connects voltage, current and resistance using I = V/R to compute current from V and R.",
+          "line": "Apply Ohm's law: I = V/R.",
+          "voice": ""
+        },
+        {
+          "title": "Substitute the values",
+          "why": "Insert V = 12 V and R = 6 Ω into I = V/R to get a numerical expression for I.",
+          "line": "Substitute I = 12/6.",
+          "voice": ""
+        },
+        {
+          "title": "Compute the current",
+          "why": "Divide 12 by 6 to obtain I, and check the resulting unit is amperes (A).",
+          "line": "Result: I = 2 A.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-magnetism",
@@ -1044,7 +1483,52 @@
         "explanation": "F = 4 × 5 × 1 × 0.5 = 10 N: it was 20 N perpendicular, and the sine cut it in half.",
         "formatHint": "Include the unit (e.g. 10 N)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Magnetic fields have direction and push on currents; use the right-hand rule to find force directions on wires and moving charges.",
+      "symbols": [
+        {
+          "symbol": "B",
+          "meaning": "Magnetic flux density (field) in tesla"
+        },
+        {
+          "symbol": "I",
+          "meaning": "Current through the wire in amperes"
+        },
+        {
+          "symbol": "L",
+          "meaning": "Length of the wire segment in the field, in metres"
+        },
+        {
+          "symbol": "θ",
+          "meaning": "Angle between L and the direction of B"
+        },
+        {
+          "symbol": "F",
+          "meaning": "Magnetic force on the wire, in newtons"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Determine the angle",
+          "why": "θ = 90° because the wire is perpendicular to the field, so sin θ = 1.",
+          "line": "Because θ = 90°, sin θ = 1.",
+          "voice": ""
+        },
+        {
+          "title": "Use the formula",
+          "why": "Plug B, I and L into F = B·I·L·sin θ to set up the calculation.",
+          "line": "Use F = BIL = 2 × 3 × 0.5.",
+          "voice": ""
+        },
+        {
+          "title": "Compute the force",
+          "why": "Multiply 2 × 3 × 0.5 with sin θ = 1 to obtain the force magnitude.",
+          "line": "Result: F = 3 N.",
+          "voice": ""
+        }
+      ]
+    }
   },
   {
     "id": "p-waves",
@@ -1142,6 +1626,43 @@
         "explanation": "v = 500 × 0.6 = 300 m/s: that's the real speed of sound. On the exam, always convert the kHz.",
         "formatHint": "Include the unit (e.g. 300 m/s)."
       }
-    ]
+    ],
+    "guide": {
+      "hook": "Waves carry energy; frequency counts cycles per second and wavelength measures distance between crests.",
+      "symbols": [
+        {
+          "symbol": "v",
+          "meaning": "wave speed (m/s)"
+        },
+        {
+          "symbol": "f",
+          "meaning": "frequency — cycles per second (Hz)"
+        },
+        {
+          "symbol": "λ",
+          "meaning": "wavelength — distance between crests (m)"
+        }
+      ],
+      "steps": [
+        {
+          "title": "Pick the formula",
+          "why": "Use v = f·λ because it directly links speed, frequency and wavelength.",
+          "line": "Use v = fλ.",
+          "voice": ""
+        },
+        {
+          "title": "Use the relationship",
+          "why": "The relationship v = fλ links frequency and wavelength to wave speed.",
+          "line": "Substitute v = 5 × 2.",
+          "voice": ""
+        },
+        {
+          "title": "Compute the product",
+          "why": "Multiply 5 by 2 to find the speed; the result is in m/s given Hz and m units.",
+          "line": "Result: v = 10 m/s.",
+          "voice": ""
+        }
+      ]
+    }
   }
 ]
