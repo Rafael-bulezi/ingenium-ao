@@ -208,11 +208,17 @@
     },
     "ladder": [
       {
-        "q": "Warm-up: an object covers 40 m in 4 s. What's the average speed?",
+        "q": "An object covers 40 m in 4 s. What is its average speed in m/s?",
         "answer": "10 m/s",
-        "hint": "v = Δs ÷ Δt.",
-        "explanation": "v = 40 ÷ 4 = 10 m/s. Keep this 10 — you'll need it in a moment.",
-        "formatHint": "Include the unit (e.g. 10 m/s)"
+        "hint": "Average speed is distance divided by time: v = Δs ÷ Δt.",
+        "explanation": "Divide the distance by the time: v = 40 m ÷ 4 s = 10 m/s. The average speed is 10 m/s.",
+        "formatHint": "Include the unit (e.g. 10 m/s)",
+        "doodle": {
+          "type": "motion",
+          "distance": "40 m",
+          "time": "4 s",
+          "target": "v = ?"
+        }
       },
       {
         "q": "The object from question 1 goes from 10 m/s to 18 m/s in 4 s. What's the acceleration?",
@@ -394,11 +400,19 @@
     },
     "ladder": [
       {
-        "q": "Warm-up: with g = 10 m/s², what's the weight of 2 kg?",
+        "q": "With g = 10 m/s², what is the weight of an object with a mass of 2 kg?",
         "answer": "20 N",
-        "hint": "P = m × g.",
-        "explanation": "P = 2 × 10 = 20 N. In question 2 we flip the formula and ask for the mass.",
-        "formatHint": "Include the unit (e.g. 20 N)"
+        "hint": "Multiply the mass by the acceleration due to gravity: P = m × g.",
+        "explanation": "P = 2 kg × 10 m/s² = 20 N. Weight is a force, so its unit is the newton (N).",
+        "formatHint": "Include the unit (e.g. 20 N)",
+        "doodle": {
+          "type": "forces",
+          "known": [
+            "m = 2 kg",
+            "g = 10 m/s²"
+          ],
+          "target": "P = ?"
+        }
       },
       {
         "q": "A body weighs 40 N. With g = 10 m/s², what's the mass?",
@@ -915,11 +929,17 @@
     },
     "ladder": [
       {
-        "q": "Easy start: a 5 Ω resistor is connected to 10 V. What's the current I = V/R?",
+        "q": "A 5 Ω resistor is connected to a 10 V supply. What is the current?",
         "answer": "2 A",
-        "hint": "Divide the voltage by the resistance: 10 ÷ 5.",
-        "explanation": "I = 10 ÷ 5 = 2 A. Keep these 2 A — you'll use them in the next one.",
-        "formatHint": "Include the unit (e.g. 2 A)."
+        "hint": "Divide the voltage (10 V) by the resistance (5 Ω).",
+        "explanation": "By Ohm’s law, I = V ÷ R. Substitute the values: I = 10 V ÷ 5 Ω = 2 A.",
+        "formatHint": "Include the unit (e.g. 2 A).",
+        "doodle": {
+          "type": "circuit",
+          "voltage": "10 V",
+          "resistance": "5 Ω",
+          "target": "I = ?"
+        }
       },
       {
         "q": "With the same 10 V and 2 A, what's the power P = V·I?",
@@ -1082,11 +1102,17 @@
     },
     "ladder": [
       {
-        "q": "Easy start: a wave has f = 4 Hz and λ = 2 m. What is f × λ?",
-        "answer": "8",
-        "hint": "Multiply the two values.",
-        "explanation": "f × λ = 8: that's the speed of the wave. Keep this 8 — you use it next.",
-        "formatHint": "Write only the number."
+        "q": "A wave has a frequency of 4 Hz and a wavelength of 2 m. Calculate its speed in m/s.",
+        "answer": "8 m/s",
+        "hint": "Multiply 4 Hz by 2 m: v = f × λ.",
+        "explanation": "v = f × λ = 4 Hz × 2 m = 8 m/s. The product gives the wave speed.",
+        "formatHint": "Include the unit m/s (e.g. 8 m/s).",
+        "doodle": {
+          "type": "wave",
+          "frequency": "4 Hz",
+          "wavelength": "2 m",
+          "target": "v = ?"
+        }
       },
       {
         "q": "With v = 8 m/s, the frequency drops to 2 Hz. What is λ = v/f?",

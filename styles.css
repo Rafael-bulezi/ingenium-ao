@@ -195,6 +195,31 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
 .ladder-dots i { flex: 1; height: 6px; border-radius: 4px; background: var(--paper-2); transition: background .2s ease; }
 .ladder-dots i.done { background: var(--lime-dark); }
 .question-line { font-size: 17px; line-height: 1.5; font-weight: 700; }
+.question-sketch-action { margin: 10px 0 0; }
+.question-doodle { margin: 12px 0 2px; padding: 12px 14px 9px; border: 1px solid #e6e1d0; border-radius: 14px; background: #fffdf6; }
+.question-doodle svg { display: block; width: 100%; max-width: 620px; height: auto; margin: 0 auto; overflow: visible; }
+.question-doodle text { font-family: "Kalam", "Plus Jakarta Sans", sans-serif; fill: #26324c; font-size: 21px; }
+.question-doodle .qd-label { font-size: 24px; font-weight: 600; }
+.question-doodle .qd-big { font-size: 30px; font-weight: 600; }
+.question-doodle .qd-small { font-size: 20px; fill: #62708a; }
+.question-doodle .qd-target { font-size: 23px; font-weight: 700; fill: #2e7c43; }
+.question-doodle .qd-box { fill: #fff; stroke: #c7d0de; stroke-width: 2; }
+.question-doodle .qd-accent { fill: #c8ed42; stroke: #26324c; stroke-width: 2; }
+.question-doodle .qd-red { fill: #ffb6a8; stroke: #26324c; stroke-width: 2; }
+.question-doodle .qd-blue { fill: #b9d7ff; stroke: #26324c; stroke-width: 2; }
+.question-doodle .qd-shape { fill: #eef4ff; stroke: #26324c; stroke-width: 3; stroke-linejoin: round; }
+.question-doodle .qd-line { fill: none; stroke: #26324c; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.question-doodle .qd-thin { stroke-width: 2; }
+.question-doodle .qd-grid { stroke: #e2e8f0; stroke-width: 1; }
+.question-doodle .qd-axis { fill: none; stroke: #8995a8; stroke-width: 2; }
+.question-doodle .qd-arrow, .question-doodle .qd-arrow-alt { fill: none; stroke: #26324c; stroke-width: 4; stroke-linecap: round; }
+.question-doodle .qd-arrow-alt { stroke: #4d78b5; }
+.question-doodle .qd-wave { fill: none; stroke: #4d78b5; stroke-width: 4; stroke-linecap: round; }
+.question-doodle .qd-dimension { fill: none; stroke: #8995a8; stroke-width: 2; marker-start: url(#questionSketchArrow); marker-end: url(#questionSketchArrow); }
+.question-doodle .qd-dash { stroke: #a6b1c2; stroke-width: 2; stroke-dasharray: 7 7; }
+.question-doodle figcaption { margin-top: 5px; color: var(--ink-soft); font-size: 11px; line-height: 1.45; }
+.question-sketch-action .button { min-height: 34px; }
+
 .answer-row { display: flex; gap: 10px; margin-top: 16px; }
 .answer-row input { min-width: 0; flex: 1; border: 1px solid var(--line); border-radius: 12px; padding: 0 14px; color: var(--ink); background: var(--paper); outline: none; }
 .answer-row input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-soft); }
@@ -203,6 +228,10 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
 .practice-feedback.try { background: var(--coral-soft); color: #8c3f36; }
 .check-row { display: flex; align-items: center; gap: 8px; padding: 15px 0 2px; color: var(--ink-soft); font-size: 12px; }
 .check-row input { accent-color: var(--lime-dark); width: 18px; height: 18px; }
+.lesson-end-card { display: grid; gap: 10px; }
+.lesson-sequence-nav { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding-top: 8px; border-top: 1px solid var(--line); }
+.lesson-sequence-nav .button { min-height: 40px; }
+
 .side-progress { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 14px; }
 .side-progress i { width: 15px; height: 6px; border-radius: 4px; background: var(--paper-2); }
 .side-progress i.done { background: var(--lime-dark); }
@@ -313,6 +342,10 @@ h3 { font-size: 18px; letter-spacing: -.03em; }
 /* ===== Quadro manuscrito (exemplo guiado) ===== */
 .example-card .example-label .tag { white-space: nowrap; }
 .quadro { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; min-height: 348px; padding: 44px 30px 52px; border-radius: var(--radius-md); background: #fffdf6; border: 1px solid #e6e1d0; box-shadow: inset 0 2px 0 rgba(255,255,255,.9), inset 0 -20px 32px rgba(19,34,56,.035), 0 12px 28px rgba(19,34,56,.07); }
+.quadro-step-caption { display: grid; grid-template-columns: max-content 1fr; align-items: start; gap: 8px 14px; margin-top: 12px; padding: 12px 14px; border-left: 3px solid var(--lime-dark); border-radius: 0 12px 12px 0; background: var(--paper); }
+.quadro-step-caption .eyebrow { margin: 2px 0 0; color: var(--ink-soft); }
+.quadro-step-caption p { margin: 0; color: var(--ink); font-size: 13px; line-height: 1.6; }
+
 .quadro::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(#e9e4d2 1px, transparent 1.1px); background-size: 21px 21px; pointer-events: none; }
 /* the gap has to swallow an arc (≈34 px of bow) plus one 18 px note, or annotations land on the next line */
 .quadro-lines { position: relative; z-index: 2; display: grid; gap: 74px; }
@@ -420,6 +453,10 @@ body.qf-lock .bottom-nav { display: none; }
 
 @media (max-width: 520px) {
   .quadro { min-height: 288px; padding: 34px 16px 42px; }
+  .quadro-step-caption { grid-template-columns: 1fr; gap: 4px; }
+  .lesson-sequence-nav { display: grid; grid-template-columns: 1fr 1fr; }
+  .lesson-sequence-nav .button { width: 100%; justify-content: center; }
+
   .quadro-lines { gap: 56px; } /* arcs and notes still need a full lane between lines */
   .quadro-line .eq { font-size: 21px; }
   .quadro-note { font-size: 16px; }

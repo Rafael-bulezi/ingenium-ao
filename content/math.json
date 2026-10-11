@@ -141,11 +141,17 @@
     },
     "ladder": [
       {
-        "q": "Começamos levinho: x + 5 = 20. Qual é o valor de x?",
+        "q": "Resolve x + 5 = 20. Quanto vale x?",
         "answer": "15",
-        "hint": "O 5 passa para o outro lado a trocar o sinal.",
-        "explanation": "20 − 5 = 15, então x = 15. Guarda este 15 — vais precisar dele já a seguir.",
-        "formatHint": "Escreve só o número."
+        "hint": "Subtrai 5 aos dois lados para deixar x sozinho.",
+        "explanation": "Subtrai 5 aos dois lados: 20 − 5 = 15. Então, x = 15.",
+        "formatHint": "Escreve só o número.",
+        "doodle": {
+          "type": "equation",
+          "left": "x + 5",
+          "right": "20",
+          "target": "x = ?"
+        }
       },
       {
         "q": "Agora com multiplicação: 3x = 15. Qual é o x?",
@@ -421,11 +427,17 @@
     },
     "ladder": [
       {
-        "q": "Máquina simples: f(x) = 2x. Quanto é f(3)?",
+        "q": "Se f(x) = 2x, quanto vale f(3)?",
         "answer": "6",
-        "hint": "Onde está o x, escreve 3 e multiplica.",
-        "explanation": "2 × 3 = 6: entra 3, sai 6. Guarda este 6 — a máquina vai crescer.",
-        "formatHint": "Escreve só o número."
+        "hint": "Substitui x por 3: calcula 2 × 3.",
+        "explanation": "f(3) = 2 × 3 = 6. A entrada é 3 e a saída é 6. Guarda este valor para a próxima pergunta.",
+        "formatHint": "Escreve só o número.",
+        "doodle": {
+          "type": "function",
+          "input": "x = 3",
+          "operation": "× 2",
+          "output": "f(3) = ?"
+        }
       },
       {
         "q": "A máquina ganhou um +1: f(x) = 2x + 1. Quanto é f(3)?",
@@ -886,11 +898,16 @@
     },
     "ladder": [
       {
-        "q": "Aquecimento: log₂(8) pergunta 2 elevado a quanto dá 8. Qual é o expoente?",
+        "q": "Calcula log₂(8): a que expoente devemos elevar 2 para obter 8?",
         "answer": "3",
-        "hint": "2³ = 8.",
-        "explanation": "3, porque 2³ = 8. Um logaritmo procura o expoente.",
-        "formatHint": "Escreve apenas o número."
+        "hint": "Procura o expoente n que torna 2ⁿ = 8.",
+        "explanation": "Como 2³ = 8, o expoente é 3. O logaritmo indica o expoente necessário para obter o número dado.",
+        "formatHint": "Escreve apenas o número.",
+        "doodle": {
+          "type": "logarithm",
+          "base": "2",
+          "argument": "8"
+        }
       },
       {
         "q": "Agora log₅(25): 5 elevado a quanto dá 25?",
@@ -1163,11 +1180,17 @@
     },
     "ladder": [
       {
-        "q": "Aquecimento: qual é a área de um rectângulo de 6 cm por 4 cm?",
-        "answer": "24",
-        "hint": "A = base × altura: multiplica 6 por 4.",
-        "explanation": "A = 6 × 4 = 24 cm². Guarda este 6 — ele volta já na pergunta seguinte.",
-        "formatHint": "Escreve só o número."
+        "q": "Qual é a área de um rectângulo com lados de 6 cm e 4 cm?",
+        "answer": "24 cm²",
+        "hint": "Multiplica um lado pelo outro: área = 6 × 4.",
+        "explanation": "A área do rectângulo é comprimento × largura. Portanto, A = 6 × 4 = 24 cm².",
+        "formatHint": "Inclui a unidade cm² (ex.: 24 cm²).",
+        "doodle": {
+          "type": "rectangle",
+          "base": "6 cm",
+          "height": "4 cm",
+          "target": "A = ?"
+        }
       },
       {
         "q": "Agora o perímetro de um quadrado com 6 cm de lado?",
@@ -1280,11 +1303,17 @@
     },
     "ladder": [
       {
-        "q": "Aquecimento: soma A = (1, 2) com B = (2, 2). Qual é o vector soma?",
+        "q": "Soma os vectores A = (1, 2) e B = (2, 2). Qual é o vector resultante?",
         "answer": "(3, 4)",
-        "hint": "Xis com xis, y com y: somar componentes iguais.",
-        "explanation": "1 + 2 = 3 e 2 + 2 = 4, logo R = (3, 4). Guarda este (3, 4) — usamo-lo já a seguir.",
-        "formatHint": "Escreve no formato (x, y)."
+        "hint": "Soma as coordenadas x entre si e as coordenadas y entre si.",
+        "explanation": "Soma as coordenadas correspondentes: 1 + 2 = 3 para x e 2 + 2 = 4 para y. Logo, R = (3, 4). Guarda este vector; vais usá-lo a seguir.",
+        "formatHint": "Escreve no formato (x, y).",
+        "doodle": {
+          "type": "vectors",
+          "a": "A = (1, 2)",
+          "b": "B = (2, 2)",
+          "target": "R = ?"
+        }
       },
       {
         "q": "Agora o módulo do vector (3, 4). Quanto é?",
@@ -1422,11 +1451,21 @@
     },
     "ladder": [
       {
-        "q": "Aquecimento: na sequência 3, 6, 9, … qual é o próximo termo?",
+        "q": "A sequência aumenta sempre pela mesma quantidade: 3, 6, 9, … . Qual é o próximo termo?",
         "answer": "12",
-        "hint": "Repara no salto: de 3 para 6, e de 6 para 9.",
-        "explanation": "9 + 3 = 12. A diferença é sempre 3 — guarda este 3, é o motor da sequência.",
-        "formatHint": "Escreve só o número."
+        "hint": "Calcula a diferença entre termos consecutivos. Repete essa mesma diferença depois do 9.",
+        "explanation": "A diferença entre termos é 3. Soma 3 ao último termo: 9 + 3 = 12. A sequência avança sempre de 3 em 3.",
+        "formatHint": "Escreve só o número.",
+        "doodle": {
+          "type": "sequence",
+          "terms": [
+            "3",
+            "6",
+            "9",
+            "?"
+          ],
+          "step": "+3"
+        }
       },
       {
         "q": "Ainda em 3, 6, 9, …: qual é o 5.º termo?",
@@ -1702,11 +1741,17 @@
     },
     "ladder": [
       {
-        "q": "Aquecimento: num saco há 1 bola vermelha e 1 azul. Probabilidade de sair vermelha?",
+        "q": "Ao retirar ao acaso uma bola de um saco com 1 bola vermelha e 1 azul, qual é a probabilidade de sair vermelha?",
         "answer": "0,5",
-        "hint": "Favoráveis 1, possíveis 2: monta a razão.",
-        "explanation": "P = 1/2 = 0,5. Metade. Agora vamos encher o saco com mais bolas.",
-        "formatHint": "Escreve em decimal (vírgula ou ponto)."
+        "hint": "Divide o número de bolas vermelhas pelo número total de bolas.",
+        "explanation": "Há 1 bola vermelha entre 2 bolas. Assim, P(vermelha) = 1/2 = 0,5.",
+        "formatHint": "Escreve a resposta em decimal (ex.: 0,5).",
+        "doodle": {
+          "type": "probability",
+          "red": 1,
+          "blue": 1,
+          "target": "P(vermelha) = ?"
+        }
       },
       {
         "q": "Agora o saco tem 3 vermelhas e 1 azul. Probabilidade de sair vermelha?",

@@ -141,11 +141,17 @@
     },
     "ladder": [
       {
-        "q": "We start light: x + 5 = 20. What is the value of x?",
+        "q": "Solve x + 5 = 20. What is x?",
         "answer": "15",
-        "hint": "The 5 moves to the other side and changes sign.",
-        "explanation": "20 − 5 = 15, so x = 15. Keep this 15 — you'll need it in a moment.",
-        "formatHint": "Write only the number."
+        "hint": "Subtract 5 from both sides to leave x by itself.",
+        "explanation": "Subtract 5 from both sides: 20 − 5 = 15. So, x = 15.",
+        "formatHint": "Write only the number.",
+        "doodle": {
+          "type": "equation",
+          "left": "x + 5",
+          "right": "20",
+          "target": "x = ?"
+        }
       },
       {
         "q": "Now with multiplication: 3x = 15. What is x?",
@@ -421,11 +427,17 @@
     },
     "ladder": [
       {
-        "q": "Simple machine: f(x) = 2x. What is f(3)?",
+        "q": "If f(x) = 2x, what is f(3)?",
         "answer": "6",
-        "hint": "Where the x is, write 3 and multiply.",
-        "explanation": "2 × 3 = 6: 3 goes in, 6 comes out. Keep this 6 — the machine is about to grow.",
-        "formatHint": "Write only the number."
+        "hint": "Substitute 3 for x: calculate 2 × 3.",
+        "explanation": "f(3) = 2 × 3 = 6. The input is 3 and the output is 6. Keep this value for the next question.",
+        "formatHint": "Write only the number.",
+        "doodle": {
+          "type": "function",
+          "input": "x = 3",
+          "operation": "× 2",
+          "output": "f(3) = ?"
+        }
       },
       {
         "q": "The machine gained a +1: f(x) = 2x + 1. What is f(3)?",
@@ -886,11 +898,16 @@
     },
     "ladder": [
       {
-        "q": "Warm-up: log₂(8) asks 2 raised to what power gives 8. What is the exponent?",
+        "q": "Calculate log₂(8): what exponent should 2 be raised to in order to get 8?",
         "answer": "3",
-        "hint": "2³ = 8.",
-        "explanation": "3, because 2³ = 8. A logarithm finds the exponent.",
-        "formatHint": "Write only the number."
+        "hint": "Find the exponent n that makes 2ⁿ = 8.",
+        "explanation": "Since 2³ = 8, the exponent is 3. A logarithm tells us which exponent produces the given number.",
+        "formatHint": "Write only the number.",
+        "doodle": {
+          "type": "logarithm",
+          "base": "2",
+          "argument": "8"
+        }
       },
       {
         "q": "Now log₅(25): 5 raised to what power gives 25?",
@@ -1163,11 +1180,17 @@
     },
     "ladder": [
       {
-        "q": "Warm-up: what is the area of a rectangle 6 cm by 4 cm?",
-        "answer": "24",
-        "hint": "A = base × height: multiply 6 by 4.",
-        "explanation": "A = 6 × 4 = 24 cm². Keep this 6 — it comes right back in the next question.",
-        "formatHint": "Write only the number."
+        "q": "What is the area of a rectangle with sides measuring 6 cm and 4 cm?",
+        "answer": "24 cm²",
+        "hint": "Multiply the two side lengths: area = 6 × 4.",
+        "explanation": "A rectangle's area is length × width. So, A = 6 × 4 = 24 cm².",
+        "formatHint": "Include the unit cm² (e.g. 24 cm²).",
+        "doodle": {
+          "type": "rectangle",
+          "base": "6 cm",
+          "height": "4 cm",
+          "target": "A = ?"
+        }
       },
       {
         "q": "Now the perimeter of a square with 6 cm sides?",
@@ -1280,11 +1303,17 @@
     },
     "ladder": [
       {
-        "q": "Warm-up: add A = (1, 2) and B = (2, 2). What is the sum vector?",
+        "q": "Add vectors A = (1, 2) and B = (2, 2). What is the resulting vector?",
         "answer": "(3, 4)",
-        "hint": "X with x, y with y: add matching components.",
-        "explanation": "1 + 2 = 3 and 2 + 2 = 4, so R = (3, 4). Keep this (3, 4) — we use it right after.",
-        "formatHint": "Write it in the form (x, y)."
+        "hint": "Add the x-coordinates together, then add the y-coordinates together.",
+        "explanation": "Add matching coordinates: 1 + 2 = 3 for x, and 2 + 2 = 4 for y. So, R = (3, 4). Keep this vector; you will use it next.",
+        "formatHint": "Write it in the form (x, y).",
+        "doodle": {
+          "type": "vectors",
+          "a": "A = (1, 2)",
+          "b": "B = (2, 2)",
+          "target": "R = ?"
+        }
       },
       {
         "q": "Now the magnitude of the vector (3, 4). What is it?",
@@ -1422,11 +1451,21 @@
     },
     "ladder": [
       {
-        "q": "Warm-up: in the sequence 3, 6, 9, … what is the next term?",
+        "q": "The sequence increases by the same amount each time: 3, 6, 9, … . What is the next term?",
         "answer": "12",
-        "hint": "Notice the jump: from 3 to 6, and from 6 to 9.",
-        "explanation": "9 + 3 = 12. The difference is always 3 — keep this 3, it's the engine of the sequence.",
-        "formatHint": "Write only the number."
+        "hint": "Find the difference between consecutive terms. Add that same difference after 9.",
+        "explanation": "The difference between terms is 3. Add 3 to the last term: 9 + 3 = 12. The sequence increases by 3 each time.",
+        "formatHint": "Write only the number.",
+        "doodle": {
+          "type": "sequence",
+          "terms": [
+            "3",
+            "6",
+            "9",
+            "?"
+          ],
+          "step": "+3"
+        }
       },
       {
         "q": "Still on 3, 6, 9, …: what is the 5th term?",
@@ -1702,11 +1741,17 @@
     },
     "ladder": [
       {
-        "q": "Warm-up: a bag holds 1 red ball and 1 blue one. What is the probability of drawing red?",
+        "q": "If you draw one ball at random from a bag with 1 red ball and 1 blue ball, what is the probability of drawing red?",
         "answer": "0,5",
-        "hint": "Favorable 1, possible 2: build the ratio.",
-        "explanation": "P = 1/2 = 0.5. Half. Now we'll put more balls in the bag.",
-        "formatHint": "Write it as a decimal (comma or point)."
+        "hint": "Divide the number of red balls by the total number of balls.",
+        "explanation": "There is 1 red ball out of 2 balls, so P(red) = 1/2 = 0.5.",
+        "formatHint": "Write the answer as a decimal (e.g. 0.5).",
+        "doodle": {
+          "type": "probability",
+          "red": 1,
+          "blue": 1,
+          "target": "P(red) = ?"
+        }
       },
       {
         "q": "Now the bag has 3 red and 1 blue. What is the probability of drawing red?",

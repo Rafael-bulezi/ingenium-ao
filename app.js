@@ -38,6 +38,11 @@ const EN = {
   "Próxima pergunta":"Next question","← Anterior":"← Back","Ladder completa ✓":"Ladder complete ✓",
   "Escreve a resposta":"Write your answer","A tua resposta":"Your answer","Fácil":"Easy","Médio":"Medium","Escrever":"Type","Escolha múltipla":"Multiple choice",
   "Escolher dificuldade":"Choose difficulty","Escolher formato de resposta":"Choose answer format",
+  "Explicação deste passo":"Why this step?","Revela um passo para ver a explicação.":"Reveal a step to see its explanation.",
+  "Ver como desenho":"View as sketch","Ocultar desenho":"Hide sketch","Esboço do enunciado":"Question sketch",
+  "O esboço mostra os dados e o que descobrir, mas não revela a resposta.":"The sketch shows the given information and target, not the answer.",
+  "Entrada":"Input","Saída":"Output","Escolhe uma ao acaso":"Choose one at random","corpo":"object","Tempo decorrido":"Elapsed time",
+  "← Lição anterior":"← Previous lesson","Navegação da lição":"Lesson navigation",
   "Marcar esta lição como concluída":"Mark this lesson as complete","Próxima lição →":"Next lesson →","Voltar à rota":"Back to path",
   "Experimentar o mini-teste →":"Try the quiz →","Progresso":"Progress","Nota do coach":"Coach note","Mostra o trabalho.":"Show your work.",
   "Mesmo quando a resposta parece óbvia, escreve a fórmula. É assim que evitas perder pontos por distração.":"Even when the answer looks obvious, write the formula. That is how you stop losing points to carelessness.",
@@ -472,6 +477,8 @@ function exampleCard(lesson, shownSteps) {
   const totalLines = lesson.walkthrough.steps.filter(s => s.line).length;
   const linesHtml = lines.map(l => `<div class="quadro-line ${l.ord === totalLines - 1 ? "final" : ""}" data-line-ord="${l.ord}" data-step-line="${l.step}"><span class="step-badge" aria-hidden="true">${l.step + 1}</span><span class="eq" style="transform: rotate(${tiltOf(l.ord)}deg)">${inlineWrite(l.text)}</span><button type="button" class="step-voice" data-say="${l.step}" title="${t("Ouve só este passo")}" aria-label="${t("Ouvir o passo")} ${l.step + 1}">${SPEAKER_ICON}</button></div>`).join("");
   const chips = total > 1 ? `<div class="step-chips" role="group" aria-label="${t("Rever um passo")}">${Array.from({ length: total }, (_, i) => `<button type="button" class="step-chip" data-step-goto="${i}" aria-current="${shown === i + 1 ? "true" : "false"}" title="${t("Ir para o passo")} ${i + 1}">${i + 1}</button>`).join("")}</div>` : "";
+  const activeStep = shown > 0 ? lesson.walkthrough.steps[shown - 1] : null;
+  const explanation = activeStep ? (activeStep.caption || activeStep.say || "") : "";
   const controls = [
     !complete ? `<button class="button button-lime button-small" data-step="next">${t("Mostrar passo")} ${shown + 1} <span>→</span></button>` : `<span class="tag done">${t("Solução completa ✓")}</span>`,
     shown > 1 ? `<button class="button button-ghost button-small" data-step="prev">${t("← Voltar ao passo")} ${shown - 1}</button>` : "",
@@ -480,13 +487,86 @@ function exampleCard(lesson, shownSteps) {
     `<button class="button button-ghost button-small" data-voice aria-pressed="${state.voiceOff ? "false" : "true"}">${state.voiceOff ? t("Voz: desligada") : t("Voz: ligada")}</button>`,
     chips
   ].join("");
-  return `<article class="card example-card${quadroFull ? " quadro-full" : ""}"><div class="example-label"><div><p class="eyebrow">${t("Exemplo guiado")}</p><h2>${escapeHtml(lesson.example)}</h2></div><span class="example-tools"><span class="tag">${t("quadro · passo a passo")}</span><button class="icon-button quadro-expand" data-quadro="full" aria-pressed="${quadroFull}" title="${quadroFull ? t("Sair do ecrã inteiro") : t("Ver em ecrã inteiro")}" aria-label="${lang() === "en" ? "Board fullscreen" : "Ecrã inteiro do quadro"}">${quadroFull ? COLLAPSE_ICON : EXPAND_ICON}</button></span></div><div class="quadro" id="quadro"><div class="quadro-lines">${linesHtml}</div><svg class="quadro-ink" aria-hidden="true"></svg><div class="quadro-notes" aria-hidden="true"></div></div><div class="solution-controls">${controls}</div></article>`;
+  return `<article class="card example-card${quadroFull ? " quadro-full" : ""}"><div class="example-label"><div><p class="eyebrow">${t("Exemplo guiado")}</p><h2>${escapeHtml(lesson.example)}</h2></div><span class="example-tools"><span class="tag">${t("quadro · passo a passo")}</span><button class="icon-button quadro-expand" data-quadro="full" aria-pressed="${quadroFull}" title="${quadroFull ? t("Sair do ecrã inteiro") : t("Ver em ecrã inteiro")}" aria-label="${lang() === "en" ? "Board fullscreen" : "Ecrã inteiro do quadro"}">${quadroFull ? COLLAPSE_ICON : EXPAND_ICON}</button></span></div><div class="quadro" id="quadro"><div class="quadro-lines">${linesHtml}</div><svg class="quadro-ink" aria-hidden="true"></svg><div class="quadro-notes" aria-hidden="true"></div></div><div class="quadro-step-caption" aria-live="polite"><span class="eyebrow">${t("Explicação deste passo")}</span><p>${explanation ? escapeHtml(explanation) : t("Revela um passo para ver a explicação.")}</p></div><div class="solution-controls">${controls}</div></article>`;
 }
-
 function legacyExampleCard(lesson, shownSteps) {
   return `<article class="card"><div class="example-label"><div><p class="eyebrow">${t("Exemplo guiado")}</p><h2>${escapeHtml(lesson.example)}</h2></div><span class="tag">${t("passo a passo")}</span></div><div class="step-list">${lesson.steps.map((step, i) => `${i > 0 ? `<div class="step-connector" aria-hidden="true"><span>↳</span><small>${t("próximo movimento")}</small></div>` : ""}<div class="step ${i < shownSteps ? "" : "hidden-step"}"><span class="step-number">${i+1}</span><p>${escapeHtml(step)}</p></div>`).join("")}</div><div class="solution-controls">${shownSteps < lesson.steps.length ? `<button class="button button-lime button-small" data-step="next">${t("Mostrar passo")} ${shownSteps + 1} <span>→</span></button>` : `<span class="tag done">${t("Solução completa ✓")}</span>`}${shownSteps > 0 && shownSteps < lesson.steps.length ? `<button class="button button-ghost button-small" data-step="all">${t("Ver tudo")}</button>` : ""}</div></article>`;
 }
 
+function renderQuestionDoodle(item) {
+  const d = item && item.doodle;
+  if (!d) return "";
+  const safe = value => escapeHtml(value == null ? "" : String(value));
+  const text = (x, y, value, cls = "qd-label", anchor = "middle") => `<text x="${x}" y="${y}" class="${cls}" text-anchor="${anchor}">${safe(value)}</text>`;
+  const box = (x, y, w, h, cls = "qd-box", radius = 14) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${radius}" class="${cls}"/>`;
+  const line = (x1, y1, x2, y2, cls = "qd-line", end = false) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="${cls}"${end ? ' marker-end="url(#questionSketchArrow)"' : ""}/>`;
+  const defs = `<defs><marker id="questionSketchArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#26324c"/></marker></defs>`;
+  let viewBox = "0 0 600 190";
+  let art = "";
+  switch (d.type) {
+    case "equation":
+      art = `${box(38, 42, 225, 66, "qd-box")}${text(150, 84, d.left)}${text(300, 86, "=", "qd-big")}${box(337, 42, 225, 66, "qd-accent")}${text(450, 84, d.right)}${text(300, 153, d.target, "qd-target")}`;
+      break;
+    case "vectors": {
+      viewBox = "0 0 600 240";
+      const grid = [140, 200, 260, 320, 380, 440, 500].map(x => line(x, 48, x, 204, "qd-grid")).join("") + [80, 120, 160, 200].map(y => line(82, y, 525, y, "qd-grid")).join("");
+      art = `${grid}${line(80, 204, 535, 204, "qd-axis", true)}${line(80, 214, 80, 36, "qd-axis", true)}${line(80, 204, 170, 118, "qd-arrow", true)}${line(80, 204, 260, 118, "qd-arrow-alt", true)}${text(151, 108, d.a, "qd-small")}${text(285, 104, d.b, "qd-small")}${text(445, 62, d.target, "qd-target")}${text(535, 224, "x", "qd-small")}${text(65, 38, "y", "qd-small")}`;
+      break;
+    }
+    case "sequence": {
+      const terms = Array.isArray(d.terms) ? d.terms : [];
+      const centers = [76, 226, 376, 526];
+      art = terms.map((term, i) => `${box(centers[i] - 42, 66, 84, 56, i === terms.length - 1 ? "qd-accent" : "qd-box", 18)}${text(centers[i], 102, term, "qd-big")}`).join("");
+      art += centers.slice(0, terms.length - 1).map((center, i) => `${line(center + 45, 94, centers[i + 1] - 47, 94, "qd-arrow", true)}${text((center + centers[i + 1]) / 2, 58, d.step || "", "qd-small")}`).join("");
+      break;
+    }
+    case "function":
+      art = `${box(25, 55, 155, 78)}${text(102, 88, d.input, "qd-label")}${text(102, 113, t("Entrada"), "qd-small")}${line(188, 94, 235, 94, "qd-arrow", true)}${box(238, 48, 145, 92, "qd-accent")}${text(310, 88, d.operation, "qd-big")}${text(310, 116, "f", "qd-small")}${line(391, 94, 438, 94, "qd-arrow", true)}${box(441, 55, 145, 78)}${text(513, 88, d.output, "qd-label")}${text(513, 113, t("Saída"), "qd-small")}`;
+      break;
+    case "probability":
+      art = `<path d="M112 48 Q300 30 488 48 L466 155 Q300 174 134 155 Z" class="qd-line"/><path d="M210 48 Q300 16 390 48" class="qd-line qd-thin"/>`;
+      for (let i = 0; i < Math.min(Number(d.red) || 0, 5); i++) art += `<circle cx="${205 + i * 42}" cy="93" r="17" class="qd-red"/>`;
+      for (let i = 0; i < Math.min(Number(d.blue) || 0, 5); i++) art += `<circle cx="${205 + i * 42}" cy="132" r="17" class="qd-blue"/>`;
+      art += `${text(300, 183, d.target, "qd-target")}${text(300, 27, t("Escolhe uma ao acaso"), "qd-small")}`;
+      break;
+    case "rectangle":
+      viewBox = "0 0 600 210";
+      art = `<rect x="135" y="48" width="320" height="105" rx="4" class="qd-shape"/>${text(295, 104, d.target, "qd-target")}${line(135, 177, 455, 177, "qd-dimension")}${text(295, 202, d.base, "qd-small")}${line(108, 48, 108, 153, "qd-dimension")}${text(82, 102, d.height, "qd-small")}`;
+      break;
+    case "motion":
+      art = `${line(72, 90, 394, 90, "qd-arrow", true)}${text(232, 72, d.distance, "qd-label")}${line(74, 119, 394, 119, "qd-dash")}${box(425, 45, 142, 82, "qd-accent")}${text(496, 79, d.time, "qd-label")}${text(496, 105, t("Tempo decorrido"), "qd-small")}${text(300, 169, d.target, "qd-target")}`;
+      break;
+    case "forces": {
+      const known = Array.isArray(d.known) ? d.known : [];
+      art = `${box(239, 70, 122, 74, "qd-accent", 8)}${text(300, 115, t("corpo"), "qd-small")}${line(300, 148, 300, 181, "qd-arrow", true)}${text(300, 185, d.target, "qd-small")}`;
+      art += known.map((item, i) => `${box(24, 46 + i * 48, 178, 36, "qd-box", 12)}${text(113, 70 + i * 48, item, "qd-small")}`).join("");
+      break;
+    }
+    case "circuit":
+      viewBox = "0 0 600 220";
+      art = `<path d="M115 52 H230 M370 52 H485 V170 H115 V116 M115 52 V72 M115 104 V170" class="qd-line"/><rect x="230" y="37" width="140" height="30" rx="4" class="qd-accent"/><path d="M252 52 l15 -13 15 26 15 -26 15 26 15 -26 15 13" class="qd-line qd-thin"/>${line(160, 52, 215, 52, "qd-arrow", true)}${text(300, 28, d.resistance, "qd-small")}${text(115, 98, "+", "qd-small")}${text(115, 113, "−", "qd-small")}${text(300, 196, `${d.voltage}  ·  ${d.target}`, "qd-target")}`;
+      break;
+    case "wave":
+      viewBox = "0 0 600 230";
+      art = `<path d="M52 112 C82 42 112 42 142 112 S202 182 232 112 S292 42 322 112 S382 182 412 112 S472 42 502 112 S562 182 592 112" class="qd-wave"/>${line(82, 185, 262, 185, "qd-dimension")}${text(172, 211, `λ = ${d.wavelength}`, "qd-small")}${text(115, 48, `f = ${d.frequency}`, "qd-label")}${text(472, 49, d.target, "qd-target")}`;
+      break;
+    case "triangle":
+      viewBox = "0 0 600 230";
+      if (d.mode === "area") {
+        art = `<path d="M132 170 L132 50 L396 170 Z" class="qd-shape"/>${line(132, 190, 396, 190, "qd-dimension")}${text(264, 216, d.base, "qd-small")}${line(105, 50, 105, 170, "qd-dimension")}${text(77, 114, d.height, "qd-small")}${text(282, 112, d.target, "qd-target")}`;
+      } else {
+        art = `<path d="M140 170 L140 48 L400 170 Z" class="qd-shape"/><path d="M140 150 H160 V170" class="qd-line qd-thin"/>${text(170, 61, d.opposite, "qd-label", "start")}${text(305, 99, d.hypotenuse, "qd-label")}${text(164, 154, "θ", "qd-label")}${box(405, 52, 166, 40, "qd-accent", 12)}${text(488, 78, d.condition, "qd-small")}${text(488, 145, d.target, "qd-target")}`;
+      }
+      break;
+    case "logarithm":
+      art = `${box(38, 38, 524, 58, "qd-box")}${text(300, 77, `${d.base}^? = ${d.argument}`, "qd-big")}${box(98, 115, 404, 50, "qd-accent")}${text(300, 148, `log${d.base}(${d.argument}) = ?`, "qd-label")}`;
+      break;
+    default:
+      return "";
+  }
+  const prompt = item.q || item.prompt || "";
+  return `<figure class="question-doodle"><svg viewBox="${viewBox}" role="img" aria-label="${safe(t("Esboço do enunciado") + (prompt ? ": " + prompt : ""))}" xmlns="http://www.w3.org/2000/svg">${defs}${art}</svg><figcaption>${t("O esboço mostra os dados e o que descobrir, mas não revela a resposta.")}</figcaption></figure>`;
+}
 function ladderCard(lesson, practice) {
   const ladder = lesson.ladder;
   const total = ladder.length;
@@ -496,10 +576,11 @@ function ladderCard(lesson, practice) {
   const res = results[qi] || {};
   const last = qi === total - 1;
   const done = Boolean(res.correct || res.revealed);
+  const doodleOpen = practice && practice.doodleQi === qi;
   const dots = ladder.map((_, i) => `<button type="button" class="${results[i] && results[i].correct ? "done" : ""}" data-practice="goto" data-qi="${i}" aria-current="${i === qi ? "true" : "false"}" aria-label="${t("Ir para a pergunta")} ${i + 1}" title="${t("Pergunta")} ${i + 1}"></button>`).join("");
-  return `<article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">${t("Agora tu")}</p><h2>${t("Prática rápida")}</h2></div><span class="tag">${t("Pergunta")} ${qi + 1} ${t("de")} ${total}</span></div><div class="ladder-dots" aria-hidden="true">${dots}</div><p class="question-line">${escapeHtml(item.q)}</p><div class="answer-row"><input id="practice-answer" value="${escapeHtml(res.value || "")}" placeholder="${escapeHtml(item.formatHint || t("Escreve a resposta"))}" aria-label="${t("A tua resposta")}" title="${escapeHtml(item.formatHint || t("Escreve a resposta"))}" /><span class="format-help" title="${escapeHtml(item.formatHint || t("Escreve a resposta"))}">i</span><button class="button button-primary button-small" data-practice="check">${t("Verificar")}</button></div><div class="solution-controls">${qi > 0 ? `<button class="button button-ghost button-small" data-practice="prev">${t("← Anterior")}</button>` : ""}${!done ? `<button class="button button-ghost button-small" data-practice="hint">${t("Dar uma pista")}</button><button class="button button-ghost button-small" data-practice="reveal">${t("Mostrar resposta")}</button>` : ""}${done && !last ? `<button class="button button-lime button-small" data-practice="next">${t("Próxima pergunta")} <span>→</span></button>` : ""}${done && last ? `<span class="tag done">${t("Ladder completa ✓")}</span>` : ""}</div>${res.correct ? `<div class="practice-feedback good"><strong>${t("Deu bom, demais.")}</strong> ${escapeHtml(item.explanation)}</div>` : ""}${res.checked && !res.correct && !res.revealed ? `<div class="practice-feedback try">${t("Calma, sem drama. Vê a pista ou revela a resposta e reescreve o passo.")}</div>` : ""}${res.hintShown && !done ? `<div class="practice-feedback">${t("Pista:")} ${escapeHtml(item.hint)}</div>` : ""}${res.revealed ? `<div class="practice-feedback good"><strong>${t("Resposta:")} ${escapeHtml(item.answer)}</strong><br>${escapeHtml(item.explanation)}</div>` : ""}</article>`;
+  const sketchControl = item.doodle ? `<div class="question-sketch-action"><button type="button" class="button button-ghost button-small" data-practice-doodle="${qi}" aria-expanded="${Boolean(doodleOpen)}">${doodleOpen ? t("Ocultar desenho") : t("Ver como desenho")}</button></div>${doodleOpen ? renderQuestionDoodle(item) : ""}` : "";
+  return `<article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">${t("Agora tu")}</p><h2>${t("Prática rápida")}</h2></div><span class="tag">${t("Pergunta")} ${qi + 1} ${t("de")} ${total}</span></div><div class="ladder-dots" aria-hidden="true">${dots}</div><p class="question-line">${escapeHtml(item.q)}</p>${sketchControl}<div class="answer-row"><input id="practice-answer" value="${escapeHtml(res.value || "")}" placeholder="${escapeHtml(item.formatHint || t("Escreve a resposta"))}" aria-label="${t("A tua resposta")}" title="${escapeHtml(item.formatHint || t("Escreve a resposta"))}" /><span class="format-help" title="${escapeHtml(item.formatHint || t("Escreve a resposta"))}">i</span><button class="button button-primary button-small" data-practice="check">${t("Verificar")}</button></div><div class="solution-controls">${qi > 0 ? `<button class="button button-ghost button-small" data-practice="prev">${t("← Anterior")}</button>` : ""}${!done ? `<button class="button button-ghost button-small" data-practice="hint">${t("Dar uma pista")}</button><button class="button button-ghost button-small" data-practice="reveal">${t("Mostrar resposta")}</button>` : ""}${done && !last ? `<button class="button button-lime button-small" data-practice="next">${t("Próxima pergunta")} <span>→</span></button>` : ""}${done && last ? `<span class="tag done">${t("Ladder completa ✓")}</span>` : ""}</div>${res.correct ? `<div class="practice-feedback good"><strong>${t("Deu bom, demais.")}</strong> ${escapeHtml(item.explanation)}</div>` : ""}${res.checked && !res.correct && !res.revealed ? `<div class="practice-feedback try">${t("Calma, sem drama. Vê a pista ou revela a resposta e reescreve o passo.")}</div>` : ""}${res.hintShown && !done ? `<div class="practice-feedback">${t("Pista:")} ${escapeHtml(item.hint)}</div>` : ""}${res.revealed ? `<div class="practice-feedback good"><strong>${t("Resposta:")} ${escapeHtml(item.answer)}</strong><br>${escapeHtml(item.explanation)}</div>` : ""}</article>`;
 }
-
 function lineBox(quadro, base, l) {
   const line = quadro.querySelector(`.quadro-line[data-line-ord="${l}"]`);
   if (!line) return null;
@@ -865,7 +946,8 @@ function renderLesson() {
   const key = lesson.id.startsWith("m-") ? "math" : "physics";
   const subject = subjects[key];
   const index = subject.lessons.findIndex(l => l.id === lesson.id);
-  const next = subject.lessons[index + 1] || allLessons().find(l => !isDone(l.id) && l.id !== lesson.id);
+  const previous = subject.lessons[index - 1] || null;
+  const next = subject.lessons[index + 1] || null;
   const practice = state.practice[lesson.id] || {};
   const activeLevel = practice.level === "medium" ? "medium" : "easy";
   const activeMode = practice.mode === "mc" ? "mc" : "typed";
@@ -880,15 +962,21 @@ function renderLesson() {
     ${triCard(lesson)}
     ${exampleCard(lesson, shownSteps)}
     ${lesson.ladder && lesson.ladder.length ? ladderCard(lesson, practice) : `<article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">${t("Agora tu")}</p><h2>${t("Prática rápida")}</h2></div><div class="level-switch" aria-label="${t("Escolher dificuldade")}"><button class="level-button ${activeLevel === "easy" ? "active" : ""}" data-level="easy">${t("Fácil")}</button><button class="level-button ${activeLevel === "medium" ? "active" : ""}" data-level="medium">${t("Médio")}</button></div></div><div class="mode-switch" aria-label="${t("Escolher formato de resposta")}"><button class="mode-button ${activeMode === "typed" ? "active" : ""}" data-mode="typed">${t("Escrever")}</button><button class="mode-button ${activeMode === "mc" ? "active" : ""}" data-mode="mc">${t("Escolha múltipla")}</button></div><p class="question-line">${escapeHtml(activeData.practice)}</p>${activeMode === "mc" ? `<div class="practice-options">${optionOrder.map((optionIndex, displayIndex) => `<button class="practice-option ${currentAnswer === options[optionIndex] ? "selected" : ""}" data-choice="${optionIndex}"><span>${String.fromCharCode(65 + displayIndex)}</span>${escapeHtml(options[optionIndex])}</button>`).join("")}</div><button class="button button-primary button-small" data-practice="check">${t("Verificar escolha")}</button>` : `<div class="answer-row"><input id="practice-answer" value="" placeholder="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}" aria-label="${t("A tua resposta")}" title="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}" /><span class="format-help" title="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}">i</span><button class="button button-primary button-small" data-practice="check">${t("Verificar")}</button></div>`}<div class="solution-controls"><button class="button button-ghost button-small" data-practice="hint">${t("Dar uma pista")}</button><button class="button button-ghost button-small" data-practice="reveal">${t("Mostrar resposta")}</button></div>${practice?.feedback ? `<div class="practice-feedback ${practice.correct ? "good" : "try"}">${practice.feedback}</div>` : ""}${practice?.hintShown ? `<div class="practice-feedback">${t("Pista:")} ${escapeHtml(activeData.hint)}</div>` : ""}${practice?.revealed ? `<div class="practice-feedback good"><strong>${t("Resposta:")} ${escapeHtml(activeData.answer)}</strong><br>${escapeHtml(activeData.explanation)}</div>` : ""}</article>`}
-    <article class="card"><label class="check-row"><input type="checkbox" data-complete ${isDone(lesson.id) ? "checked" : ""} /> <span>${t("Marcar esta lição como concluída")}</span></label>${isDone(lesson.id) && next ? `<div class="hero-actions" style="margin-top:16px"><a class="button button-lime" href="#lesson/${next.id}">${t("Próxima lição →")}</a><a class="button button-ghost" href="#path/${key}">${t("Voltar à rota")}</a></div>` : isDone(lesson.id) ? `<div class="hero-actions" style="margin-top:16px"><a class="button button-lime" href="#test">${t("Experimentar o mini-teste →")}</a></div>` : ""}</article>
+    <article class="card lesson-end-card"><label class="check-row"><input type="checkbox" data-complete ${isDone(lesson.id) ? "checked" : ""} /> <span>${t("Marcar esta lição como concluída")}</span></label><nav class="lesson-sequence-nav" aria-label="${t("Navegação da lição")}">${previous ? `<a class="button button-ghost button-small" href="#lesson/${previous.id}">${t("← Lição anterior")}</a>` : `<a class="button button-ghost button-small" href="#path/${key}">${t("Voltar à rota")}</a>`}${next ? `<a class="button button-lime button-small" href="#lesson/${next.id}">${t("Próxima lição →")}</a>` : `<a class="button button-lime button-small" href="#test">${t("Experimentar o mini-teste →")}</a>`}</nav></article>
   </div><aside class="lesson-side"><div class="card side-card"><p class="eyebrow">${t("Progresso")} ${t(subject.label)}</p><h3>${subjectProgress(key).done}/${subject.lessons.length} ${t("concluídas")}</h3>${progressBar(Math.round(subjectProgress(key).done / subject.lessons.length * 100), t("Progresso da matéria"))}<div class="side-progress">${subject.lessons.map(l => `<i class="${isDone(l.id) ? "done" : ""}"></i>`).join("")}</div></div><div class="card side-card"><p class="eyebrow">${t("Nota do coach")}</p><h3>${t("Mostra o trabalho.")}</h3><p class="muted">${t("Mesmo quando a resposta parece óbvia, escreve a fórmula. É assim que evitas perder pontos por distração.")}</p><div class="side-actions"><a class="button button-ghost button-small" href="#test">${t("Mini-teste de 20 min")}</a></div></div></aside></div>`;
 }
 
 function renderTest() {
   if (!testSession) return `<div class="test-header"><div><p class="eyebrow">${t("Avaliação rápida")}</p><h1>${t("Mini-teste.")}</h1></div><div class="timer"><small>${t("tempo")}</small>20:00</div></div><div class="test-card"><div class="test-intro"><p class="eyebrow" style="color:var(--lime)">${t("Matemática")} + ${t("Física")}</p><h2>${t("Vinte minutos para medir o que já sabes.")}</h2><p>${t("São {count} perguntas de escolha múltipla. No fim, recebes a pontuação, as respostas certas e uma revisão curta de cada raciocínio.").replace("{count}", String(testQuestions.length))}</p><div class="test-rules"><div class="test-rule"><strong>${testQuestions.length}</strong><span>${t("perguntas")}</span></div><div class="test-rule"><strong>20′</strong><span>${t("contagem")}</span></div><div class="test-rule"><strong>1</strong><span>${t("tentativa guiada")}</span></div></div><button class="button button-lime" data-test="start">${t("Começar agora")} <span>→</span></button></div></div>`;
   if (testSession.finished) return renderTestResult();
-  const q = testQuestions[testSession.index]; const selected = testSession.answers[testSession.index]; const remaining = Math.max(0, testSession.endsAt - Date.now()); const mins = String(Math.floor(remaining/60000)).padStart(2,"0"); const secs = String(Math.floor((remaining%60000)/1000)).padStart(2,"0");
-  return `<div class="test-header"><div><p class="eyebrow">${t("Mini-teste")} · ${t(q.subject)}</p><h1>${t("Escolhe com método.")}</h1></div><div class="timer"><small>${t("restante")}</small><span id="test-timer">${mins}:${secs}</span></div></div><div class="test-card"><div class="question-card"><div class="question-progress"><span>${testSession.index + 1} / ${testQuestions.length}</span>${progressBar(Math.round((testSession.index / testQuestions.length)*100), t("Progresso do teste"))}</div><h2>${escapeHtml(q.prompt)}</h2><div class="option-list">${q.options.map((option, i) => `<button class="option ${selected === i ? "selected" : ""}" data-option="${i}"><span class="option-letter">${String.fromCharCode(65+i)}</span>${escapeHtml(option)}</button>`).join("")}</div><div class="test-actions">${testSession.index > 0 ? `<button class="button button-ghost button-small" data-test="prev">${t("← Anterior")}</button>` : `<span></span>`}${testSession.index === testQuestions.length - 1 ? `<button class="button button-primary button-small" data-test="finish">${t("Terminar teste")}</button>` : `<button class="button button-primary button-small" data-test="next">${t("Próxima")} →</button>`}</div></div></div>`;
+  const q = testQuestions[testSession.index];
+  const selected = testSession.answers[testSession.index];
+  const remaining = Math.max(0, testSession.endsAt - Date.now());
+  const mins = String(Math.floor(remaining / 60000)).padStart(2, "0");
+  const secs = String(Math.floor((remaining % 60000) / 1000)).padStart(2, "0");
+  const doodleOpen = Boolean(q.doodle && testSession.doodleIndex === testSession.index);
+  const sketchControl = q.doodle ? `<div class="question-sketch-action"><button type="button" class="button button-ghost button-small" data-test-doodle aria-expanded="${doodleOpen}">${doodleOpen ? t("Ocultar desenho") : t("Ver como desenho")}</button></div>${doodleOpen ? renderQuestionDoodle(q) : ""}` : "";
+  return `<div class="test-header"><div><p class="eyebrow">${t("Mini-teste")} · ${t(q.subject)}</p><h1>${t("Escolhe com método.")}</h1></div><div class="timer"><small>${t("restante")}</small><span id="test-timer">${mins}:${secs}</span></div></div><div class="test-card"><div class="question-card"><div class="question-progress"><span>${testSession.index + 1} / ${testQuestions.length}</span>${progressBar(Math.round((testSession.index / testQuestions.length) * 100), t("Progresso do teste"))}</div><h2>${escapeHtml(q.prompt)}</h2>${sketchControl}<div class="option-list">${q.options.map((option, i) => `<button class="option ${selected === i ? "selected" : ""}" data-option="${i}"><span class="option-letter">${String.fromCharCode(65 + i)}</span>${escapeHtml(option)}</button>`).join("")}</div><div class="test-actions">${testSession.index > 0 ? `<button class="button button-ghost button-small" data-test="prev">${t("← Anterior")}</button>` : `<span></span>`}${testSession.index === testQuestions.length - 1 ? `<button class="button button-primary button-small" data-test="finish">${t("Terminar teste")}</button>` : `<button class="button button-primary button-small" data-test="next">${t("Próxima")} →</button>`}</div></div></div>`;
 }
 function renderTestResult() {
   const score = testSession.score; const pctScore = Math.round(score / testQuestions.length * 100); const feedback = pctScore >= 80 ? t("Base forte. Agora transforma acerto em consistência.") : pctScore >= 50 ? t("Bom começo. Revê os erros e repete as lições marcadas.") : t("Sem drama: os erros mostram exactamente onde estudar a seguir.");
@@ -951,7 +1039,7 @@ function startLessonTimer() {
   }, 1000);
 }
 function startTimerLoop() { clearInterval(timerLoop); timerLoop = setInterval(() => { if (!testSession || testSession.finished) return clearInterval(timerLoop); if (Date.now() >= testSession.endsAt) { finishTest(); } else { const el = document.querySelector("#test-timer"); if (el) { const r = Math.max(0, testSession.endsAt-Date.now()); el.textContent = `${String(Math.floor(r/60000)).padStart(2,"0")}:${String(Math.floor((r%60000)/1000)).padStart(2,"0")}`; } } }, 500); }
-function startTest() { testSession = { index:0, answers:Array(testQuestions.length).fill(null), endsAt:Date.now()+20*60*1000, finished:false, score:0 }; render(); }
+function startTest() { testSession = { index:0, answers:Array(testQuestions.length).fill(null), endsAt:Date.now()+20*60*1000, finished:false, score:0, doodleIndex:null }; render(); }
 function finishTest() { if (!testSession || testSession.finished) return; testSession.score = testSession.answers.reduce((n, answer, i) => n + (answer === testQuestions[i].correct ? 1 : 0), 0); testSession.finished = true; state.test = {score:testSession.score, total:testQuestions.length, at:new Date().toISOString()}; saveState(); clearInterval(timerLoop); render(); }
 function resetAll() { state = defaultState(); testSession = null; saveState(); showToast(t("Progresso limpo. A rota está pronta de novo.")); navigate("#home"); }
 
@@ -989,6 +1077,17 @@ document.addEventListener("click", event => {
     return;
   }
   const voice = event.target.closest("[data-voice]"); if (voice) { state.voiceOff = !state.voiceOff; stopSpeaking(); saveState(); render(); return; }
+  const practiceDoodle = event.target.closest("[data-practice-doodle]"); if (practiceDoodle) {
+    const lesson = lessonById(route.lessonId);
+    const saved = state.practice[lesson.id] || {};
+    const qi = Number(practiceDoodle.dataset.practiceDoodle);
+    state.practice[lesson.id] = { ...saved, doodleQi: saved.doodleQi === qi ? null : qi };
+    saveState(); render(); return;
+  }
+  const testDoodle = event.target.closest("[data-test-doodle]"); if (testDoodle && testSession) {
+    testSession.doodleIndex = testSession.doodleIndex === testSession.index ? null : testSession.index;
+    render(); return;
+  }
   const qf = event.target.closest("[data-quadro='full']"); if (qf) { setQuadroFull(!quadroFull); return; }
   const prep = event.target.closest("[data-prep]"); if (prep) { state.prep = !state.prep; saveState(); showToast(state.prep ? t("Modo preparação ligado. Todas as lições estão abertas.") : t("Modo preparação desligado. A rota volta ao normal.")); render(); return; }
   const langBtn = event.target.closest("[data-lang]"); if (langBtn) { if (state.lang !== langBtn.dataset.lang) { state.lang = langBtn.dataset.lang; saveState(); reloadLang(); } return; }

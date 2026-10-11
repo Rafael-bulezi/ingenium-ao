@@ -208,11 +208,17 @@
     },
     "ladder": [
       {
-        "q": "Para aquecer: um móvel percorre 40 m em 4 s. Qual a velocidade média?",
+        "q": "Um corpo percorre 40 m em 4 s. Qual é a sua velocidade média, em m/s?",
         "answer": "10 m/s",
-        "hint": "v = Δs ÷ Δt.",
-        "explanation": "v = 40 ÷ 4 = 10 m/s. Guarda este 10 — vais precisar dele já a seguir.",
-        "formatHint": "Inclui a unidade (ex.: 10 m/s)"
+        "hint": "A velocidade média é a distância dividida pelo tempo: v = Δs ÷ Δt.",
+        "explanation": "Divide a distância pelo tempo: v = 40 m ÷ 4 s = 10 m/s. A velocidade média é 10 m/s.",
+        "formatHint": "Inclui a unidade (ex.: 10 m/s)",
+        "doodle": {
+          "type": "motion",
+          "distance": "40 m",
+          "time": "4 s",
+          "target": "v = ?"
+        }
       },
       {
         "q": "O móvel da pergunta 1 passa de 10 m/s para 18 m/s em 4 s. Aceleração?",
@@ -394,11 +400,19 @@
     },
     "ladder": [
       {
-        "q": "Para aquecer: com g = 10 m/s², qual o peso de 2 kg?",
+        "q": "Com g = 10 m/s², qual é o peso de um corpo com massa de 2 kg?",
         "answer": "20 N",
-        "hint": "P = m × g.",
-        "explanation": "P = 2 × 10 = 20 N. Na pergunta 2 vamos virar a fórmula e pedir a massa.",
-        "formatHint": "Inclui a unidade (ex.: 20 N)"
+        "hint": "Multiplica a massa pela aceleração da gravidade: P = m × g.",
+        "explanation": "P = 2 kg × 10 m/s² = 20 N. O peso é uma força, por isso a unidade é o newton (N).",
+        "formatHint": "Inclui a unidade (ex.: 20 N)",
+        "doodle": {
+          "type": "forces",
+          "known": [
+            "m = 2 kg",
+            "g = 10 m/s²"
+          ],
+          "target": "P = ?"
+        }
       },
       {
         "q": "Um corpo pesa 40 N. Com g = 10 m/s², qual é a massa?",
@@ -915,11 +929,17 @@
     },
     "ladder": [
       {
-        "q": "Começamos levinho: um resistor de 5 Ω está ligado a 10 V. Qual é a corrente I = V/R?",
+        "q": "Um resistor de 5 Ω está ligado a uma tensão de 10 V. Qual é a corrente elétrica?",
         "answer": "2 A",
-        "hint": "Divide a tensão pela resistência: 10 ÷ 5.",
-        "explanation": "I = 10 ÷ 5 = 2 A. Guarda estes 2 A — vais usá-los já na próxima.",
-        "formatHint": "Inclui a unidade (ex.: 2 A)."
+        "hint": "Divide a tensão (10 V) pela resistência (5 Ω).",
+        "explanation": "Pela lei de Ohm, I = V ÷ R. Substitui os valores: I = 10 V ÷ 5 Ω = 2 A.",
+        "formatHint": "Inclui a unidade (ex.: 2 A).",
+        "doodle": {
+          "type": "circuit",
+          "voltage": "10 V",
+          "resistance": "5 Ω",
+          "target": "I = ?"
+        }
       },
       {
         "q": "Com os mesmos 10 V e 2 A, qual é a potência P = V·I?",
@@ -1082,11 +1102,17 @@
     },
     "ladder": [
       {
-        "q": "Começamos levinho: uma onda tem f = 4 Hz e λ = 2 m. Quanto é f × λ?",
-        "answer": "8",
-        "hint": "Multiplica os dois valores.",
-        "explanation": "f × λ = 8: essa é a velocidade da onda. Guarda este 8 — usas-o já a seguir.",
-        "formatHint": "Escreve só o número."
+        "q": "Uma onda tem frequência de 4 Hz e comprimento de onda de 2 m. Calcula a velocidade em m/s.",
+        "answer": "8 m/s",
+        "hint": "Multiplica 4 Hz por 2 m: v = f × λ.",
+        "explanation": "v = f × λ = 4 Hz × 2 m = 8 m/s. O produto dá a velocidade da onda.",
+        "formatHint": "Inclui a unidade m/s (ex.: 8 m/s).",
+        "doodle": {
+          "type": "wave",
+          "frequency": "4 Hz",
+          "wavelength": "2 m",
+          "target": "v = ?"
+        }
       },
       {
         "q": "Com v = 8 m/s, a frequência passa a 2 Hz. Quanto é λ = v/f?",
