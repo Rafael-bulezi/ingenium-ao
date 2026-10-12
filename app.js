@@ -28,6 +28,7 @@ const EN = {
   "min":"min","prioridade IE":"IE priority","concluída":"completed",
   "Ideia-chave":"Key idea","Fórmula em triângulo":"Formula triangle",
   "Primeiro, a ideia":"First, the idea","O que está a acontecer?":"What is happening?","Relação útil":"Useful relationship","Traduzir os símbolos":"Make sense of the symbols",
+  "A ideia":"The idea","A relação":"The relationship","Prática":"Practice","Etapa":"Stage","Ouvir esta etapa":"Listen to this stage","Seguinte":"Next","Etapa anterior":"Previous stage","Em palavras simples":"In simple terms","O que liga estes valores?":"What connects these values?","Lê a relação antes de a usar no exemplo.":"Read the relationship before using it in the example.","Símbolos e unidades":"Symbols and units","Próxima lição":"Next lesson",
   "Vamos por partes":"Let's take it one step at a time","Revela um passo de cada vez; cada linha acrescenta uma ideia.":"Reveal one step at a time; each line adds one idea.",
   "Passo":"Step","A ideia deste passo":"The idea behind this step","Começa com a primeira linha e acompanha o raciocínio, um movimento de cada vez.":"Start with the first line and follow the reasoning, one move at a time.",
   "Um movimento de cada vez":"One move at a time","Primeiro vamos perceber o que o problema pede. Depois escolhemos a relação certa e calculamos sem saltar passos.":"First, identify what the problem asks. Then choose the right relationship and calculate without skipping steps.","Progresso dos passos":"Step progress",
@@ -150,7 +151,7 @@ async function ensureDataForView() {
   if (route.view === "atalhos") await ensureAtalhosData();
 }
 
-function defaultState() { return { completed: [], practice: {}, test: null, voiceOff: false, prep: false, triDeep: {}, time: {}, lang: "pt" }; }
+function defaultState() { return { completed: [], practice: {}, test: null, voiceOff: false, prep: false, triDeep: {}, time: {}, lessonStages: {}, lang: "pt" }; }
 function loadState() {
   try {
     let raw = localStorage.getItem(STORAGE_KEY);
@@ -220,7 +221,7 @@ function renderPath() {
 
 /* ===== Quadro manuscrito: passo a passo com voz e rabiscos ===== */
 
-const MARK_COLORS = { coral: "#e2604b", blue: "#3e6bdc", lime: "#4c8a3f", ink: "#3a4762" };
+const MARK_COLORS = { coral: "#bf6659", blue: "#416f99", lime: "#648361", ink: "#30445e" };
 let quadroFx = null;
 let currentAudio = null;
 let preloaded = [];
@@ -253,7 +254,9 @@ function r0(v) { return Math.round(v * 10) / 10; }
 function pickVoice() {
   if (!("speechSynthesis" in window)) return null;
   const voices = speechSynthesis.getVoices() || [];
-  return voices.find(v => v.lang === "pt-PT") || voices.find(v => /^pt/i.test(v.lang)) || null;
+  const preferred = lang() === "en" ? "en-US" : "pt-PT";
+  const language = preferred.slice(0, 2).toLowerCase();
+  return voices.find(v => v.lang.toLowerCase() === preferred.toLowerCase()) || voices.find(v => v.lang.toLowerCase().startsWith(language)) || null;
 }
 function stopAudio() { if (!currentAudio) return; currentAudio.pause(); currentAudio.currentTime = 0; currentAudio = null; }
 function stopSpeaking() { if ("speechSynthesis" in window) speechSynthesis.cancel(); stopAudio(); }
@@ -263,7 +266,7 @@ function speakStep(text) {
   const utterance = new SpeechSynthesisUtterance(text);
   const voice = pickVoice();
   if (voice) utterance.voice = voice;
-  utterance.lang = "pt-PT";
+  utterance.lang = lang() === "en" ? "en-US" : "pt-PT";
   utterance.rate = 1.03;
   utterance.pitch = 1;
   speechSynthesis.speak(utterance);
@@ -510,9 +513,42 @@ function guidedPhysicsCard(lesson, shownSteps) {
 }
 
 function guideIdeaCard(lesson) {
-  const guide = lesson.guide;
-  const symbols = guide?.symbols || [];
-  return `<article class="card guide-idea-card"><div class="guide-idea-copy"><p class="eyebrow">${t("Primeiro, a ideia")}</p><h2>${t("O que está a acontecer?")}</h2><p>${escapeHtml(guide?.hook || lesson.concept)}</p><div class="guide-formula"><span>${t("Relação útil")}</span><strong>${escapeHtml(lesson.formula)}</strong></div></div><div class="guide-symbol-panel"><p class="eyebrow">${t("Traduzir os símbolos")}</p><div class="guide-symbol-list">${symbols.map(s=>`<div class="guide-symbol"><strong>${escapeHtml(s.symbol)}</strong><span>${escapeHtml(s.meaning)}</span></div>`).join("")}</div></div></article>`;
+  const guide = lesson.guide || {};
+  return `<article class="lesson-explainer lesson-idea-card"><p class="eyebrow">${t("Primeiro, a ideia")}</p><h2>${t("O que está a acontecer?")}</h2><p class="lesson-hook">${escapeHtml(guide.hook || lesson.concept)}</p><div class="lesson-idea-note"><span>${t("Em palavras simples")}</span><p>${escapeHtml(lesson.concept || guide.hook || "")}</p></div></article>`;
+}
+function lessonRuleCard(lesson) {
+  const symbols = lesson.guide?.symbols || [];
+  return `<article class="lesson-explainer lesson-rule-card"><p class="eyebrow">${t("A relação")}</p><h2>${t("O que liga estes valores?")}</h2><p class="lesson-rule-intro">${t("Lê a relação antes de a usar no exemplo.")}</p><div class="lesson-formula-sheet"><span>${t("Relação útil")}</span><strong>${escapeHtml(lesson.formula || "")}</strong></div>${symbols.length ? `<div class="lesson-symbols"><p class="eyebrow">${t("Símbolos e unidades")}</p><div class="lesson-symbol-list">${symbols.map(s=>`<div class="lesson-symbol"><strong>${escapeHtml(s.symbol)}</strong><span>${escapeHtml(s.meaning)}</span></div>`).join("")}</div></div>` : ""}</article>`;
+}
+function lessonPracticeCard(lesson, practice) {
+  if (lesson.ladder && lesson.ladder.length) return ladderCard(lesson, practice);
+  const activeLevel = practice.level === "medium" ? "medium" : "easy";
+  const activeMode = practice.mode === "mc" ? "mc" : "typed";
+  const activeData = activeLevel === "medium" && lesson.medium ? lesson.medium : lesson;
+  const options = activeData.options || [];
+  const optionOrder = options.length ? options.map((_, i) => i).sort((a,b) => ((a + lesson.id.length * 3) % options.length) - ((b + lesson.id.length * 3) % options.length)) : [];
+  const currentAnswer = practice.selected || "";
+  return `<article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">${t("Agora tu")}</p><h2>${t("Prática rápida")}</h2></div><div class="level-switch" aria-label="${t("Escolher dificuldade")}"><button class="level-button ${activeLevel === "easy" ? "active" : ""}" data-level="easy">${t("Fácil")}</button><button class="level-button ${activeLevel === "medium" ? "active" : ""}" data-level="medium">${t("Médio")}</button></div></div><div class="mode-switch" aria-label="${t("Escolher formato de resposta")}"><button class="mode-button ${activeMode === "typed" ? "active" : ""}" data-mode="typed">${t("Escrever")}</button><button class="mode-button ${activeMode === "mc" ? "active" : ""}" data-mode="mc">${t("Escolha múltipla")}</button></div><p class="question-line">${escapeHtml(activeData.practice)}</p>${activeMode === "mc" ? `<div class="practice-options">${optionOrder.map((optionIndex, displayIndex) => `<button class="practice-option ${currentAnswer === options[optionIndex] ? "selected" : ""}" data-choice="${optionIndex}"><span>${String.fromCharCode(65 + displayIndex)}</span>${escapeHtml(options[optionIndex])}</button>`).join("")}</div><button class="button button-primary button-small" data-practice="check">${t("Verificar escolha")}</button>` : `<div class="answer-row"><input id="practice-answer" value="" placeholder="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}" aria-label="${t("A tua resposta")}" title="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}" /><span class="format-help" title="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}">i</span><button class="button button-primary button-small" data-practice="check">${t("Verificar")}</button></div>`}<div class="solution-controls"><button class="button button-ghost button-small" data-practice="hint">${t("Dar uma pista")}</button><button class="button button-ghost button-small" data-practice="reveal">${t("Mostrar resposta")}</button></div>${practice?.feedback ? `<div class="practice-feedback ${practice.correct ? "good" : "try"}">${practice.feedback}</div>` : ""}${practice?.hintShown ? `<div class="practice-feedback">${t("Pista:")} ${escapeHtml(activeData.hint)}</div>` : ""}${practice?.revealed ? `<div class="practice-feedback good"><strong>${t("Resposta:")} ${escapeHtml(activeData.answer)}</strong><br>${escapeHtml(activeData.explanation)}</div>` : ""}</article>`;
+}
+const LESSON_STAGE_LABELS = ["A ideia", "A relação", "Exemplo guiado", "Prática"];
+function lessonStageAudioText(lesson, stageIndex, shownSteps) {
+  if (stageIndex === 0) return lesson.guide?.hook || lesson.concept || "";
+  if (stageIndex === 1) return [lesson.formula, ...(lesson.guide?.symbols || []).map(s => `${s.symbol}: ${s.meaning}`)].filter(Boolean).join(". ");
+  if (stageIndex === 2) {
+    const index = Math.max(0, Math.min((shownSteps || 1) - 1, stepCount(lesson) - 1));
+    const walkthrough = lesson.walkthrough?.steps?.[index];
+    const guided = lesson.guide?.steps?.[index];
+    return [walkthrough?.say || walkthrough?.line || guided?.line, guided?.why || walkthrough?.caption].filter(Boolean).join(". ");
+  }
+  return lesson.practice || "";
+}
+function lessonStageFooter(lesson, key, next, stageIndex, shownSteps) {
+  const total = LESSON_STAGE_LABELS.length;
+  const audioText = lessonStageAudioText(lesson, stageIndex, shownSteps);
+  const previous = stageIndex > 0 ? `<button type="button" class="stage-nav-button stage-nav-previous" data-lesson-stage="${stageIndex - 1}"><span aria-hidden="true">←</span>${t("Etapa anterior")}</button>` : `<a class="stage-nav-button stage-nav-previous" href="#path/${key}"><span aria-hidden="true">←</span>${t("Voltar à rota")}</a>`;
+  const center = `<button type="button" class="stage-audio-button" data-stage-audio data-audio-text="${escapeHtml(audioText)}" ${stageIndex === 2 ? `data-audio-src="${escapeHtml(audioUrl(lesson.id, Math.max(0, (shownSteps || 1) - 1)))}"` : ""} aria-label="${t("Ouvir esta etapa")}" title="${t("Ouvir esta etapa")}">${SPEAKER_ICON}</button>`;
+  const forward = stageIndex < total - 1 ? `<button type="button" class="stage-nav-button stage-nav-next" data-lesson-stage="${stageIndex + 1}">${t("Seguinte")} <span aria-hidden="true">→</span></button>` : next ? `<a class="stage-nav-button stage-nav-next" href="#lesson/${next.id}">${t("Próxima lição")} <span aria-hidden="true">→</span></a>` : `<a class="stage-nav-button stage-nav-next" href="#test">${t("Experimentar o mini-teste →")}</a>`;
+  return `<nav class="lesson-stage-nav" aria-label="${t("Navegação da lição")}">${previous}${center}${forward}</nav>`;
 }
 function legacyExampleCard(lesson, shownSteps) {
   return `<article class="card"><div class="example-label"><div><p class="eyebrow">${t("Exemplo guiado")}</p><h2>${escapeHtml(lesson.example)}</h2></div><span class="tag">${t("passo a passo")}</span></div><div class="step-list">${lesson.steps.map((step, i) => `${i > 0 ? `<div class="step-connector" aria-hidden="true"><span>↳</span><small>${t("próximo movimento")}</small></div>` : ""}<div class="step ${i < shownSteps ? "" : "hidden-step"}"><span class="step-number">${i+1}</span><p>${escapeHtml(step)}</p></div>`).join("")}</div><div class="solution-controls">${shownSteps < lesson.steps.length ? `<button class="button button-lime button-small" data-step="next">${t("Mostrar passo")} ${shownSteps + 1} <span>→</span></button>` : `<span class="tag done">${t("Solução completa ✓")}</span>`}${shownSteps > 0 && shownSteps < lesson.steps.length ? `<button class="button button-ghost button-small" data-step="all">${t("Ver tudo")}</button>` : ""}</div></article>`;
@@ -971,24 +1007,18 @@ function renderLesson() {
   const key = lesson.id.startsWith("m-") ? "math" : "physics";
   const subject = subjects[key];
   const index = subject.lessons.findIndex(l => l.id === lesson.id);
-  const previous = subject.lessons[index - 1] || null;
   const next = subject.lessons[index + 1] || null;
   const practice = state.practice[lesson.id] || {};
-  const activeLevel = practice.level === "medium" ? "medium" : "easy";
-  const activeMode = practice.mode === "mc" ? "mc" : "typed";
-  const activeData = activeLevel === "medium" && lesson.medium ? lesson.medium : lesson;
   const shownSteps = state.activeLesson === lesson.id ? (state.stepsShown || 0) : 0;
   if (!state.activeLesson || state.activeLesson !== lesson.id) { state.activeLesson = lesson.id; state.stepsShown = 0; saveState(); }
-  const options = activeData.options || [];
-  const optionOrder = options.length ? options.map((_, i) => i).sort((a,b) => ((a + lesson.id.length * 3) % options.length) - ((b + lesson.id.length * 3) % options.length)) : [];
-  const currentAnswer = practice.selected || "";
-  return `<div class="lesson-head"><button class="back-button" data-back="path/${key}" aria-label="${t("Voltar à rota")}">←</button><div><p class="eyebrow">${t(subject.label)} · ${t("lição")} ${index + 1} ${t("de")} ${subject.lessons.length}</p><h1>${escapeHtml(lesson.title)}</h1><p class="lead">${escapeHtml(lesson.short)}</p></div>${timerMarkup(lesson)}</div><div class="lesson-layout"><div class="lesson-main">
-    ${guideIdeaCard(lesson)}
-    ${triCard(lesson)}
-    ${exampleCard(lesson, shownSteps)}
-    ${lesson.ladder && lesson.ladder.length ? ladderCard(lesson, practice) : `<article class="card practice-card"><div class="practice-top"><div><p class="eyebrow">${t("Agora tu")}</p><h2>${t("Prática rápida")}</h2></div><div class="level-switch" aria-label="${t("Escolher dificuldade")}"><button class="level-button ${activeLevel === "easy" ? "active" : ""}" data-level="easy">${t("Fácil")}</button><button class="level-button ${activeLevel === "medium" ? "active" : ""}" data-level="medium">${t("Médio")}</button></div></div><div class="mode-switch" aria-label="${t("Escolher formato de resposta")}"><button class="mode-button ${activeMode === "typed" ? "active" : ""}" data-mode="typed">${t("Escrever")}</button><button class="mode-button ${activeMode === "mc" ? "active" : ""}" data-mode="mc">${t("Escolha múltipla")}</button></div><p class="question-line">${escapeHtml(activeData.practice)}</p>${activeMode === "mc" ? `<div class="practice-options">${optionOrder.map((optionIndex, displayIndex) => `<button class="practice-option ${currentAnswer === options[optionIndex] ? "selected" : ""}" data-choice="${optionIndex}"><span>${String.fromCharCode(65 + displayIndex)}</span>${escapeHtml(options[optionIndex])}</button>`).join("")}</div><button class="button button-primary button-small" data-practice="check">${t("Verificar escolha")}</button>` : `<div class="answer-row"><input id="practice-answer" value="" placeholder="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}" aria-label="${t("A tua resposta")}" title="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}" /><span class="format-help" title="${escapeHtml(activeData.formatHint || t("Escreve a resposta"))}">i</span><button class="button button-primary button-small" data-practice="check">${t("Verificar")}</button></div>`}<div class="solution-controls"><button class="button button-ghost button-small" data-practice="hint">${t("Dar uma pista")}</button><button class="button button-ghost button-small" data-practice="reveal">${t("Mostrar resposta")}</button></div>${practice?.feedback ? `<div class="practice-feedback ${practice.correct ? "good" : "try"}">${practice.feedback}</div>` : ""}${practice?.hintShown ? `<div class="practice-feedback">${t("Pista:")} ${escapeHtml(activeData.hint)}</div>` : ""}${practice?.revealed ? `<div class="practice-feedback good"><strong>${t("Resposta:")} ${escapeHtml(activeData.answer)}</strong><br>${escapeHtml(activeData.explanation)}</div>` : ""}</article>`}
-    <article class="card lesson-end-card"><label class="check-row"><input type="checkbox" data-complete ${isDone(lesson.id) ? "checked" : ""} /> <span>${t("Marcar esta lição como concluída")}</span></label><nav class="lesson-sequence-nav" aria-label="${t("Navegação da lição")}">${previous ? `<a class="button button-ghost button-small" href="#lesson/${previous.id}">${t("← Lição anterior")}</a>` : `<a class="button button-ghost button-small" href="#path/${key}">${t("Voltar à rota")}</a>`}${next ? `<a class="button button-lime button-small" href="#lesson/${next.id}">${t("Próxima lição →")}</a>` : `<a class="button button-lime button-small" href="#test">${t("Experimentar o mini-teste →")}</a>`}</nav></article>
-  </div><aside class="lesson-side"><div class="card side-card"><p class="eyebrow">${t("Progresso")} ${t(subject.label)}</p><h3>${subjectProgress(key).done}/${subject.lessons.length} ${t("concluídas")}</h3>${progressBar(Math.round(subjectProgress(key).done / subject.lessons.length * 100), t("Progresso da matéria"))}<div class="side-progress">${subject.lessons.map(l => `<i class="${isDone(l.id) ? "done" : ""}"></i>`).join("")}</div></div><div class="card side-card"><p class="eyebrow">${t("Nota do coach")}</p><h3>${t("Mostra o trabalho.")}</h3><p class="muted">${t("Mesmo quando a resposta parece óbvia, escreve a fórmula. É assim que evitas perder pontos por distração.")}</p><div class="side-actions"><a class="button button-ghost button-small" href="#test">${t("Mini-teste de 20 min")}</a></div></div></aside></div>`;
+  state.lessonStages = state.lessonStages || {};
+  const stageIndex = Math.max(0, Math.min(LESSON_STAGE_LABELS.length - 1, Number(state.lessonStages[lesson.id]) || 0));
+  const stageContent = stageIndex === 0 ? guideIdeaCard(lesson)
+    : stageIndex === 1 ? `${lessonRuleCard(lesson)}${triCard(lesson)}`
+    : stageIndex === 2 ? exampleCard(lesson, shownSteps)
+    : `${lessonPracticeCard(lesson, practice)}<article class="card lesson-end-card"><label class="check-row"><input type="checkbox" data-complete ${isDone(lesson.id) ? "checked" : ""} /> <span>${t("Marcar esta lição como concluída")}</span></label><details class="lesson-coach-note"><summary>${t("Nota do coach")}</summary><p>${t("Mesmo quando a resposta parece óbvia, escreve a fórmula. É assim que evitas perder pontos por distração.")}</p></details></article>`;
+  const progress = Math.round(((stageIndex + 1) / LESSON_STAGE_LABELS.length) * 100);
+  return `<div class="lesson-flow"><header class="lesson-flow-header"><div class="lesson-flow-top"><button class="back-button" data-back="path/${key}" aria-label="${t("Voltar à rota")}">←</button><div class="lesson-flow-title"><p class="eyebrow">${t(subject.label)} · ${t("lição")} ${index + 1} ${t("de")} ${subject.lessons.length}</p><h1>${escapeHtml(lesson.title)}</h1></div>${timerMarkup(lesson)}</div><p class="lesson-flow-summary">${escapeHtml(lesson.short)}</p><div class="lesson-stage-progress" role="progressbar" aria-label="${t("Progresso dos passos")}" aria-valuemin="1" aria-valuemax="${LESSON_STAGE_LABELS.length}" aria-valuenow="${stageIndex + 1}"><span style="width:${progress}%"></span></div><div class="lesson-stage-meta"><span>${stageIndex + 1}/${LESSON_STAGE_LABELS.length}</span><strong>${t(LESSON_STAGE_LABELS[stageIndex])}</strong></div></header><section class="lesson-stage-view" aria-label="${t(LESSON_STAGE_LABELS[stageIndex])}">${stageContent}</section>${lessonStageFooter(lesson, key, next, stageIndex, shownSteps)}</div>`;
 }
 
 function renderTest() {
@@ -1075,6 +1105,16 @@ document.addEventListener("click", event => {
   if (event.target.closest("[data-retry]")) { loadedChunks.catalog = false; render(); return; }
   const subject = event.target.closest("[data-subject]"); if (subject) { route.subject = subject.dataset.subject; render(); return; }
   const back = event.target.closest("[data-back]"); if (back) { navigate("#"+back.dataset.back); return; }
+  const stageAudio = event.target.closest("[data-stage-audio]"); if (stageAudio) {
+    const text = stageAudio.dataset.audioText || "";
+    if (stageAudio.dataset.audioSrc) playStepAudio(stageAudio.dataset.audioSrc, text); else speakStep(text);
+    return;
+  }
+  const lessonStage = event.target.closest("[data-lesson-stage]"); if (lessonStage) {
+    state.lessonStages = state.lessonStages || {};
+    state.lessonStages[route.lessonId] = Math.max(0, Math.min(LESSON_STAGE_LABELS.length - 1, Number(lessonStage.dataset.lessonStage) || 0));
+    stopSpeaking(); saveState(); render(); window.scrollTo({ top:0, behavior:"smooth" }); return;
+  }
   const step = event.target.closest("[data-step]"); if (step) {
     const lesson = lessonById(route.lessonId);
     const total = stepCount(lesson);

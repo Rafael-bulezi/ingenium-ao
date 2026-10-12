@@ -1,6 +1,15 @@
 # Ingenium — Site-wide Learning Experience Direction
 
-**Status:** Design direction agreed; implementation of the next visual/layout pass is pending. The existing learning-guide revamp is a foundation, not the final presentation.
+**Status:** Direction agreed. The warm visual system and reusable four-stage lesson shell have been implemented as the Phase 2 foundation. This is **not** the completed pedagogical rollout: the current lessons still reuse their existing copy and examples, and the upcoming reference-lesson work must refine the teaching sequence and visuals topic by topic.
+
+## Current implementation checkpoint — 2026-10-12
+
+- **Complete:** shared warm-paper/navy/soft-blue/sage styling; light formula surface; responsive lesson header and stage progress; consistent back/audio/next controls; saved stage position; Portuguese/English stage labels and narration language.
+- **Preserved:** the existing dotted-paper Mathematics canvas and its step controls, the Physics guided-step panel, lesson practice/answer state, completion, route structure, and global bottom navigation on non-lesson routes. On narrow lesson screens, the global bar is hidden contextually so it cannot cover the lesson controls; the lesson header back control remains available.
+- **Validated:** all 26 lesson routes were advanced through the four shell stages at 390px; Math canvas and Physics step panels remained interactive; representative English routes and 360px/1440px layouts were checked with no page errors or horizontal overflow. On a phone, the lesson Next button is clear of the site-wide bottom bar; keyboard Next/audio work, and the global bar returns after leaving the lesson.
+- **Still pending:** topic-specific idea/visual/example/rule/practice sequencing, new or refined instructional diagrams, lesson-copy and mathematical/physical review, stronger misconception feedback, and the reference-lesson pilot. Do not treat the shell alone as evidence that every lesson is now easy to understand.
+
+The current four-stage shell is a deliberately low-credit scaffold over existing content. Future agents may split or combine stages per topic; do not force every lesson into four identical screens.
 
 ## Product goal
 
@@ -97,13 +106,13 @@ These are examples, not a checklist. A doodle belongs only when it improves unde
 
 ## Low-credit implementation plan
 
-1. **Set the design system once:** establish reusable warm-paper, navy, pale-blue, type, spacing, progress, and bottom-navigation tokens. Remove the rejected dark/green formula-tile treatment from the lesson direction.
-2. **Build one reusable lesson-stage shell:** header/progress, focused content area, and consistent Previous / audio / Next controls. Reuse existing state and routing instead of creating a parallel course system.
-3. **Pilot the full rhythm with Vectors:** use the supplied six-screen sequence to validate pacing and the visual system against an existing canvas. This is a design pilot only—not a boundary for the course.
-4. **Validate with contrasting topics:** adapt the same stage shell to one symbolic Mathematics topic and one diagram-led Physics topic. Confirm the sequence works without forcing the vectors layout onto them.
-5. **Roll out across the site:** reuse components and existing examples/content across every Mathematics and Physics topic. Add/revise only the explanation data needed to fill real gaps; review examples and formulas instead of generating wholesale replacement content.
-6. **Polish practice and progression:** align lesson questions with the new flow, keep optional question doodles where useful, preserve hints/answers, and make continuation obvious.
-7. **Check before scaling:** test language parity, saved progress, audio, keyboard/touch behavior, contrast and focus, 360–390px mobile layouts, desktop layouts, and browser errors. Have a subject-aware reviewer check mathematical and physical correctness.
+1. **Complete — design system:** reusable warm-paper, navy, pale-blue, type, spacing, progress, and bottom-navigation styles replace the rejected dark/green default formula treatment.
+2. **Complete — stage shell foundation:** focused staged content, progress, previous/audio/next controls, and saved stage state reuse the current routes and local storage; existing canvas and practice are preserved.
+3. **Next — pilot reference lessons:** use the supplied six-screen sequence to validate pacing with vector representation/addition/magnitude, then compare with sequences and differentiation. This is a design/content pilot, not a vectors-only boundary.
+4. **Validate with contrasting topics:** adapt the pattern to geometry and diagram-led Physics. Confirm that distinct topics can use distinct visual representations and step structures.
+5. **Then roll out:** migrate remaining Mathematics and Physics topics only after the reference lessons are reviewed. Revise existing explanation data where it is unclear; do not mechanically wrap every lesson in the current four stages.
+6. **Polish practice and progression:** align questions with the teaching flow, keep optional question doodles where useful, preserve hints/answers, and make continuation obvious.
+7. **Validate before scaling:** test language parity, saved progress, audio, keyboard/touch behavior, contrast/focus, 360–390px mobile layouts, desktop layouts, and browser errors. Have a subject-aware reviewer check mathematical and physical correctness.
 
 ## Acceptance criteria
 
