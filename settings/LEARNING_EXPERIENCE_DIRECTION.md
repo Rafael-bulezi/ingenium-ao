@@ -10,6 +10,12 @@ Use the user-provided six-screen Vectors storyboard as the visual and pacing ref
 
 Lessons may become longer when that extra space makes the reasoning understandable. Keep each screen focused and make progress through the lesson visible, so more explanation feels guided rather than like an endless page.
 
+## Visual reference committed with this direction
+
+![Six-screen Vectors lesson storyboard showing concept, notation, worked examples, diagrams, and practice](references/guided-vector-lesson-reference.png)
+
+The image above is stored in this repository at `settings/references/guided-vector-lesson-reference.png`. It is the concrete visual north star for the next learning-experience pass. Read it as a sequence: explain the idea, unpack the notation, show a useful relationship, work through a labelled visual example in small steps, then offer practice. Its six panels are a pacing/layout example—not a required six-screen template, and not a signal that only Vectors should change. Apply the same clarity and warm visual language across every Mathematics and Physics topic, using each topic's own best explanation and diagram.
+
 ## Principles that must remain true
 
 - Keep Ingenium's existing course, subject tracks, topics, and recognizable identity.
