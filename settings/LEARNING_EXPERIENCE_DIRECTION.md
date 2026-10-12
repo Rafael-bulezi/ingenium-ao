@@ -1,91 +1,111 @@
-# Ingenium — Learning Experience Direction
+# Ingenium — Site-wide Learning Experience Direction
 
-**Status:** Full-course learning-guide revamp implemented in the current branch; curriculum review and further polish remain open.
+**Status:** Design direction agreed; implementation of the next visual/layout pass is pending. The existing learning-guide revamp is a foundation, not the final presentation.
 
-## Product direction
+## Product goal
 
-Make every lesson easier to understand on the first read and easier to continue through. This direction applies across **all Mathematics and Physics areas**, not only vectors. Preserve Ingenium’s current subject tracks, lesson path, progress, and hand-drawn identity. Improve the existing sequential canvas rather than replacing it. Keep the interface calm: every new visual or control must help the learner understand the question, the reasoning, or the next action.
+Make Ingenium feel like a calm, natural, guided learning experience—not a long dashboard page with lesson content stacked into unrelated cards. Across **all Mathematics and Physics topics**, explain one idea at a time, show why each step follows, and make the next action obvious.
 
-Use one consistent teaching rhythm, but choose the explanation and visual form that fits each idea. An equation may need its operations unpacked; a sequence may need its differences shown; a function may need a graph; a probability problem may need a table or tree; a force problem may need arrows. Do not force every topic into a vector-style sketch or make every question use a doodle.
+Use the user-provided six-screen Vectors storyboard as the visual and pacing reference: a learner progresses through a coherent set of focused screens, from the meaning of a concept to examples and practice. Borrow its clarity, sequence, and visual warmth, not its exact wording or a vectors-only structure.
 
-The work has four connected goals:
+Lessons may become longer when that extra space makes the reasoning understandable. Keep each screen focused and make progress through the lesson visible, so more explanation feels guided rather than like an endless page.
 
-1. Rewrite confusing prompts into clear, answerable questions.
-2. Make each canvas step explain one move and why it is valid.
-3. Refine the doodles and add an optional visual view for questions where it helps.
-4. Make lesson-to-lesson navigation obvious without adding dashboard clutter.
+## Principles that must remain true
 
-## Explanation pattern to borrow
+- Keep Ingenium's existing course, subject tracks, topics, and recognizable identity.
+- **Keep the existing hand-drawn canvas/doodles.** Refine them and place them beside the reasoning they clarify; do not remove the canvas or replace it with generic diagrams.
+- Preserve the essential product capabilities: Portuguese/English, progress and completion, lesson practice and answer feedback, question doodle where useful, formula triangles where useful, audio where available, mini-test, and clear lesson navigation.
+- Adapt the visual explanation to the subject. Do not make every topic imitate vectors or force a doodle where it adds no meaning.
+- Keep the interface uncluttered, mobile-first, accessible, and consistent across lessons.
+- **Spend credits carefully:** prefer the existing content, CSS, SVG/canvas, and reusable components. Do not depend on AI image generation, repeated large model calls, or a new service to implement this direction.
 
-The [shared “Explain Vectors Simply” conversation](https://chatgpt.com/share/6ac9161c-2ae0-83e9-bf81-de9086325596?ogimg=plain) is a useful reference for pacing, not wording to copy. It gives a plain-language meaning, maps symbols to familiar quantities, works one component or operation at a time, explains why a sign or formula matters, then gives a small practice question and a short takeaway. When the topic becomes harder, it names the pattern before moving to the next type.
+## Reference lesson rhythm
 
-Vectors are the example in that conversation, not the boundary of this direction. Apply the same clarity and sequencing to algebra, equations, functions, sequences, probability, geometry, calculus, mechanics, fluids, electricity, waves, and the other topics in the course. Use an analogy only when it clarifies the concept, then return to the exact exam problem. Avoid long chat-like explanations or several unrelated examples on one screen.
+Treat a topic as a short guided sequence of purposeful screens. The exact number of screens depends on the topic; the sequence may split a difficult idea or combine stages when the concept is simple.
 
-## Canvas walkthrough: target sequence
+1. **Understand the idea** — Give the topic a direct, plain-language introduction. Answer “What is this?” before presenting a procedure.
+2. **Read the notation** — Explain only the symbols and quantities needed for the current idea. Pair symbols with familiar meaning, units, direction, or position as relevant.
+3. **See the relationship** — Introduce the useful rule or formula in context and explain what it connects. Keep the equation visually clear and readable; do not make it a decorative banner.
+4. **Study a worked example** — State the givens and target plainly, then reveal one numbered reasoning move at a time. Each move says what changed and why. Use the canvas/doodle to make the same step easier to see.
+5. **Connect or check** — When useful, show another operation, representation, common alternative, or quick result check. Do not add a screen just to fill the sequence.
+6. **Practise** — Ask one clear question, show a helpful representation when it genuinely clarifies the setup, and let the learner try before revealing a hint or solution.
+7. **Continue** — Offer a clear previous/next action, show position in the topic, and preserve the learner's progress.
 
-The current lesson already has progressive step controls, replay, “show all,” and a full-screen canvas. Keep those controls and refine what each frame communicates. A typical worked example should move through these stages, skipping any that do not help that example:
+This is a teaching rhythm, not a rigid template. For example, a vectors topic may have separate screens for meaning, addition, subtraction, magnitude, unit vectors, and practice. An algebra topic may instead progress through the balance idea, inverse operations, a worked equation, a check, and practice. Physics topics should introduce the situation and quantities before substituting values.
 
-1. **Restate the task:** Say what the question is asking in ordinary language.
-2. **Identify the information:** Show the givens, symbols, signs, units, or conditions.
-3. **Name the target:** Make the unknown or requested result visible before calculating.
-4. **Choose the right representation:** Use a labelled doodle, equation balance, number line, table, graph, shape, circuit, or other small visual only when it clarifies the idea.
-5. **Choose the rule:** State the principle or formula and briefly explain why it fits this problem.
-6. **Work one move at a time:** Each frame adds one calculation or transformation. Pair it with a short sentence about what changed and why.
-7. **Check the result:** Verify units, sign, direction, scale, pattern, or substitution where relevant.
-8. **Close with a takeaway:** Give the final answer and one memorable rule or common mistake to avoid.
+## Layout and navigation direction
 
-The learner should never have to infer which value came from the question, which one is being calculated, or why the next line follows. Keep the previous step visible when it helps show continuity; do not reveal the entire derivation by default.
+Move away from relying on one long lesson page where important learning stages are buried below other cards. Restructure the lesson presentation as a guided, screen-by-screen sequence while retaining the app's current routes, data, and learning features where practical.
 
-## Question clarity
+Each focused screen should make these items easy to find:
 
-Use these rules for lesson practice, the mini-test, and any new question content:
+- **Top:** a quiet subject/topic header, back action, and clear progress such as “2 of 6” with a thin progress indicator.
+- **Middle:** one learning purpose at a time: concept, notation, example step, diagram, or practice. Keep the heading and explanation close to the corresponding formula or doodle.
+- **Bottom:** predictable **Previous**, audio/replay when relevant, and **Next** controls. Make Next the clearest action, but do not hide practice, hints, answers, or accessibility controls.
+- **At topic end:** an unambiguous next topic, return to path, or mini-test action.
 
-- Ask for one result or one action at a time. Split a compound task into labelled sub-steps if it tests more than one skill.
-- Put the givens and the requested result in separate, direct sentences. Define each symbol before relying on it.
-- Include units and approximations in the prompt when they matter. For example, state when to use `g = 10 m/s²`.
-- Prefer concrete verbs such as **calculate**, **add**, **compare**, or **identify** over vague prompts such as “solve this” or “what happens?”
-- Do not hide essential conditions in a long sentence. Remove filler when it does not help the learner.
-- Keep hints gradual. The first hint should point to the relevant quantity or principle; it should not give away the answer.
-- After an attempt, say what was correct, identify the next useful step, and explain the result in the same notation used in the prompt.
-- Review language and examples in both Portuguese and English. Do not rewrite question text mechanically without checking its mathematical or physical meaning.
+On wider screens, the sequence may use more horizontal space for a canvas alongside its explanation, but preserve the same order and focus. On phones, make the current stage the visual focus, keep navigation reachable without obscuring content, and avoid requiring precision gestures to advance.
 
-**Examples of the intended wording change:**
+Keep progress, language selection, and completion state intact when moving between screens or revisiting a lesson. Do not unexpectedly restart a learner's place or timed assessment.
 
-- Vectors — current style: “Aquecimento: soma A = (1, 2) com B = (2, 2). Qual é o vector soma?” Clearer: “Calcula `R = A + B`, com `A = (1, 2)` e `B = (2, 2)`. Escreve `R` no formato `(x, y)`.”
-- Forces — current style: “Para aquecer: com g = 10 m/s², qual o peso de 2 kg?” Clearer: “Um corpo tem massa `m = 2 kg`. Usa `g = 10 m/s²`. Calcula o peso `P` e indica a resposta em newtons (`N`).”
+## Visual direction: natural, warm, and legible
 
-These are illustrations, not preferred templates for every topic. The goal is to state the operation, give the relevant information, and specify the target without adding a separate lesson inside the question.
+Use the supplied storyboard's contrast of a **deep navy navigation/header** with a **warm off-white/paper learning surface**, calm blue typography, and soft, lightly tinted equation/diagram surfaces. Keep the handwritten canvas as a distinctive accent, not a competing visual layer.
 
-## Optional “View as doodle” for questions
+- Use warm paper or cream as the main background; reserve deep navy for navigation and strong text hierarchy.
+- Use restrained blue for links, equations, diagram axes, and selected emphasis; use muted green sparingly for correct states or a meaningful result.
+- Use pale blue/neutral panels for important equations when a surface helps readability.
+- Keep the paper texture/dot grid extremely subtle, especially behind equations and mobile text.
+- Preserve generous whitespace, clear type sizes, and strong text contrast.
+- Use consistent line weights, arrowheads, labels, and a small visual vocabulary across the doodles.
+- Use responsive spacing so formulas and diagrams do not clip or force horizontal scrolling.
 
-Add this as an optional second view of a question, not a replacement for its text. A learner can switch between **Question** and **View as doodle**. The visual should show the setup and the requested quantity; it must not reveal the answer or solution before the learner asks for it.
+### Explicitly rejected treatment
 
-Choose the visual form by topic. Examples include a balance or “undo the operation” sequence for equations; a term strip and difference row for sequences; an input/output map or labelled graph for functions; a small table or outcome tree for probability; a labelled shape for geometry and trigonometry; arrows for vectors and forces; a circuit sketch for electricity; and a waveform for waves. These are options, not a checklist. A visual belongs only where it makes that particular question easier to understand.
+Do **not** use the black/dark formula tile with a bright green left border as the default formula treatment. It feels artificial and disconnected from the natural lesson reference. Do not replace it with another heavy boxed formula card. Integrate formulas into the explanation as readable math, or place them on a soft, light blue/paper surface with minimal decoration. Green is an accent, not the structural frame for every equation.
 
-For groundwork, prefer a small optional visual description attached to selected question records over a new question-system rewrite. Keep the written prompt authoritative and available at all times. Provide a text alternative and do not rely on colour alone to distinguish known values, unknowns, or relationships. Start with questions from several topic families; do not limit the feature to vector questions or require it on every question.
+## Explanation and question quality
 
-## Navigation without clutter
+- Use everyday language first, then connect it to the precise mathematical or physical term.
+- Introduce one unfamiliar symbol or operation at a time; distinguish known values from the unknown.
+- For each step, show the exact line of working and explain both **what** changed and **why** it is valid.
+- Keep notation, units, signs, and assumptions consistent between the question, canvas, explanation, and answer.
+- Ask one clear thing at a time. State givens and target directly; do not hide them in long or vague wording.
+- Keep hints gradual and do not expose the answer in a question doodle.
+- Review Portuguese and English as real learner-facing copy, not word-for-word mechanical translations.
+- Avoid adding prose merely to lengthen lessons. Every extra sentence, screen, or doodle must reduce confusion or support practice.
 
-A learner should be able to answer “Where am I?” and “What do I do next?” at a glance.
+## Topic-specific visual choices
 
-- Keep the subject, topic, and position in the track visible in the lesson header.
-- Keep a small **Back to path** action available.
-- Put a clear **Previous lesson / Next lesson** path at the end of lesson content. Once the current lesson is complete, make the next lesson the primary action; do not make the completion checkbox the only way to discover how to continue.
-- If a next lesson is still locked, explain the requirement and point to the action that unlocks it.
-- At the end of a subject, offer the natural next destination, such as the route or mini-test.
-- Preserve the existing bottom navigation and quick-action hierarchy. Avoid adding a second sidebar, extra dashboards, or several competing “continue” buttons.
+Use the existing canvas as the visual workspace and select the representation that fits the reasoning:
 
-## Doodle quality bar
+- **Equations/algebra:** balance, inverse operations, sign changes, or a number line.
+- **Functions/sequences:** input-output mapping, a small graph, term strip, or difference pattern.
+- **Probability/statistics:** compact outcome table, sample-space list, or tree where it helps.
+- **Geometry/trigonometry:** labelled shape, angle, side, or measurement diagram.
+- **Vectors/forces/motion:** axes, component arrows, directions, and labelled quantities.
+- **Electricity:** clear circuit path, component labels, current/voltage/resistance relationships.
+- **Waves/fluids/energy:** wave profile, pressure/depth sketch, or transfer/work diagram when useful.
 
-Every drawing must do instructional work. Keep one main idea per frame, use a consistent visual grammar across subjects, and label every arrow, axis, force, important value, or relationship. Use the drawing to make spatial, numerical, or causal relationships easier to see, not as decoration. If a diagram is schematic and not to scale, say so when scale could mislead. Keep lines and labels readable on a phone, and make the written explanation understandable without the image.
+These are examples, not a checklist. A doodle belongs only when it improves understanding. Always provide an understandable text explanation as well; colour must never be the only way to decode a diagram.
 
-## Rollout and checks
+## Low-credit implementation plan
 
-1. **Full-course guide layer:** Add a plain-language intuition, useful relationship, and symbol glossary to all 26 Mathematics and Physics lessons in Portuguese and English.
-2. **Sequential canvas:** Give every worked example a numbered step title and a short explanation of what changed and why, while preserving existing board marks, audio, step controls, question-sketch option, and lesson progression.
-3. **Physics parity:** Replace the old reveal-only text treatment with a focused staged worked-example panel, using the existing example and solution steps.
-4. **Quality review still needed:** Have subject reviewers verify every explanation and glossary definition, especially edge cases, assumptions, unit conversions, and notation. Check that the full derivation does not disclose its answer early.
-5. **Experience checks completed for this pass:** Validate bilingual data/step parity and test all 26 routes at 390px, including first-step interactions and browser errors. Repeat keyboard/accessibility and additional 360px checks during review.
-6. **Continue iteratively:** Refine unclear practice wording and doodles based on review, then improve the lesson-to-lesson path if testing shows the existing next/previous controls are not obvious enough.
+1. **Set the design system once:** establish reusable warm-paper, navy, pale-blue, type, spacing, progress, and bottom-navigation tokens. Remove the rejected dark/green formula-tile treatment from the lesson direction.
+2. **Build one reusable lesson-stage shell:** header/progress, focused content area, and consistent Previous / audio / Next controls. Reuse existing state and routing instead of creating a parallel course system.
+3. **Pilot the full rhythm with Vectors:** use the supplied six-screen sequence to validate pacing and the visual system against an existing canvas. This is a design pilot only—not a boundary for the course.
+4. **Validate with contrasting topics:** adapt the same stage shell to one symbolic Mathematics topic and one diagram-led Physics topic. Confirm the sequence works without forcing the vectors layout onto them.
+5. **Roll out across the site:** reuse components and existing examples/content across every Mathematics and Physics topic. Add/revise only the explanation data needed to fill real gaps; review examples and formulas instead of generating wholesale replacement content.
+6. **Polish practice and progression:** align lesson questions with the new flow, keep optional question doodles where useful, preserve hints/answers, and make continuation obvious.
+7. **Check before scaling:** test language parity, saved progress, audio, keyboard/touch behavior, contrast and focus, 360–390px mobile layouts, desktop layouts, and browser errors. Have a subject-aware reviewer check mathematical and physical correctness.
 
-The present implementation intentionally changes the learning presentation across the full course rather than limiting itself to a vectors pilot. It keeps the existing lesson routes, content structure, progress, practice, and recognizable hand-drawn canvas. Treat the generated bilingual guide copy as a reviewable first draft—not as a substitute for expert curriculum sign-off.
+## Acceptance criteria
+
+- Every topic follows a comprehensible beginning-to-practice sequence, tailored to its concepts.
+- Learners can tell where they are, what the current step means, and how to move forward or back.
+- The canvas remains and each drawing explains the step beside it rather than decorating the page.
+- Formula presentation is natural and light; the black tile/green left-border pattern is not used as the default.
+- Long lessons feel like deliberate short stages with visible progress, not one unstructured scroll.
+- Existing progress, route, assessment, language, and practice behavior is preserved or deliberately migrated.
+- No unnecessary AI-generated assets, external services, or excessive content-generation calls are required.
+- All changes are understandable and usable on a phone as well as on desktop.
